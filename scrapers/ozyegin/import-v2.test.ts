@@ -114,6 +114,27 @@ describe("buildTermData with a v2 export", () => {
     expect(mim.sections[0].instructors).toEqual(["SELİN ÇAKIR"]);
   });
 
+  it("drops repeated identical meetings of one section (the source lists some slots once per week)", () => {
+    const repeated: RawExport = {
+      ...v2,
+      rows: [
+        v2Row("A", ["", "X"], {
+          meetings: [
+            { dayText: "Cumartesi", timeText: "13:30 - 16:45" },
+            { dayText: "Cumartesi", timeText: "13:30 - 16:45" },
+            { dayText: "Pazar", timeText: "13:30 - 16:45" },
+            { dayText: "Cumartesi", timeText: "13:30 - 16:45" },
+          ],
+        }),
+      ],
+    };
+    const [course] = buildTermData([repeated], { fetchedAt: "x" }).courses;
+    expect(course.sections[0].meetings.map((m) => [m.day, m.start])).toEqual([
+      [6, "13:30"],
+      [7, "13:30"],
+    ]);
+  });
+
   it("produces data that passes validation", () => {
     expect(validateTermData(term)).toEqual([]);
   });

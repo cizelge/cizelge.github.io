@@ -40,6 +40,8 @@ export interface RawExport {
   /** v2: sayfanın bildirdiği kayıt sayısı ve toplanan satır sayısı. */
   expected?: number | null;
   collected?: number;
+  /** Birim birim toplanan dışa aktarmalarda birim başına sayılar; içeri almada kullanılmaz. */
+  units?: Record<string, unknown>;
   rows: RawRow[];
 }
 
@@ -87,6 +89,17 @@ function parseMeeting(m: RawMeeting, where: string): Meeting {
   const t = m.timeText.match(TIME_RE);
   if (!t) throw new Error(`${where}: saat okunamadı "${m.timeText}"`);
   return { day, start: `${pad(t[1])}:${t[2]}`, end: `${pad(t[3])}:${t[4]}`, room: null };
+}
+
+/** Kaynak bazı saatleri her hafta için ayrı satır olarak listeliyor; aynı gün+saat bir kez tutulur. */
+function dedupeMeetings(meetings: Meeting[]): Meeting[] {
+  const seen = new Set<string>();
+  return meetings.filter((m) => {
+    const key = `${m.day} ${m.start} ${m.end}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 function parseCredits(text: string): number | null {
@@ -193,7 +206,7 @@ export function buildTermData(exports: RawExport[], opts: { fetchedAt: string })
         instructors: info.instructors,
         capacity: null,
         restrictions: null,
-        meetings: row.meetings.map((m) => parseMeeting(m, where)),
+        meetings: dedupeMeetings(row.meetings.map((m) => parseMeeting(m, where))),
       };
       infoBySection.set(section, info);
       course.sections.push(section);

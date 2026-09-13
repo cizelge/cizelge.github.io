@@ -69,8 +69,8 @@ class El {
     return this.querySelectorAll(selector)[0] ?? null;
   }
   closest(selector: string): El | null {
-    for (let e: El | null = this; e; e = e.parentElement) if (e.tagName === selector.toUpperCase()) return e;
-    return null;
+    if (this.tagName === selector.toUpperCase()) return this;
+    return this.parentElement?.closest(selector) ?? null;
   }
   addEventListener(type: string, fn: () => void) {
     (this.listeners[type] ??= []).push(fn);
