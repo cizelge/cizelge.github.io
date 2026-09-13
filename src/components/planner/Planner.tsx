@@ -1,14 +1,16 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { Course, TermData } from "@/lib/types";
+import type { Course, ProgramsData, TermData } from "@/lib/types";
 import { expandCorequisites, type RelaxedConstraint, type SectionRef } from "@/lib/engine";
 import { visibleDays } from "@/lib/days";
+import { programYears } from "@/lib/planner/curriculum";
 import { buildIcs } from "@/lib/planner/ics";
 import { decodeState, EMPTY_STATE, encodeState, type PlannerState } from "@/lib/planner/state";
 import { useSchedules } from "@/lib/planner/useSchedules";
 import { Cart } from "./Cart";
 import { CourseSearch } from "./CourseSearch";
+import { Curriculum } from "./Curriculum";
 import { NoSolution } from "./NoSolution";
 import { placeMeetings, timeRange } from "./placed";
 import { FreeDays, Priorities } from "./Preferences";
@@ -39,11 +41,15 @@ function nextMonday(from = new Date()) {
   return d;
 }
 
-export function Planner({ term }: { term: TermData }) {
+export function Planner({ term, programs }: { term: TermData; programs: ProgramsData | null }) {
   const courses = useMemo(() => new Map<string, Course>(term.courses.map((c) => [c.code, c])), [term]);
   const sectionIds = useMemo(
     () => new Map(term.courses.map((c) => [c.code, c.sections.map((s) => s.id)])),
     [term],
+  );
+  const yearsByProgram = useMemo(
+    () => (programs ? new Map(programs.programs.map((p) => [p.id, programYears(p)])) : undefined),
+    [programs],
   );
 
   const [state, setState] = useState<PlannerState>(EMPTY_STATE);
@@ -55,7 +61,7 @@ export function Planner({ term }: { term: TermData }) {
   // İlk yükleme: önce linkteki durum, yoksa bu tarayıcıda kalan son durum.
   useEffect(() => {
     const query = window.location.search.slice(1) || readStorage(STORAGE_KEY + term.schoolId + term.termId) || "";
-    const decoded = decodeState(query, sectionIds);
+    const decoded = decodeState(query, sectionIds, yearsByProgram);
     // Elle yazılmış linklerde de yan koşullu dersler eksik kalmasın.
     const cartCourses = decoded.state.cart.map((c) => courses.get(c)).filter((c): c is Course => !!c);
     const withCoreqs = expandCorequisites(cartCourses, term.courses).map((c) => c.code);
@@ -64,7 +70,7 @@ export function Planner({ term }: { term: TermData }) {
     setMissing(window.location.search ? decoded.missing : []);
     if (decoded.state.cart.length > 0) setTab("program");
     setReady(true);
-  }, [courses, sectionIds, term]);
+  }, [courses, sectionIds, yearsByProgram, term]);
 
   useEffect(() => {
     if (!ready) return;
@@ -114,6 +120,10 @@ export function Planner({ term }: { term: TermData }) {
     update({ cart: [...state.cart, ...added] });
     const extra = added.filter((c) => c !== code);
     setNote(extra.length ? `${code} ile birlikte alınması gereken ${extra.join(", ")} da eklendi.` : `${code} eklendi.`);
+  }
+
+  function addCourses(codes: string[]) {
+    update({ cart: [...state.cart, ...codes.filter((c) => !state.cart.includes(c))] });
   }
 
   function removeCourse(code: string) {
@@ -181,6 +191,19 @@ export function Planner({ term }: { term: TermData }) {
       </div>
 
       <aside className="rail" aria-label="Ders seçimi ve tercihler">
+        {programs && (
+          <Curriculum
+            programs={programs.programs}
+            termLabel={term.termLabel}
+            courses={term.courses}
+            cart={state.cart}
+            program={state.program}
+            year={state.year}
+            onSelect={(program, year) => setState((s) => ({ ...s, program, year }))}
+            onAdd={addCourse}
+            onAddMany={addCourses}
+          />
+        )}
         <CourseSearch courses={term.courses} cart={state.cart} onAdd={addCourse} />
         <Cart
           cart={state.cart}
