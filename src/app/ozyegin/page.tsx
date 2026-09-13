@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Planner } from "@/components/planner/Planner";
-import { loadTerm } from "@/lib/data";
+import { loadPrograms, loadTerm } from "@/lib/data";
+import { slimProgramsForClient } from "@/lib/planner/curriculum";
 
 export async function generateMetadata(): Promise<Metadata> {
   const term = loadTerm("ozyegin");
@@ -20,10 +21,11 @@ function formatDate(iso: string) {
 
 export default function OzyeginPlanner() {
   const term = loadTerm("ozyegin");
+  const programs = loadPrograms("ozyegin");
   return (
     <>
       <SiteHeader term={`Özyeğin, ${term.termLabel}`} />
-      <Planner term={term} />
+      <Planner term={term} programs={programs ? slimProgramsForClient(programs) : null} />
       <footer className="site-footer">
         <span>Veriler en son {formatDate(term.fetchedAt)} tarihinde güncellendi.</span>
         <span>Resmi bir Özyeğin hizmeti değildir. Kaydından önce bilgileri SIS üzerinden kontrol et.</span>

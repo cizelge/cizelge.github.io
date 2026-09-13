@@ -1,5 +1,9 @@
+import fs from "node:fs";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
+import type { ProgramsData, TermData } from "../../src/lib/types";
 import fixture from "./fixtures/programs-sample.json";
+import { courseSlug } from "./import";
 import { buildProgramsData, parsePlanCode, parseSemesterHeader, type RawProgramsExport } from "./programs";
 import { validateProgramsData } from "../validate";
 
@@ -176,5 +180,33 @@ describe("validateProgramsData", () => {
 
   it("reports an empty file", () => {
     expect(validateProgramsData({ ...data, programs: [] })).toEqual(["Hiç program yok"]);
+  });
+});
+
+describe("data-sample/ozyegin/programs.json", () => {
+  const sample = JSON.parse(fs.readFileSync(path.join(__dirname, "../../data-sample/ozyegin/programs.json"), "utf8")) as ProgramsData;
+  const term = JSON.parse(fs.readFileSync(path.join(__dirname, "../../data-sample/ozyegin/ornek.json"), "utf8")) as TermData;
+
+  it("passes validation and has codes in the importer's normal form", () => {
+    expect(validateProgramsData(sample)).toEqual([]);
+    for (const p of sample.programs) {
+      expect(p.slug).toBe(courseSlug(p.id));
+      for (const s of p.semesters) {
+        for (const item of s.items) {
+          const codes = item.kind === "course" ? [item.code] : (item.pool ?? []).map((c) => c.code);
+          for (const code of codes) expect(parsePlanCode(code)).toBe(code);
+        }
+      }
+    }
+  });
+
+  it("matches the sample term: its season, and most first-year courses are offered", () => {
+    expect(term.termLabel).toMatch(/Güz/);
+    const offered = new Set(term.courses.map((c) => c.code));
+    const bscs = sample.programs.find((p) => p.id === "BSCS")!;
+    const firstFall = bscs.semesters.find((s) => s.year === 1 && s.season === "guz")!;
+    const codes = firstFall.items.flatMap((i) => (i.kind === "course" ? [i.code] : []));
+    expect(codes.filter((c) => offered.has(c)).length).toBeGreaterThan(codes.length / 2);
+    expect(codes.some((c) => !offered.has(c))).toBe(true);
   });
 });

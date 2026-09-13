@@ -1,0 +1,410 @@
+{
+  "schoolId": "ozyegin",
+  "fetchedAt": "2026-09-13T18:00:00.000Z",
+  "programs": [
+    {
+      "id": "BSCS",
+      "slug": "bscs",
+      "name": "Bilgisayar Mühendisliği",
+      "faculty": "Mühendislik Fakültesi",
+      "semesters": [
+        {
+          "year": 1,
+          "season": "guz",
+          "label": "1. Yıl - Güz (30 Kredi)",
+          "credits": 30,
+          "items": [
+            {
+              "kind": "course",
+              "code": "CS 101",
+              "title": "Bilgisayar Programlama",
+              "credits": 6,
+              "prerequisites": "",
+              "corequisites": [
+                "CS 101L"
+              ]
+            },
+            {
+              "kind": "course",
+              "code": "CS 101L",
+              "title": "Bilgisayar Programlama Laboratuvarı",
+              "credits": 0,
+              "prerequisites": "",
+              "corequisites": [
+                "CS 101"
+              ]
+            },
+            {
+              "kind": "course",
+              "code": "MATH 103",
+              "title": "Analiz I",
+              "credits": 7,
+              "prerequisites": "",
+              "corequisites": []
+            },
+            {
+              "kind": "course",
+              "code": "ENG 101",
+              "title": "Akademik İngilizce I",
+              "credits": 4,
+              "prerequisites": "",
+              "corequisites": []
+            },
+            {
+              "kind": "course",
+              "code": "GEN 101",
+              "title": "Üniversite Hayatına Giriş",
+              "credits": 2,
+              "prerequisites": "",
+              "corequisites": []
+            },
+            {
+              "kind": "course",
+              "code": "TURK 101",
+              "title": "Türk Dili I",
+              "credits": 2,
+              "prerequisites": "",
+              "corequisites": []
+            },
+            {
+              "kind": "elective",
+              "label": "BSCS Program-İçi Seçmeli",
+              "credits": 6,
+              "pool": [
+                {
+                  "code": "CS 110",
+                  "title": "Mühendislik İçin Hesaplama",
+                  "credits": 6
+                },
+                {
+                  "code": "EE 201",
+                  "title": "Devre Teorisi",
+                  "credits": 6
+                },
+                {
+                  "code": "PHYS 101",
+                  "title": "Fizik I",
+                  "credits": 6
+                }
+              ]
+            },
+            {
+              "kind": "elective",
+              "label": "Serbest Seçmeli",
+              "credits": 3,
+              "pool": null
+            }
+          ]
+        },
+        {
+          "year": 1,
+          "season": "bahar",
+          "label": "1. Yıl - Bahar (30 Kredi)",
+          "credits": 30,
+          "items": [
+            {
+              "kind": "course",
+              "code": "CS 102",
+              "title": "Nesneye Yönelik Programlama",
+              "credits": 6,
+              "prerequisites": "CS 101",
+              "corequisites": []
+            },
+            {
+              "kind": "course",
+              "code": "MATH 104",
+              "title": "Analiz II",
+              "credits": 7,
+              "prerequisites": "MATH 103",
+              "corequisites": []
+            },
+            {
+              "kind": "course",
+              "code": "PHYS 101",
+              "title": "Fizik I",
+              "credits": 6,
+              "prerequisites": "",
+              "corequisites": []
+            }
+          ]
+        },
+        {
+          "year": 2,
+          "season": "guz",
+          "label": "2. Yıl - Güz (30 Kredi)",
+          "credits": 30,
+          "items": [
+            {
+              "kind": "course",
+              "code": "CS 201",
+              "title": "Veri Yapıları ve Algoritmalar",
+              "credits": 6,
+              "prerequisites": "CS 102",
+              "corequisites": [
+                "CS 201L"
+              ]
+            },
+            {
+              "kind": "course",
+              "code": "EE 201",
+              "title": "Devre Teorisi",
+              "credits": 6,
+              "prerequisites": "PHYS 101",
+              "corequisites": []
+            },
+            {
+              "kind": "course",
+              "code": "HIST 201",
+              "title": "Atatürk İlkeleri ve İnkılap Tarihi I",
+              "credits": 2,
+              "prerequisites": "",
+              "corequisites": []
+            },
+            {
+              "kind": "elective",
+              "label": "BSCS Program-İçi Seçmeli",
+              "credits": 6,
+              "pool": [
+                {
+                  "code": "CS 110",
+                  "title": "Mühendislik İçin Hesaplama",
+                  "credits": 6
+                },
+                {
+                  "code": "EE 201",
+                  "title": "Devre Teorisi",
+                  "credits": 6
+                },
+                {
+                  "code": "PHYS 101",
+                  "title": "Fizik I",
+                  "credits": 6
+                }
+              ]
+            },
+            {
+              "kind": "elective",
+              "label": "BSCS Program-İçi Seçmeli",
+              "credits": 6,
+              "pool": [
+                {
+                  "code": "CS 110",
+                  "title": "Mühendislik İçin Hesaplama",
+                  "credits": 6
+                },
+                {
+                  "code": "EE 201",
+                  "title": "Devre Teorisi",
+                  "credits": 6
+                },
+                {
+                  "code": "PHYS 101",
+                  "title": "Fizik I",
+                  "credits": 6
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "year": 2,
+          "season": "bahar",
+          "label": "2. Yıl - Bahar (30 Kredi)",
+          "credits": 30,
+          "items": [
+            {
+              "kind": "course",
+              "code": "CS 202",
+              "title": "Veritabanı Yönetim Sistemleri",
+              "credits": 6,
+              "prerequisites": "CS 201",
+              "corequisites": []
+            },
+            {
+              "kind": "course",
+              "code": "HIST 202",
+              "title": "Atatürk İlkeleri ve İnkılap Tarihi II",
+              "credits": 2,
+              "prerequisites": "",
+              "corequisites": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "BSEE",
+      "slug": "bsee",
+      "name": "Elektrik-Elektronik Mühendisliği",
+      "faculty": "Mühendislik Fakültesi",
+      "semesters": [
+        {
+          "year": 1,
+          "season": "guz",
+          "label": "1. Yıl - Güz (30 Kredi)",
+          "credits": 30,
+          "items": [
+            {
+              "kind": "course",
+              "code": "MATH 103",
+              "title": "Analiz I",
+              "credits": 7,
+              "prerequisites": "",
+              "corequisites": []
+            },
+            {
+              "kind": "course",
+              "code": "PHYS 101",
+              "title": "Fizik I",
+              "credits": 6,
+              "prerequisites": "",
+              "corequisites": []
+            },
+            {
+              "kind": "course",
+              "code": "ENG 101",
+              "title": "Akademik İngilizce I",
+              "credits": 4,
+              "prerequisites": "",
+              "corequisites": []
+            },
+            {
+              "kind": "course",
+              "code": "GEN 101",
+              "title": "Üniversite Hayatına Giriş",
+              "credits": 2,
+              "prerequisites": "",
+              "corequisites": []
+            },
+            {
+              "kind": "course",
+              "code": "CS 101",
+              "title": "Bilgisayar Programlama",
+              "credits": 6,
+              "prerequisites": "",
+              "corequisites": [
+                "CS 101L"
+              ]
+            }
+          ]
+        },
+        {
+          "year": 2,
+          "season": "guz",
+          "label": "2. Yıl - Güz (30 Kredi)",
+          "credits": 30,
+          "items": [
+            {
+              "kind": "course",
+              "code": "EE 201",
+              "title": "Devre Teorisi",
+              "credits": 6,
+              "prerequisites": "PHYS 101",
+              "corequisites": []
+            },
+            {
+              "kind": "course",
+              "code": "HIST 201",
+              "title": "Atatürk İlkeleri ve İnkılap Tarihi I",
+              "credits": 2,
+              "prerequisites": "",
+              "corequisites": []
+            },
+            {
+              "kind": "elective",
+              "label": "Mühendislik Seçmeli",
+              "credits": 6,
+              "pool": [
+                {
+                  "code": "CS 101",
+                  "title": "Bilgisayar Programlama",
+                  "credits": 6
+                },
+                {
+                  "code": "CS 102",
+                  "title": "Nesneye Yönelik Programlama",
+                  "credits": 6
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "BSARCH (TR)",
+      "slug": "bsarch-tr",
+      "name": "Mimarlık (Türkçe)",
+      "faculty": "Mimarlık ve Tasarım Fakültesi",
+      "semesters": [
+        {
+          "year": 0,
+          "season": "guz",
+          "label": "Hazırlık - Güz",
+          "credits": null,
+          "items": [
+            {
+              "kind": "course",
+              "code": "ENG 001",
+              "title": "İngilizce Hazırlık",
+              "credits": 0,
+              "prerequisites": "",
+              "corequisites": []
+            }
+          ]
+        },
+        {
+          "year": 1,
+          "season": "guz",
+          "label": "1. Yıl - Güz (32 Kredi)",
+          "credits": 32,
+          "items": [
+            {
+              "kind": "course",
+              "code": "MİM 105",
+              "title": "Mimari Tasarıma Giriş",
+              "credits": 8,
+              "prerequisites": "",
+              "corequisites": [
+                "MİM 105L"
+              ]
+            },
+            {
+              "kind": "course",
+              "code": "ENG 101",
+              "title": "Akademik İngilizce I",
+              "credits": 4,
+              "prerequisites": "",
+              "corequisites": []
+            },
+            {
+              "kind": "course",
+              "code": "HIST 201",
+              "title": "Atatürk İlkeleri ve İnkılap Tarihi I",
+              "credits": 2,
+              "prerequisites": "",
+              "corequisites": []
+            },
+            {
+              "kind": "elective",
+              "label": "Sosyal Bilimler Seçmeli",
+              "credits": 3,
+              "pool": [
+                {
+                  "code": "HIST 201",
+                  "title": "Atatürk İlkeleri ve İnkılap Tarihi I",
+                  "credits": 2
+                },
+                {
+                  "code": "GEN 101",
+                  "title": "Üniversite Hayatına Giriş",
+                  "credits": 2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
