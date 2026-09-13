@@ -1,0 +1,47 @@
+{
+  "source": "ozyegin-sis-offer-ui",
+  "termLabel": "2026 - 2027 Güz",
+  "exportedAt": "2026-09-13T13:25:42.486Z",
+  "rows": [
+    {
+      "subject": "CS",
+      "number": "101",
+      "section": "B",
+      "title": "Bilgisayar Programlama",
+      "creditsText": "6 credits",
+      "coreqText": "Yan koşul: CS 101L",
+      "instructorText": "ALİ ERKAN",
+      "meetings": [{ "dayText": "Pazartesi", "timeText": "10:40 - 12:30" }]
+    },
+    {
+      "subject": "CS",
+      "number": "101L",
+      "section": "A",
+      "title": "Bilgisayar Proglamlama - Lab.",
+      "creditsText": "0 credits",
+      "coreqText": "Yan koşul: CS 101",
+      "instructorText": "ALİ ERKAN",
+      "meetings": [{ "dayText": "Salı", "timeText": "12:40 - 14:30" }]
+    },
+    {
+      "subject": "CS",
+      "number": "101L",
+      "section": "B",
+      "title": "Bilgisayar Proglamlama - Lab.",
+      "creditsText": "0 credits",
+      "coreqText": "Yan koşul: CS 101",
+      "instructorText": "ALİ ERKAN",
+      "meetings": [{ "dayText": "Salı", "timeText": "12:40 - 14:30" }]
+    },
+    {
+      "subject": "CS",
+      "number": "101L",
+      "section": "C",
+      "title": "Bilgisayar Proglamlama - Lab.",
+      "creditsText": "0 credits",
+      "coreqText": "Yan koşul: CS 101",
+      "instructorText": "ALİ ERKAN",
+      "meetings": [{ "dayText": "Salı", "timeText": "12:40 - 14:30" }]
+    }
+  ]
+}

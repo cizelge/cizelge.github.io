@@ -1,0 +1,98 @@
+{
+  "schoolId": "ozyegin",
+  "termId": "2026-2027-guz",
+  "termLabel": "2026 - 2027 Güz",
+  "fetchedAt": "2026-09-13T13:25:42.486Z",
+  "courses": [
+    {
+      "code": "CS 101",
+      "slug": "cs-101",
+      "title": "Bilgisayar Programlama",
+      "ects": 6,
+      "localCredits": null,
+      "prerequisites": "",
+      "corequisites": [
+        "CS 101L"
+      ],
+      "sections": [
+        {
+          "id": "B",
+          "instructors": [
+            "ALİ ERKAN"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 1,
+              "start": "10:40",
+              "end": "12:30",
+              "room": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "CS 101L",
+      "slug": "cs-101l",
+      "title": "Bilgisayar Proglamlama - Lab.",
+      "ects": 0,
+      "localCredits": null,
+      "prerequisites": "",
+      "corequisites": [
+        "CS 101"
+      ],
+      "sections": [
+        {
+          "id": "A",
+          "instructors": [
+            "ALİ ERKAN"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 2,
+              "start": "12:40",
+              "end": "14:30",
+              "room": null
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "instructors": [
+            "ALİ ERKAN"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 2,
+              "start": "12:40",
+              "end": "14:30",
+              "room": null
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "instructors": [
+            "ALİ ERKAN"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 2,
+              "start": "12:40",
+              "end": "14:30",
+              "room": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
