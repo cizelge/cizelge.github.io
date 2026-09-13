@@ -1,12 +1,22 @@
 // Yayına çıkmadan önce TermData kontrolü. Boş dizi = geçti.
+import { parseTermLabel } from "../src/lib/terms";
 import type { ProgramsData, TermData } from "../src/lib/types";
 
 const HHMM = /^([01]\d|2[0-3]):[0-5]\d$/;
 const MAX_DROP = 0.3;
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+/** /<okul>/<slug> ders sayfalarıyla çakışan sabit yol parçaları (src/app/ozyegin/donem). */
+export const RESERVED_SEGMENTS = ["donem"] as const;
 
 export function validateTermData(term: TermData, previous?: TermData | null): string[] {
   const errors: string[] = [];
+
+  try {
+    const info = parseTermLabel(term.termLabel);
+    if (info.id !== term.termId) errors.push(`Dönem kimliği "${term.termId}", dönem adına göre "${info.id}" olmalı`);
+  } catch (e) {
+    errors.push((e as Error).message);
+  }
 
   if (term.courses.length === 0) errors.push("Hiç ders yok");
 
@@ -17,6 +27,9 @@ export function validateTermData(term: TermData, previous?: TermData | null): st
     seenCodes.add(c.code);
     if (seenSlugs.has(c.slug)) errors.push(`Tekrar eden slug: ${c.slug} (${c.code})`);
     seenSlugs.add(c.slug);
+    if ((RESERVED_SEGMENTS as readonly string[]).includes(c.slug)) {
+      errors.push(`${c.code}: slug "${c.slug}" ayrılmış bir yol parçası (${RESERVED_SEGMENTS.join(", ")})`);
+    }
     if (!SLUG.test(c.slug)) errors.push(`${c.code}: slug yalnızca a-z, 0-9 ve "-" içermeli ("${c.slug}")`);
   }
 

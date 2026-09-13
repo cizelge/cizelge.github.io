@@ -3,6 +3,7 @@
 // Biçim v1 (formatVersion yok): her satırda coreqText + instructorText. Eski betik koşul hücresini
 // yanlış okuduğundan instructorText çoğu zaman "Ön koşul: ..." içerir ve hoca kaybolmuştur.
 // Biçim v2 (formatVersion: 2): her satırda infoCells, bilgi tablosunun bütün hücreleri sırasıyla.
+import { parseTermLabel } from "../../src/lib/terms";
 import type { Course, Meeting, Section, TermData } from "../../src/lib/types";
 
 export interface RawMeeting {
@@ -74,10 +75,6 @@ export function courseSlug(code: string): string {
   return foldAscii(code)
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
-}
-
-function termIdFromLabel(label: string): string {
-  return courseSlug(label);
 }
 
 const pad = (h: string) => h.padStart(2, "0");
@@ -172,11 +169,14 @@ export function buildTermData(exports: RawExport[], opts: { fetchedAt: string })
     const v = exp.formatVersion ?? 1;
     if (v !== 1 && v !== 2) throw new Error(`Desteklenmeyen dışa aktarma biçimi: formatVersion ${v}`);
   }
-  const labels = new Set(exports.map((e) => e.termLabel));
-  if (labels.size !== 1 || !exports[0].termLabel) {
-    throw new Error(`Dosyalar farklı dönemlerden ya da dönem bilgisi yok: ${[...labels].join(", ")}`);
+  const labels = [...new Set(exports.map((e) => e.termLabel))];
+  if (labels.some((l) => !l)) throw new Error("Dışa aktarma dosyasında dönem bilgisi yok");
+  // Aynı dönem farklı boşluklarla yazılmış olabilir ("2026 - 2027 Bahar", "2026 -2027 Bahar").
+  const terms = labels.map((l) => parseTermLabel(l!));
+  if (new Set(terms.map((t) => t.id)).size !== 1) {
+    throw new Error(`Dosyalar farklı dönemlerden: ${labels.join(", ")}`);
   }
-  const termLabel = exports[0].termLabel;
+  const term = terms[0];
 
   const courses = new Map<string, Course>();
   const infoBySection = new Map<Section, ParsedInfo>();
@@ -224,8 +224,8 @@ export function buildTermData(exports: RawExport[], opts: { fetchedAt: string })
 
   return {
     schoolId: "ozyegin",
-    termId: termIdFromLabel(termLabel),
-    termLabel,
+    termId: term.id,
+    termLabel: term.label,
     fetchedAt: opts.fetchedAt,
     courses: sorted,
   };

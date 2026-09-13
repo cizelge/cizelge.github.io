@@ -49,6 +49,27 @@ describe("buildTermData", () => {
     expect(() => buildTermData([raw, other], { fetchedAt: "x" })).toThrow(/dönem/i);
   });
 
+  it("reads Özyeğin's inconsistent Bahar label and normalises it", () => {
+    const bahar = buildTermData([{ ...raw, termLabel: "2026 -2027 Bahar" }], { fetchedAt: "x" });
+    expect(bahar.termId).toBe("2026-2027-bahar");
+    expect(bahar.termLabel).toBe("2026 - 2027 Bahar");
+    expect(validateTermData(bahar)).toEqual([]);
+  });
+
+  it("treats differently spaced labels of the same term as one term", () => {
+    const merged = buildTermData([{ ...raw, termLabel: "2026 -2027 Bahar" }, { ...raw, termLabel: "2026 - 2027 Bahar" }], {
+      fetchedAt: "x",
+    });
+    expect(merged.termId).toBe("2026-2027-bahar");
+    expect(merged.courses[1].sections).toHaveLength(3);
+  });
+
+  it("rejects an unreadable term label", () => {
+    expect(() => buildTermData([{ ...raw, termLabel: "Bahar dönemi" }], { fetchedAt: "x" })).toThrow(
+      /Dönem adı okunamadı: "Bahar dönemi"/,
+    );
+  });
+
   it("maps Cumartesi to 6 and Pazar (Sunday) to 7", () => {
     const weekend: RawExport = {
       ...raw,
@@ -89,6 +110,20 @@ describe("validateTermData", () => {
     const bad = structuredClone(good);
     bad.courses[0].sections[0].meetings[0].end = "10:40";
     expect(validateTermData(bad).join("\n")).toMatch(/CS 101\.B/);
+  });
+
+  it("reports a slug that equals a reserved route segment", () => {
+    const bad = structuredClone(good);
+    bad.courses[0].slug = "donem";
+    expect(validateTermData(bad).join("\n")).toMatch(/ayrılmış.*donem/);
+  });
+
+  it("reports a term id that does not match the term label", () => {
+    const bad = structuredClone(good);
+    bad.termId = "ornek";
+    expect(validateTermData(bad).join("\n")).toMatch(/2026-2027-guz/);
+    bad.termLabel = "Örnek veri";
+    expect(validateTermData(bad).join("\n")).toMatch(/okunamadı/);
   });
 
   it("reports a course without sections", () => {
