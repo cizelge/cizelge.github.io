@@ -1,4 +1,5 @@
 import type { Day, Weights } from "@/lib/engine";
+import { DAY_NAMES } from "@/lib/days";
 import { PRESETS, WEIGHT_KEYS } from "@/lib/planner/state";
 
 const DAYS: { day: Day; label: string }[] = [
@@ -8,7 +9,8 @@ const DAYS: { day: Day; label: string }[] = [
   { day: 4, label: "Per" },
   { day: 5, label: "Cum" },
 ];
-const DAY_FULL = ["", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma"];
+// Boş gün seçimi bilerek yalnızca Pazartesi–Cuma.
+const DAY_FULL = DAY_NAMES;
 
 const LABELS: Record<(typeof WEIGHT_KEYS)[number], string> = {
   fewDays: "Kampüse az gün gel",

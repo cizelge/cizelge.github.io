@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import type { Course, TermData } from "@/lib/types";
 import { expandCorequisites, type RelaxedConstraint, type SectionRef } from "@/lib/engine";
+import { visibleDays } from "@/lib/days";
 import { buildIcs } from "@/lib/planner/ics";
 import { decodeState, EMPTY_STATE, encodeState, type PlannerState } from "@/lib/planner/state";
 import { useSchedules } from "@/lib/planner/useSchedules";
@@ -96,8 +97,11 @@ export function Planner({ term }: { term: TermData }) {
   const cartSections: SectionRef[] = state.cart.flatMap((code) =>
     (courses.get(code)?.sections ?? []).map((s) => ({ courseCode: code, sectionId: s.id })),
   );
-  const showSaturday = cartSections.some((r) =>
-    courses.get(r.courseCode)?.sections.find((s) => s.id === r.sectionId)?.meetings.some((m) => m.day === 6),
+  // Cumartesi/Pazar sütunu yalnızca sepetteki bir şube o gün ders yapıyorsa görünür.
+  const days = visibleDays(
+    cartSections.flatMap(
+      (r) => courses.get(r.courseCode)?.sections.find((s) => s.id === r.sectionId)?.meetings ?? [],
+    ),
   );
   const placed = current ? placeMeetings(current.sections, courses, colorOf) : [];
   const range = timeRange(placed);
@@ -237,7 +241,7 @@ export function Planner({ term }: { term: TermData }) {
             onSelect={(i) => setState((s) => ({ ...s, selected: i }))}
             courses={courses}
             colorOf={colorOf}
-            showSaturday={showSaturday}
+            days={days}
           />
         )}
 
@@ -284,7 +288,7 @@ export function Planner({ term }: { term: TermData }) {
           meetings={placed}
           freeDays={state.freeDays}
           range={range}
-          showSaturday={!!showSaturday}
+          days={days}
           empty={
             ready && state.cart.length === 0 ? (
               <p>Ders ekledikçe en uygun programlar burada boyanır.</p>

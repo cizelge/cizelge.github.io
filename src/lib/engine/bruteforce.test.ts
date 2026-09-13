@@ -40,7 +40,9 @@ function randomInput(rand: () => number): GenerateInput {
       for (let k = 0; k < nMeetings; k++) {
         const start = int(8, 18) * 60 + pick([0, 30, 40]);
         const end = start + pick([50, 80, 110, 170]);
-        meetings.push({ day: int(1, 3) as Meeting["day"], start: hhmm(start), end: hhmm(end), room: null });
+        // mostly Mon–Wed so that clashes are common; sometimes the weekend (Sat/Sun)
+        const day = (rand() < 0.2 ? int(6, 7) : int(1, 3)) as Meeting["day"];
+        meetings.push({ day, start: hhmm(start), end: hhmm(end), room: null });
       }
       sections.push({ id: String.fromCharCode(65 + s), instructors: [], capacity: null, restrictions: null, meetings });
     }
@@ -57,7 +59,7 @@ function randomInput(rand: () => number): GenerateInput {
   }
 
   const freeDays: Meeting["day"][] = [];
-  for (const d of [1, 2, 3, 4] as const) if (rand() < 0.15) freeDays.push(d);
+  for (const d of [1, 2, 3, 4, 6, 7] as const) if (rand() < 0.15) freeDays.push(d);
   const locked: Record<string, string> = {};
   for (const c of courses) {
     if (rand() < 0.15) locked[c.code] = rand() < 0.1 ? "Z" : pick(c.sections).id;
@@ -90,7 +92,7 @@ function refScore(meetings: Meeting[], w: Weights): number {
   let days = 0;
   let gap = 0;
   let noLunch = 0;
-  for (let d = 1; d <= 6; d++) {
+  for (let d = 1; d <= 7; d++) {
     const busy = new Uint8Array(24 * 60);
     const today = meetings.filter((m) => m.day === d);
     if (today.length === 0) continue;

@@ -1,5 +1,6 @@
 import type { Course } from "@/lib/types";
 import type { SectionRef } from "@/lib/engine";
+import { DAY_SHORT } from "@/lib/days";
 
 interface Props {
   cart: readonly string[];
@@ -65,7 +66,7 @@ export function Cart({ cart, courses, colorOf, locked, excluded, onRemove, onLoc
                               {s.id} şubesi
                               <span className="hint">
                                 {" "}
-                                {s.meetings.map((m) => `${["", "Pzt", "Sal", "Çar", "Per", "Cum", "Cmt"][m.day]} ${m.start}`).join(", ")}
+                                {s.meetings.map((m) => `${DAY_SHORT[m.day]} ${m.start}`).join(", ")}
                               </span>
                             </span>
                           </label>

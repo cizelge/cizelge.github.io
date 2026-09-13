@@ -1,5 +1,5 @@
 import type { Course } from "@/lib/types";
-import type { RankedSchedule } from "@/lib/engine";
+import type { Day, RankedSchedule } from "@/lib/engine";
 import { parseTime } from "@/lib/engine";
 import { placeMeetings, timeRange } from "./placed";
 
@@ -9,7 +9,8 @@ interface Props {
   onSelect: (index: number) => void;
   courses: ReadonlyMap<string, Course>;
   colorOf: (code: string) => number;
-  showSaturday: boolean;
+  /** Haritadaki gün sütunları (WeekGrid ile aynı liste). */
+  days: Day[];
 }
 
 export function formatGap(minutes: number) {
@@ -19,8 +20,8 @@ export function formatGap(minutes: number) {
   return [h ? `${h} sa` : "", m ? `${m} dk` : ""].filter(Boolean).join(" ") + " boşluk";
 }
 
-export function ScheduleStrip({ schedules, selected, onSelect, courses, colorOf, showSaturday }: Props) {
-  const cols = showSaturday ? 6 : 5;
+export function ScheduleStrip({ schedules, selected, onSelect, courses, colorOf, days }: Props) {
+  const cols = days.length;
   const all = schedules.flatMap((s) => placeMeetings(s.sections, courses, colorOf));
   const range = timeRange(all);
   const span = range.end - range.start;
@@ -40,10 +41,10 @@ export function ScheduleStrip({ schedules, selected, onSelect, courses, colorOf,
           >
             <span className="mini-rank num">{i + 1}.</span>
             <span className="mini-map" style={{ "--cols": cols } as React.CSSProperties} aria-hidden="true">
-              {Array.from({ length: cols }, (_, d) => (
+              {days.map((d) => (
                 <span key={d} className="mini-day">
                   {meetings
-                    .filter((m) => m.day === d + 1)
+                    .filter((m) => m.day === d)
                     .map((m) => (
                       <span
                         key={`${m.courseCode}${m.start}`}

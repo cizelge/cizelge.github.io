@@ -29,7 +29,7 @@ export interface Section {
 }
 
 export interface Meeting {
-  day: 1 | 2 | 3 | 4 | 5 | 6;    // 1 = Pazartesi
+  day: 1 | 2 | 3 | 4 | 5 | 6 | 7; // 1 = Pazartesi … 6 = Cumartesi, 7 = Pazar
   start: string;                 // "10:40"
   end: string;                   // "12:30"
   room: string | null;

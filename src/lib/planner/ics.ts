@@ -3,7 +3,7 @@ import type { Course } from "../types";
 import type { SectionRef } from "../engine";
 
 const pad = (n: number) => String(n).padStart(2, "0");
-const DAY_CODES = ["", "MO", "TU", "WE", "TH", "FR", "SA"];
+const DAY_CODES = ["", "MO", "TU", "WE", "TH", "FR", "SA", "SU"];
 
 function escape(text: string) {
   return text.replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\n/g, "\\n");

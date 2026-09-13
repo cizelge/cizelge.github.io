@@ -49,12 +49,32 @@ describe("buildTermData", () => {
     expect(() => buildTermData([raw, other], { fetchedAt: "x" })).toThrow(/dönem/i);
   });
 
-  it("rejects a Sunday meeting instead of silently dropping it", () => {
-    const sunday: RawExport = {
+  it("maps Cumartesi to 6 and Pazar (Sunday) to 7", () => {
+    const weekend: RawExport = {
       ...raw,
-      rows: [{ ...raw.rows[0], meetings: [{ dayText: "Pazar", timeText: "10:40 - 12:30" }] }],
+      rows: [
+        {
+          ...raw.rows[0],
+          meetings: [
+            { dayText: "Cumartesi", timeText: "09:00 - 12:50" },
+            { dayText: "Pazar", timeText: "9:00 - 12:50" },
+          ],
+        },
+      ],
     };
-    expect(() => buildTermData([sunday], { fetchedAt: "x" })).toThrow(/Pazar/);
+    const [course] = buildTermData([weekend], { fetchedAt: "x" }).courses;
+    expect(course.sections[0].meetings.map((m) => [m.day, m.start, m.end])).toEqual([
+      [6, "09:00", "12:50"],
+      [7, "09:00", "12:50"],
+    ]);
+  });
+
+  it("rejects an unknown day name instead of silently dropping it", () => {
+    const bad: RawExport = {
+      ...raw,
+      rows: [{ ...raw.rows[0], meetings: [{ dayText: "Pazartes", timeText: "10:40 - 12:30" }] }],
+    };
+    expect(() => buildTermData([bad], { fetchedAt: "x" })).toThrow(/Pazartes/);
   });
 
   it("produces data that passes validation", () => {

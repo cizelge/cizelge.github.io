@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { WeekGrid } from "@/components/planner/WeekGrid";
 import type { PlacedMeeting } from "@/components/planner/placed";
 import { loadTerm } from "@/lib/data";
+import { visibleDays } from "@/lib/days";
 
 // Ana sayfadaki çizim yalnızca görünüşü anlatır; ders kodları bilerek genel tutuldu.
 const DEMO: PlacedMeeting[] = [
@@ -41,7 +42,7 @@ export default function Home() {
             </p>
           </div>
           <div aria-hidden="true" style={{ "--hour-h": "34px" } as React.CSSProperties}>
-            <WeekGrid meetings={DEMO} freeDays={[5]} range={{ start: 9 * 60, end: 17 * 60 }} showSaturday={false} />
+            <WeekGrid meetings={DEMO} freeDays={[5]} range={{ start: 9 * 60, end: 17 * 60 }} days={visibleDays(DEMO)} />
           </div>
         </div>
       </main>

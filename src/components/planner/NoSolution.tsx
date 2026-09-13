@@ -1,6 +1,5 @@
 import type { NoSolutionReason, RelaxedConstraint, Suggestion } from "@/lib/engine";
-
-const DAY = ["", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
+import { DAY_NAMES as DAY } from "@/lib/days";
 
 function reasonText(r: NoSolutionReason): string {
   switch (r.kind) {

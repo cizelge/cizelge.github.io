@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import type { Meeting } from "../types";
 import {
+  DAYS,
+  MASK_WORDS,
   SLOTS_PER_DAY,
   addInterval,
   emptyMask,
@@ -48,6 +50,21 @@ describe("parseTime / formatTime", () => {
 describe("week masks", () => {
   it("has 288 five-minute slots per day", () => {
     expect(SLOTS_PER_DAY).toBe(288);
+  });
+
+  it("covers seven days, Monday (1) to Sunday (7)", () => {
+    expect(DAYS).toBe(7);
+    expect(MASK_WORDS).toBe(63);
+  });
+
+  it("keeps Sunday separate from Saturday and Monday, and detects Sunday overlaps", () => {
+    const sun = maskFromMeetings([m(7, "23:00", "24:00"), m(7, "10:00", "12:00")]);
+    expect(masksOverlap(sun, maskFromMeetings([m(6, "10:00", "12:00")]))).toBe(false);
+    expect(masksOverlap(sun, maskFromMeetings([m(1, "10:00", "12:00")]))).toBe(false);
+    const other = maskFromMeetings([m(7, "11:00", "11:30")]);
+    expect(masksOverlap(sun, other)).toBe(true);
+    expect(firstOverlapSlot(sun, other)).toEqual({ day: 7, minute: 660 });
+    expect(firstOverlapSlot(sun, maskFromMeetings([m(7, "23:55", "24:00")]))).toEqual({ day: 7, minute: 1435 });
   });
 
   it("detects overlap on the same day", () => {

@@ -1,21 +1,19 @@
 import type { Day } from "@/lib/engine";
 import { parseTime } from "@/lib/engine";
+import { DAY_NAMES, DAY_SHORT } from "@/lib/days";
 import type { PlacedMeeting } from "./placed";
-
-const DAY_NAMES = ["", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
-const DAY_SHORT = ["", "Pzt", "Sal", "Çar", "Per", "Cum", "Cmt"];
 
 interface Props {
   meetings: PlacedMeeting[];
   freeDays: Day[];
   /** Tablonun kapsayacağı saat aralığı (dakika). */
   range: { start: number; end: number };
-  showSaturday: boolean;
+  /** Gösterilecek sütunlar; hafta sonu yalnızca ders varsa eklenir (bkz. `visibleDays`). */
+  days: Day[];
   empty?: React.ReactNode;
 }
 
-export function WeekGrid({ meetings, freeDays, range, showSaturday, empty }: Props) {
-  const days: Day[] = showSaturday ? [1, 2, 3, 4, 5, 6] : [1, 2, 3, 4, 5];
+export function WeekGrid({ meetings, freeDays, range, days, empty }: Props) {
   const startHour = Math.floor(range.start / 60);
   const endHour = Math.ceil(range.end / 60);
   const hours = Array.from({ length: endHour - startHour + 1 }, (_, i) => startHour + i);

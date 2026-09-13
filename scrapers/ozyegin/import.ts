@@ -31,6 +31,7 @@ const DAYS: Record<string, Meeting["day"]> = {
   Perşembe: 4,
   Cuma: 5,
   Cumartesi: 6,
+  Pazar: 7,
 };
 
 const TIME_RE = /^(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})$/;

@@ -1,4 +1,4 @@
-import { formatTime } from "./timemask";
+import { DAYS, formatTime } from "./timemask";
 import type { Day } from "./timemask";
 import type { Candidate, RankedSchedule, ScheduleMetrics, ScheduleSummary, Weights } from "./types";
 
@@ -41,7 +41,7 @@ export function computeMetrics(
   intervals: readonly TimeInterval[],
   thresholds: Thresholds,
 ): ScheduleMetrics {
-  const byDay: TimeInterval[][] = [[], [], [], [], [], [], []];
+  const byDay: TimeInterval[][] = Array.from({ length: DAYS + 1 }, () => []);
   let earlyCount = 0;
   let lateCount = 0;
   let earliestStart: number | null = null;
@@ -59,7 +59,7 @@ export function computeMetrics(
   let gapMinutes = 0;
   let noLunchDays = 0;
 
-  for (let d = 1; d <= 6; d++) {
+  for (let d = 1; d <= DAYS; d++) {
     const list = byDay[d];
     if (list.length === 0) continue;
     days++;

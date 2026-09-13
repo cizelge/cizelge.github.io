@@ -21,7 +21,7 @@ export interface SectionRef {
 export interface Constraints {
   /** Selected courses. Duplicate codes are ignored after the first. */
   courses: Course[];
-  /** Days (1 = Monday) on which no meeting may take place. */
+  /** Days (1 = Monday … 7 = Sunday) on which no meeting may take place. */
   freeDays: Day[];
   /** course code -> the only section id allowed for that course. */
   locked: Record<string, string>;

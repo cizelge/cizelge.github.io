@@ -33,6 +33,16 @@ describe("computeMetrics", () => {
     expect(m.days).toBe(2);
   });
 
+  it("counts Saturday and Sunday meetings like any other day", () => {
+    const m = computeMetrics(
+      [iv(6, "10:40", "12:30"), iv(7, "08:40", "10:30"), iv(7, "15:40", "17:30")],
+      TH,
+    );
+    expect(m.days).toBe(2);
+    expect(m.gapMinutes).toBe(310);
+    expect(m.earlyCount).toBe(1);
+  });
+
   it("sums gaps between consecutive meetings within each day, regardless of input order", () => {
     const m = computeMetrics(
       [

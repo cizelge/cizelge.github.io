@@ -3,8 +3,8 @@ import type { Meeting } from "../types";
 /**
  * Week time masks.
  *
- * A day is split into 288 five-minute slots. Each of the 6 teaching days owns
- * 10 Uint32 words (320 bits >= 288), so a whole week is one 60-word
+ * A day is split into 288 five-minute slots. Each of the 7 days (Monday = 1 …
+ * Sunday = 7) owns 9 Uint32 words (288 bits), so a whole week is one 63-word
  * Uint32Array. Two schedules overlap iff some word pair ANDs to non-zero.
  *
  * Why Uint32Array instead of one BigInt per day: the backtracking loop does an
@@ -20,9 +20,9 @@ export type Day = Meeting["day"];
 
 export const SLOT_MINUTES = 5;
 export const SLOTS_PER_DAY = (24 * 60) / SLOT_MINUTES; // 288
-export const DAYS = 6;
-export const WORDS_PER_DAY = Math.ceil(SLOTS_PER_DAY / 32); // 10
-export const MASK_WORDS = DAYS * WORDS_PER_DAY; // 60
+export const DAYS = 7;
+export const WORDS_PER_DAY = Math.ceil(SLOTS_PER_DAY / 32); // 9
+export const MASK_WORDS = DAYS * WORDS_PER_DAY; // 63
 
 export type WeekMask = Uint32Array;
 
@@ -51,7 +51,7 @@ export function emptyMask(): WeekMask {
   return new Uint32Array(MASK_WORDS);
 }
 
-/** Marks [startMin, endMin) on `day` (1..6). Empty or inverted ranges are ignored. */
+/** Marks [startMin, endMin) on `day` (1..7). Empty or inverted ranges are ignored. */
 export function addInterval(mask: WeekMask, day: Day, startMin: number, endMin: number): void {
   const first = Math.max(0, Math.floor(startMin / SLOT_MINUTES));
   const last = Math.min(SLOTS_PER_DAY, Math.ceil(endMin / SLOT_MINUTES)); // exclusive

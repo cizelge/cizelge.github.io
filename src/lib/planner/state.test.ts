@@ -33,8 +33,15 @@ describe("encodeState / decodeState", () => {
     expect(missing).toEqual(["OLD999", "CS101:Z", "MATH103:A"]);
   });
 
+  it("accepts every day of the week, Sunday (7) included", () => {
+    const s: PlannerState = { ...EMPTY_STATE, cart: ["CS 101"], freeDays: [7, 6, 1] };
+    const q = encodeState(s);
+    expect(q).toBe("d=CS101&bos=167");
+    expect(decodeState(q, sections).state.freeDays).toEqual([1, 6, 7]);
+  });
+
   it("ignores malformed weights, days and page numbers", () => {
-    const { state } = decodeState("d=cs101&w=99&bos=09x7&p=abc", sections);
+    const { state } = decodeState("d=cs101&w=99&bos=08x9&p=abc", sections);
     expect(state.cart).toEqual(["CS 101"]);
     expect(state.weights).toEqual(DEFAULT_WEIGHTS);
     expect(state.freeDays).toEqual([]);

@@ -77,7 +77,7 @@ export function decodeState(
   }
 
   const freeDays = [...new Set((p.get("bos") ?? "").split("").map(Number))].filter(
-    (d): d is Day => d >= 1 && d <= 6,
+    (d): d is Day => d >= 1 && d <= 7,
   );
 
   const refs = (key: string): SectionRef[] => {

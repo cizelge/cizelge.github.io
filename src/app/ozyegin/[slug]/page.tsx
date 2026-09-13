@@ -6,10 +6,9 @@ import { WeekGrid } from "@/components/planner/WeekGrid";
 import type { PlacedMeeting } from "@/components/planner/placed";
 import { timeRange } from "@/components/planner/placed";
 import { findCourse, loadTerm } from "@/lib/data";
+import { DAY_NAMES as DAY, visibleDays } from "@/lib/days";
 
 export const dynamicParams = false;
-
-const DAY = ["", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
 
 export function generateStaticParams() {
   return loadTerm("ozyegin").courses.map((c) => ({ slug: c.slug }));
@@ -138,7 +137,7 @@ export default async function CoursePage(props: PageProps<"/ozyegin/[slug]">) {
           meetings={meetings}
           freeDays={[]}
           range={timeRange(meetings)}
-          showSaturday={meetings.some((m) => m.day === 6)}
+          days={visibleDays(meetings)}
         />
       </main>
       <footer className="site-footer">
