@@ -12,6 +12,10 @@ export interface PlannerState {
   weights: Weights;
   /** Seçili programın sıradaki yeri (0 = en iyi). */
   selected: number;
+  /** Seçilen bölümün SIS program kodu ("BSCS"), seçilmediyse null. */
+  program: string | null;
+  /** Seçilen sınıf (0 = Hazırlık), seçilmediyse null. */
+  year: number | null;
 }
 
 export const WEIGHT_KEYS = ["fewDays", "fewGaps", "lunchBreak", "noEarly", "noLate"] as const;
@@ -31,6 +35,8 @@ export const EMPTY_STATE: PlannerState = {
   excluded: [],
   weights: DEFAULT_WEIGHTS,
   selected: 0,
+  program: null,
+  year: null,
 };
 
 /** "CS101" ya da "cs 101" gibi yazımları verideki koda eşler. */
@@ -52,6 +58,10 @@ export function encodeState(s: PlannerState): string {
   const w = WEIGHT_KEYS.map((k) => s.weights[k]).join("");
   if (w !== WEIGHT_KEYS.map((k) => DEFAULT_WEIGHTS[k]).join("")) p.set("w", w);
   if (s.selected > 0) p.set("p", String(s.selected + 1));
+  if (s.program) {
+    p.set("bolum", s.program);
+    if (s.year !== null) p.set("sinif", String(s.year));
+  }
   return p.toString();
 }
 
@@ -61,9 +71,14 @@ export interface DecodeResult {
   missing: string[];
 }
 
+/**
+ * `programs`: program kodu -> o programda bulunan yıllar. Verilmezse (müfredat verisi yok)
+ * bolum/sinif sessizce yok sayılır.
+ */
 export function decodeState(
   query: string,
   sections: ReadonlyMap<string, readonly string[]>,
+  programs?: ReadonlyMap<string, readonly number[]>,
 ): DecodeResult {
   const p = new URLSearchParams(query);
   const known = [...sections.keys()];
@@ -106,5 +121,20 @@ export function decodeState(
   const pRaw = Number(p.get("p"));
   const selected = Number.isInteger(pRaw) && pRaw > 1 ? pRaw - 1 : 0;
 
-  return { state: { cart, freeDays, locked, excluded, weights, selected }, missing };
+  let program: string | null = null;
+  let year: number | null = null;
+  const bolum = p.get("bolum");
+  if (bolum && programs) {
+    const years = programs.get(bolum);
+    if (!years) {
+      missing.push(bolum);
+    } else {
+      program = bolum;
+      const sinif = p.get("sinif");
+      const y = sinif !== null && /^\d+$/.test(sinif) ? Number(sinif) : null;
+      if (y !== null && years.includes(y)) year = y;
+    }
+  }
+
+  return { state: { cart, freeDays, locked, excluded, weights, selected, program, year }, missing };
 }

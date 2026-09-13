@@ -47,6 +47,8 @@ describe("encodeState / decodeState", () => {
       excluded: [{ courseCode: "CS 101L", sectionId: "C" }],
       weights: { fewDays: 3, fewGaps: 0, lunchBreak: 1, noEarly: 2, noLate: 0 },
       selected: 2,
+      program: null,
+      year: null,
     };
     const q = encodeState(s);
     expect(q).toBe("d=CS101%2CCS101L%2CMATH103&bos=15&kilit=CS101%3AB&haric=CS101L%3AC&w=30120&p=3");
@@ -77,5 +79,43 @@ describe("encodeState / decodeState", () => {
     expect(state.weights).toEqual(DEFAULT_WEIGHTS);
     expect(state.freeDays).toEqual([]);
     expect(state.selected).toBe(0);
+  });
+});
+
+describe("department and year in the link", () => {
+  const programs = new Map<string, number[]>([
+    ["BSCS", [1, 2, 3, 4]],
+    ["BSARCH (TR)", [0, 1, 2, 3, 4]],
+  ]);
+
+  it("round-trips bolum and sinif", () => {
+    const s: PlannerState = { ...EMPTY_STATE, cart: ["CS 101"], program: "BSARCH (TR)", year: 0 };
+    const q = encodeState(s);
+    expect(new URLSearchParams(q).get("bolum")).toBe("BSARCH (TR)");
+    expect(new URLSearchParams(q).get("sinif")).toBe("0");
+    expect(decodeState(q, sections, programs)).toEqual({ state: s, missing: [] });
+  });
+
+  it("keeps a department without a year, and never writes a year without a department", () => {
+    expect(encodeState({ ...EMPTY_STATE, program: "BSCS" })).toBe("bolum=BSCS");
+    expect(encodeState({ ...EMPTY_STATE, year: 2 })).toBe("");
+    expect(decodeState("bolum=BSCS", sections, programs).state).toMatchObject({ program: "BSCS", year: null });
+    expect(decodeState("sinif=2", sections, programs).state).toMatchObject({ program: null, year: null });
+  });
+
+  it("ignores an unknown department and reports it, and drops a year the department does not have", () => {
+    const unknown = decodeState("d=CS101&bolum=BSXX&sinif=2", sections, programs);
+    expect(unknown.state).toMatchObject({ cart: ["CS 101"], program: null, year: null });
+    expect(unknown.missing).toEqual(["BSXX"]);
+    const badYear = decodeState("bolum=BSCS&sinif=0", sections, programs);
+    expect(badYear.state).toMatchObject({ program: "BSCS", year: null });
+    expect(badYear.missing).toEqual([]);
+    expect(decodeState("bolum=BSCS&sinif=abc", sections, programs).state.year).toBeNull();
+  });
+
+  it("ignores bolum silently when there is no curriculum data", () => {
+    const { state, missing } = decodeState("bolum=BSCS&sinif=2", sections);
+    expect(state).toMatchObject({ program: null, year: null });
+    expect(missing).toEqual([]);
   });
 });
