@@ -270,10 +270,14 @@ body {
 
 /* ---------- Müfredat ---------- */
 
+/* Masaüstünde sol sütun dar: bölüm adı kesilmesin diye alt alta; telefonda genişlik yettiği için yan yana. */
 .curriculum-fields {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(6.5rem, 8rem);
+  grid-template-columns: minmax(0, 1fr);
   gap: 0.5rem;
+}
+@media (max-width: 860px) {
+  .curriculum-fields { grid-template-columns: minmax(0, 1fr) minmax(6.5rem, 8rem); }
 }
 .field { display: flex; flex-direction: column; gap: 0.2rem; min-width: 0; }
 .field-label { color: var(--ink-2); font-size: 0.87rem; }
