@@ -49,6 +49,10 @@ describe("parseInfoCells", () => {
     });
   });
 
+  it("keeps dashed topic and internship codes", () => {
+    expect(parseInfoCells(["Yan koşul: PSY 481-03, BUS301-11"]).corequisites).toEqual(["PSY 481-03", "BUS 301-11"]);
+  });
+
   it("normalises codes to SUBJECT NUMBER and drops tokens that are not course codes", () => {
     expect(
       parseInfoCells(["Yan koşul: MATH107R; IE  203R and MİM 105 ve SAS 405_U, bölüm onayı"]).corequisites,
@@ -183,6 +187,7 @@ describe("courseSlug", () => {
     expect(courseSlug("CS 101L")).toBe("cs-101l");
     expect(courseSlug("MİM 105")).toBe("mim-105");
     expect(courseSlug("SAS 405_U")).toBe("sas-405-u");
+    expect(courseSlug("PSY 481-03")).toBe("psy-481-03");
     expect(courseSlug("ÇĞÖŞÜ İI 1")).toBe("cgosu-ii-1");
     expect(courseSlug("çğöşü ıi 2")).toBe("cgosu-ii-2");
   });

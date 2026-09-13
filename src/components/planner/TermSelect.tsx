@@ -25,6 +25,7 @@ export function TermSelect({ schoolId, currentId, options, query }: Props) {
   const year = options.slice(0, 3).map((o) => ({ ...o, info: parseTermLabel(o.label) }));
   const others = options.slice(3);
   const soon = year.filter((o) => !o.available);
+  const listOnly = year.filter((o) => o.available && !o.hasTimes);
   const href = (o: TermOption) => `${termPath(schoolId, o)}${query ? `?${query}` : ""}`;
 
   return (
@@ -64,6 +65,12 @@ export function TermSelect({ schoolId, currentId, options, query }: Props) {
       {soon.length > 0 && (
         <p className="hint term-soon" id={`${id}-soon`}>
           {joinTr(soon.map((o) => SEASON_LABEL[o.info.season]))} {SOON}.
+        </p>
+      )}
+      {listOnly.length > 0 && (
+        <p className="hint term-others">
+          {joinTr(listOnly.map((o) => SEASON_LABEL[o.info.season]))} için yalnızca açılacak dersler belli, saatler
+          henüz açıklanmadı.
         </p>
       )}
       {others.length > 0 && (

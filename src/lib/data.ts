@@ -3,7 +3,7 @@
 import "server-only";
 import fs from "node:fs";
 import path from "node:path";
-import { buildTermOptions, parseTermLabel, sortTermData, type TermOption } from "./terms";
+import { buildTermOptions, defaultTerm, parseTermLabel, sortTermData, termHasTimes, type TermOption } from "./terms";
 import type { Course, ProgramsData, TermData } from "./types";
 
 export const USING_SAMPLE_DATA = process.env.SAMPLE_DATA === "1";
@@ -31,10 +31,15 @@ export function loadTerms(schoolId: string): TermData[] {
   return terms;
 }
 
-/** Verilen dönem; verilmezse varsayılan dönem (sıralamada en son gelen). */
+const withTimes = (t: TermData) => ({ ...parseTermLabel(t.termLabel), hasTimes: termHasTimes(t) });
+
+/** Verilen dönem; verilmezse varsayılan dönem (saatleri yayında olan en yeni dönem). */
 export function loadTerm(schoolId: string, termId?: string): TermData {
   const terms = loadTerms(schoolId);
-  if (termId === undefined) return terms.at(-1)!;
+  if (termId === undefined) {
+    const id = defaultTerm(terms.map(withTimes)).id;
+    return terms.find((t) => t.termId === id)!;
+  }
   const term = terms.find((t) => t.termId === termId);
   if (!term) throw new Error(`${schoolId} için ${termId} dönemi yok`);
   return term;
@@ -42,7 +47,7 @@ export function loadTerm(schoolId: string, termId?: string): TermData {
 
 /** Varsayılan dönemin akademik yılı için Güz, Bahar, Yaz; ardından başka yıllardan yayındaki dönemler. */
 export function termOptions(schoolId: string): TermOption[] {
-  return buildTermOptions(loadTerms(schoolId).map((t) => parseTermLabel(t.termLabel)));
+  return buildTermOptions(loadTerms(schoolId).map(withTimes));
 }
 
 /** data/<okul>/programs.json; yoksa null (müfredat seçimi gizlenir). */

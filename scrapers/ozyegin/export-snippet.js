@@ -16,7 +16,7 @@
 (() => {
   const FORMAT_VERSION = 2;
   const DAY_NAMES = ['Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi', 'Pazar'];
-  const CODE_RE = /^([A-ZÇĞİÖŞÜ]{2,6})\s?(\d{3,4}[A-ZÇĞİÖŞÜ0-9_]*)\.([A-ZÇĞİÖŞÜ0-9]+)$/;
+  const CODE_RE = /^([A-ZÇĞİÖŞÜ]{2,6})\s?(\d{3,4}[A-ZÇĞİÖŞÜ0-9_]*(?:-\d+)?)\.([A-ZÇĞİÖŞÜ0-9]+)$/;
   const TIME_RE = /^(\d{1,2}:\d{2})\s*-\s*(\d{1,2}:\d{2})$/;
   const COUNT_RE = /\(\s*(\d+)\s*Kayıt Bulundu\s*\)/;
   const SCROLL_STEP = 300;

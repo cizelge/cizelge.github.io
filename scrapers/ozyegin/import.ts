@@ -57,7 +57,8 @@ const DAYS: Record<string, Meeting["day"]> = {
 };
 
 const TIME_RE = /^(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})$/;
-export const COURSE_CODE_RE = /^([A-ZÇĞİÖŞÜ]{2,6})\s*(\d{3,4}[A-ZÇĞİÖŞÜ0-9_]*)$/;
+// Konu dersleri ve bölüm stajları tireli ek taşır: "PSY 481-03", "BUS 301-11".
+export const COURSE_CODE_RE = /^([A-ZÇĞİÖŞÜ]{2,6})\s*(\d{3,4}[A-ZÇĞİÖŞÜ0-9_]*(?:-\d+)?)$/;
 const COREQ_MARK = "Yan koşul:";
 const PREREQ_MARK = "Ön koşul:";
 

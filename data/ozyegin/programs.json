@@ -3690,6 +3690,31 @@
                   "code": "PSY 432",
                   "title": "Tutum ve İkna",
                   "credits": 6
+                },
+                {
+                  "code": "PSY 441-01",
+                  "title": "Gelişim Psikolojisinde Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 451-01",
+                  "title": "Bilişsel Psikolojide Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 461-01",
+                  "title": "Sosyal Psikolojide Seçme Konular - 01",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 471-01",
+                  "title": "İş ve Örgüt Psikolojisinde Seçme Konular - 01",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 481-01",
+                  "title": "Klinik Psikolojide Seçme Konular I",
+                  "credits": 6
                 }
               ]
             },
@@ -4458,6 +4483,31 @@
                   "code": "PSY 432",
                   "title": "Tutum ve İkna",
                   "credits": 6
+                },
+                {
+                  "code": "PSY 441-01",
+                  "title": "Gelişim Psikolojisinde Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 451-01",
+                  "title": "Bilişsel Psikolojide Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 461-01",
+                  "title": "Sosyal Psikolojide Seçme Konular - 01",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 471-01",
+                  "title": "İş ve Örgüt Psikolojisinde Seçme Konular - 01",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 481-01",
+                  "title": "Klinik Psikolojide Seçme Konular I",
+                  "credits": 6
                 }
               ]
             },
@@ -5193,6 +5243,31 @@
                 {
                   "code": "PSY 432",
                   "title": "Tutum ve İkna",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 441-01",
+                  "title": "Gelişim Psikolojisinde Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 451-01",
+                  "title": "Bilişsel Psikolojide Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 461-01",
+                  "title": "Sosyal Psikolojide Seçme Konular - 01",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 471-01",
+                  "title": "İş ve Örgüt Psikolojisinde Seçme Konular - 01",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 481-01",
+                  "title": "Klinik Psikolojide Seçme Konular I",
                   "credits": 6
                 }
               ]
@@ -6127,6 +6202,16 @@
                   "code": "HUK 300",
                   "title": "Staj",
                   "credits": 6
+                },
+                {
+                  "code": "HUK 300-11",
+                  "title": "Staj",
+                  "credits": 3
+                },
+                {
+                  "code": "HUK 300-12",
+                  "title": "Staj",
+                  "credits": 3
                 }
               ]
             },
@@ -6139,6 +6224,16 @@
                   "code": "HUK 300",
                   "title": "Staj",
                   "credits": 6
+                },
+                {
+                  "code": "HUK 300-11",
+                  "title": "Staj",
+                  "credits": 3
+                },
+                {
+                  "code": "HUK 300-12",
+                  "title": "Staj",
+                  "credits": 3
                 }
               ]
             }
@@ -20352,8 +20447,63 @@
                   "credits": 6
                 },
                 {
+                  "code": "PSY 441-01",
+                  "title": "Gelişim Psikolojisinde Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 441-02",
+                  "title": "Gelişim Psikolojisinde Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
                   "code": "PSY 442",
                   "title": "Gelişim Psikolojisinde Seçme Konular II",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 451-01",
+                  "title": "Bilişsel Psikolojide Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 451-02",
+                  "title": "Bilişsel Psikolojide Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 461-01",
+                  "title": "Sosyal Psikolojide Seçme Konular - 01",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 461-02",
+                  "title": "Sosyal Psikolojide Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 471-01",
+                  "title": "İş ve Örgüt Psikolojisinde Seçme Konular - 01",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 471-02",
+                  "title": "İş ve Örgüt Psikolojisinde Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 481-01",
+                  "title": "Klinik Psikolojide Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 481-02",
+                  "title": "Klinik Psikolojide Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 481-03",
+                  "title": "Klinik Psikolojide Seçme Konular - 03",
                   "credits": 6
                 },
                 {
@@ -20364,6 +20514,11 @@
                 {
                   "code": "PSY 499",
                   "title": "Gelişim Psikolojisinde İleri Konular",
+                  "credits": 6
+                },
+                {
+                  "code": "SEC 401-6",
+                  "title": "Sektörel Uygulama-Psikoloji",
                   "credits": 6
                 }
               ]
@@ -20609,8 +20764,63 @@
                   "credits": 6
                 },
                 {
+                  "code": "PSY 441-01",
+                  "title": "Gelişim Psikolojisinde Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 441-02",
+                  "title": "Gelişim Psikolojisinde Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
                   "code": "PSY 442",
                   "title": "Gelişim Psikolojisinde Seçme Konular II",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 451-01",
+                  "title": "Bilişsel Psikolojide Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 451-02",
+                  "title": "Bilişsel Psikolojide Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 461-01",
+                  "title": "Sosyal Psikolojide Seçme Konular - 01",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 461-02",
+                  "title": "Sosyal Psikolojide Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 471-01",
+                  "title": "İş ve Örgüt Psikolojisinde Seçme Konular - 01",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 471-02",
+                  "title": "İş ve Örgüt Psikolojisinde Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 481-01",
+                  "title": "Klinik Psikolojide Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 481-02",
+                  "title": "Klinik Psikolojide Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 481-03",
+                  "title": "Klinik Psikolojide Seçme Konular - 03",
                   "credits": 6
                 },
                 {
@@ -20621,6 +20831,11 @@
                 {
                   "code": "PSY 499",
                   "title": "Gelişim Psikolojisinde İleri Konular",
+                  "credits": 6
+                },
+                {
+                  "code": "SEC 401-6",
+                  "title": "Sektörel Uygulama-Psikoloji",
                   "credits": 6
                 }
               ]
@@ -20866,8 +21081,63 @@
                   "credits": 6
                 },
                 {
+                  "code": "PSY 441-01",
+                  "title": "Gelişim Psikolojisinde Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 441-02",
+                  "title": "Gelişim Psikolojisinde Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
                   "code": "PSY 442",
                   "title": "Gelişim Psikolojisinde Seçme Konular II",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 451-01",
+                  "title": "Bilişsel Psikolojide Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 451-02",
+                  "title": "Bilişsel Psikolojide Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 461-01",
+                  "title": "Sosyal Psikolojide Seçme Konular - 01",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 461-02",
+                  "title": "Sosyal Psikolojide Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 471-01",
+                  "title": "İş ve Örgüt Psikolojisinde Seçme Konular - 01",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 471-02",
+                  "title": "İş ve Örgüt Psikolojisinde Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 481-01",
+                  "title": "Klinik Psikolojide Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 481-02",
+                  "title": "Klinik Psikolojide Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 481-03",
+                  "title": "Klinik Psikolojide Seçme Konular - 03",
                   "credits": 6
                 },
                 {
@@ -20878,6 +21148,11 @@
                 {
                   "code": "PSY 499",
                   "title": "Gelişim Psikolojisinde İleri Konular",
+                  "credits": 6
+                },
+                {
+                  "code": "SEC 401-6",
+                  "title": "Sektörel Uygulama-Psikoloji",
                   "credits": 6
                 }
               ]
@@ -21143,8 +21418,63 @@
                   "credits": 6
                 },
                 {
+                  "code": "PSY 441-01",
+                  "title": "Gelişim Psikolojisinde Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 441-02",
+                  "title": "Gelişim Psikolojisinde Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
                   "code": "PSY 442",
                   "title": "Gelişim Psikolojisinde Seçme Konular II",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 451-01",
+                  "title": "Bilişsel Psikolojide Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 451-02",
+                  "title": "Bilişsel Psikolojide Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 461-01",
+                  "title": "Sosyal Psikolojide Seçme Konular - 01",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 461-02",
+                  "title": "Sosyal Psikolojide Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 471-01",
+                  "title": "İş ve Örgüt Psikolojisinde Seçme Konular - 01",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 471-02",
+                  "title": "İş ve Örgüt Psikolojisinde Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 481-01",
+                  "title": "Klinik Psikolojide Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 481-02",
+                  "title": "Klinik Psikolojide Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 481-03",
+                  "title": "Klinik Psikolojide Seçme Konular - 03",
                   "credits": 6
                 },
                 {
@@ -21155,6 +21485,11 @@
                 {
                   "code": "PSY 499",
                   "title": "Gelişim Psikolojisinde İleri Konular",
+                  "credits": 6
+                },
+                {
+                  "code": "SEC 401-6",
+                  "title": "Sektörel Uygulama-Psikoloji",
                   "credits": 6
                 }
               ]
@@ -21400,8 +21735,63 @@
                   "credits": 6
                 },
                 {
+                  "code": "PSY 441-01",
+                  "title": "Gelişim Psikolojisinde Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 441-02",
+                  "title": "Gelişim Psikolojisinde Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
                   "code": "PSY 442",
                   "title": "Gelişim Psikolojisinde Seçme Konular II",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 451-01",
+                  "title": "Bilişsel Psikolojide Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 451-02",
+                  "title": "Bilişsel Psikolojide Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 461-01",
+                  "title": "Sosyal Psikolojide Seçme Konular - 01",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 461-02",
+                  "title": "Sosyal Psikolojide Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 471-01",
+                  "title": "İş ve Örgüt Psikolojisinde Seçme Konular - 01",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 471-02",
+                  "title": "İş ve Örgüt Psikolojisinde Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 481-01",
+                  "title": "Klinik Psikolojide Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 481-02",
+                  "title": "Klinik Psikolojide Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 481-03",
+                  "title": "Klinik Psikolojide Seçme Konular - 03",
                   "credits": 6
                 },
                 {
@@ -21412,6 +21802,11 @@
                 {
                   "code": "PSY 499",
                   "title": "Gelişim Psikolojisinde İleri Konular",
+                  "credits": 6
+                },
+                {
+                  "code": "SEC 401-6",
+                  "title": "Sektörel Uygulama-Psikoloji",
                   "credits": 6
                 }
               ]
@@ -21657,8 +22052,63 @@
                   "credits": 6
                 },
                 {
+                  "code": "PSY 441-01",
+                  "title": "Gelişim Psikolojisinde Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 441-02",
+                  "title": "Gelişim Psikolojisinde Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
                   "code": "PSY 442",
                   "title": "Gelişim Psikolojisinde Seçme Konular II",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 451-01",
+                  "title": "Bilişsel Psikolojide Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 451-02",
+                  "title": "Bilişsel Psikolojide Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 461-01",
+                  "title": "Sosyal Psikolojide Seçme Konular - 01",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 461-02",
+                  "title": "Sosyal Psikolojide Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 471-01",
+                  "title": "İş ve Örgüt Psikolojisinde Seçme Konular - 01",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 471-02",
+                  "title": "İş ve Örgüt Psikolojisinde Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 481-01",
+                  "title": "Klinik Psikolojide Seçme Konular I",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 481-02",
+                  "title": "Klinik Psikolojide Seçme Konular - 02",
+                  "credits": 6
+                },
+                {
+                  "code": "PSY 481-03",
+                  "title": "Klinik Psikolojide Seçme Konular - 03",
                   "credits": 6
                 },
                 {
@@ -21669,6 +22119,11 @@
                 {
                   "code": "PSY 499",
                   "title": "Gelişim Psikolojisinde İleri Konular",
+                  "credits": 6
+                },
+                {
+                  "code": "SEC 401-6",
+                  "title": "Sektörel Uygulama-Psikoloji",
                   "credits": 6
                 }
               ]

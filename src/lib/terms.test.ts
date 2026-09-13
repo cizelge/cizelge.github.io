@@ -65,6 +65,13 @@ describe("compareTerms / defaultTerm", () => {
     expect(defaultTerm([t("2026 - 2027 Bahar"), t("2026 - 2027 Güz")]).id).toBe("2026-2027-bahar");
     expect(() => defaultTerm([])).toThrow();
   });
+
+  it("prefers the latest term whose timetable is published", () => {
+    const bahar = { ...t("2026 - 2027 Bahar"), hasTimes: false };
+    expect(defaultTerm([bahar, { ...t("2026 - 2027 Güz"), hasTimes: true }]).id).toBe("2026-2027-guz");
+    // Hiçbirinde saat yoksa yine en yenisi
+    expect(defaultTerm([bahar, { ...t("2026 - 2027 Güz"), hasTimes: false }]).id).toBe("2026-2027-bahar");
+  });
 });
 
 describe("termInfo / termPath", () => {
@@ -83,9 +90,17 @@ describe("buildTermOptions", () => {
 
   it("with only Güz available, lists Güz, Bahar and Yaz with Güz as default", () => {
     expect(buildTermOptions([t("2026 - 2027 Güz")])).toEqual([
-      { id: "2026-2027-guz", label: "2026 - 2027 Güz", available: true, isDefault: true },
-      { id: "2026-2027-bahar", label: "2026 - 2027 Bahar", available: false, isDefault: false },
-      { id: "2026-2027-yaz", label: "2026 - 2027 Yaz", available: false, isDefault: false },
+      { id: "2026-2027-guz", label: "2026 - 2027 Güz", available: true, isDefault: true, hasTimes: true },
+      { id: "2026-2027-bahar", label: "2026 - 2027 Bahar", available: false, isDefault: false, hasTimes: false },
+      { id: "2026-2027-yaz", label: "2026 - 2027 Yaz", available: false, isDefault: false, hasTimes: false },
+    ]);
+  });
+
+  it("keeps Güz as default while Bahar only has its course list", () => {
+    const options = buildTermOptions([t("2026 - 2027 Güz"), { ...t("2026 -2027 Bahar"), hasTimes: false }]);
+    expect(options.slice(0, 2).map((o) => [o.id, o.available, o.isDefault, o.hasTimes])).toEqual([
+      ["2026-2027-guz", true, true, true],
+      ["2026-2027-bahar", true, false, false],
     ]);
   });
 

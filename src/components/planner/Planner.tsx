@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { TermOption } from "@/lib/terms";
+import { parseTermLabel, SEASON_LABEL, termHasTimes, type TermOption } from "@/lib/terms";
 import type { Course, ProgramsData, TermData } from "@/lib/types";
 import { expandCorequisites, type RelaxedConstraint, type SectionRef } from "@/lib/engine";
 import { visibleDays } from "@/lib/days";
@@ -52,6 +52,9 @@ interface PlannerProps {
 
 export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
   const courses = useMemo(() => new Map<string, Course>(term.courses.map((c) => [c.code, c])), [term]);
+  // Özyeğin bir dönemi önce yalnızca ders listesiyle yayınlar; saatler gelene kadar program oluşturulmaz.
+  const hasTimes = useMemo(() => termHasTimes(term), [term]);
+  const seasonName = SEASON_LABEL[parseTermLabel(term.termLabel).season];
   const sectionIds = useMemo(
     () => new Map(term.courses.map((c) => [c.code, c.sections.map((s) => s.id)])),
     [term],
@@ -104,7 +107,7 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
           },
     [state.cart, state.freeDays, state.locked, state.excluded, state.weights, courses],
   );
-  const { result, pending } = useSchedules(ready ? input : null);
+  const { result, pending } = useSchedules(ready && hasTimes ? input : null);
 
   const schedules = result?.schedules ?? [];
   const selectedIndex = Math.min(state.selected, Math.max(0, schedules.length - 1));
@@ -255,6 +258,16 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
           {note}
         </p>
 
+        {!hasTimes && (
+          <div className="notice">
+            <h3>{seasonName} dönemi ders saatleri henüz açıklanmadı</h3>
+            <p>
+              Özyeğin şimdilik yalnızca {seasonName} döneminde açılacak dersleri yayınladı. Sepetini şimdiden
+              hazırlayabilirsin; saatler açıklanınca programlar burada oluşur.
+            </p>
+          </div>
+        )}
+
         {missing.length > 0 && (
           <div className="notice">
             <p>{missingNotice(missing, term.termLabel)}</p>
@@ -263,7 +276,13 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
 
         <div className="board-head">
           <h1 className="board-title">
-            {state.cart.length === 0 ? "Haftan henüz boş" : current ? `${selectedIndex + 1}. program` : "Programın"}
+            {!hasTimes
+              ? `${seasonName} sepetin`
+              : state.cart.length === 0
+                ? "Haftan henüz boş"
+                : current
+                  ? `${selectedIndex + 1}. program`
+                  : "Programın"}
           </h1>
           <span className="board-status num" aria-live="polite">
             {status}
@@ -326,7 +345,9 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
           range={range}
           days={days}
           empty={
-            ready && state.cart.length === 0 ? (
+            !ready ? null : !hasTimes ? (
+              <p>{seasonName} saatleri gelince programların burada boyanır.</p>
+            ) : state.cart.length === 0 ? (
               <p>Ders ekledikçe en uygun programlar burada boyanır.</p>
             ) : null
           }

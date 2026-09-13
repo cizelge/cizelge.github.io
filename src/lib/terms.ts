@@ -21,6 +21,16 @@ export interface TermOption {
   available: boolean;
   /** Varsayılan dönem (/<okul> adresinde gösterilen). */
   isDefault: boolean;
+  /** Ders saatleri yayında mı (yoksa yalnızca açılacak derslerin listesi var). */
+  hasTimes: boolean;
+}
+
+/** Saat bilgisi verilmemiş dönem, saati var sayılır. */
+type TermWithTimes = TermInfo & { hasTimes?: boolean };
+
+/** Özyeğin bir dönemi önce yalnızca ders listesiyle yayınlar; saatler sonra gelir. */
+export function termHasTimes(term: { courses: readonly { sections: readonly { meetings: readonly unknown[] }[] }[] }): boolean {
+  return term.courses.some((c) => c.sections.some((s) => s.meetings.length > 0));
 }
 
 const LABEL_RE = /^(\d{4})\s*[-–—/]\s*(\d{4})\s+(\S+)$/;
@@ -58,10 +68,11 @@ export function compareTerms(a: TermInfo, b: TermInfo): number {
   return a.startYear - b.startYear || SEASONS.indexOf(a.season) - SEASONS.indexOf(b.season);
 }
 
-/** Sıralamada en son gelen dönem. */
-export function defaultTerm(terms: readonly TermInfo[]): TermInfo {
+/** Saatleri yayında olan en yeni dönem; hiçbirinde saat yoksa en yeni dönem. */
+export function defaultTerm<T extends TermWithTimes>(terms: readonly T[]): T {
   if (terms.length === 0) throw new Error("Hiç dönem yok");
-  return [...terms].sort(compareTerms).at(-1)!;
+  const sorted = [...terms].sort(compareTerms);
+  return sorted.filter((t) => t.hasTimes !== false).at(-1) ?? sorted.at(-1)!;
 }
 
 /** Varsayılan dönem okulun ana sayfasında, diğerleri /<okul>/donem/<id> altında. */
@@ -73,15 +84,16 @@ export function termPath(schoolId: string, term: { id: string; isDefault: boolea
  * Varsayılan dönemin akademik yılı için Güz, Bahar, Yaz; ardından başka yıllardan yayındaki dönemler
  * (eskiden yeniye).
  */
-export function buildTermOptions(available: readonly TermInfo[]): TermOption[] {
+export function buildTermOptions(available: readonly TermWithTimes[]): TermOption[] {
   if (available.length === 0) return [];
   const def = defaultTerm(available);
-  const ids = new Set(available.map((t) => t.id));
+  const byId = new Map(available.map((t) => [t.id, t]));
   const option = (t: TermInfo): TermOption => ({
     id: t.id,
     label: t.label,
-    available: ids.has(t.id),
+    available: byId.has(t.id),
     isDefault: t.id === def.id,
+    hasTimes: byId.has(t.id) && byId.get(t.id)!.hasTimes !== false,
   });
   const year = SEASONS.map((s) => option(termInfo(def.startYear, s)));
   const others = [...available]
