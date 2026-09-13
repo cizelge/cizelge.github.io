@@ -1,6 +1,6 @@
 import type { Course } from "../types";
-import { normalizeCode } from "../engine";
 
+/** Büyük/küçük harf ve Türkçe harf farkını yok sayar: "MİM", "mim" ve "MIM" aynı anahtara iner. */
 const fold = (s: string) =>
   s
     .toLocaleLowerCase("tr")
@@ -8,16 +8,18 @@ const fold = (s: string) =>
     .replace(/[̀-ͯ]/g, "")
     .replace(/ı/g, "i");
 
+const foldCode = (s: string) => fold(s).replace(/\s+/g, "");
+
 /** Kod başlangıcı en önce, sonra ad, sonra hoca eşleşmesi. */
 export function searchCourses(courses: readonly Course[], query: string, limit = 30): Course[] {
   const q = query.trim();
   if (!q) return [];
-  const codeKey = normalizeCode(q);
+  const codeKey = foldCode(q);
   const text = fold(q);
 
   const ranked: { course: Course; rank: number }[] = [];
   for (const course of courses) {
-    const code = normalizeCode(course.code);
+    const code = foldCode(course.code);
     let rank = -1;
     if (code === codeKey) rank = 0;
     else if (code.startsWith(codeKey)) rank = 1;
