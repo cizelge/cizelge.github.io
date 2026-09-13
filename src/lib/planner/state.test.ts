@@ -1,6 +1,15 @@
 import { describe, expect, it } from "vitest";
 import { normalizeCode } from "../engine";
-import { decodeState, DEFAULT_WEIGHTS, EMPTY_STATE, encodeState, resolveCode, type PlannerState } from "./state";
+import {
+  decodeState,
+  DEFAULT_WEIGHTS,
+  EMPTY_STATE,
+  encodeState,
+  missingNotice,
+  resolveCode,
+  termSwitchQuery,
+  type PlannerState,
+} from "./state";
 
 describe("course codes with Turkish letters and underscores", () => {
   const tr = new Map<string, string[]>([
@@ -117,5 +126,48 @@ describe("department and year in the link", () => {
     const { state, missing } = decodeState("bolum=BSCS&sinif=2", sections);
     expect(state).toMatchObject({ program: null, year: null });
     expect(missing).toEqual([]);
+  });
+});
+
+describe("termSwitchQuery", () => {
+  it("keeps courses, free days, weights and curriculum but drops section choices and the selected schedule", () => {
+    const s: PlannerState = {
+      ...EMPTY_STATE,
+      cart: ["CS 101", "MATH 103"],
+      freeDays: [5],
+      locked: { "CS 101": "B" },
+      excluded: [{ courseCode: "MATH 103", sectionId: "A" }],
+      weights: { ...DEFAULT_WEIGHTS, noEarly: 3 },
+      selected: 4,
+      program: "BSCS",
+      year: 1,
+    };
+    const q = new URLSearchParams(termSwitchQuery(s));
+    expect([...q.keys()]).toEqual(["d", "bos", "w", "bolum", "sinif"]);
+    expect(q.get("d")).toBe("CS101,MATH103");
+  });
+
+  it("is empty for an empty planner", () => {
+    expect(termSwitchQuery(EMPTY_STATE)).toBe("");
+  });
+});
+
+describe("missingNotice", () => {
+  it("names the season for courses that are not offered in the term", () => {
+    expect(missingNotice(["CS101", "EE201"], "2026 - 2027 Bahar")).toBe(
+      "Bahar döneminde açılmayan dersler: CS 101, EE 201. Geri kalanı yüklendi.",
+    );
+    expect(missingNotice(["MİM105"], "2026 -2027 Yaz")).toBe("Yaz döneminde açılmayan dersler: MİM 105. Geri kalanı yüklendi.");
+  });
+
+  it("reports sections and programs separately and skips sections of missing courses", () => {
+    expect(missingNotice(["EE201", "EE201:A", "CS101:Z", "BSXX"], "2026 - 2027 Güz")).toBe(
+      "Güz döneminde açılmayan dersler: EE 201. Linkteki bazı şube ya da bölümler bu dönem yok: CS101:Z, BSXX. Geri kalanı yüklendi.",
+    );
+  });
+
+  it("falls back to 'bu dönem' when the label names no season, and is null when nothing is missing", () => {
+    expect(missingNotice(["CS101"], "Örnek veri")).toBe("Bu dönem açılmayan dersler: CS 101. Geri kalanı yüklendi.");
+    expect(missingNotice([], "2026 - 2027 Güz")).toBeNull();
   });
 });

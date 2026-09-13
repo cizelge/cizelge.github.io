@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import type { TermOption } from "@/lib/terms";
 import type { Course, ProgramsData, TermData } from "@/lib/types";
 import { expandCorequisites, type RelaxedConstraint, type SectionRef } from "@/lib/engine";
 import { visibleDays } from "@/lib/days";
 import { programYears } from "@/lib/planner/curriculum";
 import { buildIcs } from "@/lib/planner/ics";
-import { decodeState, EMPTY_STATE, encodeState, type PlannerState } from "@/lib/planner/state";
+import { decodeState, EMPTY_STATE, encodeState, missingNotice, termSwitchQuery, type PlannerState } from "@/lib/planner/state";
 import { useSchedules } from "@/lib/planner/useSchedules";
 import { Cart } from "./Cart";
 import { CourseSearch } from "./CourseSearch";
@@ -15,6 +16,7 @@ import { NoSolution } from "./NoSolution";
 import { placeMeetings, timeRange } from "./placed";
 import { FreeDays, Priorities } from "./Preferences";
 import { formatGap, ScheduleStrip } from "./ScheduleStrip";
+import { TermSelect } from "./TermSelect";
 import { WeekGrid } from "./WeekGrid";
 
 const STORAGE_KEY = "planlayici:";
@@ -41,7 +43,14 @@ function nextMonday(from = new Date()) {
   return d;
 }
 
-export function Planner({ term, programs }: { term: TermData; programs: ProgramsData | null }) {
+interface PlannerProps {
+  term: TermData;
+  programs: ProgramsData | null;
+  /** Dönem seçicinin seçenekleri (termOptions); boşsa seçici gösterilmez. */
+  termOptions?: readonly TermOption[];
+}
+
+export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
   const courses = useMemo(() => new Map<string, Course>(term.courses.map((c) => [c.code, c])), [term]);
   const sectionIds = useMemo(
     () => new Map(term.courses.map((c) => [c.code, c.sections.map((s) => s.id)])),
@@ -191,6 +200,12 @@ export function Planner({ term, programs }: { term: TermData; programs: Programs
       </div>
 
       <aside className="rail" aria-label="Ders seçimi ve tercihler">
+        <TermSelect
+          schoolId={term.schoolId}
+          currentId={term.termId}
+          options={termOptions}
+          query={ready ? termSwitchQuery(state) : ""}
+        />
         {programs && (
           <Curriculum
             programs={programs.programs}
@@ -242,9 +257,7 @@ export function Planner({ term, programs }: { term: TermData; programs: Programs
 
         {missing.length > 0 && (
           <div className="notice">
-            <p>
-              Linkteki bazı ders ya da şubeler bu dönem yok: {missing.join(", ")}. Geri kalanı yüklendi.
-            </p>
+            <p>{missingNotice(missing, term.termLabel)}</p>
           </div>
         )}
 

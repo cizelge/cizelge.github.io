@@ -268,6 +268,54 @@ body {
 }
 .result .btn { grid-row: 1 / span 2; grid-column: 2; }
 
+/* ---------- Dönem seçici ---------- */
+
+.term-year {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 0 0 0.4rem;
+}
+.term-year .num { font-weight: 700; }
+.term-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+.term-option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--rule-strong);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+a.term-option:hover { background: var(--paper-2); }
+.term-option[aria-current="page"],
+a.term-option[aria-current="page"]:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+.term-option[aria-disabled="true"] {
+  border-style: dashed;
+  border-color: var(--rule-strong);
+  color: var(--ink-2);
+  cursor: not-allowed;
+}
+.term-soon,
+.term-others { margin-top: 0.45rem; font-size: 0.85rem; }
+/* Seçilemeyen döneme gelince (fare ya da klavye) neden seçilemediği öne çıkar. */
+.term-select:has(.term-option[aria-disabled="true"]:is(:hover, :focus-visible)) .term-soon { color: var(--ink); }
+
 /* ---------- Müfredat ---------- */
 
 /* Masaüstünde sol sütun dar: bölüm adı kesilmesin diye alt alta; telefonda genişlik yettiği için yan yana. */

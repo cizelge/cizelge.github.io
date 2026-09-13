@@ -2,6 +2,7 @@
 // Link okunabilir kalsın diye sıkıştırma yok: ?d=CS101,MATH103&bos=5&kilit=CS101:B&haric=ENG101:C&w=21000&p=2
 import type { Day, SectionRef, Weights } from "../engine";
 import { normalizeCode } from "../engine";
+import { parseTermLabel, SEASON_LABEL } from "../terms";
 
 export interface PlannerState {
   /** Sepetteki ders kodları, eklenme sırasıyla ("CS 101"). */
@@ -137,4 +138,44 @@ export function decodeState(
   }
 
   return { state: { cart, freeDays, locked, excluded, weights, selected, program, year }, missing };
+}
+
+/**
+ * Başka döneme geçerken taşınan link: dersler, boş günler, öncelikler, bölüm ve sınıf.
+ * Şube kilitleri ve hariç tutulan şubeler döneme özgü olduğu için, seçili program sırası da anlamsız
+ * kalacağı için taşınmaz.
+ */
+export function termSwitchQuery(s: PlannerState): string {
+  return encodeState({ ...s, locked: {}, excluded: [], selected: 0 });
+}
+
+/** "CS101" -> "CS 101". */
+const spacedCode = (raw: string) => raw.replace(/^(\p{Lu}+)\s*(\d.*)$/u, "$1 $2");
+
+/**
+ * decodeState'in `missing` listesinden kullanıcıya gösterilecek not. Ders kodları (rakam içerir),
+ * şubeler ("CS101:B") ve bölüm kodları ayrı söylenir; açılmayan bir dersin şubeleri ayrıca sayılmaz.
+ */
+export function missingNotice(missing: readonly string[], termLabel: string): string | null {
+  if (missing.length === 0) return null;
+  const courses = missing.filter((m) => !m.includes(":") && /\d/.test(m));
+  const missingKeys = new Set(courses.map(normalizeCode));
+  const others = missing.filter(
+    (m) => !courses.includes(m) && !(m.includes(":") && missingKeys.has(normalizeCode(m.split(":")[0]))),
+  );
+
+  let season: string | null = null;
+  try {
+    season = SEASON_LABEL[parseTermLabel(termLabel).season];
+  } catch {
+    season = null;
+  }
+
+  const parts: string[] = [];
+  if (courses.length > 0) {
+    parts.push(`${season ? `${season} döneminde` : "Bu dönem"} açılmayan dersler: ${courses.map(spacedCode).join(", ")}.`);
+  }
+  if (others.length > 0) parts.push(`Linkteki bazı şube ya da bölümler bu dönem yok: ${others.join(", ")}.`);
+  parts.push("Geri kalanı yüklendi.");
+  return parts.join(" ");
 }
