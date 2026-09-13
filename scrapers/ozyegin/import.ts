@@ -56,7 +56,7 @@ const DAYS: Record<string, Meeting["day"]> = {
 };
 
 const TIME_RE = /^(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})$/;
-const COURSE_CODE_RE = /^([A-ZÇĞİÖŞÜ]{2,6})\s*(\d{3,4}[A-ZÇĞİÖŞÜ0-9_]*)$/;
+export const COURSE_CODE_RE = /^([A-ZÇĞİÖŞÜ]{2,6})\s*(\d{3,4}[A-ZÇĞİÖŞÜ0-9_]*)$/;
 const COREQ_MARK = "Yan koşul:";
 const PREREQ_MARK = "Ön koşul:";
 
@@ -102,13 +102,13 @@ function dedupeMeetings(meetings: Meeting[]): Meeting[] {
   });
 }
 
-function parseCredits(text: string): number | null {
+export function parseCredits(text: string): number | null {
   const n = text.match(/(\d+(?:[.,]\d+)?)/);
   return n ? Number(n[1].replace(",", ".")) : null;
 }
 
 /** "EE 201, EE 341L" -> ["EE 201", "EE 341L"]; kod olmayan parçalar atılır, "MATH107R" -> "MATH 107R". */
-function parseCoreqList(text: string): string[] {
+export function parseCoreqList(text: string): string[] {
   const out: string[] = [];
   for (const token of text.split(/\s*(?:,|;|\sve\s|\sand\s)\s*/)) {
     const m = squash(token).match(COURSE_CODE_RE);

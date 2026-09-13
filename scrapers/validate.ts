@@ -1,5 +1,5 @@
 // Yayına çıkmadan önce TermData kontrolü. Boş dizi = geçti.
-import type { TermData } from "../src/lib/types";
+import type { ProgramsData, TermData } from "../src/lib/types";
 
 const HHMM = /^([01]\d|2[0-3]):[0-5]\d$/;
 const MAX_DROP = 0.3;
@@ -45,5 +45,24 @@ export function validateTermData(term: TermData, previous?: TermData | null): st
     }
   }
 
+  return errors;
+}
+
+/** Müfredat verisi kontrolü. Boş dizi = geçti. */
+export function validateProgramsData(data: ProgramsData): string[] {
+  const errors: string[] = [];
+  if (data.programs.length === 0) errors.push("Hiç program yok");
+
+  const ids = new Set<string>();
+  const slugs = new Set<string>();
+  for (const p of data.programs) {
+    if (ids.has(p.id)) errors.push(`Tekrar eden program kodu: ${p.id}`);
+    ids.add(p.id);
+    if (slugs.has(p.slug)) errors.push(`Tekrar eden program slug: ${p.slug} (${p.id})`);
+    slugs.add(p.slug);
+    if (!p.id || !p.name) errors.push(`Kodu ya da adı eksik program: "${p.id}"`);
+    if (!SLUG.test(p.slug)) errors.push(`${p.id}: slug yalnızca a-z, 0-9 ve "-" içermeli ("${p.slug}")`);
+    if (!p.semesters.some((s) => s.items.length > 0)) errors.push(`${p.id}: hiç ders satırı yok`);
+  }
   return errors;
 }

@@ -34,3 +34,39 @@ export interface Meeting {
   end: string;                   // "12:30"
   room: string | null;
 }
+
+// Bölüm müfredatları (data/ozyegin/programs.json). Kaynak: SIS program planı, scrapers/ozyegin/programs.ts.
+
+export interface ProgramsData {
+  schoolId: string;
+  fetchedAt: string;             // ISO zaman
+  programs: Program[];
+}
+
+export interface Program {
+  id: string;                    // SIS program kodu olduğu gibi: "BSCS", "BSARCH (TR)"
+  slug: string;                  // "bscs", "bsarch-tr"
+  name: string;
+  faculty: string;
+  semesters: PlanSemester[];
+}
+
+export type PlanSeason = "guz" | "bahar" | "yaz" | "other";
+
+export interface PlanSemester {
+  year: number;                  // 0 = Hazırlık
+  season: PlanSeason;
+  label: string;                 // başlık satırı olduğu gibi: "1. Yıl - Güz (30 Kredi)"
+  credits: number | null;
+  items: PlanItem[];
+}
+
+export interface PlanPoolCourse {
+  code: string;
+  title: string;
+  credits: number | null;
+}
+
+export type PlanItem =
+  | { kind: "course"; code: string; title: string; credits: number | null; prerequisites: string; corequisites: string[] }
+  | { kind: "elective"; label: string; credits: number | null; pool: PlanPoolCourse[] | null };

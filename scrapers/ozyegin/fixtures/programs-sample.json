@@ -1,0 +1,76 @@
+{
+  "source": "ozyegin-sis-program-plan",
+  "formatVersion": 1,
+  "exportedAt": "2026-09-13T18:00:00.000Z",
+  "programs": [
+    {
+      "code": "BSCS",
+      "name": "Bilgisayar Mühendisliği",
+      "faculty": "Mühendislik Fakültesi",
+      "rows": [
+        ["1. Yıl - Güz (30 Kredi)"],
+        ["CS 101", "Bilgisayar Programlama", "6.0", "", "CS 101L", ""],
+        ["CS 101L", "Bilgisayar Programlama Laboratuvarı", "0.0", "", "CS 101", ""],
+        ["MATH 103", "Mühendislik için Yüksek Matematik I", "8.0", "", "MATH 103R", ""],
+        ["ENG 101", "Akademik İngilizce I", "4.0", "", "", ""],
+        ["GEN 101", "Üniversite Hayatına Giriş", "1.0", "", "", ""],
+        ["", "BSCS Program-İçi Seçmeli", "6.0", "", "", ""],
+        ["", "FE Serbest Seçmeli", "4.0", "", "", ""],
+        ["1. Yıl - Bahar (30 Kredi)"],
+        ["CS 102", "Nesneye Yönelik Programlama", "6.0", "CS 101", "CS 102L", ""],
+        ["MATH 104", "Mühendislik için Yüksek Matematik II", "8.0", "MATH103", "MATH 104R", ""],
+        ["PHYS 101", "Fizik I", "6.0", "", "", ""],
+        ["2. Yıl - Güz (30 Kredi)"],
+        ["CS 201", "Veri Yapıları ve Algoritmalar", "6.0", "(CS 102 or CS 105) and (CS112 or MATH 112)", "CS 201L", ""],
+        ["SEC201L", "Güvenli Yazılım Laboratuvarı", "2.0", "CS 102", "", ""],
+        ["EE 201", "Devre Teorisi", "6.0", "PHYS 101", "", ""],
+        ["", "BSCS Program-İçi Seçmeli", "6.0", "", "", ""],
+        ["", "BSCS Program-İçi Seçmeli", "6.0", "", "", ""],
+        ["2. Yıl - Bahar (30 Kredi)"],
+        ["CS 202", "Veritabanı Yönetim Sistemleri", "6.0", "CS 201", "", ""],
+        ["HIST 201", "Atatürk İlkeleri ve İnkılap Tarihi I", "2.0", "", "", ""],
+        ["2. Yıl - Yaz Stajı"],
+        ["CS 299", "Yaz Stajı", "0.0", "", "", ""]
+      ],
+      "pools": {
+        "BSCS Program-İçi Seçmeli": [
+          ["CS 110", "Mühendislik İçin Hesaplama", "6.00", "CS101 or CS100 or CS 103", "", ""],
+          ["EE 201", "Devre Teorisi", "6.00", "", "", ""],
+          ["HIST201", "Atatürk İlkeleri ve İnkılap Tarihi I", "2.00", "", "", ""],
+          ["", "", "", "", "", ""]
+        ],
+        "FE Serbest Seçmeli": null
+      }
+    },
+    {
+      "code": "BSARCH (TR)",
+      "name": "Mimarlık (Türkçe)",
+      "faculty": "Mimarlık ve Tasarım Fakültesi",
+      "rows": [
+        ["Hazırlık Programı"],
+        ["ENG 001", "İngilizce Hazırlık", "0.0", "", "", ""],
+        ["1. Yıl - Güz (32 Kredi)"],
+        ["MİM 105", "Mimari Tasarıma Giriş", "8.0", "", "MİM 105L", ""],
+        ["MİM105L", "Mimari Tasarım Stüdyosu", "2.0", "", "MİM 105", ""],
+        ["", "Sosyal Bilimler Seçmeli", "3.0", "", "", ""],
+        ["Program Notları"],
+        ["", "Açıklama satırı", "", "", "", ""]
+      ],
+      "pools": {
+        "Sosyal Bilimler Seçmeli": null
+      }
+    },
+    {
+      "code": "BSEE",
+      "name": "Elektrik-Elektronik Mühendisliği",
+      "faculty": "Mühendislik Fakültesi",
+      "rows": [
+        ["1. Yıl - Güz (30 Kredi)"],
+        ["MATH 103", "Mühendislik için Yüksek Matematik I", "8.0", "", "", ""],
+        ["PHYS 101", "Fizik I", "6.0", "", "", ""],
+        ["", "Bilinmeyen Seçmeli", "3.0", "", "", ""]
+      ],
+      "pools": {}
+    }
+  ]
+}
