@@ -1,8 +1,12 @@
 import type { Course } from "../types";
 
-/** "cs 101l" / "CS101L" / "CS 101L" -> "CS101L" */
+/**
+ * "cs 101l" / "CS101L" / "CS 101L" -> "CS101L"; "MİM 105" -> "MİM105".
+ * Locale-independent upper-casing keeps "İ" and "I" distinct; NFC folds the
+ * "I" + combining dot that `"MİM".toLowerCase().toUpperCase()` yields back to "İ".
+ */
 export function normalizeCode(code: string): string {
-  return code.replace(/\s+/g, "").toUpperCase();
+  return code.replace(/\s+/g, "").toUpperCase().normalize("NFC");
 }
 
 /**

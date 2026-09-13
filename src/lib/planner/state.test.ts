@@ -1,5 +1,36 @@
 import { describe, expect, it } from "vitest";
-import { decodeState, DEFAULT_WEIGHTS, EMPTY_STATE, encodeState, type PlannerState } from "./state";
+import { normalizeCode } from "../engine";
+import { decodeState, DEFAULT_WEIGHTS, EMPTY_STATE, encodeState, resolveCode, type PlannerState } from "./state";
+
+describe("course codes with Turkish letters and underscores", () => {
+  const tr = new Map<string, string[]>([
+    ["MİM 105", ["A", "B"]],
+    ["SAS 405_U", ["A"]],
+    ["MIS 201", ["A"]],
+  ]);
+
+  it("normalizeCode keeps İ distinct from I and undoes a lower-cased İ", () => {
+    expect(normalizeCode("MİM 105")).toBe("MİM105");
+    expect(normalizeCode("mi̇m105")).toBe("MİM105"); // "MİM".toLowerCase() === "mi̇m"
+    expect(normalizeCode("MİM105")).not.toBe(normalizeCode("MIM105"));
+    expect(normalizeCode("sas 405_u")).toBe("SAS405_U");
+  });
+
+  it("round-trips such codes through the link", () => {
+    const s: PlannerState = { ...EMPTY_STATE, cart: ["MİM 105", "SAS 405_U"], locked: { "MİM 105": "B" } };
+    const q = encodeState(s);
+    expect(new URLSearchParams(q).get("d")).toBe("MİM105,SAS405_U");
+    expect(decodeState(q, tr)).toEqual({ state: s, missing: [] });
+  });
+
+  it("resolves hand-typed links with raw Turkish letters", () => {
+    expect(resolveCode("MİM105", [...tr.keys()])).toBe("MİM 105");
+    const { state, missing } = decodeState("d=MİM105,sas405_u&kilit=MİM105:B", tr);
+    expect(state.cart).toEqual(["MİM 105", "SAS 405_U"]);
+    expect(state.locked).toEqual({ "MİM 105": "B" });
+    expect(missing).toEqual([]);
+  });
+});
 
 const sections = new Map<string, string[]>([
   ["CS 101", ["A", "B"]],
