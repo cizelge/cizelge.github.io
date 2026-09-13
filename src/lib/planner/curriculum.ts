@@ -1,11 +1,12 @@
 // Bölüm müfredatından "bu dönem hangi dersleri almalıyım" görünümü. Saf mantık: React yok.
 import type { Course, PlanItem, PlanPoolCourse, Program, ProgramsData } from "../types";
 import { expandCorequisites, normalizeCode } from "../engine";
+import type { TermSeason } from "../terms";
+
+export type { TermSeason };
 
 /** Bundan büyük havuzlar liste olarak gösterilmez (serbest seçmeli gibi); ders aramayla eklenir. */
 export const MAX_POOL_SIZE = 150;
-
-export type TermSeason = "guz" | "bahar" | "yaz";
 
 const word = (w: string) => new RegExp(`(^|[^\\p{L}])${w}($|[^\\p{L}])`, "u");
 
