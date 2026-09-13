@@ -182,6 +182,18 @@ body {
   font-size: 0.93rem;
 }
 .topbar-spacer { flex: 1; }
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+.icon-btn:hover { color: var(--ink); border-color: var(--rule-strong); }
 
 /* ---------- Planlayıcı düzeni ---------- */
 
@@ -205,6 +217,20 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+}
+
+/* Masaüstünde sol sütun kendi içinde kayar: sepet uzasa da çizelge ve ayarlar yerinden oynamaz. */
+@media (min-width: 861px) {
+  .planner { align-items: start; }
+  .rail {
+    position: sticky;
+    top: 0;
+    max-height: 100dvh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+  }
 }
 
 .tabs { display: none; }
@@ -366,19 +392,68 @@ a.term-option[aria-current="page"]:hover {
   gap: 0.35rem;
 }
 .cart-item {
+  position: relative;
   border-radius: var(--radius-s);
   background: color-mix(in oklab, var(--hl) calc(var(--hl-mix) * 0.45), var(--paper));
   border-left: 5px solid var(--hl);
 }
+/* Tek satır: kod, kesilen ad, şube rozeti; çıkar düğmesi sağ üstte sabit. */
 .cart-row {
-  display: grid;
-  grid-template-columns: 1fr auto;
+  display: flex;
   align-items: center;
-  gap: 0 0.5rem;
-  padding: 0.5rem 0.4rem 0.5rem 0.7rem;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.3rem 2.5rem 0.3rem 0.7rem;
 }
-.cart-code { font-weight: 700; }
-.cart-title { color: var(--ink-2); font-size: 0.87rem; overflow-wrap: anywhere; }
+.cart-name { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 0.45rem; }
+.cart-code { font-weight: 700; white-space: nowrap; }
+.cart-title { min-width: 0; color: var(--ink-2); font-size: 0.87rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cart-badge {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--paper) 75%, transparent);
+  color: var(--ink);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.cart-badge.is-locked { background: var(--ink); color: var(--paper); }
+.cart-caret {
+  width: 0.4em;
+  height: 0.4em;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-0.12em) rotate(45deg);
+}
+.cart-item .cart-details { padding: 0; font-size: 0.9rem; }
+.cart-item .cart-details > summary.cart-row { list-style: none; cursor: pointer; color: var(--ink); padding: 0.3rem 2.5rem 0.3rem 0.7rem; }
+.cart-item .cart-details > summary::-webkit-details-marker { display: none; }
+.cart-item .cart-details[open] .cart-caret { transform: translateY(0.12em) rotate(-135deg); }
+.cart-panel { display: grid; gap: 0.6rem; padding: 0.1rem 0.7rem 0.75rem; }
+.cart-lock { display: grid !important; gap: 0.25rem; padding: 0 !important; }
+.cart-lock .select { width: 100%; min-height: 38px; }
+.cart-sections { margin: 0; padding: 0; border: 0; display: grid; gap: 0.05rem; }
+.cart-sections legend { margin-bottom: 0.2rem; font-size: 0.82rem; }
+.cart-sections b { font-weight: 700; }
+.cart-remove {
+  position: absolute;
+  top: 5px;
+  right: 4px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: var(--radius-s);
+  background: transparent;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+.cart-remove:hover { background: color-mix(in oklab, var(--ink) 9%, transparent); color: var(--ink); }
 .cart-details {
   padding: 0 0.7rem 0.6rem;
   font-size: 0.9rem;
@@ -399,29 +474,53 @@ a.term-option[aria-current="page"]:hover {
   font: inherit;
 }
 
-/* ---------- Günler ve öncelikler ---------- */
+/* ---------- Ayar çubuğu: boş günler ve öncelik ---------- */
 
-.day-toggles { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-.day-toggle {
-  min-height: 40px;
-  min-width: 3.2rem;
-  padding: 0 0.7rem;
+.tuning {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1.75rem;
+  padding: 0.55rem 0;
+  border-block: 1px solid var(--rule);
+}
+.tuning-group { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.6rem; }
+.tuning-label { color: var(--ink-2); font-size: 0.85rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 0.75rem;
   border-radius: 999px;
   border: 1px solid var(--rule-strong);
   background: transparent;
   color: var(--ink);
   font: inherit;
+  font-size: 0.9rem;
   cursor: pointer;
+  list-style: none;
+  white-space: nowrap;
 }
-.day-toggle[aria-pressed="true"] {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: var(--paper);
-  text-decoration: line-through;
-  text-decoration-thickness: 2px;
+.chip::-webkit-details-marker { display: none; }
+.chip:hover { background: var(--paper-2); }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+/* Boş gün, çizelgedeki gibi üstü çizili. */
+.chip-day[aria-pressed="true"] { text-decoration: line-through; text-decoration-thickness: 2px; }
+.tuning-more[open] > .chip { background: var(--paper-2); border-color: var(--ink); }
+.tuning-panel {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 0.35rem);
+  right: 0;
+  width: min(24rem, 100%);
+  padding: 0.6rem 1rem 0.75rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-m);
+  background: var(--paper);
+  box-shadow: 0 18px 40px -18px color-mix(in oklab, var(--ink) 40%, transparent);
 }
-
-.presets { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.9rem; }
 
 .pref {
   display: grid;
@@ -478,10 +577,15 @@ a.term-option[aria-current="page"]:hover {
   border-color: var(--ink);
   box-shadow: inset 0 0 0 1px var(--ink);
 }
-.mini-rank { font-weight: 700; font-size: 0.85rem; }
+.mini { width: 8.5rem; }
+.mini-meta { display: flex; flex-direction: column; }
+.mini-variants { color: var(--ink); font-weight: 600; }
+.mini-head { display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem; }
+.mini-rank { font-weight: 800; font-size: 0.95rem; }
+.mini-days { font-size: 0.8rem; font-weight: 600; }
 .mini-map {
   position: relative;
-  width: 88px;
+  width: 100%;
   height: 64px;
   display: grid;
   grid-template-columns: repeat(var(--cols), 1fr);
@@ -539,6 +643,8 @@ a.term-option[aria-current="page"]:hover {
   font-size: 0.78rem;
   color: var(--ink-2);
 }
+/* İlk saat başlık çizgisinin altına iner, üstüne taşmaz. */
+.week-hour.is-first { transform: translateY(0.2em); }
 .week-col {
   position: relative;
   border-left: 1px solid var(--rule);
@@ -554,9 +660,11 @@ a.term-option[aria-current="page"]:hover {
   background-color: var(--paper-2);
 }
 .block {
+  --gap: 3px;
   position: absolute;
-  left: 3px;
-  right: 3px;
+  /* Aynı saatteki bloklar sütunu paylaşır (bkz. assignLanes). */
+  left: calc(var(--gap) + (100% - 2 * var(--gap)) * var(--lane, 0) / var(--lanes, 1));
+  width: calc((100% - 2 * var(--gap)) / var(--lanes, 1) - (var(--lanes, 1) - 1) * 2px / var(--lanes, 1));
   padding: 0.3rem 0.45rem;
   border-radius: var(--radius-s);
   overflow: hidden;
@@ -567,6 +675,9 @@ a.term-option[aria-current="page"]:hover {
   line-height: 1.25;
 }
 .block-code { font-weight: 700; display: block; }
+.block-section { font-weight: 500; opacity: 0.75; }
+.is-compact .block { padding: 0.2rem 0.4rem; font-size: 0.76rem; }
+.is-compact .block-code { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .block-sub { display: block; opacity: 0.85; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 .week-empty {
@@ -626,6 +737,33 @@ a.term-option[aria-current="page"]:hover {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
   gap: clamp(2rem, 5vw, 4rem);
   align-items: center;
+}
+/* Ana sayfa içeriği ekranı dikeyde doldurur, alt yarı boş kalmaz. */
+@media (min-width: 861px) {
+  .home .home-grid { min-height: calc(100dvh - 60px - 2 * clamp(2rem, 6vw, 4.5rem)); }
+}
+.home-demo { margin: 0; }
+.home-demo-caption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  margin-top: 0.75rem;
+  color: var(--ink-2);
+  font-size: 0.9rem;
+}
+.course-prereq { max-width: 44rem; margin: -0.5rem 0 1.5rem; }
+.course-prereq .field-label { display: block; }
+.section-tag {
+  display: inline-block;
+  min-width: 1.9rem;
+  padding: 0.05rem 0.5rem;
+  border-left: 4px solid var(--hl);
+  border-radius: var(--radius-s);
+  background: color-mix(in oklab, var(--hl) var(--hl-mix), var(--paper));
+  color: var(--hl-text);
+  font-weight: 700;
+  text-align: center;
 }
 .school-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
 .school-link {
@@ -699,9 +837,15 @@ a.term-option[aria-current="page"]:hover {
   .planner[data-tab="dersler"] .board { display: none; }
   .home-grid { grid-template-columns: minmax(0, 1fr); }
   .week { grid-template-columns: 2.6rem repeat(var(--cols), minmax(0, 1fr)); }
-  .block { font-size: 0.72rem; padding: 0.2rem 0.25rem; left: 1px; right: 1px; border-left-width: 3px; }
+  .block { --gap: 1px; font-size: 0.72rem; padding: 0.2rem 0.25rem; border-left-width: 3px; }
   .block-sub { display: none; }
   .topbar-term { display: none; }
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem 1rem; width: 100%; }
+  .actions { width: 100%; }
+  .actions .btn { flex: 1; justify-content: center; }
+  .tuning { gap: 0.5rem; }
+  .tuning-group { width: 100%; justify-content: space-between; }
+  .tuning-panel { left: 0; right: 0; width: auto; }
 }
 
 @media (prefers-reduced-motion: no-preference) {

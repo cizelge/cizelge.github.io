@@ -14,8 +14,8 @@ import { CourseSearch } from "./CourseSearch";
 import { Curriculum } from "./Curriculum";
 import { NoSolution } from "./NoSolution";
 import { placeMeetings, timeRange } from "./placed";
-import { FreeDays, Priorities } from "./Preferences";
-import { formatGap, ScheduleStrip } from "./ScheduleStrip";
+import { Tuning } from "./Preferences";
+import { formatGap, groupSchedules, ScheduleStrip } from "./ScheduleStrip";
 import { TermSelect } from "./TermSelect";
 import { WeekGrid } from "./WeekGrid";
 
@@ -109,9 +109,11 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
   );
   const { result, pending } = useSchedules(ready && hasTimes ? input : null);
 
-  const schedules = result?.schedules ?? [];
+  const schedules = useMemo(() => result?.schedules ?? [], [result]);
   const selectedIndex = Math.min(state.selected, Math.max(0, schedules.length - 1));
   const current = schedules[selectedIndex];
+  const groups = useMemo(() => groupSchedules(schedules, courses), [schedules, courses]);
+  const groupRank = Math.max(0, groups.findIndex((g) => g.members.includes(selectedIndex))) + 1;
   const cartSections: SectionRef[] = state.cart.flatMap((code) =>
     (courses.get(code)?.sections ?? []).map((s) => ({ courseCode: code, sectionId: s.id })),
   );
@@ -175,7 +177,7 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
     const blob = new Blob([buildIcs(current.sections, courses, nextMonday())], { type: "text/calendar" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
-    a.download = `program-${selectedIndex + 1}.ics`;
+    a.download = `program-${groupRank}.ics`;
     a.click();
     URL.revokeObjectURL(a.href);
     setNote("Takvim dosyası indirildi. Dersler önümüzdeki Pazartesiden itibaren 14 hafta tekrar eder.");
@@ -189,7 +191,9 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
         ? "Programlar hesaplanıyor"
         : schedules.length === 0
           ? ""
-          : `${result?.truncated ? "50.000'den fazla" : schedules.length === 50 ? "En iyi 50" : schedules.length} çakışmasız program bulundu`;
+          : `${result?.truncated ? "50.000'den fazla" : schedules.length === 50 ? "En iyi 50" : schedules.length} çakışmasız program${
+              groups.length < schedules.length ? `, ${groups.length} farklı haftalık düzen` : " bulundu"
+            }`;
 
   return (
     <div className="planner" data-tab={tab}>
@@ -229,6 +233,7 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
           colorOf={colorOf}
           locked={state.locked}
           excluded={state.excluded}
+          chosen={Object.fromEntries((current?.sections ?? []).map((r) => [r.courseCode, r.sectionId]))}
           onRemove={removeCourse}
           onLock={(code, id) => {
             const { [code]: _, ...rest } = state.locked;
@@ -249,8 +254,6 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
             Programları gör
           </button>
         )}
-        <FreeDays value={state.freeDays} onChange={(freeDays) => update({ freeDays })} />
-        <Priorities value={state.weights} onChange={(weights) => update({ weights })} />
       </aside>
 
       <main className="board" id="icerik">
@@ -281,7 +284,7 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
               : state.cart.length === 0
                 ? "Haftan henüz boş"
                 : current
-                  ? `${selectedIndex + 1}. program`
+                  ? `${groupRank}. program`
                   : "Programın"}
           </h1>
           <span className="board-status num" aria-live="polite">
@@ -289,9 +292,19 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
           </span>
         </div>
 
-        {schedules.length > 1 && (
+        {hasTimes && state.cart.length > 0 && (
+          <Tuning
+            freeDays={state.freeDays}
+            onFreeDays={(freeDays) => update({ freeDays })}
+            weights={state.weights}
+            onWeights={(weights) => update({ weights })}
+          />
+        )}
+
+        {groups.length > 1 && (
           <ScheduleStrip
             schedules={schedules}
+            groups={groups}
             selected={selectedIndex}
             onSelect={(i) => setState((s) => ({ ...s, selected: i }))}
             courses={courses}

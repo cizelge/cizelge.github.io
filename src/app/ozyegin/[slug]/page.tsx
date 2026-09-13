@@ -4,9 +4,10 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/SiteHeader";
 import { WeekGrid } from "@/components/planner/WeekGrid";
 import type { PlacedMeeting } from "@/components/planner/placed";
-import { timeRange } from "@/components/planner/placed";
+import { tightRange } from "@/components/planner/placed";
 import { findCourse, loadTerm } from "@/lib/data";
 import { DAY_NAMES as DAY, visibleDays } from "@/lib/days";
+import { personName } from "@/lib/format";
 
 export const dynamicParams = false;
 
@@ -92,6 +93,12 @@ export default async function CoursePage(props: PageProps<"/ozyegin/[slug]">) {
           )}
         </dl>
 
+        {course.prerequisites && (
+          <p className="course-prereq">
+            <span className="field-label">Ön koşul</span> {course.prerequisites}
+          </p>
+        )}
+
         <p style={{ marginBottom: "2.5rem" }}>
           <Link href={`/ozyegin?d=${planQuery}`} className="btn btn-pen">
             Programıma ekle
@@ -114,11 +121,9 @@ export default async function CoursePage(props: PageProps<"/ozyegin/[slug]">) {
               {course.sections.map((s, i) => (
                 <tr key={s.id}>
                   <td>
-                    <span className={`cart-item hl-${i % 6}`} style={{ padding: "0.1rem 0.5rem", fontWeight: 700 }}>
-                      {s.id}
-                    </span>
+                    <span className={`section-tag hl-${i % 6}`}>{s.id}</span>
                   </td>
-                  <td>{s.instructors.join(", ") || "Belirtilmemiş"}</td>
+                  <td>{s.instructors.map(personName).join(", ") || "Belirtilmemiş"}</td>
                   <td className="num">
                     {s.meetings.length === 0
                       ? "Saat yok"
@@ -136,7 +141,7 @@ export default async function CoursePage(props: PageProps<"/ozyegin/[slug]">) {
         <WeekGrid
           meetings={meetings}
           freeDays={[]}
-          range={timeRange(meetings)}
+          range={tightRange(meetings)}
           days={visibleDays(meetings)}
         />
       </main>

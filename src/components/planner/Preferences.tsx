@@ -9,8 +9,6 @@ const DAYS: { day: Day; label: string }[] = [
   { day: 4, label: "Per" },
   { day: 5, label: "Cum" },
 ];
-// Boş gün seçimi bilerek yalnızca Pazartesi–Cuma.
-const DAY_FULL = DAY_NAMES;
 
 const LABELS: Record<(typeof WEIGHT_KEYS)[number], string> = {
   fewDays: "Kampüse az gün gel",
@@ -21,72 +19,76 @@ const LABELS: Record<(typeof WEIGHT_KEYS)[number], string> = {
 };
 const LEVELS = ["Önemsiz", "Az", "Önemli", "Çok önemli"];
 
-export function FreeDays({ value, onChange }: { value: Day[]; onChange: (days: Day[]) => void }) {
-  return (
-    <section aria-labelledby="bos-gunler">
-      <h2 className="group-title" id="bos-gunler">
-        Boş günler
-      </h2>
-      <p className="hint" style={{ marginBottom: "0.6rem" }}>
-        Seçtiğin günlere hiç ders konmaz.
-      </p>
-      <div className="day-toggles">
-        {DAYS.map(({ day, label }) => {
-          const on = value.includes(day);
-          return (
-            <button
-              key={day}
-              type="button"
-              className="day-toggle"
-              aria-pressed={on}
-              aria-label={DAY_FULL[day]}
-              onClick={() => onChange(on ? value.filter((d) => d !== day) : [...value, day])}
-            >
-              {label}
-            </button>
-          );
-        })}
-      </div>
-    </section>
-  );
+interface Props {
+  freeDays: Day[];
+  onFreeDays: (days: Day[]) => void;
+  weights: Weights;
+  onWeights: (w: Weights) => void;
 }
 
-export function Priorities({ value, onChange }: { value: Weights; onChange: (w: Weights) => void }) {
-  const activePreset = PRESETS.find((p) => WEIGHT_KEYS.every((k) => p.weights[k] === value[k]))?.id;
+/**
+ * Programların üstündeki ayar çubuğu: boş günler ve sıralama önceliği.
+ * Etkisi hemen altındaki programlarda görüldüğü için sonuçların yanında durur.
+ */
+export function Tuning({ freeDays, onFreeDays, weights, onWeights }: Props) {
+  const activePreset = PRESETS.find((p) => WEIGHT_KEYS.every((k) => p.weights[k] === weights[k]))?.id;
   return (
-    <section aria-labelledby="oncelikler">
-      <h2 className="group-title" id="oncelikler">
-        Neye göre sıralansın?
-      </h2>
-      <div className="presets">
-        {PRESETS.map((p) => (
-          <button
-            key={p.id}
-            type="button"
-            className="day-toggle"
-            aria-pressed={activePreset === p.id}
-            style={activePreset === p.id ? { textDecoration: "none" } : undefined}
-            onClick={() => onChange(p.weights)}
-          >
-            {p.label}
-          </button>
-        ))}
+    <section className="tuning" aria-label="Program ayarları">
+      <div className="tuning-group" role="group" aria-labelledby="bos-gunler">
+        <span className="tuning-label" id="bos-gunler">
+          Boş gün
+        </span>
+        <div className="chips">
+          {DAYS.map(({ day, label }) => {
+            const on = freeDays.includes(day);
+            return (
+              <button
+                key={day}
+                type="button"
+                className="chip chip-day"
+                aria-pressed={on}
+                aria-label={`${DAY_NAMES[day]} boş gün`}
+                onClick={() => onFreeDays(on ? freeDays.filter((d) => d !== day) : [...freeDays, day])}
+              >
+                {label}
+              </button>
+            );
+          })}
+        </div>
       </div>
-      {WEIGHT_KEYS.map((k) => (
-        <label key={k} className="pref">
-          <span className="pref-label">{LABELS[k]}</span>
-          <span className="pref-value">{LEVELS[value[k]]}</span>
-          <input
-            type="range"
-            min={0}
-            max={3}
-            step={1}
-            value={value[k]}
-            aria-valuetext={LEVELS[value[k]]}
-            onChange={(e) => onChange({ ...value, [k]: Number(e.target.value) })}
-          />
-        </label>
-      ))}
+
+      <div className="tuning-group" role="group" aria-labelledby="oncelik">
+        <span className="tuning-label" id="oncelik">
+          Öncelik
+        </span>
+        <div className="chips">
+          {PRESETS.map((p) => (
+            <button key={p.id} type="button" className="chip" aria-pressed={activePreset === p.id} onClick={() => onWeights(p.weights)}>
+              {p.label}
+            </button>
+          ))}
+          <details className="tuning-more">
+            <summary className="chip">Ayrıntılı ayar</summary>
+            <div className="tuning-panel">
+              {WEIGHT_KEYS.map((k) => (
+                <label key={k} className="pref">
+                  <span className="pref-label">{LABELS[k]}</span>
+                  <span className="pref-value">{LEVELS[weights[k]]}</span>
+                  <input
+                    type="range"
+                    min={0}
+                    max={3}
+                    step={1}
+                    value={weights[k]}
+                    aria-valuetext={LEVELS[weights[k]]}
+                    onChange={(e) => onWeights({ ...weights, [k]: Number(e.target.value) })}
+                  />
+                </label>
+              ))}
+            </div>
+          </details>
+        </div>
+      </div>
     </section>
   );
 }
