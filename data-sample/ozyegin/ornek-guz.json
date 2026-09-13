@@ -1,0 +1,436 @@
+{
+  "schoolId": "ozyegin",
+  "termId": "2026-2027-guz",
+  "termLabel": "2026 - 2027 Güz",
+  "fetchedAt": "2026-09-13T19:34:43.183Z",
+  "courses": [
+    {
+      "code": "CS 101",
+      "slug": "cs-101",
+      "title": "Bilgisayar Programlama",
+      "ects": 6,
+      "localCredits": null,
+      "prerequisites": "",
+      "corequisites": [
+        "CS 101L"
+      ],
+      "sections": [
+        {
+          "id": "A",
+          "instructors": [
+            "Örnek Hoca 1"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 1,
+              "start": "08:40",
+              "end": "10:30",
+              "room": null
+            },
+            {
+              "day": 3,
+              "start": "08:40",
+              "end": "09:30",
+              "room": null
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "instructors": [
+            "Örnek Hoca 1"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 1,
+              "start": "10:40",
+              "end": "12:30",
+              "room": null
+            },
+            {
+              "day": 3,
+              "start": "10:40",
+              "end": "11:30",
+              "room": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "CS 101L",
+      "slug": "cs-101l",
+      "title": "Bilgisayar Programlama Laboratuvarı",
+      "ects": 0,
+      "localCredits": null,
+      "prerequisites": "",
+      "corequisites": [
+        "CS 101"
+      ],
+      "sections": [
+        {
+          "id": "A",
+          "instructors": [
+            "Örnek Asistan 1"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 2,
+              "start": "12:40",
+              "end": "14:30",
+              "room": null
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "instructors": [
+            "Örnek Asistan 1"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 4,
+              "start": "14:40",
+              "end": "16:30",
+              "room": null
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "instructors": [
+            "Örnek Asistan 2"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 5,
+              "start": "10:40",
+              "end": "12:30",
+              "room": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "MATH 103",
+      "slug": "math-103",
+      "title": "Analiz I",
+      "ects": 7,
+      "localCredits": null,
+      "prerequisites": "",
+      "corequisites": [],
+      "sections": [
+        {
+          "id": "A",
+          "instructors": [
+            "Örnek Hoca 2"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 2,
+              "start": "08:40",
+              "end": "10:30",
+              "room": null
+            },
+            {
+              "day": 4,
+              "start": "08:40",
+              "end": "10:30",
+              "room": null
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "instructors": [
+            "Örnek Hoca 3"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 2,
+              "start": "14:40",
+              "end": "16:30",
+              "room": null
+            },
+            {
+              "day": 4,
+              "start": "16:40",
+              "end": "18:30",
+              "room": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "PHYS 101",
+      "slug": "phys-101",
+      "title": "Fizik I",
+      "ects": 6,
+      "localCredits": null,
+      "prerequisites": "",
+      "corequisites": [],
+      "sections": [
+        {
+          "id": "A",
+          "instructors": [
+            "Örnek Hoca 4"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 1,
+              "start": "13:40",
+              "end": "15:30",
+              "room": null
+            },
+            {
+              "day": 3,
+              "start": "13:40",
+              "end": "14:30",
+              "room": null
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "instructors": [
+            "Örnek Hoca 4"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 3,
+              "start": "15:40",
+              "end": "17:30",
+              "room": null
+            },
+            {
+              "day": 5,
+              "start": "15:40",
+              "end": "16:30",
+              "room": null
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "instructors": [
+            "Örnek Hoca 5"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 1,
+              "start": "17:40",
+              "end": "19:30",
+              "room": null
+            },
+            {
+              "day": 3,
+              "start": "17:40",
+              "end": "18:30",
+              "room": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ENG 101",
+      "slug": "eng-101",
+      "title": "Akademik İngilizce I",
+      "ects": 4,
+      "localCredits": null,
+      "prerequisites": "",
+      "corequisites": [],
+      "sections": [
+        {
+          "id": "A",
+          "instructors": [
+            "Örnek Okutman 1"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 1,
+              "start": "10:40",
+              "end": "12:30",
+              "room": null
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "instructors": [
+            "Örnek Okutman 2"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 2,
+              "start": "10:40",
+              "end": "12:30",
+              "room": null
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "instructors": [
+            "Örnek Okutman 3"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 5,
+              "start": "08:40",
+              "end": "10:30",
+              "room": null
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "instructors": [
+            "Örnek Okutman 1"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 4,
+              "start": "12:40",
+              "end": "14:30",
+              "room": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "GEN 101",
+      "slug": "gen-101",
+      "title": "Üniversite Hayatına Giriş",
+      "ects": 2,
+      "localCredits": null,
+      "prerequisites": "",
+      "corequisites": [],
+      "sections": [
+        {
+          "id": "A",
+          "instructors": [
+            "Örnek Hoca 6"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 5,
+              "start": "12:40",
+              "end": "13:30",
+              "room": null
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "instructors": [
+            "Örnek Hoca 6"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 3,
+              "start": "12:40",
+              "end": "13:30",
+              "room": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "EE 201",
+      "slug": "ee-201",
+      "title": "Devre Teorisi",
+      "ects": 6,
+      "localCredits": null,
+      "prerequisites": "",
+      "corequisites": [],
+      "sections": [
+        {
+          "id": "A",
+          "instructors": [
+            "Örnek Hoca 7"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 2,
+              "start": "10:40",
+              "end": "12:30",
+              "room": null
+            },
+            {
+              "day": 4,
+              "start": "10:40",
+              "end": "11:30",
+              "room": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "HIST 201",
+      "slug": "hist-201",
+      "title": "Atatürk İlkeleri ve İnkılap Tarihi I",
+      "ects": 2,
+      "localCredits": null,
+      "prerequisites": "",
+      "corequisites": [],
+      "sections": [
+        {
+          "id": "A",
+          "instructors": [
+            "Örnek Hoca 8"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 5,
+              "start": "16:40",
+              "end": "18:30",
+              "room": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

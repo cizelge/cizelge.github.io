@@ -8,7 +8,7 @@ import { Curriculum } from "./Curriculum";
 
 const read = <T,>(f: string) => JSON.parse(fs.readFileSync(path.join(process.cwd(), "data-sample/ozyegin", f), "utf8")) as T;
 const programs = read<ProgramsData>("programs.json").programs;
-const term = read<TermData>("ornek.json");
+const term = read<TermData>("ornek-guz.json");
 const noop = () => {};
 
 const render = (props: Partial<Parameters<typeof Curriculum>[0]>) =>
@@ -44,6 +44,18 @@ describe("Curriculum", () => {
     expect(html).toContain("Sepette");
     expect(html).toContain('<summary>Program-İçi Seçmeli<span class="num"> (2)</span></summary>');
     expect(html).not.toContain("Hazırlık");
+  });
+
+  it("shows the spring semester's courses for the sample Bahar term", () => {
+    const bahar = read<TermData>("ornek-bahar.json");
+    for (const termLabel of [bahar.termLabel, "2026 - 2027 Bahar"]) {
+      const html = render({ program: "BSCS", year: 1, termLabel, courses: bahar.courses });
+      expect(html).toContain("Bahar dönemi");
+      expect(html).toContain("CS 102");
+      expect(html).toContain("PHYS 101");
+      expect(html).not.toContain("GEN 101");
+      expect(html).toContain("Bu dönemin derslerini ekle");
+    }
   });
 
   it("offers Hazırlık only for programs that have it, and hints in summer", () => {

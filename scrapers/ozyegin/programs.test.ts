@@ -5,7 +5,8 @@ import type { ProgramsData, TermData } from "../../src/lib/types";
 import fixture from "./fixtures/programs-sample.json";
 import { courseSlug } from "./import";
 import { buildProgramsData, parsePlanCode, parseSemesterHeader, type RawProgramsExport } from "./programs";
-import { validateProgramsData } from "../validate";
+import { sortTermData } from "../../src/lib/terms";
+import { validateProgramsData, validateTermData } from "../validate";
 
 const raw = fixture as RawProgramsExport;
 
@@ -185,7 +186,7 @@ describe("validateProgramsData", () => {
 
 describe("data-sample/ozyegin/programs.json", () => {
   const sample = JSON.parse(fs.readFileSync(path.join(__dirname, "../../data-sample/ozyegin/programs.json"), "utf8")) as ProgramsData;
-  const term = JSON.parse(fs.readFileSync(path.join(__dirname, "../../data-sample/ozyegin/ornek.json"), "utf8")) as TermData;
+  const term = JSON.parse(fs.readFileSync(path.join(__dirname, "../../data-sample/ozyegin/ornek-guz.json"), "utf8")) as TermData;
 
   it("passes validation and has codes in the importer's normal form", () => {
     expect(validateProgramsData(sample)).toEqual([]);
@@ -198,6 +199,19 @@ describe("data-sample/ozyegin/programs.json", () => {
         }
       }
     }
+  });
+
+  it("has two valid sample terms, Güz and a Bahar with Özyeğin's inconsistent label and one course fewer", () => {
+    const bahar = JSON.parse(fs.readFileSync(path.join(__dirname, "../../data-sample/ozyegin/ornek-bahar.json"), "utf8")) as TermData;
+    expect(validateTermData(term)).toEqual([]);
+    expect(validateTermData(bahar)).toEqual([]);
+    expect(sortTermData([bahar, term]).map((t) => [t.termId, t.termLabel])).toEqual([
+      ["2026-2027-guz", "2026 - 2027 Güz"],
+      ["2026-2027-bahar", "2026 - 2027 Bahar"],
+    ]);
+    expect(bahar.termLabel).toBe("2026 -2027 Bahar");
+    const baharCodes = new Set(bahar.courses.map((c) => c.code));
+    expect(term.courses.filter((c) => !baharCodes.has(c.code)).map((c) => c.code)).toEqual(["EE 201"]);
   });
 
   it("matches the sample term: its season, and most first-year courses are offered", () => {

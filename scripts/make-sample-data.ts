@@ -1,5 +1,6 @@
 // Geliştirme için ÖRNEK veri üretir (gerçek Özyeğin verisi değildir).
-// Kullanım: npx tsx scripts/make-sample-data.ts  ->  data-sample/ozyegin/ornek.json
+// Kullanım: npx tsx scripts/make-sample-data.ts  ->  data-sample/ozyegin/ornek-guz.json, ornek-bahar.json
+// İki dönem, dönem seçicisini denemek içindir: Bahar'da bazı şube saatleri farklı ve EE 201 açılmıyor.
 import fs from "node:fs";
 import path from "node:path";
 import type { Course, Meeting } from "../src/lib/types";
@@ -69,15 +70,28 @@ const courses: Course[] = [
   }),
 ];
 
-const term = {
-  schoolId: "ozyegin",
-  termId: "ornek",
-  termLabel: "Örnek veri",
-  fetchedAt: new Date().toISOString(),
-  courses,
-};
+const fetchedAt = new Date().toISOString();
 
-const out = path.join("data-sample", "ozyegin", "ornek.json");
-fs.mkdirSync(path.dirname(out), { recursive: true });
-fs.writeFileSync(out, JSON.stringify(term, null, 2) + "\n");
-console.log(`${out}: ${courses.length} ders`);
+// Bahar: aynı dersler, birkaç şube farklı saatte, bir şube kapalı, EE 201 yok.
+const bahar: Course[] = structuredClone(courses)
+  .filter((c) => c.code !== "EE 201")
+  .map((c) => {
+    if (c.code === "CS 101") c.sections[1].meetings = ([[2, "13:40", "15:30"], [4, "13:40", "14:30"]] as Slot[]).map(m);
+    if (c.code === "MATH 103") c.sections = c.sections.filter((s) => s.id !== "B");
+    if (c.code === "ENG 101") c.sections[3].meetings = [m([3, "10:40", "12:30"])];
+    return c;
+  });
+
+// Etiketler bilerek Özyeğin'in tutarsız yazımıyla: yükleyici "2026 - 2027 Bahar" olarak düzeltir.
+const terms = [
+  { file: "ornek-guz.json", termId: "2026-2027-guz", termLabel: "2026 - 2027 Güz", courses },
+  { file: "ornek-bahar.json", termId: "2026-2027-bahar", termLabel: "2026 -2027 Bahar", courses: bahar },
+];
+
+for (const { file, ...rest } of terms) {
+  const out = path.join("data-sample", "ozyegin", file);
+  fs.mkdirSync(path.dirname(out), { recursive: true });
+  const term = { schoolId: "ozyegin", termId: rest.termId, termLabel: rest.termLabel, fetchedAt, courses: rest.courses };
+  fs.writeFileSync(out, JSON.stringify(term, null, 2) + "\n");
+  console.log(`${out}: ${rest.courses.length} ders`);
+}

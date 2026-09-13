@@ -1,8 +1,8 @@
 {
   "schoolId": "ozyegin",
-  "termId": "ornek",
-  "termLabel": "Örnek veri, Güz",
-  "fetchedAt": "2026-09-13T13:37:25.217Z",
+  "termId": "2026-2027-bahar",
+  "termLabel": "2026 -2027 Bahar",
+  "fetchedAt": "2026-09-13T19:34:43.183Z",
   "courses": [
     {
       "code": "CS 101",
@@ -46,15 +46,15 @@
           "restrictions": null,
           "meetings": [
             {
-              "day": 1,
-              "start": "10:40",
-              "end": "12:30",
+              "day": 2,
+              "start": "13:40",
+              "end": "15:30",
               "room": null
             },
             {
-              "day": 3,
-              "start": "10:40",
-              "end": "11:30",
+              "day": 4,
+              "start": "13:40",
+              "end": "14:30",
               "room": null
             }
           ]
@@ -149,28 +149,6 @@
               "day": 4,
               "start": "08:40",
               "end": "10:30",
-              "room": null
-            }
-          ]
-        },
-        {
-          "id": "B",
-          "instructors": [
-            "Örnek Hoca 3"
-          ],
-          "capacity": null,
-          "restrictions": null,
-          "meetings": [
-            {
-              "day": 2,
-              "start": "14:40",
-              "end": "16:30",
-              "room": null
-            },
-            {
-              "day": 4,
-              "start": "16:40",
-              "end": "18:30",
               "room": null
             }
           ]
@@ -320,9 +298,9 @@
           "restrictions": null,
           "meetings": [
             {
-              "day": 4,
-              "start": "12:40",
-              "end": "14:30",
+              "day": 3,
+              "start": "10:40",
+              "end": "12:30",
               "room": null
             }
           ]
@@ -366,39 +344,6 @@
               "day": 3,
               "start": "12:40",
               "end": "13:30",
-              "room": null
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "code": "EE 201",
-      "slug": "ee-201",
-      "title": "Devre Teorisi",
-      "ects": 6,
-      "localCredits": null,
-      "prerequisites": "",
-      "corequisites": [],
-      "sections": [
-        {
-          "id": "A",
-          "instructors": [
-            "Örnek Hoca 7"
-          ],
-          "capacity": null,
-          "restrictions": null,
-          "meetings": [
-            {
-              "day": 2,
-              "start": "10:40",
-              "end": "12:30",
-              "room": null
-            },
-            {
-              "day": 4,
-              "start": "10:40",
-              "end": "11:30",
               "room": null
             }
           ]

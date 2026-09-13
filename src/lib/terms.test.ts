@@ -4,10 +4,12 @@ import {
   compareTerms,
   defaultTerm,
   parseTermLabel,
+  sortTermData,
   termInfo,
   termPath,
   type TermInfo,
 } from "./terms";
+import type { TermData } from "./types";
 
 describe("parseTermLabel", () => {
   it("parses Özyeğin's own label", () => {
@@ -100,5 +102,37 @@ describe("buildTermOptions", () => {
 
   it("returns nothing when no term is available", () => {
     expect(buildTermOptions([])).toEqual([]);
+  });
+});
+
+describe("sortTermData", () => {
+  const data = (termId: string, termLabel: string): TermData => ({
+    schoolId: "ozyegin",
+    termId,
+    termLabel,
+    fetchedAt: "2026-09-13T00:00:00.000Z",
+    courses: [],
+  });
+
+  it("sorts terms oldest first and normalises their labels", () => {
+    const sorted = sortTermData([data("2026-2027-bahar", "2026 -2027 Bahar"), data("2026-2027-guz", "2026 - 2027 Güz")]);
+    expect(sorted.map((t) => [t.termId, t.termLabel])).toEqual([
+      ["2026-2027-guz", "2026 - 2027 Güz"],
+      ["2026-2027-bahar", "2026 - 2027 Bahar"],
+    ]);
+  });
+
+  it("rejects a term id that does not match its label", () => {
+    expect(() => sortTermData([data("ornek", "2026 - 2027 Güz")])).toThrow(/"ornek".*2026-2027-guz/);
+  });
+
+  it("rejects two files for the same term", () => {
+    expect(() =>
+      sortTermData([data("2026-2027-guz", "2026 - 2027 Güz"), data("2026-2027-guz", "2026 -2027 Güz")]),
+    ).toThrow(/2026-2027-guz.*birden/);
+  });
+
+  it("rejects unreadable labels", () => {
+    expect(() => sortTermData([data("ornek", "Örnek veri")])).toThrow(/okunamadı/);
   });
 });

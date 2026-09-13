@@ -90,3 +90,21 @@ export function buildTermOptions(available: readonly TermInfo[]): TermOption[] {
     .map(option);
   return [...year, ...others];
 }
+
+/**
+ * Dönem dosyalarını eskiden yeniye sıralar ve adlarını düzgün yazımla değiştirir.
+ * Okunamayan ad, adla uyuşmayan kimlik ya da aynı döneme ait iki dosya hatadır.
+ */
+export function sortTermData<T extends { termId: string; termLabel: string }>(terms: readonly T[]): T[] {
+  const seen = new Set<string>();
+  const parsed = terms.map((t) => {
+    const info = parseTermLabel(t.termLabel);
+    if (info.id !== t.termId) {
+      throw new Error(`Dönem kimliği "${t.termId}" dönem adıyla ("${t.termLabel}") uyuşmuyor, "${info.id}" olmalı`);
+    }
+    if (seen.has(info.id)) throw new Error(`${info.id} dönemi için birden çok dosya var`);
+    seen.add(info.id);
+    return { term: { ...t, termLabel: info.label }, info };
+  });
+  return parsed.sort((a, b) => compareTerms(a.info, b.info)).map((p) => p.term);
+}

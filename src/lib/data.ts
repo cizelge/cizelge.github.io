@@ -1,8 +1,9 @@
-// Sunucu tarafı veri okuma. Derleme sırasında data/<okul>/*.json dosyalarından en yenisini alır.
+// Sunucu tarafı veri okuma. Derleme sırasında data/<okul>/*.json dönem dosyalarını okur.
 // SAMPLE_DATA=1 ile data-sample/ klasöründeki örnek veri kullanılır (yalnızca geliştirme).
 import "server-only";
 import fs from "node:fs";
 import path from "node:path";
+import { buildTermOptions, parseTermLabel, sortTermData, type TermOption } from "./terms";
 import type { Course, ProgramsData, TermData } from "./types";
 
 export const USING_SAMPLE_DATA = process.env.SAMPLE_DATA === "1";
@@ -13,14 +14,35 @@ const root = path.join(/*turbopackIgnore: true*/ process.cwd(), USING_SAMPLE_DAT
 /** Bölüm müfredatları dönem dosyalarının yanında durur ama dönem dosyası değildir. */
 const PROGRAMS_FILE = "programs.json";
 
-export function loadTerm(schoolId: string): TermData {
+// Derlemede her ders sayfası dönemi yeniden ister; dosyalar süreç başına bir kez okunur.
+const cache = new Map<string, TermData[]>();
+
+/** Okulun bütün dönemleri, eskiden yeniye (yıl, sonra Güz < Bahar < Yaz). Adlar düzgün yazımla. */
+export function loadTerms(schoolId: string): TermData[] {
+  const cached = cache.get(schoolId);
+  if (cached) return cached;
   const dir = path.join(/*turbopackIgnore: true*/ root, schoolId);
   const files = fs.readdirSync(/*turbopackIgnore: true*/ dir).filter((f) => f.endsWith(".json") && f !== PROGRAMS_FILE);
   if (files.length === 0) throw new Error(`${dir} içinde veri yok`);
-  const terms = files.map(
-    (f) => JSON.parse(fs.readFileSync(/*turbopackIgnore: true*/ path.join(dir, f), "utf8")) as TermData,
+  const terms = sortTermData(
+    files.map((f) => JSON.parse(fs.readFileSync(/*turbopackIgnore: true*/ path.join(dir, f), "utf8")) as TermData),
   );
-  return terms.sort((a, b) => b.fetchedAt.localeCompare(a.fetchedAt))[0];
+  cache.set(schoolId, terms);
+  return terms;
+}
+
+/** Verilen dönem; verilmezse varsayılan dönem (sıralamada en son gelen). */
+export function loadTerm(schoolId: string, termId?: string): TermData {
+  const terms = loadTerms(schoolId);
+  if (termId === undefined) return terms.at(-1)!;
+  const term = terms.find((t) => t.termId === termId);
+  if (!term) throw new Error(`${schoolId} için ${termId} dönemi yok`);
+  return term;
+}
+
+/** Varsayılan dönemin akademik yılı için Güz, Bahar, Yaz; ardından başka yıllardan yayındaki dönemler. */
+export function termOptions(schoolId: string): TermOption[] {
+  return buildTermOptions(loadTerms(schoolId).map((t) => parseTermLabel(t.termLabel)));
 }
 
 /** data/<okul>/programs.json; yoksa null (müfredat seçimi gizlenir). */
