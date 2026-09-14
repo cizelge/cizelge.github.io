@@ -1,0 +1,11394 @@
+{
+ "source": "ozyegin-sis-section-detail",
+ "termLabel": "2026 - 2027 Güz",
+ "exportedAt": "2026-09-14T07:18:33.440Z",
+ "sections": {
+  "SEC 101.A": {
+   "kota": "300",
+   "rooms": []
+  },
+  "SEC 101.B": {
+   "kota": "200",
+   "rooms": []
+  },
+  "SEC 101.C": {
+   "kota": "200",
+   "rooms": []
+  },
+  "SEC 150.A": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.102"
+    }
+   ]
+  },
+  "SEC 150.B": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.112"
+    }
+   ]
+  },
+  "SEC 201.A": {
+   "kota": "900",
+   "rooms": []
+  },
+  "SEC 201L.A": {
+   "kota": "125",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "15:40",
+     "room": "CK.SCOLA.126"
+    },
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.SCOLA.129"
+    },
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.SCOLA.128"
+    },
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.SCOLA.127"
+    }
+   ]
+  },
+  "SEC 201L.B": {
+   "kota": "120",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.SCOLA.128"
+    },
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.SCOLA.231"
+    },
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.SCOLA.230"
+    },
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.SCOLA.129"
+    }
+   ]
+  },
+  "SEC 201L.C": {
+   "kota": "120",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.SCOLA.126"
+    },
+    {
+     "day": 4,
+     "start": "15:40",
+     "room": "CK.SCOLA.129"
+    },
+    {
+     "day": 4,
+     "start": "15:40",
+     "room": "CK.SCOLA.128"
+    },
+    {
+     "day": 4,
+     "start": "15:40",
+     "room": "CK.SCOLA.127"
+    }
+   ]
+  },
+  "SEC 201L.D": {
+   "kota": "120",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "15:40",
+     "room": "CK.SCOLA.126"
+    },
+    {
+     "day": 5,
+     "start": "15:40",
+     "room": "CK.SCOLA.129"
+    },
+    {
+     "day": 5,
+     "start": "15:40",
+     "room": "CK.SCOLA.128"
+    },
+    {
+     "day": 5,
+     "start": "15:40",
+     "room": "CK.SCOLA.127"
+    }
+   ]
+  },
+  "SEC 203.A": {
+   "kota": "250",
+   "rooms": []
+  },
+  "SEC 203L.A": {
+   "kota": "45",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "15:40",
+     "room": "CK.SCOLA.126"
+    },
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.SCOLA.129"
+    },
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.SCOLA.128"
+    },
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.SCOLA.127"
+    }
+   ]
+  },
+  "SEC 203L.B": {
+   "kota": "45",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.SCOLA.128"
+    },
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.SCOLA.231"
+    },
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.SCOLA.230"
+    },
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.SCOLA.129"
+    }
+   ]
+  },
+  "SEC 203L.C": {
+   "kota": "45",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.SCOLA.126"
+    },
+    {
+     "day": 4,
+     "start": "15:40",
+     "room": "CK.SCOLA.129"
+    },
+    {
+     "day": 4,
+     "start": "15:40",
+     "room": "CK.SCOLA.128"
+    },
+    {
+     "day": 4,
+     "start": "15:40",
+     "room": "CK.SCOLA.127"
+    }
+   ]
+  },
+  "SEC 203L.D": {
+   "kota": "45",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "15:40",
+     "room": "CK.SCOLA.126"
+    },
+    {
+     "day": 5,
+     "start": "15:40",
+     "room": "CK.SCOLA.129"
+    },
+    {
+     "day": 5,
+     "start": "15:40",
+     "room": "CK.SCOLA.128"
+    },
+    {
+     "day": 5,
+     "start": "15:40",
+     "room": "CK.SCOLA.127"
+    }
+   ]
+  },
+  "SEC 280.A": {
+   "kota": "35",
+   "rooms": []
+  },
+  "SEC 302.A": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.LF_AB3.135"
+    }
+   ]
+  },
+  "SEC 302.B": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.EF_AB1.408"
+    }
+   ]
+  },
+  "SEC 303.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.115"
+    }
+   ]
+  },
+  "SEC 304.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.102"
+    }
+   ]
+  },
+  "SEC 385.A": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.101"
+    }
+   ]
+  },
+  "SEC 401.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "18:40",
+     "room": "CK.FEAS_AB2.G10"
+    }
+   ]
+  },
+  "SEC 401.B": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "18:40",
+     "room": "CK.SCOLA.129"
+    }
+   ]
+  },
+  "SEC 401.C": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "18:40",
+     "room": "CK.SCOLA.128"
+    }
+   ]
+  },
+  "SEC 401.D": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "18:40",
+     "room": "CK.SCOLA.231"
+    }
+   ]
+  },
+  "SEC 401.E": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "18:40",
+     "room": "CK.FEAS_AB2.112"
+    }
+   ]
+  },
+  "SEC 401.F": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "18:40",
+     "room": "CK.FEAS_AB2.113"
+    }
+   ]
+  },
+  "SEC 401.G": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "18:40",
+     "room": "CK.FEAS_AB2.115"
+    }
+   ]
+  },
+  "SEC 401.H": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.SCOLA.231"
+    }
+   ]
+  },
+  "SEC 401.I": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.B43A"
+    }
+   ]
+  },
+  "SEC 401.J": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.113"
+    }
+   ]
+  },
+  "SEC 401.K": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.SCOLA.230"
+    }
+   ]
+  },
+  "SEC 401.L": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.115"
+    }
+   ]
+  },
+  "SEC 401.M": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.B45"
+    }
+   ]
+  },
+  "SEC 402.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.114"
+    }
+   ]
+  },
+  "SEC 404.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B46"
+    }
+   ]
+  },
+  "TRL 100.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.SCOLA.231"
+    }
+   ]
+  },
+  "TRL 100.B": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "16:40",
+     "room": "CK.SCOLA.323"
+    }
+   ]
+  },
+  "TRL 100.C": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "14:40",
+     "room": "CK.SCOLA.322"
+    }
+   ]
+  },
+  "TRL 100.D": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "12:40",
+     "room": "CK.SCOLA.229"
+    }
+   ]
+  },
+  "TRL 100.E": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.SCOLA.126"
+    }
+   ]
+  },
+  "TRL 100.F": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.SCOLA.126"
+    }
+   ]
+  },
+  "TRL 100.G": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "17:40",
+     "room": "CK.SCOLA.323"
+    }
+   ]
+  },
+  "TRL 100.H": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.EF_AB1.238"
+    }
+   ]
+  },
+  "TRL 100.I": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "16:40",
+     "room": "CK.SCOLA.126"
+    }
+   ]
+  },
+  "TRL 100.J": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "14:40",
+     "room": "CK.SCOLA.322"
+    }
+   ]
+  },
+  "TRL 100.K": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "12:40",
+     "room": "CK.SCOLA.229"
+    }
+   ]
+  },
+  "TRL 100.L": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.SCOLA.126"
+    }
+   ]
+  },
+  "TRL 100.M": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.SCOLA.126"
+    }
+   ]
+  },
+  "TRL 100.N": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "17:40",
+     "room": "CK.SCOLA.323"
+    }
+   ]
+  },
+  "TRL 100.O": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.EF_AB1.238"
+    }
+   ]
+  },
+  "TRL 100.P": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "16:40",
+     "room": "CK.SCOLA.126"
+    }
+   ]
+  },
+  "TRL 100.PA": {
+   "kota": "50",
+   "rooms": []
+  },
+  "TRL 100.PB": {
+   "kota": "50",
+   "rooms": []
+  },
+  "TRL 100.PC": {
+   "kota": "50",
+   "rooms": []
+  },
+  "TRL 100.PD": {
+   "kota": "50",
+   "rooms": []
+  },
+  "TRL 100.PE": {
+   "kota": "50",
+   "rooms": []
+  },
+  "TRL 100.PF": {
+   "kota": "50",
+   "rooms": []
+  },
+  "TRL 100.PG": {
+   "kota": "50",
+   "rooms": []
+  },
+  "TRL 100.PH": {
+   "kota": "50",
+   "rooms": []
+  },
+  "TRL 100.PI": {
+   "kota": "50",
+   "rooms": []
+  },
+  "TRL 100.PJ": {
+   "kota": "50",
+   "rooms": []
+  },
+  "TRL 100.Q": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.EF_AB1.408"
+    }
+   ]
+  },
+  "TRL 100.R": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "17:40",
+     "room": "CK.SCOLA.127"
+    }
+   ]
+  },
+  "TRL 109.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "17:40",
+     "room": "CK.FEAS_AB2.G10"
+    }
+   ]
+  },
+  "TRL 109.B": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.SCOLA.229"
+    }
+   ]
+  },
+  "TRL 109.C": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B45"
+    }
+   ]
+  },
+  "TRL 109.PA": {
+   "kota": "50",
+   "rooms": []
+  },
+  "TRL 120.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "TRL 121.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "TRL 122.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "TRL 190.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "TRL 191.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "TRL 192.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "HUK 105.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "10:40",
+     "room": "CK.LF_AB3.136"
+    },
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.LF_AB3.136"
+    }
+   ]
+  },
+  "HUK 106.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "10:40",
+     "room": "CK.LF_AB3.338"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.LF_AB3.338"
+    }
+   ]
+  },
+  "HUK 107.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.LF_AB3.236"
+    },
+    {
+     "day": 4,
+     "start": "15:40",
+     "room": "CK.LF_AB3.236"
+    }
+   ]
+  },
+  "HUK 131.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "15:40",
+     "room": "CK.LF_AB3.332"
+    }
+   ]
+  },
+  "HUK 132.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.LF_AB3.331"
+    }
+   ]
+  },
+  "HUK 134.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "11:40",
+     "room": "CK.LF_AB3.333"
+    }
+   ]
+  },
+  "HUK 137.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "10:40",
+     "room": "CK.LF_AB3.330"
+    }
+   ]
+  },
+  "HUK 201.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.LF_AB3.236"
+    },
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.LF_AB3.236"
+    }
+   ]
+  },
+  "HUK 201.B": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "16:40",
+     "room": "CK.LF_AB3.134"
+    },
+    {
+     "day": 3,
+     "start": "16:40",
+     "room": "CK.LF_AB3.134"
+    }
+   ]
+  },
+  "HUK 202.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.LF_AB3.134"
+    },
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.LF_AB3.134"
+    }
+   ]
+  },
+  "HUK 203.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "11:40",
+     "room": "CK.LF_AB3.135"
+    }
+   ]
+  },
+  "HUK 203.B": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "10:40",
+     "room": "CK.LF_AB3.136"
+    },
+    {
+     "day": 4,
+     "start": "16:40",
+     "room": "CK.LF_AB3.134"
+    }
+   ]
+  },
+  "HUK 205.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.LF_AB3.237"
+    }
+   ]
+  },
+  "HUK 205.B": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "10:40",
+     "room": "CK.LF_AB3.237"
+    }
+   ]
+  },
+  "HUK 206.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.LF_AB3.235"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.LF_AB3.235"
+    }
+   ]
+  },
+  "HUK 215.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "12:40",
+     "room": "CK.LF_AB3.134"
+    }
+   ]
+  },
+  "HUK 215.B": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.LF_AB3.133"
+    }
+   ]
+  },
+  "HUK 217.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.LF_AB3.136"
+    }
+   ]
+  },
+  "HUK 217.B": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.LF_AB3.135"
+    }
+   ]
+  },
+  "HUK 218.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.LF_AB3.235"
+    }
+   ]
+  },
+  "HUK 218.B": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "10:40",
+     "room": "CK.LF_AB3.237"
+    }
+   ]
+  },
+  "HUK 221.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "16:40",
+     "room": "CK.LF_AB3.332"
+    }
+   ]
+  },
+  "HUK 230.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "09:40",
+     "room": "CK.LF_AB3.330"
+    }
+   ]
+  },
+  "HUK 238.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "15:40",
+     "room": "CK.LF_AB3.331"
+    }
+   ]
+  },
+  "HUK 241.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "14:40",
+     "room": "CK.LF_AB3.333"
+    }
+   ]
+  },
+  "HUK 245.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "16:40",
+     "room": "CK.LF_AB3.240"
+    }
+   ]
+  },
+  "HUK 268.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "14:40",
+     "room": "CK.LF_AB3.240"
+    }
+   ]
+  },
+  "HUK 306.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.LF_AB3.338"
+    },
+    {
+     "day": 4,
+     "start": "12:40",
+     "room": "CK.LF_AB3.332"
+    }
+   ]
+  },
+  "HUK 307.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.LF_AB3.134"
+    }
+   ]
+  },
+  "HUK 307.B": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.LF_AB3.238"
+    }
+   ]
+  },
+  "HUK 309.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.LF_AB3.133"
+    }
+   ]
+  },
+  "HUK 309.B": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.LF_AB3.134"
+    }
+   ]
+  },
+  "HUK 310.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.LF_AB3.135"
+    }
+   ]
+  },
+  "HUK 313.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.LF_AB3.235"
+    }
+   ]
+  },
+  "HUK 313.B": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.LF_AB3.134"
+    }
+   ]
+  },
+  "HUK 328.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.LF_AB3.333"
+    }
+   ]
+  },
+  "HUK 331.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "10:40",
+     "room": "CK.LF_AB3.241"
+    }
+   ]
+  },
+  "HUK 334.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "10:40",
+     "room": "CK.LF_AB3.241"
+    }
+   ]
+  },
+  "HUK 352.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "10:40",
+     "room": "CK.LF_AB3.331"
+    }
+   ]
+  },
+  "HUK 353.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.LF_AB3.331"
+    }
+   ]
+  },
+  "HUK 357.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "11:40",
+     "room": "CK.LF_AB3.238"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.LF_AB3.238"
+    }
+   ]
+  },
+  "HUK 357.B": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.LF_AB3.135"
+    },
+    {
+     "day": 4,
+     "start": "16:40",
+     "room": "CK.LF_AB3.135"
+    }
+   ]
+  },
+  "HUK 359.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.LF_AB3.338"
+    },
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.LF_AB3.338"
+    }
+   ]
+  },
+  "HUK 363.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "11:40",
+     "room": "CK.LF_AB3.241"
+    }
+   ]
+  },
+  "HUK 365.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "11:40",
+     "room": "CK.LF_AB3.331"
+    }
+   ]
+  },
+  "HUK 376.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.LF_AB3.240"
+    }
+   ]
+  },
+  "HUK 379.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "14:40",
+     "room": "CK.LF_AB3.331"
+    }
+   ]
+  },
+  "HUK 394.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "16:40",
+     "room": "CK.LF_AB3.136"
+    }
+   ]
+  },
+  "HUK 401.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.LF_AB3.238"
+    },
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.LF_AB3.238"
+    }
+   ]
+  },
+  "HUK 401.B": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "14:40",
+     "room": "CK.LF_AB3.133"
+    },
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.LF_AB3.133"
+    }
+   ]
+  },
+  "HUK 402.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "10:40",
+     "room": "CK.LF_AB3.235"
+    }
+   ]
+  },
+  "HUK 403.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.LF_AB3.134"
+    }
+   ]
+  },
+  "HUK 409.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.LF_AB3.235"
+    }
+   ]
+  },
+  "HUK 409.B": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "11:40",
+     "room": "CK.LF_AB3.237"
+    }
+   ]
+  },
+  "HUK 416.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.LF_AB3.236"
+    },
+    {
+     "day": 2,
+     "start": "14:40",
+     "room": "CK.LF_AB3.236"
+    }
+   ]
+  },
+  "HUK 416.B": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "15:40",
+     "room": "CK.LF_AB3.235"
+    },
+    {
+     "day": 2,
+     "start": "16:40",
+     "room": "CK.LF_AB3.235"
+    }
+   ]
+  },
+  "HUK 418.A": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "11:40",
+     "room": "CK.LF_AB3.133"
+    }
+   ]
+  },
+  "HUK 418.B": {
+   "kota": "100",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.LF_AB3.238"
+    }
+   ]
+  },
+  "HUK 422.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "10:40",
+     "room": "CK.LF_AB3.332"
+    }
+   ]
+  },
+  "HUK 430.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.LF_AB3.241"
+    }
+   ]
+  },
+  "HUK 431.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "11:40",
+     "room": "CK.LF_AB3.241"
+    }
+   ]
+  },
+  "HUK 433.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "11:40",
+     "room": "CK.LF_AB3.330"
+    }
+   ]
+  },
+  "HUK 435.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "10:40",
+     "room": "CK.LF_AB3.240"
+    }
+   ]
+  },
+  "LAW 448.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.SCOLA.128"
+    }
+   ]
+  },
+  "AP 560.A": {
+   "kota": "20",
+   "rooms": []
+  },
+  "AP 565.A": {
+   "kota": "20",
+   "rooms": []
+  },
+  "AP 565.B": {
+   "kota": "20",
+   "rooms": []
+  },
+  "ECON 502.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "ECON 803.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 6,
+     "start": "09:00",
+     "room": "SWISS.SWISS.105"
+    }
+   ]
+  },
+  "ECON 910.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.G12"
+    }
+   ]
+  },
+  "ECON 913.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.B45"
+    }
+   ]
+  },
+  "FIN 901.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.130"
+    }
+   ]
+  },
+  "FIN 907.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.G03"
+    }
+   ]
+  },
+  "MGMT 503.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "MGMT 505.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "MGMT 701.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "MGMT 707.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "MGMT 801.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "MGMT 807.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 6,
+     "start": "13:30",
+     "room": "SWISS.SWISS.105"
+    }
+   ]
+  },
+  "MGMT 814.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "MGMT 815.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "MGMT 816.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "MGMT 908.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.113"
+    }
+   ]
+  },
+  "MGMT 915.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.G13"
+    }
+   ]
+  },
+  "MGMT 916.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.B44"
+    }
+   ]
+  },
+  "MGMT 917.A": {
+   "kota": "20",
+   "rooms": []
+  },
+  "MGMT 937.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "MGMT 938.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "MGMT 960.A": {
+   "kota": "20",
+   "rooms": []
+  },
+  "MGMT 970.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "MGMT 980.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "MGMT 992.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "OPM 502.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "OPM 802.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "AVM 100.A": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.103"
+    }
+   ]
+  },
+  "AVM 102.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.115"
+    },
+    {
+     "day": 3,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.115"
+    }
+   ]
+  },
+  "AVM 301.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.102"
+    }
+   ]
+  },
+  "AVM 303.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.G01"
+    }
+   ]
+  },
+  "AVM 304.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "09:40",
+     "room": "CK.LF_AB3.332"
+    }
+   ]
+  },
+  "AVM 307.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.101"
+    }
+   ]
+  },
+  "AVM 315.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.B42"
+    }
+   ]
+  },
+  "AVM 401.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "09:40",
+     "room": "CK.LF_AB3.347"
+    }
+   ]
+  },
+  "AVM 402.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.114"
+    }
+   ]
+  },
+  "AVM 402.ERS": {
+   "kota": "10",
+   "rooms": []
+  },
+  "AVM 404.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.113"
+    }
+   ]
+  },
+  "AVM 405.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.101"
+    }
+   ]
+  },
+  "AVM 406.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.101"
+    }
+   ]
+  },
+  "AVM 408.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.102"
+    }
+   ]
+  },
+  "AVM 410.A": {
+   "kota": "15",
+   "rooms": []
+  },
+  "PLT 104.A": {
+   "kota": "56",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.112"
+    },
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.112"
+    }
+   ]
+  },
+  "PLT 109.A": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.112"
+    }
+   ]
+  },
+  "PLT 110.A": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B45"
+    }
+   ]
+  },
+  "PLT 111.A": {
+   "kota": "56",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.LF_AB3.330"
+    }
+   ]
+  },
+  "PLT 201.A": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.G27"
+    }
+   ]
+  },
+  "PLT 201.B": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.G28"
+    }
+   ]
+  },
+  "PLT 202.A": {
+   "kota": "56",
+   "rooms": []
+  },
+  "PLT 203.A": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.G27"
+    }
+   ]
+  },
+  "PLT 203.B": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.G28"
+    }
+   ]
+  },
+  "PLT 204.A": {
+   "kota": "56",
+   "rooms": []
+  },
+  "PLT 205.A": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.G27"
+    }
+   ]
+  },
+  "PLT 205.B": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G28"
+    }
+   ]
+  },
+  "PLT 206.A": {
+   "kota": "56",
+   "rooms": []
+  },
+  "PLT 207.A": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.G27"
+    }
+   ]
+  },
+  "PLT 207.B": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.G28"
+    }
+   ]
+  },
+  "PLT 208.A": {
+   "kota": "80",
+   "rooms": []
+  },
+  "PLT 209.A": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.G27"
+    },
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.G27"
+    }
+   ]
+  },
+  "PLT 209.B": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.G28"
+    },
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.G28"
+    }
+   ]
+  },
+  "PLT 210.A": {
+   "kota": "80",
+   "rooms": []
+  },
+  "PLT 211.A": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.G27"
+    }
+   ]
+  },
+  "PLT 211.B": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.G28"
+    }
+   ]
+  },
+  "PLT 213.A": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.G27"
+    }
+   ]
+  },
+  "PLT 213.B": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.G28"
+    }
+   ]
+  },
+  "PLT 215.A": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.G27"
+    }
+   ]
+  },
+  "PLT 215.B": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.G28"
+    }
+   ]
+  },
+  "PLT 217.A": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.G27"
+    }
+   ]
+  },
+  "PLT 217.B": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.G28"
+    }
+   ]
+  },
+  "PLT 221.A": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.SCOLA.322"
+    }
+   ]
+  },
+  "PLT 301.A": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.127"
+    }
+   ]
+  },
+  "PLT 301.B": {
+   "kota": "28",
+   "rooms": []
+  },
+  "PLT 303.A": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.127"
+    },
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.127"
+    }
+   ]
+  },
+  "PLT 303.B": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.126"
+    },
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.126"
+    }
+   ]
+  },
+  "PLT 305.A": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.127"
+    }
+   ]
+  },
+  "PLT 305.B": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.126"
+    }
+   ]
+  },
+  "PLT 307.A": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.127"
+    }
+   ]
+  },
+  "PLT 307.B": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.126"
+    }
+   ]
+  },
+  "PLT 309.A": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.127"
+    }
+   ]
+  },
+  "PLT 309.B": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.126"
+    }
+   ]
+  },
+  "PLT 311.A": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.127"
+    },
+    {
+     "day": 4,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.127"
+    }
+   ]
+  },
+  "PLT 311.B": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.126"
+    },
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.126"
+    }
+   ]
+  },
+  "PLT 313.A": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.127"
+    }
+   ]
+  },
+  "PLT 313.B": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.126"
+    }
+   ]
+  },
+  "PLT 318.A": {
+   "kota": "80",
+   "rooms": []
+  },
+  "PLT 401.A": {
+   "kota": "56",
+   "rooms": []
+  },
+  "PLT 402.A": {
+   "kota": "56",
+   "rooms": []
+  },
+  "PLT 403.A": {
+   "kota": "56",
+   "rooms": []
+  },
+  "PLT 404.A": {
+   "kota": "56",
+   "rooms": []
+  },
+  "PLT 405.A": {
+   "kota": "56",
+   "rooms": []
+  },
+  "PLT 406.A": {
+   "kota": "56",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G14"
+    }
+   ]
+  },
+  "PLT 411.A": {
+   "kota": "28",
+   "rooms": []
+  },
+  "PLT 412.A": {
+   "kota": "28",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.G13"
+    }
+   ]
+  },
+  "GARM 103.A": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.LF_AB3.236"
+    }
+   ]
+  },
+  "GARM 121.A": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.113"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.113"
+    }
+   ]
+  },
+  "GARM 204.A": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.101"
+    }
+   ]
+  },
+  "GARM 221.A": {
+   "kota": "11",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B22"
+    },
+    {
+     "day": 1,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.B23"
+    },
+    {
+     "day": 2,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.B22"
+    },
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.B23"
+    }
+   ]
+  },
+  "GARM 221.B": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B22"
+    },
+    {
+     "day": 1,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.B19"
+    },
+    {
+     "day": 2,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.B22"
+    },
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B23"
+    }
+   ]
+  },
+  "GARM 221.C": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B22"
+    },
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B19"
+    },
+    {
+     "day": 2,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.B22"
+    },
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B19"
+    }
+   ]
+  },
+  "GARM 221.D": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B22"
+    },
+    {
+     "day": 2,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.B22"
+    },
+    {
+     "day": 3,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.B19"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B19"
+    }
+   ]
+  },
+  "GARM 222.A": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B01_A"
+    }
+   ]
+  },
+  "GARM 223.A": {
+   "kota": "23",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.B31"
+    }
+   ]
+  },
+  "GARM 223.B": {
+   "kota": "23",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.B31"
+    }
+   ]
+  },
+  "GARM 224.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G02"
+    }
+   ]
+  },
+  "GARM 321.A": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.B22"
+    },
+    {
+     "day": 1,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.B23"
+    },
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B22"
+    },
+    {
+     "day": 2,
+     "start": "18:40",
+     "room": "CK.FEAS_AB2.B23"
+    },
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B22"
+    },
+    {
+     "day": 5,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.B23"
+    }
+   ]
+  },
+  "GARM 321.B": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.B22"
+    },
+    {
+     "day": 1,
+     "start": "18:40",
+     "room": "CK.FEAS_AB2.B23"
+    },
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B22"
+    },
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B22"
+    },
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.B23"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B21"
+    }
+   ]
+  },
+  "GARM 321.C": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.B22"
+    },
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B22"
+    },
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.B21"
+    },
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B22"
+    },
+    {
+     "day": 4,
+     "start": "18:40",
+     "room": "CK.FEAS_AB2.B23"
+    },
+    {
+     "day": 5,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.B21"
+    }
+   ]
+  },
+  "GARM 321.D": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.B22"
+    },
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B22"
+    },
+    {
+     "day": 2,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.B23"
+    },
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B22"
+    },
+    {
+     "day": 3,
+     "start": "18:40",
+     "room": "CK.FEAS_AB2.B23"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B23"
+    }
+   ]
+  },
+  "GARM 322.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.B01_A"
+    },
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.B01_A"
+    },
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.B01_A"
+    },
+    {
+     "day": 4,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.B01_A"
+    }
+   ]
+  },
+  "GARM 324.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G14"
+    }
+   ]
+  },
+  "GARM 361.A": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B21"
+    },
+    {
+     "day": 4,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.113"
+    }
+   ]
+  },
+  "GARM 361.B": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B23"
+    },
+    {
+     "day": 4,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.113"
+    }
+   ]
+  },
+  "GARM 361.C": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.113"
+    },
+    {
+     "day": 4,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.B21"
+    }
+   ]
+  },
+  "GARM 361.D": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.113"
+    },
+    {
+     "day": 5,
+     "start": "18:40",
+     "room": "CK.FEAS_AB2.B21"
+    }
+   ]
+  },
+  "GARM 363.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.B46"
+    }
+   ]
+  },
+  "GARM 421.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.G01"
+    }
+   ]
+  },
+  "GARM 423.A": {
+   "kota": "10",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B01_A"
+    },
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B01_B"
+    }
+   ]
+  },
+  "GARM 423.B": {
+   "kota": "10",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B01_A"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B01_B"
+    }
+   ]
+  },
+  "GARM 473.A": {
+   "kota": "25",
+   "rooms": []
+  },
+  "GARM 479.A": {
+   "kota": "15",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.B01_B"
+    }
+   ]
+  },
+  "GARM 483.A": {
+   "kota": "15",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.G03"
+    }
+   ]
+  },
+  "GARM 484.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.115"
+    }
+   ]
+  },
+  "GARM 486.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.B31"
+    }
+   ]
+  },
+  "GARM 487.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G03"
+    }
+   ]
+  },
+  "HMAN 131.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.G03"
+    }
+   ]
+  },
+  "HMAN 132.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.G13"
+    },
+    {
+     "day": 2,
+     "start": "10:40",
+     "room": "CK.EF_AB1.418"
+    },
+    {
+     "day": 3,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.G13"
+    }
+   ]
+  },
+  "HMAN 204.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.113"
+    }
+   ]
+  },
+  "HMAN 304.A": {
+   "kota": "10",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.116"
+    }
+   ]
+  },
+  "HMAN 331.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.B43B"
+    }
+   ]
+  },
+  "HMAN 333.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.G02"
+    },
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.G02"
+    }
+   ]
+  },
+  "HMAN 336.A": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "11:40",
+     "room": "CK.SCOLA.323"
+    }
+   ]
+  },
+  "HMAN 369.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "09:40",
+     "room": "CK.SCOLA.B21"
+    }
+   ]
+  },
+  "HMAN 404.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.115"
+    }
+   ]
+  },
+  "HMAN 460.A": {
+   "kota": "10",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.LF_AB3.332"
+    }
+   ]
+  },
+  "HMAN 466.A": {
+   "kota": "10",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.G02"
+    }
+   ]
+  },
+  "SAS 101.A": {
+   "kota": "70",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "10:40",
+     "room": "CK.LF_AB3.347"
+    }
+   ]
+  },
+  "SAS 102.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.LF_AB3.347"
+    }
+   ]
+  },
+  "SAS 105.A": {
+   "kota": "70",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.EF_AB1.407"
+    }
+   ]
+  },
+  "SAS 202.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "12:40",
+     "room": "CK.LF_AB3.347"
+    }
+   ]
+  },
+  "SAS 203.A": {
+   "kota": "8",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "11:40",
+     "room": "CK.EF_AB1.232"
+    },
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.B01_B"
+    }
+   ]
+  },
+  "SAS 203.B": {
+   "kota": "16",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "11:40",
+     "room": "CK.EF_AB1.232"
+    },
+    {
+     "day": 1,
+     "start": "17:40",
+     "room": "CK.FEAS_AB2.B01_B"
+    },
+    {
+     "day": 2,
+     "start": "17:40",
+     "room": "CK.FEAS_AB2.B01_B"
+    },
+    {
+     "day": 3,
+     "start": "17:40",
+     "room": "CK.FEAS_AB2.B01_B"
+    },
+    {
+     "day": 4,
+     "start": "17:40",
+     "room": "CK.FEAS_AB2.B01_B"
+    }
+   ]
+  },
+  "SAS 205.A": {
+   "kota": "65",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "11:40",
+     "room": "CK.LF_AB3.136"
+    }
+   ]
+  },
+  "SAS 301.A": {
+   "kota": "65",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.LF_AB3.348"
+    }
+   ]
+  },
+  "SAS 303.A": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.LF_AB3.347"
+    }
+   ]
+  },
+  "SAS 352.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "09:40",
+     "room": "CK.SCOLA.231"
+    }
+   ]
+  },
+  "SAS 353.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.LF_AB3.333"
+    }
+   ]
+  },
+  "SAS 404.A": {
+   "kota": "5",
+   "rooms": []
+  },
+  "SAS 405.A": {
+   "kota": "70",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.B43B"
+    }
+   ]
+  },
+  "SAS 405_U.A": {
+   "kota": "300",
+   "rooms": []
+  },
+  "SAS 453.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G02"
+    }
+   ]
+  },
+  "ARB 101.A": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.129"
+    },
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.129"
+    }
+   ]
+  },
+  "CHN 101.A": {
+   "kota": "18",
+   "rooms": []
+  },
+  "ENG 101.A": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B43B"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B43B"
+    }
+   ]
+  },
+  "ENG 101.AA": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.B43B"
+    },
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.B43B"
+    }
+   ]
+  },
+  "ENG 101.AB": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.112"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.112"
+    }
+   ]
+  },
+  "ENG 101.AC": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.113"
+    },
+    {
+     "day": 5,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.113"
+    }
+   ]
+  },
+  "ENG 101.AD": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.113"
+    },
+    {
+     "day": 4,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.116"
+    }
+   ]
+  },
+  "ENG 101.AE": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.114"
+    },
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.114"
+    }
+   ]
+  },
+  "ENG 101.AF": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.EF_AB1.241"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.103"
+    }
+   ]
+  },
+  "ENG 101.AG": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.103"
+    },
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.103"
+    }
+   ]
+  },
+  "ENG 101.AH": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.LF_AB3.332"
+    },
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.LF_AB3.332"
+    }
+   ]
+  },
+  "ENG 101.AI": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.EF_AB1.407"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G01"
+    }
+   ]
+  },
+  "ENG 101.AJ": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.102"
+    },
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.102"
+    }
+   ]
+  },
+  "ENG 101.AK": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.SCOLA.128"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.SCOLA.128"
+    }
+   ]
+  },
+  "ENG 101.AL": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.LF_AB3.333"
+    },
+    {
+     "day": 4,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.113"
+    }
+   ]
+  },
+  "ENG 101.AM": {
+   "kota": "26",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.LF_AB3.330"
+    },
+    {
+     "day": 4,
+     "start": "16:40",
+     "room": "CK.LF_AB3.330"
+    }
+   ]
+  },
+  "ENG 101.AN": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B45"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.LF_AB3.347"
+    }
+   ]
+  },
+  "ENG 101.AO": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.LF_AB3.237"
+    },
+    {
+     "day": 4,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.B45"
+    }
+   ]
+  },
+  "ENG 101.AP": {
+   "kota": "26",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.G01"
+    },
+    {
+     "day": 4,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.G01"
+    }
+   ]
+  },
+  "ENG 101.AQ": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.114"
+    },
+    {
+     "day": 3,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.114"
+    }
+   ]
+  },
+  "ENG 101.AR": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "16:40",
+     "room": "CK.SCOLA.129"
+    },
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.SCOLA.230"
+    }
+   ]
+  },
+  "ENG 101.AS": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.115"
+    },
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.115"
+    }
+   ]
+  },
+  "ENG 101.AT": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.LF_AB3.241"
+    },
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.LF_AB3.241"
+    }
+   ]
+  },
+  "ENG 101.AU": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.EF_AB1.409"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.SCOLA.231"
+    }
+   ]
+  },
+  "ENG 101.AV": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.SCOLA.126"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.SCOLA.129"
+    }
+   ]
+  },
+  "ENG 101.AW": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.SCOLA.129"
+    },
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.SCOLA.128"
+    }
+   ]
+  },
+  "ENG 101.AX": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "09:40",
+     "room": "CK.LF_AB3.330"
+    },
+    {
+     "day": 5,
+     "start": "10:40",
+     "room": "CK.LF_AB3.348"
+    }
+   ]
+  },
+  "ENG 101.B": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.SCOLA.231"
+    },
+    {
+     "day": 4,
+     "start": "14:40",
+     "room": "CK.SCOLA.231"
+    }
+   ]
+  },
+  "ENG 101.C": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.113"
+    },
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.113"
+    }
+   ]
+  },
+  "ENG 101.D": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.112"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.116"
+    }
+   ]
+  },
+  "ENG 101.E": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.EF_AB1.232"
+    },
+    {
+     "day": 4,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.G02"
+    }
+   ]
+  },
+  "ENG 101.F": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.103"
+    },
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.103"
+    }
+   ]
+  },
+  "ENG 101.G": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.110"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.SCOLA.231"
+    }
+   ]
+  },
+  "ENG 101.H": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.G02"
+    },
+    {
+     "day": 4,
+     "start": "14:40",
+     "room": "CK.EF_AB1.412"
+    }
+   ]
+  },
+  "ENG 101.I": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.G10"
+    },
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.G10"
+    }
+   ]
+  },
+  "ENG 101.L": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.G11"
+    },
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.G11"
+    }
+   ]
+  },
+  "ENG 101.M": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B44"
+    },
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.B44"
+    }
+   ]
+  },
+  "ENG 101.N": {
+   "kota": "26",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.B43B"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B43B"
+    }
+   ]
+  },
+  "ENG 101.O": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.SCOLA.230"
+    },
+    {
+     "day": 5,
+     "start": "16:40",
+     "room": "CK.SCOLA.230"
+    }
+   ]
+  },
+  "ENG 101.P": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G11"
+    },
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.B45"
+    }
+   ]
+  },
+  "ENG 101.Q": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.SCOLA.229"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.SCOLA.127"
+    }
+   ]
+  },
+  "ENG 101.R": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G01"
+    },
+    {
+     "day": 5,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.G01"
+    }
+   ]
+  },
+  "ENG 101.S": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.SCOLA.127"
+    },
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.SCOLA.230"
+    }
+   ]
+  },
+  "ENG 101.T": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.SCOLA.323"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.SCOLA.128"
+    }
+   ]
+  },
+  "ENG 101.U": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G02"
+    },
+    {
+     "day": 5,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.G02"
+    }
+   ]
+  },
+  "ENG 101.V": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.LF_AB3.331"
+    },
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.LF_AB3.331"
+    }
+   ]
+  },
+  "ENG 101.W": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.LF_AB3.332"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.LF_AB3.331"
+    }
+   ]
+  },
+  "ENG 101.X": {
+   "kota": "26",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.SCOLA.129"
+    },
+    {
+     "day": 5,
+     "start": "16:40",
+     "room": "CK.SCOLA.129"
+    }
+   ]
+  },
+  "ENG 101.Y": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G12"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G12"
+    }
+   ]
+  },
+  "ENG 101.Z": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.SCOLA.230"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.SCOLA.230"
+    }
+   ]
+  },
+  "ENG 102.A": {
+   "kota": "22",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.B43A"
+    },
+    {
+     "day": 3,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.B43A"
+    }
+   ]
+  },
+  "ENG 102.B": {
+   "kota": "22",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.115"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G13"
+    }
+   ]
+  },
+  "ENG 102.C": {
+   "kota": "22",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.B43B"
+    },
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.SCOLA.127"
+    }
+   ]
+  },
+  "ENG 102.D": {
+   "kota": "22",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.114"
+    },
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.G11"
+    }
+   ]
+  },
+  "ENG 102.E": {
+   "kota": "22",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.G13"
+    },
+    {
+     "day": 4,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.G13"
+    }
+   ]
+  },
+  "ENG 102.F": {
+   "kota": "22",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.G13"
+    },
+    {
+     "day": 4,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.G13"
+    }
+   ]
+  },
+  "ENG 102.G": {
+   "kota": "22",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.G10"
+    },
+    {
+     "day": 5,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.B43B"
+    }
+   ]
+  },
+  "ENG 102.H": {
+   "kota": "22",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.G10"
+    },
+    {
+     "day": 3,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.G10"
+    }
+   ]
+  },
+  "ENG 102.I": {
+   "kota": "22",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.SCOLA.127"
+    },
+    {
+     "day": 2,
+     "start": "09:40",
+     "room": "CK.SCOLA.129"
+    }
+   ]
+  },
+  "ENG 102.J": {
+   "kota": "22",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.116"
+    },
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.116"
+    }
+   ]
+  },
+  "ENG 102.K": {
+   "kota": "22",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.110"
+    },
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.110"
+    }
+   ]
+  },
+  "ENG 102.L": {
+   "kota": "22",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.SCOLA.230"
+    },
+    {
+     "day": 4,
+     "start": "14:40",
+     "room": "CK.SCOLA.230"
+    }
+   ]
+  },
+  "ENG 102.M": {
+   "kota": "22",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.B42"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B42"
+    }
+   ]
+  },
+  "ENG 102.N": {
+   "kota": "22",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G13"
+    },
+    {
+     "day": 5,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.G13"
+    }
+   ]
+  },
+  "ENG 102.O": {
+   "kota": "22",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.G14"
+    },
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.G14"
+    }
+   ]
+  },
+  "ENG 102.P": {
+   "kota": "22",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.G12"
+    },
+    {
+     "day": 3,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.G12"
+    }
+   ]
+  },
+  "ENG 102.Q": {
+   "kota": "22",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "11:40",
+     "room": "CK.LF_AB3.240"
+    },
+    {
+     "day": 3,
+     "start": "11:40",
+     "room": "CK.LF_AB3.332"
+    }
+   ]
+  },
+  "ENG 102.R": {
+   "kota": "22",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.LF_AB3.241"
+    },
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.LF_AB3.241"
+    }
+   ]
+  },
+  "ENG 102.S": {
+   "kota": "22",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.113"
+    },
+    {
+     "day": 5,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.113"
+    }
+   ]
+  },
+  "ENG 102.T": {
+   "kota": "22",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.SCOLA.322"
+    },
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.SCOLA.322"
+    }
+   ]
+  },
+  "ENG 103.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.SCOLA.231"
+    },
+    {
+     "day": 5,
+     "start": "10:40",
+     "room": "CK.SCOLA.231"
+    }
+   ]
+  },
+  "ENG 103.B": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.SCOLA.129"
+    },
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.SCOLA.129"
+    }
+   ]
+  },
+  "ENG 103.C": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.G03"
+    },
+    {
+     "day": 5,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.G03"
+    }
+   ]
+  },
+  "ENG 103.D": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.SCOLA.230"
+    },
+    {
+     "day": 5,
+     "start": "10:40",
+     "room": "CK.SCOLA.230"
+    }
+   ]
+  },
+  "ENG 103.E": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.LF_AB3.330"
+    },
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.LF_AB3.330"
+    }
+   ]
+  },
+  "ENG 104.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "16:40",
+     "room": "CK.LF_AB3.241"
+    },
+    {
+     "day": 5,
+     "start": "16:40",
+     "room": "CK.LF_AB3.241"
+    }
+   ]
+  },
+  "ENG 105.A": {
+   "kota": "22",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "16:40",
+     "room": "CK.LF_AB3.330"
+    },
+    {
+     "day": 5,
+     "start": "16:40",
+     "room": "CK.LF_AB3.330"
+    }
+   ]
+  },
+  "ENG 105.B": {
+   "kota": "22",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G13"
+    },
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.G13"
+    }
+   ]
+  },
+  "ENG 105.C": {
+   "kota": "22",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "16:40",
+     "room": "CK.SCOLA.128"
+    },
+    {
+     "day": 5,
+     "start": "16:40",
+     "room": "CK.SCOLA.128"
+    }
+   ]
+  },
+  "FRE 101.A": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.B42"
+    },
+    {
+     "day": 5,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.B42"
+    }
+   ]
+  },
+  "FRE 101.B": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.G10"
+    },
+    {
+     "day": 3,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.G03"
+    }
+   ]
+  },
+  "FRE 101.C": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B42"
+    },
+    {
+     "day": 4,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.B42"
+    }
+   ]
+  },
+  "FRE 101.D": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.B46"
+    },
+    {
+     "day": 5,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.B46"
+    }
+   ]
+  },
+  "FRE 101.E": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B44"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B44"
+    }
+   ]
+  },
+  "FRE 201.A": {
+   "kota": "18",
+   "rooms": []
+  },
+  "GER 101.B": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.110"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.110"
+    }
+   ]
+  },
+  "GER 101.C": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.110"
+    },
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.110"
+    }
+   ]
+  },
+  "GER 101.D": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.B46"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B46"
+    }
+   ]
+  },
+  "GER 101.E": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.B44"
+    },
+    {
+     "day": 5,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.B44"
+    }
+   ]
+  },
+  "GER 102.A": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.G10"
+    },
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.G10"
+    }
+   ]
+  },
+  "GER 201.A": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.110"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.110"
+    }
+   ]
+  },
+  "GER 202.A": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.B44"
+    },
+    {
+     "day": 4,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.B44"
+    }
+   ]
+  },
+  "ITA 101.A": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.G12"
+    },
+    {
+     "day": 3,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.G12"
+    }
+   ]
+  },
+  "ITA 101.B": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.B42"
+    },
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.B42"
+    }
+   ]
+  },
+  "ITA 101.C": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.G11"
+    },
+    {
+     "day": 4,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.G11"
+    }
+   ]
+  },
+  "ITA 101.D": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.G12"
+    },
+    {
+     "day": 5,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.G12"
+    }
+   ]
+  },
+  "ITA 101.E": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.G11"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G11"
+    }
+   ]
+  },
+  "ITA 101.F": {
+   "kota": "18",
+   "rooms": []
+  },
+  "ITA 102.A": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.LF_AB3.333"
+    },
+    {
+     "day": 3,
+     "start": "14:40",
+     "room": "CK.LF_AB3.333"
+    }
+   ]
+  },
+  "RUS 101.A": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.B46"
+    },
+    {
+     "day": 5,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.B46"
+    }
+   ]
+  },
+  "RUS 101.B": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.B44"
+    },
+    {
+     "day": 3,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.B44"
+    }
+   ]
+  },
+  "RUS 110.A": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.G12"
+    },
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.G12"
+    }
+   ]
+  },
+  "RUS 201.A": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.G10"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G10"
+    }
+   ]
+  },
+  "SPA 101.A": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.G10"
+    },
+    {
+     "day": 5,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.G10"
+    }
+   ]
+  },
+  "SPA 101.B": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.G12"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G12"
+    }
+   ]
+  },
+  "SPA 101.C": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.G11"
+    },
+    {
+     "day": 5,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.G11"
+    }
+   ]
+  },
+  "SPA 101.D": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.B45"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B45"
+    }
+   ]
+  },
+  "SPA 101.E": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.B46"
+    },
+    {
+     "day": 5,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.G11"
+    }
+   ]
+  },
+  "SPA 101.F": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.G11"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G11"
+    }
+   ]
+  },
+  "SPA 102.A": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.B46"
+    },
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.B46"
+    }
+   ]
+  },
+  "SPA 102.B": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.B45"
+    },
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.B45"
+    }
+   ]
+  },
+  "SPA 201.A": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B46"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B46"
+    }
+   ]
+  },
+  "SPA 202.A": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.B45"
+    },
+    {
+     "day": 4,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.B45"
+    }
+   ]
+  },
+  "TURK 100.B": {
+   "kota": "18",
+   "rooms": []
+  },
+  "TURK 100.C": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.SCOLA.128"
+    }
+   ]
+  },
+  "TURK 100.F": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.SCOLA.230"
+    }
+   ]
+  },
+  "TURK 100.G": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "10:40",
+     "room": "CK.SCOLA.128"
+    }
+   ]
+  },
+  "TURK 100.H": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.G03"
+    }
+   ]
+  },
+  "TURK 102.A": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "16:40",
+     "room": "CK.SCOLA.128"
+    }
+   ]
+  },
+  "TURK 102.B": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.G12"
+    }
+   ]
+  },
+  "ACCT 201.A": {
+   "kota": "70",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "11:40",
+     "room": "CK.LF_AB3.133"
+    }
+   ]
+  },
+  "ACCT 201.B": {
+   "kota": "70",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "11:40",
+     "room": "CK.LF_AB3.238"
+    }
+   ]
+  },
+  "ACCT 201.C": {
+   "kota": "70",
+   "rooms": []
+  },
+  "ACCT 301.A": {
+   "kota": "50",
+   "rooms": []
+  },
+  "BUS 100.A": {
+   "kota": "165",
+   "rooms": []
+  },
+  "BUS 100.B": {
+   "kota": "165",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "14:40",
+     "room": "CK.LF_AB3.133"
+    },
+    {
+     "day": 4,
+     "start": "16:40",
+     "room": "CK.LF_AB3.150"
+    }
+   ]
+  },
+  "BUS 101.A": {
+   "kota": "350",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "16:40",
+     "room": "CK.LF_AB3.150"
+    }
+   ]
+  },
+  "BUS 101L.B": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.102"
+    }
+   ]
+  },
+  "BUS 101L.C": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.102"
+    }
+   ]
+  },
+  "BUS 101L.D": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.101"
+    }
+   ]
+  },
+  "BUS 101L.E": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.102"
+    }
+   ]
+  },
+  "BUS 101L.F": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.101"
+    }
+   ]
+  },
+  "BUS 101L.G": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.103"
+    }
+   ]
+  },
+  "BUS 102.A": {
+   "kota": "220",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "16:40",
+     "room": "CK.EF_AB1.410"
+    }
+   ]
+  },
+  "BUS 102.B": {
+   "kota": "220",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "14:40",
+     "room": "CK.EF_AB1.410"
+    }
+   ]
+  },
+  "BUS 102L.A": {
+   "kota": "220",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "17:40",
+     "room": "CK.EF_AB1.410"
+    }
+   ]
+  },
+  "BUS 102L.B": {
+   "kota": "220",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "17:40",
+     "room": "CK.EF_AB1.410"
+    }
+   ]
+  },
+  "BUS 190.A": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.G01"
+    }
+   ]
+  },
+  "BUS 190.B": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.G01"
+    }
+   ]
+  },
+  "BUS 190.C": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.G01"
+    }
+   ]
+  },
+  "BUS 190.D": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.G02"
+    }
+   ]
+  },
+  "BUS 190.E": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.G02"
+    }
+   ]
+  },
+  "BUS 190.F": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.G02"
+    }
+   ]
+  },
+  "BUS 199.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "10:40",
+     "room": "CK.LF_AB3.347"
+    }
+   ]
+  },
+  "BUS 200.A": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.SCOLA.127"
+    }
+   ]
+  },
+  "BUS 200.B": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "14:40",
+     "room": "CK.LF_AB3.348"
+    }
+   ]
+  },
+  "BUS 200.C": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "12:40",
+     "room": "CK.SCOLA.126"
+    }
+   ]
+  },
+  "BUS 201.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "11:40",
+     "room": "CK.SCOLA.323"
+    }
+   ]
+  },
+  "BUS 201.B": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "11:40",
+     "room": "CK.SCOLA.322"
+    }
+   ]
+  },
+  "BUS 301.A": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.SCOLA.323"
+    }
+   ]
+  },
+  "BUS 301.B": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "09:40",
+     "room": "CK.EF_AB1.414"
+    }
+   ]
+  },
+  "BUS 311.A": {
+   "kota": "100",
+   "rooms": []
+  },
+  "BUS 312.A": {
+   "kota": "100",
+   "rooms": []
+  },
+  "ECON 101.A": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.LF_AB3.238"
+    }
+   ]
+  },
+  "ECON 101.B": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.LF_AB3.236"
+    }
+   ]
+  },
+  "ECON 101.C": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.LF_AB3.237"
+    }
+   ]
+  },
+  "ECON 101.D": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.LF_AB3.135"
+    }
+   ]
+  },
+  "ECON 101.E": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.LF_AB3.238"
+    }
+   ]
+  },
+  "ECON 101.F": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.LF_AB3.338"
+    }
+   ]
+  },
+  "ECON 101.G": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.LF_AB3.235"
+    }
+   ]
+  },
+  "ECON 102.A": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.LF_AB3.238"
+    }
+   ]
+  },
+  "ECON 102.B": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.LF_AB3.136"
+    }
+   ]
+  },
+  "ECON 102.C": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.LF_AB3.236"
+    }
+   ]
+  },
+  "ECON 201.A": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.LF_AB3.347"
+    }
+   ]
+  },
+  "ECON 202.A": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "11:40",
+     "room": "CK.LF_AB3.348"
+    },
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.LF_AB3.348"
+    }
+   ]
+  },
+  "ECON 210.A": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "10:40",
+     "room": "CK.LF_AB3.237"
+    }
+   ]
+  },
+  "ECON 210.B": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.SCOLA.322"
+    }
+   ]
+  },
+  "ECON 210.C": {
+   "kota": "60",
+   "rooms": []
+  },
+  "ECON 301.A": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "09:40",
+     "room": "CK.LF_AB3.348"
+    },
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.LF_AB3.348"
+    }
+   ]
+  },
+  "ECON 307.A": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "14:40",
+     "room": "CK.EF_AB1.509"
+    }
+   ]
+  },
+  "ECON 309.A": {
+   "kota": "65",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.SCOLA.322"
+    }
+   ]
+  },
+  "ECON 310.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.EF_AB1.407"
+    }
+   ]
+  },
+  "ECON 403.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "ECON 420.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.114"
+    }
+   ]
+  },
+  "ECON 421.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.110"
+    }
+   ]
+  },
+  "ENTR 201.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "12:40",
+     "room": "CK.LF_AB3.348"
+    }
+   ]
+  },
+  "ENTR 303.A": {
+   "kota": "45",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.110"
+    }
+   ]
+  },
+  "ENTR 305.A": {
+   "kota": "45",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.G14"
+    }
+   ]
+  },
+  "ENTR 308.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.B43A"
+    }
+   ]
+  },
+  "ENTR 405.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "ENTR 407.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.112"
+    }
+   ]
+  },
+  "ENTR 408.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.EF_AB1.233"
+    }
+   ]
+  },
+  "ENTR 412.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.EF_AB1.511"
+    }
+   ]
+  },
+  "FIN 202.A": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.SCOLA.326"
+    }
+   ]
+  },
+  "FIN 202.B": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.LF_AB3.348"
+    }
+   ]
+  },
+  "FIN 204.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.G02"
+    }
+   ]
+  },
+  "FIN 301.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.103"
+    }
+   ]
+  },
+  "FIN 301.B": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.G01"
+    }
+   ]
+  },
+  "FIN 302.A": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.SCOLA.323"
+    }
+   ]
+  },
+  "FIN 401.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.129"
+    }
+   ]
+  },
+  "FIN 403.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "FIN 404.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "12:40",
+     "room": "CK.LF_AB3.338"
+    }
+   ]
+  },
+  "FIN 411.A": {
+   "kota": "50",
+   "rooms": []
+  },
+  "FIN 416.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.115"
+    }
+   ]
+  },
+  "FIN 419.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.SCOLA.129"
+    }
+   ]
+  },
+  "FIN 421.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.G12"
+    }
+   ]
+  },
+  "IBUS 104.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "09:40",
+     "room": "CK.SCOLA.126"
+    }
+   ]
+  },
+  "IBUS 203.A": {
+   "kota": "70",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.SCOLA.229"
+    }
+   ]
+  },
+  "IBUS 204.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "11:40",
+     "room": "CK.LF_AB3.236"
+    }
+   ]
+  },
+  "IBUS 301.A": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.LF_AB3.240"
+    }
+   ]
+  },
+  "IBUS 303.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "10:40",
+     "room": "CK.SCOLA.126"
+    }
+   ]
+  },
+  "IBUS 305.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "09:40",
+     "room": "CK.SCOLA.229"
+    }
+   ]
+  },
+  "IBUS 306.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.129"
+    }
+   ]
+  },
+  "IBUS 307.A": {
+   "kota": "70",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "10:40",
+     "room": "CK.LF_AB3.134"
+    }
+   ]
+  },
+  "IBUS 308.A": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.LF_AB3.348"
+    }
+   ]
+  },
+  "IBUS 309.A": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.G03"
+    }
+   ]
+  },
+  "IBUS 402.A": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.110"
+    }
+   ]
+  },
+  "IBUS 403.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.LF_AB3.347"
+    }
+   ]
+  },
+  "IBUS 404.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "12:40",
+     "room": "CK.SCOLA.127"
+    }
+   ]
+  },
+  "IBUS 405.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "IBUS 406.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.LF_AB3.235"
+    }
+   ]
+  },
+  "IBUS 407.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.LF_AB3.331"
+    }
+   ]
+  },
+  "IBUS 409.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.EF_AB1.510"
+    }
+   ]
+  },
+  "IBUS 411.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.G14"
+    }
+   ]
+  },
+  "MGMT 202.A": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "15:40",
+     "room": "CK.SCOLA.229"
+    }
+   ]
+  },
+  "MGMT 202.B": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "11:40",
+     "room": "CK.LF_AB3.133"
+    }
+   ]
+  },
+  "MGMT 311.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.110"
+    }
+   ]
+  },
+  "MGMT 312.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.LF_AB3.330"
+    }
+   ]
+  },
+  "MGMT 314.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.EF_AB1.232"
+    }
+   ]
+  },
+  "MGMT 401.A": {
+   "kota": "45",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "15:40",
+     "room": "CK.LF_AB3.136"
+    }
+   ]
+  },
+  "MGMT 401.B": {
+   "kota": "45",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "12:40",
+     "room": "CK.SCOLA.326"
+    }
+   ]
+  },
+  "MGMT 402.A": {
+   "kota": "70",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.G01"
+    }
+   ]
+  },
+  "MGMT 405.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "MIS 100.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "11:40",
+     "room": "CK.LF_AB3.238"
+    }
+   ]
+  },
+  "MIS 103.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.LF_AB3.236"
+    }
+   ]
+  },
+  "MIS 203.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.129"
+    }
+   ]
+  },
+  "MIS 206.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.LF_AB3.333"
+    }
+   ]
+  },
+  "MIS 301.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "11:40",
+     "room": "CK.EF_AB1.232"
+    }
+   ]
+  },
+  "MIS 305.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.LF_AB3.136"
+    }
+   ]
+  },
+  "MIS 309.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G14"
+    }
+   ]
+  },
+  "MIS 311.A": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.LF_AB3.235"
+    }
+   ]
+  },
+  "MIS 311.B": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.LF_AB3.235"
+    }
+   ]
+  },
+  "MIS 403.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "MKTG 201.A": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "14:40",
+     "room": "CK.SCOLA.323"
+    }
+   ]
+  },
+  "MKTG 201.B": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B43A"
+    }
+   ]
+  },
+  "MKTG 201.C": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "14:40",
+     "room": "CK.SCOLA.322"
+    }
+   ]
+  },
+  "MKTG 201.D": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.116"
+    }
+   ]
+  },
+  "MKTG 201.E": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "10:40",
+     "room": "CK.SCOLA.230"
+    }
+   ]
+  },
+  "MKTG 313.A": {
+   "kota": "45",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.LF_AB3.240"
+    }
+   ]
+  },
+  "MKTG 314.A": {
+   "kota": "45",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.LF_AB3.241"
+    }
+   ]
+  },
+  "MKTG 315.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "14:40",
+     "room": "CK.LF_AB3.348"
+    }
+   ]
+  },
+  "MKTG 322.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G10"
+    }
+   ]
+  },
+  "MKTG 325.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.103"
+    }
+   ]
+  },
+  "MKTG 403.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "MKTG 412.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.EF_AB1.408"
+    }
+   ]
+  },
+  "OPER 202.A": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.SCOLA.127"
+    },
+    {
+     "day": 4,
+     "start": "18:40",
+     "room": "CK.LF_AB3.134"
+    }
+   ]
+  },
+  "OPER 202.B": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "15:40",
+     "room": "CK.SCOLA.326"
+    },
+    {
+     "day": 4,
+     "start": "18:40",
+     "room": "CK.SCOLA.326"
+    }
+   ]
+  },
+  "OPER 202.C": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "12:40",
+     "room": "CK.LF_AB3.136"
+    },
+    {
+     "day": 4,
+     "start": "18:40",
+     "room": "CK.LF_AB3.136"
+    }
+   ]
+  },
+  "OPER 312.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "15:40",
+     "room": "CK.EF_AB1.510"
+    }
+   ]
+  },
+  "OPER 313.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G10"
+    }
+   ]
+  },
+  "OPER 318.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.SCOLA.229"
+    }
+   ]
+  },
+  "OPER 403.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "AP 540.A": {
+   "kota": "15",
+   "rooms": []
+  },
+  "AP 540.B": {
+   "kota": "20",
+   "rooms": []
+  },
+  "AP 540.C": {
+   "kota": "10",
+   "rooms": []
+  },
+  "AP 550.A": {
+   "kota": "100",
+   "rooms": []
+  },
+  "AP 550.B": {
+   "kota": "100",
+   "rooms": []
+  },
+  "AP 570.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "AP 570.B": {
+   "kota": "20",
+   "rooms": []
+  },
+  "AP 570.C": {
+   "kota": "10",
+   "rooms": []
+  },
+  "AP 570.D": {
+   "kota": "1",
+   "rooms": []
+  },
+  "DIS 502.A": {
+   "kota": "20",
+   "rooms": []
+  },
+  "DIS 505.A": {
+   "kota": "20",
+   "rooms": []
+  },
+  "DIS 527.A": {
+   "kota": "20",
+   "rooms": []
+  },
+  "DIS 527.B": {
+   "kota": "20",
+   "rooms": []
+  },
+  "DIS 553.A": {
+   "kota": "15",
+   "rooms": []
+  },
+  "DIS 560.A": {
+   "kota": "2",
+   "rooms": []
+  },
+  "DIS 560.B": {
+   "kota": "2",
+   "rooms": []
+  },
+  "DIS 560.C": {
+   "kota": "2",
+   "rooms": []
+  },
+  "DIS 560.D": {
+   "kota": "2",
+   "rooms": []
+  },
+  "DIS 560.E": {
+   "kota": "2",
+   "rooms": []
+  },
+  "DIS 567.A": {
+   "kota": "15",
+   "rooms": []
+  },
+  "DIS 568.A": {
+   "kota": "15",
+   "rooms": []
+  },
+  "DIS 591.A": {
+   "kota": "15",
+   "rooms": []
+  },
+  "DIS 598.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "DIS 599.A": {
+   "kota": "3",
+   "rooms": []
+  },
+  "DIS 599.B": {
+   "kota": "3",
+   "rooms": []
+  },
+  "DIS 599.C": {
+   "kota": "3",
+   "rooms": []
+  },
+  "DIS 599.D": {
+   "kota": "3",
+   "rooms": []
+  },
+  "DIS 599.E": {
+   "kota": "3",
+   "rooms": []
+  },
+  "DIS 599.F": {
+   "kota": "3",
+   "rooms": []
+  },
+  "DIS 599.G": {
+   "kota": "3",
+   "rooms": []
+  },
+  "DIS 599.H": {
+   "kota": "3",
+   "rooms": []
+  },
+  "DIS 600.A": {
+   "kota": "3",
+   "rooms": []
+  },
+  "DIS 600.B": {
+   "kota": "3",
+   "rooms": []
+  },
+  "DIS 600.C": {
+   "kota": "3",
+   "rooms": []
+  },
+  "DIS 600.D": {
+   "kota": "3",
+   "rooms": []
+  },
+  "DIS 600.E": {
+   "kota": "3",
+   "rooms": []
+  },
+  "DIS 600.F": {
+   "kota": "3",
+   "rooms": []
+  },
+  "DIS 600.G": {
+   "kota": "3",
+   "rooms": []
+  },
+  "DIS 600.H": {
+   "kota": "3",
+   "rooms": []
+  },
+  "DIS 601.A": {
+   "kota": "2",
+   "rooms": []
+  },
+  "DIS 601.B": {
+   "kota": "2",
+   "rooms": []
+  },
+  "DIS 601.C": {
+   "kota": "2",
+   "rooms": []
+  },
+  "DIS 601.D": {
+   "kota": "2",
+   "rooms": []
+  },
+  "DIS 601.E": {
+   "kota": "2",
+   "rooms": []
+  },
+  "DIS 601.F": {
+   "kota": "2",
+   "rooms": []
+  },
+  "DIS 601.G": {
+   "kota": "2",
+   "rooms": []
+  },
+  "DIS 601.H": {
+   "kota": "2",
+   "rooms": []
+  },
+  "DIS 623.A": {
+   "kota": "15",
+   "rooms": []
+  },
+  "DIS 690.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "DIS 900.A": {
+   "kota": "1",
+   "rooms": []
+  },
+  "DIS 900.B": {
+   "kota": "1",
+   "rooms": []
+  },
+  "DIS 900.C": {
+   "kota": "1",
+   "rooms": []
+  },
+  "DIS 901.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "DIS 902.A": {
+   "kota": "1",
+   "rooms": []
+  },
+  "DIS 903.A": {
+   "kota": "1",
+   "rooms": []
+  },
+  "DIS 903.B": {
+   "kota": "1",
+   "rooms": []
+  },
+  "DIS 904.A": {
+   "kota": "2",
+   "rooms": []
+  },
+  "DIS 904.B": {
+   "kota": "2",
+   "rooms": []
+  },
+  "DIS 904.C": {
+   "kota": "2",
+   "rooms": []
+  },
+  "DIS 904.D": {
+   "kota": "2",
+   "rooms": []
+  },
+  "DIS 904.E": {
+   "kota": "2",
+   "rooms": []
+  },
+  "DIS 904.F": {
+   "kota": "2",
+   "rooms": []
+  },
+  "DIS 904.G": {
+   "kota": "2",
+   "rooms": []
+  },
+  "DIS 905.A": {
+   "kota": "2",
+   "rooms": []
+  },
+  "DIS 905.B": {
+   "kota": "2",
+   "rooms": []
+  },
+  "DIS 905.C": {
+   "kota": "2",
+   "rooms": []
+  },
+  "DIS 905.D": {
+   "kota": "2",
+   "rooms": []
+  },
+  "HUK 544.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "10:40",
+     "room": "CK.LF_AB3.333"
+    }
+   ]
+  },
+  "HUK 558.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.SCOLA.128"
+    }
+   ]
+  },
+  "HUK 588.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "12:40",
+     "room": "CK.LF_AB3.238"
+    }
+   ]
+  },
+  "HUK 631.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "12:40",
+     "room": "CK.LF_AB3.333"
+    }
+   ]
+  },
+  "HUK 654.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.LF_AB3.240"
+    }
+   ]
+  },
+  "HUK 689.A": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 689.B": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 689.C": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 692.A": {
+   "kota": "5",
+   "rooms": []
+  },
+  "HUK 692.B": {
+   "kota": "5",
+   "rooms": []
+  },
+  "HUK 692.C": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 692.D": {
+   "kota": "5",
+   "rooms": []
+  },
+  "HUK 692.E": {
+   "kota": "5",
+   "rooms": []
+  },
+  "HUK 692.F": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 692.G": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 692.H": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 692.I": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 692.J": {
+   "kota": "5",
+   "rooms": []
+  },
+  "HUK 692.K": {
+   "kota": "5",
+   "rooms": []
+  },
+  "HUK 692.L": {
+   "kota": "5",
+   "rooms": []
+  },
+  "HUK 692.M": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 693.A": {
+   "kota": "7",
+   "rooms": []
+  },
+  "HUK 693.B": {
+   "kota": "7",
+   "rooms": []
+  },
+  "HUK 693.C": {
+   "kota": "7",
+   "rooms": []
+  },
+  "HUK 693.D": {
+   "kota": "7",
+   "rooms": []
+  },
+  "HUK 693.E": {
+   "kota": "7",
+   "rooms": []
+  },
+  "HUK 693.F": {
+   "kota": "7",
+   "rooms": []
+  },
+  "HUK 693.G": {
+   "kota": "7",
+   "rooms": []
+  },
+  "HUK 693.H": {
+   "kota": "7",
+   "rooms": []
+  },
+  "HUK 693.I": {
+   "kota": "7",
+   "rooms": []
+  },
+  "HUK 693.J": {
+   "kota": "7",
+   "rooms": []
+  },
+  "HUK 693.K": {
+   "kota": "7",
+   "rooms": []
+  },
+  "HUK 693.L": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 693.M": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 693.N": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 694.A": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 694.B": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 694.C": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 694.D": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 694.E": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 694.F": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 694.G": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 694.H": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 772.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.LF_AB3.240"
+    }
+   ]
+  },
+  "HUK 808.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.LF_AB3.330"
+    }
+   ]
+  },
+  "HUK 809.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "14:40",
+     "room": "CK.LF_AB3.237"
+    }
+   ]
+  },
+  "HUK 812.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.LF_AB3.333"
+    }
+   ]
+  },
+  "HUK 814.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.LF_AB3.238"
+    }
+   ]
+  },
+  "HUK 836.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "14:40",
+     "room": "CK.LF_AB3.348"
+    }
+   ]
+  },
+  "HUK 900.A": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 904.A": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 905.A": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 906.A": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 906.B": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 906.C": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 906.D": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 907.A": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 907.B": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 907.C": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 908.A": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 910.A": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 910.B": {
+   "kota": "1",
+   "rooms": []
+  },
+  "HUK 911.A": {
+   "kota": "1",
+   "rooms": []
+  },
+  "IR 501.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.B43A"
+    }
+   ]
+  },
+  "IR 502.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.101"
+    }
+   ]
+  },
+  "IR 534.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.116"
+    }
+   ]
+  },
+  "IR 535.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.LF_AB3.240"
+    }
+   ]
+  },
+  "IR 555.A": {
+   "kota": "20",
+   "rooms": []
+  },
+  "IR 590.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.LF_AB3.338"
+    }
+   ]
+  },
+  "IR 691.A": {
+   "kota": "20",
+   "rooms": []
+  },
+  "IR 692.A": {
+   "kota": "1",
+   "rooms": []
+  },
+  "IR 692.B": {
+   "kota": "1",
+   "rooms": []
+  },
+  "IR 692.C": {
+   "kota": "2",
+   "rooms": []
+  },
+  "IR 692.D": {
+   "kota": "2",
+   "rooms": []
+  },
+  "IR 692.E": {
+   "kota": "1",
+   "rooms": []
+  },
+  "IR 692.F": {
+   "kota": "1",
+   "rooms": []
+  },
+  "IR 692.G": {
+   "kota": "1",
+   "rooms": []
+  },
+  "IR 692.H": {
+   "kota": "1",
+   "rooms": []
+  },
+  "IR 693.A": {
+   "kota": "1",
+   "rooms": []
+  },
+  "IR 693.B": {
+   "kota": "1",
+   "rooms": []
+  },
+  "IR 693.C": {
+   "kota": "1",
+   "rooms": []
+  },
+  "IR 693.D": {
+   "kota": "1",
+   "rooms": []
+  },
+  "PSY 601.A": {
+   "kota": "15",
+   "rooms": []
+  },
+  "PSY 611.A": {
+   "kota": "15",
+   "rooms": []
+  },
+  "PSY 612.A": {
+   "kota": "15",
+   "rooms": []
+  },
+  "PSY 693.A": {
+   "kota": "1",
+   "rooms": []
+  },
+  "PSY 695.A": {
+   "kota": "2",
+   "rooms": []
+  },
+  "PSY 900.A": {
+   "kota": "1",
+   "rooms": []
+  },
+  "PSY 900.B": {
+   "kota": "1",
+   "rooms": []
+  },
+  "PSY 900.C": {
+   "kota": "1",
+   "rooms": []
+  },
+  "PSY 900.D": {
+   "kota": "1",
+   "rooms": []
+  },
+  "PSY 900.E": {
+   "kota": "1",
+   "rooms": []
+  },
+  "PSY 900.F": {
+   "kota": "1",
+   "rooms": []
+  },
+  "PSY 900.G": {
+   "kota": "1",
+   "rooms": []
+  },
+  "PSY 901.A": {
+   "kota": "1",
+   "rooms": []
+  },
+  "ANTH 201.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.116"
+    }
+   ]
+  },
+  "ANTH 203.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.110"
+    }
+   ]
+  },
+  "ANTH 205.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.101"
+    }
+   ]
+  },
+  "ANTH 301.A": {
+   "kota": "35",
+   "rooms": []
+  },
+  "ANTH 314.A": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.LF_AB3.240"
+    }
+   ]
+  },
+  "ANTH 319.A": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.SCOLA.129"
+    }
+   ]
+  },
+  "ANTH 320.A": {
+   "kota": "35",
+   "rooms": []
+  },
+  "ART 100.A": {
+   "kota": "15",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.LF_AB3.141"
+    }
+   ]
+  },
+  "ART 101.A": {
+   "kota": "15",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.LF_AB3.141"
+    }
+   ]
+  },
+  "ART 101.B": {
+   "kota": "15",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.LF_AB3.141"
+    }
+   ]
+  },
+  "ART 102.A": {
+   "kota": "15",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.LF_AB3.141"
+    }
+   ]
+  },
+  "ART 111.A": {
+   "kota": "15",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "10:40",
+     "room": "CK.LF_AB3.141"
+    }
+   ]
+  },
+  "BE 101.A": {
+   "kota": "25",
+   "rooms": []
+  },
+  "BE 107.A": {
+   "kota": "25",
+   "rooms": []
+  },
+  "HIST 103.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.LF_AB3.332"
+    }
+   ]
+  },
+  "HIST 103.B": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.116"
+    }
+   ]
+  },
+  "HIST 104.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.116"
+    }
+   ]
+  },
+  "HIST 104.B": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B43A"
+    }
+   ]
+  },
+  "HIST 200.A": {
+   "kota": "64",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "15:40",
+     "room": "CK.LF_AB3.237"
+    }
+   ]
+  },
+  "HIST 200.B": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.LF_AB3.235"
+    }
+   ]
+  },
+  "HIST 200.C": {
+   "kota": "63",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "14:40",
+     "room": "CK.LF_AB3.133"
+    }
+   ]
+  },
+  "HIST 200.D": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.LF_AB3.133"
+    }
+   ]
+  },
+  "HIST 200.E": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "10:40",
+     "room": "CK.LF_AB3.236"
+    }
+   ]
+  },
+  "HIST 200.F": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "15:40",
+     "room": "CK.LF_AB3.136"
+    }
+   ]
+  },
+  "HIST 200.G": {
+   "kota": "42",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "16:40",
+     "room": "CK.SCOLA.326"
+    }
+   ]
+  },
+  "HIST 200.H": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "15:40",
+     "room": "CK.SCOLA.229"
+    }
+   ]
+  },
+  "HIST 201.A": {
+   "kota": "9",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "18:40",
+     "room": "CK.LF_AB3.136"
+    }
+   ]
+  },
+  "HIST 202.A": {
+   "kota": "90",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "15:40",
+     "room": "CK.SCOLA.326"
+    }
+   ]
+  },
+  "HIST 202.B": {
+   "kota": "90",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "16:40",
+     "room": "CK.LF_AB3.338"
+    }
+   ]
+  },
+  "HIST 202.C": {
+   "kota": "90",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "16:40",
+     "room": "CK.SCOLA.326"
+    }
+   ]
+  },
+  "HIST 202.D": {
+   "kota": "90",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "10:40",
+     "room": "CK.LF_AB3.134"
+    }
+   ]
+  },
+  "HIST 209.A": {
+   "kota": "70",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "17:40",
+     "room": "CK.SCOLA.326"
+    }
+   ]
+  },
+  "HIST 303.A": {
+   "kota": "9",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "18:40",
+     "room": "CK.EF_AB1.408"
+    }
+   ]
+  },
+  "HIST 304.A": {
+   "kota": "70",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "18:40",
+     "room": "CK.EF_AB1.407"
+    }
+   ]
+  },
+  "HIST 309.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.SCOLA.322"
+    }
+   ]
+  },
+  "HUM 201.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "HUM 309.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.116"
+    }
+   ]
+  },
+  "HUM 319.A": {
+   "kota": "45",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "12:40",
+     "room": "CK.SCOLA.128"
+    }
+   ]
+  },
+  "HUM 319.B": {
+   "kota": "45",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.114"
+    }
+   ]
+  },
+  "HUM 353.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.SCOLA.231"
+    }
+   ]
+  },
+  "IR 101.A": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "09:40",
+     "room": "CK.LF_AB3.136"
+    }
+   ]
+  },
+  "IR 201.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.LF_AB3.348"
+    }
+   ]
+  },
+  "IR 201R.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "11:40",
+     "room": "CK.FEAS_AB2.B42"
+    }
+   ]
+  },
+  "IR 201R.B": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.B42"
+    }
+   ]
+  },
+  "IR 203.A": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "15:40",
+     "room": "CK.LF_AB3.238"
+    }
+   ]
+  },
+  "IR 205.A": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "14:40",
+     "room": "CK.LF_AB3.237"
+    }
+   ]
+  },
+  "IR 301.A": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "12:40",
+     "room": "CK.EF_AB1.245"
+    }
+   ]
+  },
+  "IR 303.A": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "14:40",
+     "room": "CK.LF_AB3.330"
+    }
+   ]
+  },
+  "IR 305.A": {
+   "kota": "65",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "12:40",
+     "room": "CK.LF_AB3.235"
+    }
+   ]
+  },
+  "IR 315.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.LF_AB3.241"
+    }
+   ]
+  },
+  "IR 318.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G02"
+    }
+   ]
+  },
+  "IR 319.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.G11"
+    }
+   ]
+  },
+  "IR 322.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.LF_AB3.331"
+    }
+   ]
+  },
+  "IR 390.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "IR 400.A": {
+   "kota": "3",
+   "rooms": []
+  },
+  "IR 401.A": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G03"
+    }
+   ]
+  },
+  "IR 411.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.112"
+    }
+   ]
+  },
+  "IR 421.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.LF_AB3.338"
+    }
+   ]
+  },
+  "IR 423.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.G14"
+    }
+   ]
+  },
+  "IR 424.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B43A"
+    }
+   ]
+  },
+  "IR 429.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.B46"
+    }
+   ]
+  },
+  "MUSIC 103.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.LF_AB3.333"
+    }
+   ]
+  },
+  "PE 101.A": {
+   "kota": "25",
+   "rooms": []
+  },
+  "PE 101.B": {
+   "kota": "25",
+   "rooms": []
+  },
+  "PE 101.C": {
+   "kota": "25",
+   "rooms": []
+  },
+  "PE 101.D": {
+   "kota": "25",
+   "rooms": []
+  },
+  "PE 101.E": {
+   "kota": "25",
+   "rooms": []
+  },
+  "PE 102.A": {
+   "kota": "25",
+   "rooms": []
+  },
+  "PE 102.B": {
+   "kota": "25",
+   "rooms": []
+  },
+  "PE 102.C": {
+   "kota": "25",
+   "rooms": []
+  },
+  "PE 102.D": {
+   "kota": "25",
+   "rooms": []
+  },
+  "PE 104.A": {
+   "kota": "25",
+   "rooms": []
+  },
+  "PE 104.B": {
+   "kota": "25",
+   "rooms": []
+  },
+  "PE 105.A": {
+   "kota": "20",
+   "rooms": []
+  },
+  "PE 105.B": {
+   "kota": "20",
+   "rooms": []
+  },
+  "PE 105.C": {
+   "kota": "20",
+   "rooms": []
+  },
+  "PE 105.D": {
+   "kota": "20",
+   "rooms": []
+  },
+  "PE 106.A": {
+   "kota": "14",
+   "rooms": []
+  },
+  "PE 106.B": {
+   "kota": "14",
+   "rooms": []
+  },
+  "PE 107.A": {
+   "kota": "25",
+   "rooms": []
+  },
+  "PE 107.B": {
+   "kota": "25",
+   "rooms": []
+  },
+  "PE 107.C": {
+   "kota": "25",
+   "rooms": []
+  },
+  "PE 107.D": {
+   "kota": "25",
+   "rooms": []
+  },
+  "PE 107.E": {
+   "kota": "25",
+   "rooms": []
+  },
+  "PE 112.A": {
+   "kota": "25",
+   "rooms": []
+  },
+  "PE 112.B": {
+   "kota": "25",
+   "rooms": []
+  },
+  "PE 114.A": {
+   "kota": "20",
+   "rooms": []
+  },
+  "PE 114.B": {
+   "kota": "20",
+   "rooms": []
+  },
+  "PE 116.A": {
+   "kota": "14",
+   "rooms": []
+  },
+  "PE 116.B": {
+   "kota": "14",
+   "rooms": []
+  },
+  "PE 116.C": {
+   "kota": "14",
+   "rooms": []
+  },
+  "PE 116.D": {
+   "kota": "14",
+   "rooms": []
+  },
+  "PE 119.A": {
+   "kota": "25",
+   "rooms": []
+  },
+  "PE 120.A": {
+   "kota": "20",
+   "rooms": []
+  },
+  "PE 120.B": {
+   "kota": "20",
+   "rooms": []
+  },
+  "PE 120.C": {
+   "kota": "20",
+   "rooms": []
+  },
+  "PE 120.D": {
+   "kota": "20",
+   "rooms": []
+  },
+  "PE 121.A": {
+   "kota": "12",
+   "rooms": []
+  },
+  "PE 121.B": {
+   "kota": "12",
+   "rooms": []
+  },
+  "PE 123.A": {
+   "kota": "25",
+   "rooms": []
+  },
+  "PE 123.B": {
+   "kota": "25",
+   "rooms": []
+  },
+  "PHIL 102.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.SCOLA.229"
+    }
+   ]
+  },
+  "PHIL 104.A": {
+   "kota": "45",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.102"
+    }
+   ]
+  },
+  "PHIL 210.A": {
+   "kota": "45",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "11:40",
+     "room": "CK.SCOLA.322"
+    }
+   ]
+  },
+  "PHIL 220.A": {
+   "kota": "45",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "15:40",
+     "room": "CK.SCOLA.322"
+    }
+   ]
+  },
+  "PSY 100.A": {
+   "kota": "150",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "11:40",
+     "room": "CK.LF_AB3.338"
+    }
+   ]
+  },
+  "PSY 101.A": {
+   "kota": "120",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.LF_AB3.236"
+    }
+   ]
+  },
+  "PSY 103.A": {
+   "kota": "120",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "12:40",
+     "room": "CK.LF_AB3.134"
+    },
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.LF_AB3.133"
+    }
+   ]
+  },
+  "PSY 103R.A": {
+   "kota": "120",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.LF_AB3.133"
+    }
+   ]
+  },
+  "PSY 105.A": {
+   "kota": "120",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.LF_AB3.237"
+    },
+    {
+     "day": 4,
+     "start": "09:40",
+     "room": "CK.LF_AB3.237"
+    }
+   ]
+  },
+  "PSY 201.A": {
+   "kota": "120",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "16:40",
+     "room": "CK.SCOLA.126"
+    },
+    {
+     "day": 5,
+     "start": "11:40",
+     "room": "CK.SCOLA.126"
+    }
+   ]
+  },
+  "PSY 203.A": {
+   "kota": "120",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "14:40",
+     "room": "CK.LF_AB3.133"
+    }
+   ]
+  },
+  "PSY 205.A": {
+   "kota": "120",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.LF_AB3.134"
+    }
+   ]
+  },
+  "PSY 207.A": {
+   "kota": "120",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "15:40",
+     "room": "CK.LF_AB3.134"
+    }
+   ]
+  },
+  "PSY 300.A": {
+   "kota": "15",
+   "rooms": []
+  },
+  "PSY 300.B": {
+   "kota": "15",
+   "rooms": []
+  },
+  "PSY 300.C": {
+   "kota": "15",
+   "rooms": []
+  },
+  "PSY 300.D": {
+   "kota": "15",
+   "rooms": []
+  },
+  "PSY 300.E": {
+   "kota": "15",
+   "rooms": []
+  },
+  "PSY 301.A": {
+   "kota": "120",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.LF_AB3.135"
+    }
+   ]
+  },
+  "PSY 303.A": {
+   "kota": "120",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.LF_AB3.135"
+    }
+   ]
+  },
+  "PSY 305.A": {
+   "kota": "120",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "14:40",
+     "room": "CK.LF_AB3.134"
+    },
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.LF_AB3.134"
+    }
+   ]
+  },
+  "PSY 313.A": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.101"
+    }
+   ]
+  },
+  "PSY 321.A": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.LF_AB3.331"
+    }
+   ]
+  },
+  "PSY 323.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.B45"
+    }
+   ]
+  },
+  "PSY 325.A": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B43A"
+    }
+   ]
+  },
+  "PSY 400.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "PSY 404.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.LF_AB3.240"
+    }
+   ]
+  },
+  "PSY 405.A": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "11:40",
+     "room": "CK.LF_AB3.333"
+    }
+   ]
+  },
+  "PSY 406.A": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "15:40",
+     "room": "CK.SCOLA.231"
+    }
+   ]
+  },
+  "PSY 422.A": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.114"
+    }
+   ]
+  },
+  "PSY 433.A": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.114"
+    }
+   ]
+  },
+  "PSY 435.A": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "10:40",
+     "room": "CK.FEAS_AB2.114"
+    }
+   ]
+  },
+  "PSY 490.A": {
+   "kota": "5",
+   "rooms": []
+  },
+  "SOC 104.A": {
+   "kota": "50",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.113"
+    }
+   ]
+  },
+  "SOC 201.A": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.SCOLA.323"
+    }
+   ]
+  },
+  "SOC 201.B": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.LF_AB3.347"
+    }
+   ]
+  },
+  "SOC 201.C": {
+   "kota": "60",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "14:40",
+     "room": "CK.SCOLA.323"
+    }
+   ]
+  },
+  "TLL 100.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "09:40",
+     "room": "CK.SCOLA.128"
+    }
+   ]
+  },
+  "TLL 100.B": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.115"
+    }
+   ]
+  },
+  "TLL 100.C": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.LF_AB3.241"
+    }
+   ]
+  },
+  "TLL 100.D": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "12:40",
+     "room": "CK.SCOLA.127"
+    }
+   ]
+  },
+  "TLL 100.E": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "09:40",
+     "room": "CK.EF_AB1.246"
+    }
+   ]
+  },
+  "TLL 100.F": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "14:40",
+     "room": "CK.FEAS_AB2.113"
+    }
+   ]
+  },
+  "TLL 100.G": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G14"
+    }
+   ]
+  },
+  "TLL 100.H": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.B46"
+    }
+   ]
+  },
+  "TLL 100.I": {
+   "kota": "26",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.115"
+    }
+   ]
+  },
+  "TLL 100.J": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "15:40",
+     "room": "CK.LF_AB3.348"
+    }
+   ]
+  },
+  "TLL 100.K": {
+   "kota": "27",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.SCOLA.126"
+    }
+   ]
+  },
+  "TLL 101.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "18:40",
+     "room": "CK.EF_AB1.511"
+    }
+   ]
+  },
+  "TLL 102.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.B43B"
+    }
+   ]
+  },
+  "TLL 102.B": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "16:40",
+     "room": "CK.LF_AB3.241"
+    }
+   ]
+  },
+  "TLL 102.C": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "15:40",
+     "room": "CK.FEAS_AB2.112"
+    }
+   ]
+  },
+  "TLL 102.D": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.SCOLA.323"
+    }
+   ]
+  },
+  "TLL 102.E": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "10:40",
+     "room": "CK.SCOLA.231"
+    }
+   ]
+  },
+  "TLL 102.F": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.115"
+    }
+   ]
+  },
+  "TLL 102.G": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "12:40",
+     "room": "CK.SCOLA.231"
+    }
+   ]
+  },
+  "TLL 102.H": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.114"
+    }
+   ]
+  },
+  "TLL 102.I": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.SCOLA.229"
+    }
+   ]
+  },
+  "TLL 102.K": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.EF_AB1.408"
+    }
+   ]
+  },
+  "TLL 102.L": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.B43A"
+    }
+   ]
+  },
+  "TLL 102.M": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "16:40",
+     "room": "CK.FEAS_AB2.129"
+    }
+   ]
+  },
+  "TLL 102.N": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.SCOLA.231"
+    }
+   ]
+  },
+  "TLL 102.O": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.SCOLA.229"
+    }
+   ]
+  },
+  "TLL 102.P": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.EF_AB1.407"
+    }
+   ]
+  },
+  "TLL 102.Q": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.SCOLA.127"
+    }
+   ]
+  },
+  "TLL 102.R": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.115"
+    }
+   ]
+  },
+  "TLL 102.S": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.SCOLA.323"
+    }
+   ]
+  },
+  "TLL 102.T": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.SCOLA.322"
+    }
+   ]
+  },
+  "AI 525.A": {
+   "kota": "15",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.EF_AB1.510"
+    },
+    {
+     "day": 4,
+     "start": "09:40",
+     "room": "CK.EF_AB1.510"
+    }
+   ]
+  },
+  "AI 693.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "AI 694.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "AI 695.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "AI 696.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "AP 590.A": {
+   "kota": "26",
+   "rooms": []
+  },
+  "AP 590.B": {
+   "kota": "26",
+   "rooms": []
+  },
+  "AP 590.C": {
+   "kota": "26",
+   "rooms": []
+  },
+  "AP 590.D": {
+   "kota": "26",
+   "rooms": []
+  },
+  "AP 590.E": {
+   "kota": "26",
+   "rooms": []
+  },
+  "AP 590.F": {
+   "kota": "26",
+   "rooms": []
+  },
+  "AP 590.G": {
+   "kota": "26",
+   "rooms": []
+  },
+  "AP 590.H": {
+   "kota": "17",
+   "rooms": []
+  },
+  "AP 590.I": {
+   "kota": "9",
+   "rooms": []
+  },
+  "AP 591.A": {
+   "kota": "38",
+   "rooms": []
+  },
+  "AP 591.B": {
+   "kota": "38",
+   "rooms": []
+  },
+  "AP 591.C": {
+   "kota": "38",
+   "rooms": []
+  },
+  "AP 591.D": {
+   "kota": "38",
+   "rooms": []
+  },
+  "AP 591.E": {
+   "kota": "38",
+   "rooms": []
+  },
+  "AP 591.F": {
+   "kota": "38",
+   "rooms": []
+  },
+  "AP 591.G": {
+   "kota": "38",
+   "rooms": []
+  },
+  "AP 591.H": {
+   "kota": "14",
+   "rooms": []
+  },
+  "AP 591.I": {
+   "kota": "4",
+   "rooms": []
+  },
+  "AP 591.J": {
+   "kota": "20",
+   "rooms": []
+  },
+  "ARCH 501.A": {
+   "kota": "20",
+   "rooms": []
+  },
+  "ARCH 502.A": {
+   "kota": "20",
+   "rooms": []
+  },
+  "ARCH 520.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "ARCH 545.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "ARCH 594.A": {
+   "kota": "17",
+   "rooms": []
+  },
+  "ARCH 595.A": {
+   "kota": "7",
+   "rooms": []
+  },
+  "ARCH 596.A": {
+   "kota": "7",
+   "rooms": []
+  },
+  "ARCH 601.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "ARCH 900.A": {
+   "kota": "5",
+   "rooms": []
+  },
+  "ARCH 901.A": {
+   "kota": "3",
+   "rooms": []
+  },
+  "ARCH 902.A": {
+   "kota": "5",
+   "rooms": []
+  },
+  "ARCH 903.A": {
+   "kota": "3",
+   "rooms": []
+  },
+  "ARCH 904.A": {
+   "kota": "5",
+   "rooms": []
+  },
+  "ARCH 905.A": {
+   "kota": "7",
+   "rooms": []
+  },
+  "CE 501.A": {
+   "kota": "15",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "09:40",
+     "room": "CK.EF_AB1.413"
+    }
+   ]
+  },
+  "CE 502.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.EF_AB1.246"
+    }
+   ]
+  },
+  "CE 506.A": {
+   "kota": "10",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "09:40",
+     "room": "CK.EF_AB1.231"
+    }
+   ]
+  },
+  "CE 511.A": {
+   "kota": "10",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "15:40",
+     "room": "CK.EF_AB1.413"
+    }
+   ]
+  },
+  "CE 580.A": {
+   "kota": "5",
+   "rooms": []
+  },
+  "CE 589.A": {
+   "kota": "10",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.EF_AB1.413"
+    }
+   ]
+  },
+  "CE 693.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "CE 694.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "CE 695.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "CE 696.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "CE 900.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "CE 970.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "CE 977.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "CE 978.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "CE 979.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "CE 980.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "CS 513.A": {
+   "kota": "15",
+   "rooms": []
+  },
+  "CS 523.A": {
+   "kota": "15",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.EF_AB1.412"
+    }
+   ]
+  },
+  "CS 551.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.EF_AB1.412"
+    }
+   ]
+  },
+  "CS 566.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.EF_AB1.412"
+    }
+   ]
+  },
+  "CS 568.A": {
+   "kota": "15",
+   "rooms": []
+  },
+  "CS 675.A": {
+   "kota": "5",
+   "rooms": []
+  },
+  "CS 675.B": {
+   "kota": "5",
+   "rooms": []
+  },
+  "CS 675.C": {
+   "kota": "5",
+   "rooms": []
+  },
+  "CS 675.D": {
+   "kota": "5",
+   "rooms": []
+  },
+  "CS 693.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "CS 694.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "CS 695.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "CS 696.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "CS 900.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "CS 900.B": {
+   "kota": "10",
+   "rooms": []
+  },
+  "CS 970.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "CS 977.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "CS 978.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "CS 979.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "CS 980.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "DS 501.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "17:40",
+     "room": "CK.EF_AB1.412"
+    }
+   ]
+  },
+  "DS 538.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "17:40",
+     "room": "CK.EF_AB1.412"
+    }
+   ]
+  },
+  "DS 581.A": {
+   "kota": "3",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "17:40",
+     "room": "CK.EF_AB1.413"
+    }
+   ]
+  },
+  "DS 588.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "17:40",
+     "room": "CK.EF_AB1.414"
+    }
+   ]
+  },
+  "DS 675.A": {
+   "kota": "15",
+   "rooms": []
+  },
+  "DS 675.B": {
+   "kota": "15",
+   "rooms": []
+  },
+  "DS 675.C": {
+   "kota": "15",
+   "rooms": []
+  },
+  "DS 675.D": {
+   "kota": "15",
+   "rooms": []
+  },
+  "DS 675.E": {
+   "kota": "15",
+   "rooms": []
+  },
+  "DS 675.F": {
+   "kota": "15",
+   "rooms": []
+  },
+  "DS 675.G": {
+   "kota": "15",
+   "rooms": []
+  },
+  "DS 675.H": {
+   "kota": "15",
+   "rooms": []
+  },
+  "DS 694.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "DS 695.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "DS 696.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "EE 544.A": {
+   "kota": "10",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "09:40",
+     "room": "CK.EF_AB1.412"
+    }
+   ]
+  },
+  "EE 550.A": {
+   "kota": "10",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.101"
+    }
+   ]
+  },
+  "EE 562.A": {
+   "kota": "10",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "09:40",
+     "room": "CK.EF_AB1.511"
+    }
+   ]
+  },
+  "EE 562L.A": {
+   "kota": "10",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.EF_AB1.413"
+    }
+   ]
+  },
+  "EE 593.A": {
+   "kota": "10",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "14:40",
+     "room": "CK.EF_AB1.414"
+    }
+   ]
+  },
+  "EE 598.A": {
+   "kota": "10",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.EF_AB1.413"
+    }
+   ]
+  },
+  "EE 675.A": {
+   "kota": "5",
+   "rooms": []
+  },
+  "EE 675.B": {
+   "kota": "5",
+   "rooms": []
+  },
+  "EE 675.C": {
+   "kota": "5",
+   "rooms": []
+  },
+  "EE 675.D": {
+   "kota": "5",
+   "rooms": []
+  },
+  "EE 693.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "EE 694.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "EE 695.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "EE 696.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "EE 900.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "EE 900.B": {
+   "kota": "10",
+   "rooms": []
+  },
+  "EE 970.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "EE 977.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "EE 978.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "EE 979.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "EE 980.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "FERM 504.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 6,
+     "start": "13:30",
+     "room": "ALT.ALT.101"
+    }
+   ]
+  },
+  "FERM 505.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 6,
+     "start": "13:30",
+     "room": "ALT.ALT.101"
+    }
+   ]
+  },
+  "FERM 506.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "19:00",
+     "room": "ALT.ALT.101"
+    }
+   ]
+  },
+  "FERM 511.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "19:00",
+     "room": "ALT.ALT.101"
+    }
+   ]
+  },
+  "FERM 513.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "19:00",
+     "room": "ALT.ALT.101"
+    }
+   ]
+  },
+  "FERM 525.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "19:00",
+     "room": "ALT.ALT.101"
+    }
+   ]
+  },
+  "FERM 530.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "FERM 533.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 6,
+     "start": "09:00",
+     "room": "ALT.ALT.101"
+    }
+   ]
+  },
+  "FERM 534.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 6,
+     "start": "09:00",
+     "room": "ALT.ALT.101"
+    }
+   ]
+  },
+  "FERM 540.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "FERM 560.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "FERM 570.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "FERM 570.B": {
+   "kota": "10",
+   "rooms": []
+  },
+  "FERM 570.C": {
+   "kota": "10",
+   "rooms": []
+  },
+  "FERM 573.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "FERM 573.B": {
+   "kota": "10",
+   "rooms": []
+  },
+  "FERM 573.C": {
+   "kota": "10",
+   "rooms": []
+  },
+  "FERM 573.D": {
+   "kota": "10",
+   "rooms": []
+  },
+  "FERM 574.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "FERM 574.B": {
+   "kota": "10",
+   "rooms": []
+  },
+  "FERM 574.C": {
+   "kota": "10",
+   "rooms": []
+  },
+  "FERM 574.D": {
+   "kota": "10",
+   "rooms": []
+  },
+  "FERM 574.E": {
+   "kota": "10",
+   "rooms": []
+  },
+  "GSE 680.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "GSE 680.V": {
+   "kota": "25",
+   "rooms": []
+  },
+  "IE 501.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "10:40",
+     "room": "CK.EF_AB1.412"
+    }
+   ]
+  },
+  "IE 525.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.EF_AB1.231"
+    }
+   ]
+  },
+  "IE 526.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.EF_AB1.412"
+    }
+   ]
+  },
+  "IE 578.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "09:40",
+     "room": "CK.EF_AB1.412"
+    }
+   ]
+  },
+  "IE 579.V": {
+   "kota": "20",
+   "rooms": []
+  },
+  "IE 675.A": {
+   "kota": "5",
+   "rooms": []
+  },
+  "IE 675.B": {
+   "kota": "5",
+   "rooms": []
+  },
+  "IE 675.C": {
+   "kota": "5",
+   "rooms": []
+  },
+  "IE 675.D": {
+   "kota": "5",
+   "rooms": []
+  },
+  "IE 675.E": {
+   "kota": "5",
+   "rooms": []
+  },
+  "IE 675.F": {
+   "kota": "5",
+   "rooms": []
+  },
+  "IE 675.G": {
+   "kota": "5",
+   "rooms": []
+  },
+  "IE 693.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "IE 694.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "IE 695.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "IE 696.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "IE 900.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "IE 900.B": {
+   "kota": "10",
+   "rooms": []
+  },
+  "IE 970.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "IE 977.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "IE 978.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "IE 979.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "IE 980.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "ME 506.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.EF_AB1.414"
+    }
+   ]
+  },
+  "ME 512.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.EF_AB1.231"
+    }
+   ]
+  },
+  "ME 513.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "14:40",
+     "room": "CK.EF_AB1.409"
+    },
+    {
+     "day": 4,
+     "start": "14:40",
+     "room": "CK.EF_AB1.413"
+    }
+   ]
+  },
+  "ME 519.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "10:40",
+     "room": "CK.EF_AB1.413"
+    },
+    {
+     "day": 3,
+     "start": "12:40",
+     "room": "CK.EF_AB1.418"
+    }
+   ]
+  },
+  "ME 675.A": {
+   "kota": "5",
+   "rooms": []
+  },
+  "ME 675.B": {
+   "kota": "5",
+   "rooms": []
+  },
+  "ME 675.C": {
+   "kota": "5",
+   "rooms": []
+  },
+  "ME 693.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "ME 694.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "ME 695.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "ME 696.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "ME 900.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "ME 970.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "ME 977.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "ME 978.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "ME 979.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "ME 980.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "PHYS 552.A": {
+   "kota": "15",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "14:40",
+     "room": "CK.EF_AB1.414"
+    }
+   ]
+  },
+  "PHYS 900.A": {
+   "kota": "5",
+   "rooms": []
+  },
+  "PROJ 580.A": {
+   "kota": "10",
+   "rooms": []
+  },
+  "PROJ 580.B": {
+   "kota": "10",
+   "rooms": []
+  },
+  "PROJ 580.C": {
+   "kota": "10",
+   "rooms": []
+  },
+  "PROJ 580.D": {
+   "kota": "10",
+   "rooms": []
+  },
+  "PROJ 580.E": {
+   "kota": "10",
+   "rooms": []
+  },
+  "PROJ 580.F": {
+   "kota": "10",
+   "rooms": []
+  },
+  "PROJ 580.G": {
+   "kota": "10",
+   "rooms": []
+  },
+  "PROJ 580.H": {
+   "kota": "10",
+   "rooms": []
+  },
+  "ARCH 101.A": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B233"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B233"
+    }
+   ]
+  },
+  "ARCH 101.B": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B233"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B233"
+    }
+   ]
+  },
+  "ARCH 101.C": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B233"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B233"
+    }
+   ]
+  },
+  "ARCH 101.D": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B233"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B233"
+    }
+   ]
+  },
+  "ARCH 101.E": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B233"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B233"
+    }
+   ]
+  },
+  "ARCH 102.A": {
+   "kota": "10",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    }
+   ]
+  },
+  "ARCH 105.A": {
+   "kota": "115",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.G30"
+    }
+   ]
+  },
+  "ARCH 107.A": {
+   "kota": "39",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B233"
+    }
+   ]
+  },
+  "ARCH 107.B": {
+   "kota": "39",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B233"
+    }
+   ]
+  },
+  "ARCH 107.C": {
+   "kota": "15",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "12:40",
+     "room": "CK.AF_AB4.B126"
+    }
+   ]
+  },
+  "ARCH 107.D": {
+   "kota": "15",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "12:40",
+     "room": "CK.AF_AB4.B126"
+    }
+   ]
+  },
+  "ARCH 110.A": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B226"
+    }
+   ]
+  },
+  "ARCH 110.B": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B230"
+    }
+   ]
+  },
+  "ARCH 110.C": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B313B"
+    }
+   ]
+  },
+  "ARCH 201.A": {
+   "kota": "12",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    }
+   ]
+  },
+  "ARCH 201.B": {
+   "kota": "12",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    }
+   ]
+  },
+  "ARCH 201.C": {
+   "kota": "12",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    }
+   ]
+  },
+  "ARCH 201.D": {
+   "kota": "12",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    }
+   ]
+  },
+  "ARCH 201.E": {
+   "kota": "12",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    }
+   ]
+  },
+  "ARCH 202.A": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B125"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B125"
+    }
+   ]
+  },
+  "ARCH 205.A": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.AF_AB4.124"
+    },
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.AF_AB4.124"
+    }
+   ]
+  },
+  "ARCH 205.B": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B226"
+    },
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B226"
+    }
+   ]
+  },
+  "ARCH 207.A": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "09:40",
+     "room": "CK.AF_AB4.124"
+    }
+   ]
+  },
+  "ARCH 207.B": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B313A"
+    }
+   ]
+  },
+  "ARCH 209.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.G02"
+    }
+   ]
+  },
+  "ARCH 209.B": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.102"
+    }
+   ]
+  },
+  "ARCH 209.C": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.G01"
+    }
+   ]
+  },
+  "ARCH 210.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.103"
+    }
+   ]
+  },
+  "ARCH 212.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "12:40",
+     "room": "CK.AF_AB4.B230"
+    }
+   ]
+  },
+  "ARCH 212.B": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "12:40",
+     "room": "CK.FEAS_AB2.G14"
+    }
+   ]
+  },
+  "ARCH 212.C": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B313A"
+    }
+   ]
+  },
+  "ARCH 301.A": {
+   "kota": "12",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    }
+   ]
+  },
+  "ARCH 301.B": {
+   "kota": "12",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    }
+   ]
+  },
+  "ARCH 301.C": {
+   "kota": "12",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    }
+   ]
+  },
+  "ARCH 301.D": {
+   "kota": "12",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    }
+   ]
+  },
+  "ARCH 301.E": {
+   "kota": "12",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    }
+   ]
+  },
+  "ARCH 301.F": {
+   "kota": "12",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    }
+   ]
+  },
+  "ARCH 302.A": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.227"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.227"
+    }
+   ]
+  },
+  "ARCH 303.A": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B313B"
+    }
+   ]
+  },
+  "ARCH 303.B": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B230"
+    }
+   ]
+  },
+  "ARCH 303.C": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B314"
+    }
+   ]
+  },
+  "ARCH 305.A": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.LF_AB3.237"
+    },
+    {
+     "day": 2,
+     "start": "10:40",
+     "room": "CK.AF_AB4.227"
+    }
+   ]
+  },
+  "ARCH 305.B": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.LF_AB3.237"
+    },
+    {
+     "day": 2,
+     "start": "10:40",
+     "room": "CK.AF_AB4.227"
+    }
+   ]
+  },
+  "ARCH 305.C": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.LF_AB3.237"
+    },
+    {
+     "day": 2,
+     "start": "10:40",
+     "room": "CK.AF_AB4.227"
+    }
+   ]
+  },
+  "ARCH 401.A": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.227"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.227"
+    }
+   ]
+  },
+  "ARCH 401.B": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.227"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.227"
+    }
+   ]
+  },
+  "ARCH 401.C": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.227"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.227"
+    }
+   ]
+  },
+  "ARCH 401.D": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.227"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.227"
+    }
+   ]
+  },
+  "ARCH 401.E": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.227"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.227"
+    }
+   ]
+  },
+  "ARCH 402.A": {
+   "kota": "11",
+   "rooms": []
+  },
+  "ARCH 402.B": {
+   "kota": "11",
+   "rooms": []
+  },
+  "ARCH 403.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B228"
+    }
+   ]
+  },
+  "ARCH 403.B": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.112"
+    }
+   ]
+  },
+  "ARCH 403.C": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B313B"
+    }
+   ]
+  },
+  "ARCH 420.A": {
+   "kota": "20",
+   "rooms": []
+  },
+  "ARCH 434.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B228"
+    }
+   ]
+  },
+  "ARCH 438.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B313A"
+    }
+   ]
+  },
+  "ARCH 439.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.116"
+    }
+   ]
+  },
+  "ARCH 445.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.102"
+    }
+   ]
+  },
+  "ARCH 446.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B228"
+    }
+   ]
+  },
+  "ARCH 451.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "09:40",
+     "room": "CK.AF_AB4.B313A"
+    }
+   ]
+  },
+  "ARCH 467.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "09:40",
+     "room": "CK.AF_AB4.B126"
+    }
+   ]
+  },
+  "ARCH 468.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B318"
+    }
+   ]
+  },
+  "ARCH 469.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B127"
+    }
+   ]
+  },
+  "ARCH 470.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B313B"
+    }
+   ]
+  },
+  "ARCH 472.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.AF_AB4.B318"
+    }
+   ]
+  },
+  "ARCH 476.A": {
+   "kota": "20",
+   "rooms": []
+  },
+  "COD 101.A": {
+   "kota": "49",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B318"
+    }
+   ]
+  },
+  "COD 102.A": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 4,
+     "start": "14:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.AF_AB4.124"
+    },
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.AF_AB4.124"
+    }
+   ]
+  },
+  "COD 103.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B317"
+    }
+   ]
+  },
+  "COD 103.B": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B317"
+    }
+   ]
+  },
+  "COD 200.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "COD 201.A": {
+   "kota": "16",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    }
+   ]
+  },
+  "COD 201.B": {
+   "kota": "16",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    }
+   ]
+  },
+  "COD 202.A": {
+   "kota": "3",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    }
+   ]
+  },
+  "COD 203.A": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B318"
+    }
+   ]
+  },
+  "COD 203.B": {
+   "kota": "17",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B127"
+    }
+   ]
+  },
+  "COD 205.A": {
+   "kota": "32",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "09:40",
+     "room": "CK.AF_AB4.123"
+    }
+   ]
+  },
+  "COD 206.A": {
+   "kota": "32",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.AF_AB4.B127"
+    }
+   ]
+  },
+  "COD 207.A": {
+   "kota": "16",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "09:40",
+     "room": "CK.AF_AB4.B317"
+    }
+   ]
+  },
+  "COD 207.B": {
+   "kota": "16",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B317"
+    }
+   ]
+  },
+  "COD 209.A": {
+   "kota": "18",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B317"
+    }
+   ]
+  },
+  "COD 209.B": {
+   "kota": "17",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B317"
+    }
+   ]
+  },
+  "COD 300.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "COD 301.A": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B226"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B226"
+    }
+   ]
+  },
+  "COD 302.A": {
+   "kota": "8",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B226"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B226"
+    }
+   ]
+  },
+  "COD 305.A": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B228"
+    }
+   ]
+  },
+  "COD 314.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.AF_AB4.B226"
+    }
+   ]
+  },
+  "COD 321.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "09:40",
+     "room": "CK.AF_AB4.B230"
+    }
+   ]
+  },
+  "COD 322.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B230"
+    }
+   ]
+  },
+  "COD 323.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B226"
+    }
+   ]
+  },
+  "COD 400.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "COD 401.A": {
+   "kota": "23",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.124"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.124"
+    }
+   ]
+  },
+  "COD 402.A": {
+   "kota": "1",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.124"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.124"
+    }
+   ]
+  },
+  "COD 404.A": {
+   "kota": "23",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.G11"
+    }
+   ]
+  },
+  "COD 414.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.AF_AB4.124"
+    }
+   ]
+  },
+  "COD 416.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "09:40",
+     "room": "CK.AF_AB4.B127"
+    }
+   ]
+  },
+  "COD 419.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.AF_AB4.B230"
+    }
+   ]
+  },
+  "COD 424.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B230"
+    }
+   ]
+  },
+  "IDE 100.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "IDE 101.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    }
+   ]
+  },
+  "IDE 101.B": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.AF_AB4.123"
+    }
+   ]
+  },
+  "IDE 101.C": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 4,
+     "start": "14:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.AF_AB4.124"
+    },
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.AF_AB4.124"
+    }
+   ]
+  },
+  "IDE 101.D": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    }
+   ]
+  },
+  "IDE 102.A": {
+   "kota": "10",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 5,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    }
+   ]
+  },
+  "IDE 103.A": {
+   "kota": "45",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.AF_AB4.123"
+    }
+   ]
+  },
+  "IDE 103.B": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "09:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.AF_AB4.123"
+    }
+   ]
+  },
+  "IDE 103.C": {
+   "kota": "24",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.AF_AB4.123"
+    }
+   ]
+  },
+  "IDE 103.D": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.AF_AB4.123"
+    }
+   ]
+  },
+  "IDE 105.A": {
+   "kota": "46",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B127"
+    }
+   ]
+  },
+  "IDE 106.A": {
+   "kota": "45",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B611"
+    },
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B612"
+    }
+   ]
+  },
+  "IDE 107.A": {
+   "kota": "45",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B228"
+    }
+   ]
+  },
+  "IDE 110.A": {
+   "kota": "45",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.G01"
+    }
+   ]
+  },
+  "IDE 200.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "IDE 201.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    }
+   ]
+  },
+  "IDE 201.B": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    }
+   ]
+  },
+  "IDE 202.A": {
+   "kota": "10",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    }
+   ]
+  },
+  "IDE 203.A": {
+   "kota": "45",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.B43B"
+    }
+   ]
+  },
+  "IDE 205.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.AF_AB4.124"
+    }
+   ]
+  },
+  "IDE 207.A": {
+   "kota": "45",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.AF_AB4.B126"
+    }
+   ]
+  },
+  "IDE 209.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.G12"
+    }
+   ]
+  },
+  "IDE 300.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "IDE 301.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    }
+   ]
+  },
+  "IDE 301.B": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    }
+   ]
+  },
+  "IDE 302.A": {
+   "kota": "15",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    }
+   ]
+  },
+  "IDE 305.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.AF_AB4.B230"
+    }
+   ]
+  },
+  "IDE 311.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "09:40",
+     "room": "CK.LF_AB3.332"
+    }
+   ]
+  },
+  "IDE 311.B": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.B44"
+    }
+   ]
+  },
+  "IDE 313.A": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B313A"
+    }
+   ]
+  },
+  "IDE 317.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.AF_AB4.B126"
+    }
+   ]
+  },
+  "IDE 332.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.G13"
+    }
+   ]
+  },
+  "IDE 354.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B318"
+    }
+   ]
+  },
+  "IDE 401.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    }
+   ]
+  },
+  "IDE 402.A": {
+   "kota": "5",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.123"
+    }
+   ]
+  },
+  "IDE 403.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "09:40",
+     "room": "CK.AF_AB4.124"
+    }
+   ]
+  },
+  "IDE 424.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.AF_AB4.B228"
+    }
+   ]
+  },
+  "IDE 437.A": {
+   "kota": "20",
+   "rooms": []
+  },
+  "IDE 438.A": {
+   "kota": "5",
+   "rooms": []
+  },
+  "IDE 451.A": {
+   "kota": "25",
+   "rooms": []
+  },
+  "INAR 105.A": {
+   "kota": "50",
+   "rooms": []
+  },
+  "INAR 200.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "INAR 201.A": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B125"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B125"
+    }
+   ]
+  },
+  "INAR 201.B": {
+   "kota": "16",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B125"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B125"
+    }
+   ]
+  },
+  "INAR 202.A": {
+   "kota": "7",
+   "rooms": []
+  },
+  "INAR 206.A": {
+   "kota": "65",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B228"
+    }
+   ]
+  },
+  "INAR 302.A": {
+   "kota": "13",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B125"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B125"
+    }
+   ]
+  },
+  "INAR 303.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B233"
+    }
+   ]
+  },
+  "INAR 303.B": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.B42"
+    }
+   ]
+  },
+  "INAR 313.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B233"
+    }
+   ]
+  },
+  "INAR 315.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B228"
+    }
+   ]
+  },
+  "INAR 316.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B127"
+    }
+   ]
+  },
+  "INAR 319.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.G12"
+    }
+   ]
+  },
+  "INAR 400.A": {
+   "kota": "0",
+   "rooms": []
+  },
+  "INAR 401.A": {
+   "kota": "13",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B125"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B125"
+    }
+   ]
+  },
+  "INAR 401.B": {
+   "kota": "12",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B125"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B125"
+    }
+   ]
+  },
+  "INAR 401.C": {
+   "kota": "12",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B125"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B125"
+    }
+   ]
+  },
+  "INAR 402.A": {
+   "kota": "10",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B125"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B125"
+    }
+   ]
+  },
+  "INAR 403.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "09:40",
+     "room": "CK.AF_AB4.B126"
+    }
+   ]
+  },
+  "INAR 405.A": {
+   "kota": "40",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B226"
+    }
+   ]
+  },
+  "INAR 412.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B127"
+    }
+   ]
+  },
+  "INAR 422.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B125"
+    }
+   ]
+  },
+  "MİM 102.A": {
+   "kota": "10",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    }
+   ]
+  },
+  "MİM 105.A": {
+   "kota": "115",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.G30"
+    }
+   ]
+  },
+  "MİM 107.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B233"
+    }
+   ]
+  },
+  "MİM 108.A": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.113"
+    }
+   ]
+  },
+  "MİM 110.A": {
+   "kota": "36",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "12:40",
+     "room": "CK.AF_AB4.B318"
+    }
+   ]
+  },
+  "MİM 201.A": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B125"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B125"
+    }
+   ]
+  },
+  "MİM 202.A": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    }
+   ]
+  },
+  "MİM 205.A": {
+   "kota": "36",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.G11"
+    },
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.G10"
+    }
+   ]
+  },
+  "MİM 207.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.B43B"
+    }
+   ]
+  },
+  "MİM 209.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "09:40",
+     "room": "CK.FEAS_AB2.G10"
+    }
+   ]
+  },
+  "MİM 212.A": {
+   "kota": "30",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.AF_AB4.B313A"
+    }
+   ]
+  },
+  "MİM 301.A": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    }
+   ]
+  },
+  "MİM 301.B": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    }
+   ]
+  },
+  "MİM 301.C": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.B314"
+    }
+   ]
+  },
+  "MİM 302.A": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.227"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.227"
+    }
+   ]
+  },
+  "MİM 303.A": {
+   "kota": "15",
+   "rooms": []
+  },
+  "MİM 303.B": {
+   "kota": "15",
+   "rooms": []
+  },
+  "MİM 303.C": {
+   "kota": "15",
+   "rooms": []
+  },
+  "MİM 305.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.SCOLA.126"
+    },
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.AF_AB4.227"
+    }
+   ]
+  },
+  "MİM 305.B": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.SCOLA.126"
+    },
+    {
+     "day": 2,
+     "start": "15:40",
+     "room": "CK.AF_AB4.227"
+    }
+   ]
+  },
+  "MİM 315.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.AF_AB4.B126"
+    }
+   ]
+  },
+  "MİM 317.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 4,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.102"
+    }
+   ]
+  },
+  "MİM 318.A": {
+   "kota": "20",
+   "rooms": []
+  },
+  "MİM 322.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "14:40",
+     "room": "CK.AF_AB4.B127"
+    }
+   ]
+  },
+  "MİM 325.A": {
+   "kota": "20",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.103"
+    }
+   ]
+  },
+  "MİM 401.A": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.227"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.227"
+    }
+   ]
+  },
+  "MİM 401.B": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.227"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.227"
+    }
+   ]
+  },
+  "MİM 401.C": {
+   "kota": "14",
+   "rooms": [
+    {
+     "day": 1,
+     "start": "08:40",
+     "room": "CK.AF_AB4.227"
+    },
+    {
+     "day": 4,
+     "start": "08:40",
+     "room": "CK.AF_AB4.227"
+    }
+   ]
+  },
+  "MİM 402.A": {
+   "kota": "12",
+   "rooms": []
+  },
+  "MİM 403.A": {
+   "kota": "45",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "08:40",
+     "room": "CK.FEAS_AB2.G03"
+    }
+   ]
+  },
+  "MİM 420.A": {
+   "kota": "15",
+   "rooms": []
+  },
+  "MİM 431.A": {
+   "kota": "25",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "13:40",
+     "room": "CK.FEAS_AB2.B42"
+    }
+   ]
+  },
+  "MİM 434.A": {
+   "kota": "25",
+   "rooms": []
+  },
+  "MİM 436.A": {
+   "kota": "15",
+   "rooms": []
+  },
+  "MİM 442.A": {
+   "kota": "15",
+   "rooms": []
+  },
+  "AI 111.A": {
+   "kota": "50",
+   "rooms": []
+  },
+  "AI 201.A": {
+   "kota": "55",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "11:40",
+     "room": "CK.EF_AB1.245"
+    }
+   ]
+  },
+  "AI 300.A": {
+   "kota": "30",
+   "rooms": []
+  },
+  "AI 301.A": {
+   "kota": "35",
+   "rooms": [
+    {
+     "day": 5,
+     "start": "09:40",
+     "room": "CK.EF_AB1.232"
+    }
+   ]
+  },
+  "AI 303.A": {
+   "kota": "45",
+   "rooms": [
+    {
+     "day": 2,
+     "start": "12:40",
+     "room": "CK.EF_AB1.408"
+    }
+   ]
+  },
+  "AI 425.A": {
+   "kota": "15",
+   "rooms": [
+    {
+     "day": 3,
+     "start": "08:40",
+     "room": "CK.EF_AB1.510"
+    },
+    {
+     "day": 4,
+     "start": "09:40",
+     "room": "CK.EF_AB1.510"
+    }
+   ]
+  },
+  "CE 300.A": {
+   "kota": "50",
+   "rooms": []
+  }
+ }
+}
