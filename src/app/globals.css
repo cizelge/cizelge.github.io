@@ -612,46 +612,62 @@ a.term-option[aria-current="page"]:hover {
 }
 .mini-more .hint { font-weight: 400; font-size: 0.78rem; }
 
-/* ---------- Aynı düzenin şube seçenekleri ---------- */
+/* ---------- Çizelgede şube değiştirme ---------- */
 
-.variants { margin-block: 0.25rem 1rem; }
-.variants-title { font-size: 1rem; font-weight: 700; margin: 0 0 0.5rem; }
-.variants-title .hint { font-weight: 400; font-size: 0.85rem; }
-.variants-list {
-  list-style: none;
-  margin: 0;
-  padding: 0.1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  max-height: 15.5rem;
-  overflow-y: auto;
-}
-.variant {
-  display: flex;
-  flex-wrap: wrap;
+.switch-btn {
+  display: inline-flex;
   align-items: center;
-  gap: 0.35rem 1.25rem;
-  width: 100%;
-  padding: 0.45rem 0.7rem;
-  border: 1px solid var(--rule);
+  gap: 0.15rem;
+  padding: 0 0.3rem;
+  border: 1px solid color-mix(in oklab, var(--hl-text) 35%, transparent);
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--paper) 55%, transparent);
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.35;
+  cursor: pointer;
+}
+.switch-btn:hover { background: var(--paper); }
+.switch-menu {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: 0.35rem;
+  border: 1px solid var(--rule-strong);
   border-radius: var(--radius-m);
   background: var(--paper);
   color: var(--ink);
+  /* Menü DOM'da ders kutusunun içinde; kutunun kalın yazısını devralmasın. */
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.4;
+  white-space: normal;
+  box-shadow: 0 12px 32px -12px color-mix(in oklab, var(--ink) 35%, transparent);
+}
+.switch-menu ul { list-style: none; margin: 0; padding: 0; }
+.switch-title { margin: 0.2rem 0.45rem 0.35rem; font-size: 0.8rem; color: var(--ink-2); }
+.switch-option {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.45rem;
+  border: 0;
+  border-radius: var(--radius-s);
+  background: none;
+  color: inherit;
   font: inherit;
   text-align: left;
   cursor: pointer;
 }
-.variant:hover { border-color: var(--rule-strong); }
-.variant[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
-.variant-rank { font-weight: 800; min-width: 1.6rem; }
-.variant-pick { display: inline-flex; align-items: center; gap: 0.5rem; }
-@media (min-width: 40rem) {
-  /* Seçenekler alt alta karşılaştırılsın diye ders sütunları hizalı. */
-  .variant-pick { min-width: 18rem; }
-}
-.variant-pick .section-tag { font-size: 0.85rem; white-space: nowrap; }
-.variant-who { font-size: 0.9rem; }
+.switch-option:hover { background: var(--paper-2); }
+.switch-option[aria-pressed="true"] { background: var(--paper-2); font-weight: 600; }
+.switch-id { min-width: 1.8rem; font-weight: 700; }
+.switch-who { flex: 1; }
+.switch-cap { font-size: 0.78rem; color: var(--ink-2); }
 
 /* ---------- Seçili programın özeti ---------- */
 

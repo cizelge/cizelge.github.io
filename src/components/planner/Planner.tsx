@@ -20,7 +20,7 @@ import { placeMeetings, timeRange } from "./placed";
 import { Tuning } from "./Preferences";
 import { formatGap, ScheduleStrip } from "./ScheduleStrip";
 import { TermSelect } from "./TermSelect";
-import { Variants } from "./Variants";
+import { SectionSwitch } from "./SectionSwitch";
 import { WeekGrid } from "./WeekGrid";
 
 const STORAGE_KEY = "planlayici:";
@@ -100,7 +100,7 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
   const colorOf = (code: string) => Math.max(0, state.cart.indexOf(code)) % HIGHLIGHTERS;
   const update = (patch: Partial<PlannerState>) => {
     setLayoutLimit(LAYOUT_PAGE);
-    setState((s) => ({ ...s, selected: 0, variant: 0, ...patch }));
+    setState((s) => ({ ...s, selected: 0, ...patch }));
   };
 
   const input = useMemo(
@@ -123,10 +123,16 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
   const layouts = useMemo(() => result?.layouts ?? [], [result]);
   const layoutCount = result?.layoutCount ?? 0;
   const selectedLayout = Math.min(state.selected, Math.max(0, layouts.length - 1));
-  // Başka bir düzene geçildiğinde işçinin cevabı gelene kadar eski düzenin seçenekleri gösterilmez.
-  const variants = result && result.layout === selectedLayout ? result.variants : [];
-  const selectedVariant = Math.min(state.variant, Math.max(0, variants.length - 1));
-  const current = variants[selectedVariant] ?? layouts[selectedLayout]?.best;
+  // Başka bir düzene geçildiğinde işçinin cevabı gelene kadar eski düzenin şubeleri kullanılmaz.
+  const alternatives = result && result.layout === selectedLayout ? result.alternatives : {};
+  const best = layouts[selectedLayout]?.best;
+  // Elle seçilen şube bu düzende aynı saatteyse onu kullan; saatler aynı olduğu için özet değişmez.
+  const current = best && {
+    ...best,
+    sections: best.sections.map((r) =>
+      alternatives[r.courseCode]?.includes(state.picks[r.courseCode]) ? { ...r, sectionId: state.picks[r.courseCode] } : r,
+    ),
+  };
   const groupRank = selectedLayout + 1;
   const cartSections: SectionRef[] = state.cart.flatMap((code) =>
     (courses.get(code)?.sections ?? []).map((s) => ({ courseCode: code, sectionId: s.id })),
@@ -347,7 +353,7 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
             layouts={layouts}
             layoutCount={layoutCount}
             selected={selectedLayout}
-            onSelect={(i) => setState((s) => ({ ...s, selected: i, variant: 0 }))}
+            onSelect={(i) => setState((s) => ({ ...s, selected: i }))}
             onMore={() => setLayoutLimit(limit + LAYOUT_PAGE)}
             courses={courses}
             colorOf={colorOf}
@@ -397,18 +403,20 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
           </div>
         )}
 
-        {current && (
-          <Variants
-            variants={variants}
-            size={layouts[selectedLayout]?.size ?? variants.length}
-            selected={selectedVariant}
-            onSelect={(i) => setState((s) => ({ ...s, variant: i }))}
-            courses={courses}
-            colorOf={colorOf}
-          />
-        )}
-
         <WeekGrid
+          renderSection={(m) => {
+            const ids = alternatives[m.courseCode];
+            const course = courses.get(m.courseCode);
+            if (!ids || ids.length < 2 || !course) return null;
+            return (
+              <SectionSwitch
+                courseCode={m.courseCode}
+                current={m.sectionId}
+                options={ids.map((id) => course.sections.find((x) => x.id === id)!).filter(Boolean)}
+                onPick={(id) => setState((s) => ({ ...s, picks: { ...s.picks, [m.courseCode]: id } }))}
+              />
+            );
+          }}
           meetings={placed}
           freeDays={state.freeDays}
           range={range}

@@ -67,7 +67,7 @@ export function ScheduleStrip({ layouts, layoutCount, selected, onSelect, onMore
             <span className="mini-meta num">
               <span>{formatGap(s.summary.gapMinutes)}</span>
               {hours && <span>{hours}</span>}
-              {l.size > 1 && <span className="mini-variants">{l.size.toLocaleString("tr-TR")} şube seçeneği</span>}
+              {l.size > 1 && <span className="mini-variants">{l.size.toLocaleString("tr-TR")} seçenek</span>}
             </span>
           </button>
         );

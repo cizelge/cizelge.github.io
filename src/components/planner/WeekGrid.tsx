@@ -14,9 +14,11 @@ interface Props {
   empty?: React.ReactNode;
   /** Blokta yalnızca ders kodu (ana sayfadaki küçük çizim için). */
   compact?: boolean;
+  /** Şube harfinin yerine konacak öğe (planlayıcıda şube değiştirme menüsü); null dönerse düz harf yazılır. */
+  renderSection?: (m: PlacedMeeting) => React.ReactNode;
 }
 
-export function WeekGrid({ meetings, freeDays, range, days, empty, compact = false }: Props) {
+export function WeekGrid({ meetings, freeDays, range, days, empty, compact = false, renderSection }: Props) {
   const startHour = Math.floor(range.start / 60);
   const endHour = Math.ceil(range.end / 60);
   const hours = Array.from({ length: endHour - startHour }, (_, i) => startHour + i);
@@ -68,8 +70,8 @@ export function WeekGrid({ meetings, freeDays, range, days, empty, compact = fal
                     title={`${m.courseCode} ${m.sectionId}, ${m.start}–${m.end}${m.room ? `, ${m.room}` : ""}${m.instructor ? `, ${personName(m.instructor)}` : ""}`}
                   >
                     <span className="block-code">
-                      {m.courseCode}
-                      {m.sectionId && <span className="block-section"> {m.sectionId}</span>}
+                      {m.courseCode}{" "}
+                      {renderSection?.(m) ?? (m.sectionId && <span className="block-section">{m.sectionId}</span>)}
                     </span>
                     {!compact && (
                       <>

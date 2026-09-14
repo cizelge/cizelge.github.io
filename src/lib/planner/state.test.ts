@@ -56,12 +56,12 @@ describe("encodeState / decodeState", () => {
       excluded: [{ courseCode: "CS 101L", sectionId: "C" }],
       weights: { fewDays: 3, fewGaps: 0, lunchBreak: 1, noEarly: 2, noLate: 0 },
       selected: 2,
-      variant: 1,
+      picks: { "CS 101L": "A" },
       program: null,
       year: null,
     };
     const q = encodeState(s);
-    expect(q).toBe("d=CS101%2CCS101L%2CMATH103&bos=15&kilit=CS101%3AB&haric=CS101L%3AC&w=30120&p=3&s=2");
+    expect(q).toBe("d=CS101%2CCS101L%2CMATH103&bos=15&kilit=CS101%3AB&haric=CS101L%3AC&w=30120&p=3&s=CS101L%3AA");
     expect(decodeState(q, sections)).toEqual({ state: { ...s, freeDays: [1, 5] }, missing: [] });
   });
 
@@ -84,12 +84,11 @@ describe("encodeState / decodeState", () => {
   });
 
   it("ignores malformed weights, days and page numbers", () => {
-    const { state } = decodeState("d=cs101&w=99&bos=08x9&p=abc&s=-1", sections);
+    const { state } = decodeState("d=cs101&w=99&bos=08x9&p=abc", sections);
     expect(state.cart).toEqual(["CS 101"]);
     expect(state.weights).toEqual(DEFAULT_WEIGHTS);
     expect(state.freeDays).toEqual([]);
     expect(state.selected).toBe(0);
-    expect(state.variant).toBe(0);
   });
 });
 
@@ -141,7 +140,7 @@ describe("termSwitchQuery", () => {
       excluded: [{ courseCode: "MATH 103", sectionId: "A" }],
       weights: { ...DEFAULT_WEIGHTS, noEarly: 3 },
       selected: 4,
-      variant: 2,
+      picks: { "CS 101": "A" },
       program: "BSCS",
       year: 1,
     };

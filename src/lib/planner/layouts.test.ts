@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { Candidate, ScheduleMetrics, Weights } from "../engine";
 import type { Course } from "../types";
-import { buildLayouts } from "./layouts";
+import { alternativesOf, buildLayouts } from "./layouts";
 
 const course = (code: string, sections: Record<string, [number, string, string][]>): Course => ({
   code,
@@ -61,5 +61,10 @@ describe("buildLayouts", () => {
     const { groups, scores } = buildLayouts(candidates, courses, weights);
     expect(groups).toEqual([[2, 0], [1]]);
     expect(Array.from(scores)).toEqual([4, 2, 1]);
+  });
+
+  it("lists each course's same-time sections in a layout, best schedule's first", () => {
+    const candidates = [candidate("B", "A", 2), candidate("A", "A", 2), candidate("B", "B", 2)];
+    expect(alternativesOf(candidates, [0, 1, 2])).toEqual({ "CS 201": ["B", "A"], "MATH 211": ["A", "B"] });
   });
 });

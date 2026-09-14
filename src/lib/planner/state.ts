@@ -1,5 +1,5 @@
 // Planlayıcı durumu ve paylaşım linki biçimi.
-// Link okunabilir kalsın diye sıkıştırma yok: ?d=CS101,MATH103&bos=5&kilit=CS101:B&haric=ENG101:C&w=21000&p=2&s=3
+// Link okunabilir kalsın diye sıkıştırma yok: ?d=CS101,MATH103&bos=5&kilit=CS101:B&haric=ENG101:C&w=21000&p=2&s=CS101:A
 import type { Day, SectionRef, Weights } from "../engine";
 import { normalizeCode } from "../engine";
 import { parseTermLabel, SEASON_LABEL } from "../terms";
@@ -13,8 +13,8 @@ export interface PlannerState {
   weights: Weights;
   /** Seçili haftalık düzenin sıradaki yeri (0 = en iyi). */
   selected: number;
-  /** Seçili düzendeki şube seçeneği (0 = en iyi). */
-  variant: number;
+  /** Aynı saatlerdeki şubeler arasından elle seçilenler: ders kodu -> şube. Düzende yoksa yok sayılır. */
+  picks: Record<string, string>;
   /** Seçilen bölümün SIS program kodu ("BSCS"), seçilmediyse null. */
   program: string | null;
   /** Seçilen sınıf (0 = Hazırlık), seçilmediyse null. */
@@ -38,7 +38,7 @@ export const EMPTY_STATE: PlannerState = {
   excluded: [],
   weights: DEFAULT_WEIGHTS,
   selected: 0,
-  variant: 0,
+  picks: {},
   program: null,
   year: null,
 };
@@ -62,7 +62,8 @@ export function encodeState(s: PlannerState): string {
   const w = WEIGHT_KEYS.map((k) => s.weights[k]).join("");
   if (w !== WEIGHT_KEYS.map((k) => DEFAULT_WEIGHTS[k]).join("")) p.set("w", w);
   if (s.selected > 0) p.set("p", String(s.selected + 1));
-  if (s.variant > 0) p.set("s", String(s.variant + 1));
+  const picks = Object.entries(s.picks).filter(([code]) => s.cart.includes(code));
+  if (picks.length) p.set("s", picks.map(([c, id]) => `${compact(c)}:${id}`).join(","));
   if (s.program) {
     p.set("bolum", s.program);
     if (s.year !== null) p.set("sinif", String(s.year));
@@ -125,8 +126,7 @@ export function decodeState(
 
   const pRaw = Number(p.get("p"));
   const selected = Number.isInteger(pRaw) && pRaw > 1 ? pRaw - 1 : 0;
-  const sRaw = Number(p.get("s"));
-  const variant = Number.isInteger(sRaw) && sRaw > 1 ? sRaw - 1 : 0;
+  const picks = Object.fromEntries(refs("s").map((r) => [r.courseCode, r.sectionId]));
 
   let program: string | null = null;
   let year: number | null = null;
@@ -143,7 +143,7 @@ export function decodeState(
     }
   }
 
-  return { state: { cart, freeDays, locked, excluded, weights, selected, variant, program, year }, missing };
+  return { state: { cart, freeDays, locked, excluded, weights, selected, picks, program, year }, missing };
 }
 
 /**
@@ -152,7 +152,7 @@ export function decodeState(
  * kalacağı için taşınmaz.
  */
 export function termSwitchQuery(s: PlannerState): string {
-  return encodeState({ ...s, locked: {}, excluded: [], selected: 0, variant: 0 });
+  return encodeState({ ...s, locked: {}, excluded: [], selected: 0, picks: {} });
 }
 
 /** "CS101" -> "CS 101". */

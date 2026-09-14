@@ -1,12 +1,10 @@
 // Program aramasını ana iş parçacığının dışında çalıştırır.
 // Bulunan bütün programlar işçide kalır; sayfaya yalnızca istenen düzenler ve seçili düzenin şube seçenekleri gider.
 import { generateSchedules, type Candidate, type GenerateInput, type NoSolutionReason, type RankedSchedule, type Suggestion } from "../engine";
-import { buildLayouts, toRanked, type Layouts } from "./layouts";
+import { alternativesOf, buildLayouts, toRanked, type Layouts } from "./layouts";
 
 /** Tarayıcıda tutulan en fazla program; bundan çoksa `truncated` olur. */
 export const WORKER_CANDIDATE_CAP = 200_000;
-/** Seçili düzen için gönderilen en fazla şube seçeneği. */
-export const MAX_VARIANTS = 500;
 
 export interface WorkerRequest {
   id: number;
@@ -30,10 +28,10 @@ export interface WorkerResult {
   truncated: boolean;
   layoutCount: number;
   layouts: LayoutCard[];
-  /** `variants` listesinin ait olduğu düzen. */
+  /** `alternatives` listesinin ait olduğu düzen. */
   layout: number;
-  /** `layout` düzeninin programları, en iyisi başta (en fazla MAX_VARIANTS). */
-  variants: RankedSchedule[];
+  /** Bu düzende ders kodu -> aynı saatlerde seçilebilecek şubeler (ilki en iyi programdaki). */
+  alternatives: Record<string, string[]>;
   reason: NoSolutionReason | null;
   suggestions: Suggestion[];
 }
@@ -77,7 +75,7 @@ self.onmessage = (event: MessageEvent<WorkerRequest>) => {
     layoutCount: l.groups.length,
     layouts: l.groups.slice(0, layoutLimit).map((g) => ({ best: toRanked(candidates, l, g[0]), size: g.length })),
     layout: layoutIndex,
-    variants: group.slice(0, MAX_VARIANTS).map((i) => toRanked(candidates, l, i)),
+    alternatives: alternativesOf(candidates, group),
     reason: search.reason,
     suggestions: search.suggestions,
   };
