@@ -151,16 +151,18 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
     setNote(`${code} çıkarıldı.`);
   }
 
-  function applySuggestion(c: RelaxedConstraint) {
-    if (c.kind === "freeDay") update({ freeDays: state.freeDays.filter((d) => d !== c.day) });
-    if (c.kind === "lock") {
-      const { [c.courseCode]: _, ...locked } = state.locked;
-      void _;
-      update({ locked });
+  /** Öneri bir ya da iki ayarı birlikte gevşetir; hepsi tek durum güncellemesinde uygulanır. */
+  function applySuggestion(constraints: readonly RelaxedConstraint[]) {
+    let { freeDays, excluded } = state;
+    const locked = { ...state.locked };
+    for (const c of constraints) {
+      if (c.kind === "freeDay") freeDays = freeDays.filter((d) => d !== c.day);
+      if (c.kind === "lock") delete locked[c.courseCode];
+      if (c.kind === "exclusion") {
+        excluded = excluded.filter((e) => !(e.courseCode === c.courseCode && e.sectionId === c.sectionId));
+      }
     }
-    if (c.kind === "exclusion") {
-      update({ excluded: state.excluded.filter((e) => !(e.courseCode === c.courseCode && e.sectionId === c.sectionId)) });
-    }
+    update({ freeDays, locked, excluded });
   }
 
   async function copyLink() {

@@ -29,10 +29,16 @@ function suggestionText(c: RelaxedConstraint): string {
   }
 }
 
+/** "Cuma boş gün olmasın ve CS 101 şube kilidini kaldır" */
+export function suggestionLabel(s: Pick<Suggestion, "constraints">): string {
+  return s.constraints.map(suggestionText).join(" ve ");
+}
+
 interface Props {
   reason: NoSolutionReason | null;
   suggestions: Suggestion[];
-  onApply: (c: RelaxedConstraint) => void;
+  /** Önerideki bütün ayarları tek seferde gevşetir. */
+  onApply: (constraints: RelaxedConstraint[]) => void;
 }
 
 export function NoSolution({ reason, suggestions, onApply }: Props) {
@@ -42,22 +48,27 @@ export function NoSolution({ reason, suggestions, onApply }: Props) {
       <h3>Bu derslerle çakışmasız program çıkmıyor</h3>
       {reason && <p>{reasonText(reason)}</p>}
       {useful.length > 0 ? (
-        <ul>
-          {useful.map((s) => (
-            <li key={JSON.stringify(s.constraint)}>
-              <button type="button" className="btn btn-small" onClick={() => onApply(s.constraint)}>
-                {suggestionText(s.constraint)}
-                <span className="hint num">
-                  {s.scheduleCount}
-                  {s.truncated ? "+" : ""} program
-                </span>
-              </button>
-            </li>
-          ))}
-        </ul>
+        <>
+          {useful.every((s) => s.constraints.length > 1) && (
+            <p className="hint">Tek bir ayarı değiştirmek yetmiyor, ikisini birlikte değiştirmek işe yarar.</p>
+          )}
+          <ul>
+            {useful.map((s) => (
+              <li key={JSON.stringify(s.constraints)}>
+                <button type="button" className="btn btn-small" onClick={() => onApply(s.constraints)}>
+                  {suggestionLabel(s)}
+                  <span className="hint num">
+                    {s.scheduleCount}
+                    {s.truncated ? "+" : ""} program
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </>
       ) : (
         <p className="hint" style={{ marginTop: "0.4rem" }}>
-          Tek bir ayarı değiştirmek yetmiyor. Sepetten bir ders çıkarmayı dene.
+          Bir ya da iki ayarı değiştirmek yetmiyor. Sepetten bir ders çıkarmayı dene.
         </p>
       )}
     </div>
