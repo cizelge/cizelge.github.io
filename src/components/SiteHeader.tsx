@@ -12,6 +12,10 @@ export function SiteHeader({ term }: { term?: string }) {
       <Link href="/ozyegin/yol-haritasi" className="btn btn-small btn-quiet">
         Yol haritası
       </Link>
+      <Link href="/ozyegin/gecis" className="btn btn-small btn-quiet">
+        <span className="nav-long">Geçiş ve ÇAP</span>
+        <span className="nav-short">Geçiş</span>
+      </Link>
       <Link href="/hakkinda" className="btn btn-small btn-quiet">
         Hakkında
       </Link>

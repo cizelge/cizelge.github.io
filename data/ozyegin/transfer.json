@@ -1,0 +1,2114 @@
+{
+  "schoolId": "ozyegin",
+  "fetchedAt": "2026-09-14T11:58:12.000Z",
+  "applicationTerm": "2026-2027 Güz",
+  "sources": [
+    {
+      "label": "Kurum İçi (Başarıya Göre) Yatay Geçiş: koşullar ve kontenjanlar",
+      "url": "https://www.ozyegin.edu.tr/tr/ogrenci-hizmetleri/basvuru-kabul/lisans-programlarina-yatay-gecisler/kurum-ici-basariya-gore-yatay"
+    },
+    {
+      "label": "Kurum içi yatay geçiş için lisans programları ek başvuru koşulları (PDF, 2027-2028 başvurularından itibaren)",
+      "url": "https://www.ozyegin.edu.tr/sites/default/files/upload/OgrenciHizmetleri/kurum_ici_programlar_arasi_yatay_gecis_icin_lisans_programlari_ek_basvuru_kosullari.pdf"
+    },
+    {
+      "label": "Merkezi Yerleştirme Puanı ile Kurumlar Arası Yatay Geçiş (Ek Madde-1): koşullar ve kontenjanlar",
+      "url": "https://www.ozyegin.edu.tr/tr/ogrenci-hizmetleri/basvuru-kabul/lisans-programlarina-yatay-gecisler/merkezi-yerlestirme-puani-ile"
+    },
+    {
+      "label": "Merkezi Yerleştirme Puanı ile Kurum İçi Yatay Geçiş (Ek Madde-1): koşullar ve kontenjanlar (tablo kurumlar arası sayfayla birebir aynı)",
+      "url": "https://www.ozyegin.edu.tr/tr/ogrenci-hizmetleri/basvuru-kabul/lisans-programlarina-yatay-gecisler/merkezi-yerlestirme-puani-ile-0"
+    },
+    {
+      "label": "Çift Anadal Öğrenimi (ÇAP)",
+      "url": "https://www.ozyegin.edu.tr/tr/ogrenci-hizmetleri/basvuru-kabul/cift-anadal-ogrenimi-cap"
+    },
+    {
+      "label": "Yandal Öğrenimi",
+      "url": "https://www.ozyegin.edu.tr/tr/ogrenci-hizmetleri/basvuru-kabul/yandal-ogrenimi"
+    },
+    {
+      "label": "Taban Puanları ve Kontenjanlar (2025 YKS puan ve sıra, 2025 ve 2026 kontenjanları)",
+      "url": "https://aday.ozyegin.edu.tr/taban-puanlari-ve-kontenjanlar/"
+    }
+  ],
+  "rules": {
+    "capMinGpa": 2.72,
+    "capCreditsBySemester": [
+      {
+        "semester": 3,
+        "minCredits": 48
+      },
+      {
+        "semester": 4,
+        "minCredits": 84
+      },
+      {
+        "semester": 5,
+        "minCredits": 120
+      }
+    ],
+    "capSemesters": {
+      "min": 3,
+      "max": 5
+    },
+    "internalSemesters": {
+      "min": 2,
+      "max": 5
+    },
+    "yandalMinGpa": 2.5
+  },
+  "programs": [
+    {
+      "programId": "BSCS",
+      "name": "Bilgisayar Mühendisliği",
+      "faculty": "Mühendislik Fakültesi",
+      "scoreType": "SAY",
+      "baseScores": [
+        {
+          "year": 2025,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 10,
+          "minScore": 526.431,
+          "maxScore": 532.8623,
+          "minRank": 2615,
+          "maxRank": 1495
+        },
+        {
+          "year": 2026,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 10,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 34,
+          "minScore": 429.4239,
+          "maxScore": 531.8669,
+          "minRank": 66045,
+          "maxRank": 1638
+        },
+        {
+          "year": 2026,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 41,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 20,
+          "minScore": 305.9344,
+          "maxScore": 389.4689,
+          "minRank": 287727,
+          "maxRank": 112179
+        },
+        {
+          "year": 2026,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 7,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        }
+      ],
+      "internalQuota": {
+        "2": 10,
+        "3": 9
+      },
+      "centralQuota": {
+        "1": 18,
+        "2": 18,
+        "3": 18,
+        "4": 18,
+        "hazirlik": 18
+      },
+      "capOpen": true,
+      "capRankRules": [
+        {
+          "scoreType": "SAY",
+          "maxRank": 300000,
+          "fromYear": 2019,
+          "toYear": null,
+          "text": "Mühendislik lisans programları için: 2019 yılı sonrasında YKS ile Üniversiteye yerleşerek kayıt yaptıran öğrencilerin ÇAP başvurularında ayrıca başarı sırası en düşük (SAY) 300.000'inci sırada olma başarı şartı aranır."
+        }
+      ],
+      "notes": [
+        "Kurum içi (başarıya göre) geçiş, 2027-2028 başvurularından itibaren: en az GNO 2.75; MATH 103, MATH 104 ve (CS 104 veya CS 101) derslerinden ortalama B almış olmak ve her bir dersten en az C almış olmak. (\"veya\" ile gruplanan derslerde notu yüksek olan sayılır; harf notu katsayıları esas alınır, AKTS farkı dikkate alınmaz.)"
+      ],
+      "internalRankRules": [
+        {
+          "scoreType": "SAY",
+          "maxRank": 300000,
+          "fromYear": 2021,
+          "toYear": null,
+          "text": "Kurum içi (başarıya göre) geçiş: 2021 yılı ve sonrasında YKS ile üniversiteye yerleşerek kayıt yaptıran adayların yatay geçiş başvurularında, Y-SAY puan türünde en az 300.000'inci başarı sırası şartı aranır."
+        }
+      ],
+      "centralRankRules": [
+        {
+          "scoreType": "SAY",
+          "maxRank": 300000,
+          "fromYear": 2019,
+          "toYear": null,
+          "text": "Merkezi yerleştirme puanı ile (Ek Madde-1) geçiş: 2019 yılı sonrasında YKS ile kayıt yaptıranlarda ayrıca başarı sırası en düşük (SAY) 300.000 şartı aranır."
+        }
+      ]
+    },
+    {
+      "programId": "BSEE",
+      "name": "Elektrik-Elektronik Mühendisliği",
+      "faculty": "Mühendislik Fakültesi",
+      "scoreType": "SAY",
+      "baseScores": [
+        {
+          "year": 2025,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 11,
+          "minScore": 511.1215,
+          "maxScore": 531.9779,
+          "minRank": 6715,
+          "maxRank": 1614
+        },
+        {
+          "year": 2026,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 11,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 50,
+          "minScore": 400.4434,
+          "maxScore": 503.8838,
+          "minRank": 98448,
+          "maxRank": 9414
+        },
+        {
+          "year": 2026,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 53,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 9,
+          "minScore": 317.0482,
+          "maxScore": 399.5317,
+          "minRank": 252581,
+          "maxRank": 99561
+        },
+        {
+          "year": 2026,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 6,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        }
+      ],
+      "internalQuota": {
+        "2": 11,
+        "3": 11
+      },
+      "centralQuota": {
+        "1": 21,
+        "2": 21,
+        "3": 21,
+        "4": 21,
+        "hazirlik": 21
+      },
+      "capOpen": true,
+      "capRankRules": [
+        {
+          "scoreType": "SAY",
+          "maxRank": 300000,
+          "fromYear": 2019,
+          "toYear": null,
+          "text": "Mühendislik lisans programları için: 2019 yılı sonrasında YKS ile Üniversiteye yerleşerek kayıt yaptıran öğrencilerin ÇAP başvurularında ayrıca başarı sırası en düşük (SAY) 300.000'inci sırada olma başarı şartı aranır."
+        }
+      ],
+      "notes": [
+        "Kurum içi (başarıya göre) geçiş, 2027-2028 başvurularından itibaren: en az GNO 2.75; MATH 103, MATH 104 ve (CS 104 veya CS 101) derslerinden ortalama B almış olmak ve her bir dersten en az C almış olmak. (\"veya\" ile gruplanan derslerde notu yüksek olan sayılır; harf notu katsayıları esas alınır, AKTS farkı dikkate alınmaz.)"
+      ],
+      "internalRankRules": [
+        {
+          "scoreType": "SAY",
+          "maxRank": 300000,
+          "fromYear": 2021,
+          "toYear": null,
+          "text": "Kurum içi (başarıya göre) geçiş: 2021 yılı ve sonrasında YKS ile üniversiteye yerleşerek kayıt yaptıran adayların yatay geçiş başvurularında, Y-SAY puan türünde en az 300.000'inci başarı sırası şartı aranır."
+        }
+      ],
+      "centralRankRules": [
+        {
+          "scoreType": "SAY",
+          "maxRank": 300000,
+          "fromYear": 2019,
+          "toYear": null,
+          "text": "Merkezi yerleştirme puanı ile (Ek Madde-1) geçiş: 2019 yılı sonrasında YKS ile kayıt yaptıranlarda ayrıca başarı sırası en düşük (SAY) 300.000 şartı aranır."
+        }
+      ]
+    },
+    {
+      "programId": "BSIE",
+      "name": "Endüstri Mühendisliği",
+      "faculty": "Mühendislik Fakültesi",
+      "scoreType": "SAY",
+      "baseScores": [
+        {
+          "year": 2025,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 14,
+          "minScore": 506.2608,
+          "maxScore": 518.763,
+          "minRank": 8463,
+          "maxRank": 4423
+        },
+        {
+          "year": 2026,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 14,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 49,
+          "minScore": 414.9631,
+          "maxScore": 507.3215,
+          "minRank": 81692,
+          "maxRank": 8055
+        },
+        {
+          "year": 2026,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 58,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 41,
+          "minScore": 324.0863,
+          "maxScore": 402.9875,
+          "minRank": 233036,
+          "maxRank": 95276
+        },
+        {
+          "year": 2026,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 32,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        }
+      ],
+      "internalQuota": {
+        "2": 16,
+        "3": 16
+      },
+      "centralQuota": {
+        "1": 32,
+        "2": 32,
+        "3": 32,
+        "4": 32,
+        "hazirlik": 32
+      },
+      "capOpen": true,
+      "capRankRules": [
+        {
+          "scoreType": "SAY",
+          "maxRank": 300000,
+          "fromYear": 2019,
+          "toYear": null,
+          "text": "Mühendislik lisans programları için: 2019 yılı sonrasında YKS ile Üniversiteye yerleşerek kayıt yaptıran öğrencilerin ÇAP başvurularında ayrıca başarı sırası en düşük (SAY) 300.000'inci sırada olma başarı şartı aranır."
+        }
+      ],
+      "notes": [
+        "Kurum içi (başarıya göre) geçiş, 2027-2028 başvurularından itibaren: en az GNO 2.75; MATH 103, MATH 104 ve (CS 104 veya CS 101) derslerinden ortalama B almış olmak ve her bir dersten en az C almış olmak. (\"veya\" ile gruplanan derslerde notu yüksek olan sayılır; harf notu katsayıları esas alınır, AKTS farkı dikkate alınmaz.)"
+      ],
+      "internalRankRules": [
+        {
+          "scoreType": "SAY",
+          "maxRank": 300000,
+          "fromYear": 2021,
+          "toYear": null,
+          "text": "Kurum içi (başarıya göre) geçiş: 2021 yılı ve sonrasında YKS ile üniversiteye yerleşerek kayıt yaptıran adayların yatay geçiş başvurularında, Y-SAY puan türünde en az 300.000'inci başarı sırası şartı aranır."
+        }
+      ],
+      "centralRankRules": [
+        {
+          "scoreType": "SAY",
+          "maxRank": 300000,
+          "fromYear": 2019,
+          "toYear": null,
+          "text": "Merkezi yerleştirme puanı ile (Ek Madde-1) geçiş: 2019 yılı sonrasında YKS ile kayıt yaptıranlarda ayrıca başarı sırası en düşük (SAY) 300.000 şartı aranır."
+        }
+      ]
+    },
+    {
+      "programId": "BSCE",
+      "name": "İnşaat Mühendisliği",
+      "faculty": "Mühendislik Fakültesi",
+      "scoreType": "SAY",
+      "baseScores": [
+        {
+          "year": 2025,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 6,
+          "minScore": 450.4888,
+          "maxScore": 465.8276,
+          "minRank": 45698,
+          "maxRank": 32649
+        },
+        {
+          "year": 2026,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 6,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 42,
+          "minScore": 317.9402,
+          "maxScore": 443.1217,
+          "minRank": 250032,
+          "maxRank": 52532
+        },
+        {
+          "year": 2026,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 42,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        }
+      ],
+      "internalQuota": {
+        "2": 7,
+        "3": 7
+      },
+      "centralQuota": {
+        "1": 15,
+        "2": 15,
+        "3": 15,
+        "4": 15,
+        "hazirlik": 15
+      },
+      "capOpen": true,
+      "capRankRules": [
+        {
+          "scoreType": "SAY",
+          "maxRank": 300000,
+          "fromYear": 2019,
+          "toYear": null,
+          "text": "Mühendislik lisans programları için: 2019 yılı sonrasında YKS ile Üniversiteye yerleşerek kayıt yaptıran öğrencilerin ÇAP başvurularında ayrıca başarı sırası en düşük (SAY) 300.000'inci sırada olma başarı şartı aranır."
+        }
+      ],
+      "notes": [
+        "Kurum içi (başarıya göre) geçiş, 2027-2028 başvurularından itibaren: en az GNO 2.75; PHYS 101, MATH 103 ve MATH 104 derslerinden ortalama B almış olmak ve her bir dersten en az C almış olmak. (\"veya\" ile gruplanan derslerde notu yüksek olan sayılır; harf notu katsayıları esas alınır, AKTS farkı dikkate alınmaz.)"
+      ],
+      "internalRankRules": [
+        {
+          "scoreType": "SAY",
+          "maxRank": 300000,
+          "fromYear": 2021,
+          "toYear": null,
+          "text": "Kurum içi (başarıya göre) geçiş: 2021 yılı ve sonrasında YKS ile üniversiteye yerleşerek kayıt yaptıran adayların yatay geçiş başvurularında, Y-SAY puan türünde en az 300.000'inci başarı sırası şartı aranır."
+        }
+      ],
+      "centralRankRules": [
+        {
+          "scoreType": "SAY",
+          "maxRank": 300000,
+          "fromYear": 2019,
+          "toYear": null,
+          "text": "Merkezi yerleştirme puanı ile (Ek Madde-1) geçiş: 2019 yılı sonrasında YKS ile kayıt yaptıranlarda ayrıca başarı sırası en düşük (SAY) 300.000 şartı aranır."
+        }
+      ]
+    },
+    {
+      "programId": "BSME",
+      "name": "Makina Mühendisliği",
+      "faculty": "Mühendislik Fakültesi",
+      "scoreType": "SAY",
+      "baseScores": [
+        {
+          "year": 2025,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 10,
+          "minScore": 501.8735,
+          "maxScore": 512.9554,
+          "minRank": 10287,
+          "maxRank": 6129
+        },
+        {
+          "year": 2026,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 10,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 51,
+          "minScore": 382.9378,
+          "maxScore": 465.4447,
+          "minRank": 120992,
+          "maxRank": 32961
+        },
+        {
+          "year": 2026,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 54,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 8,
+          "minScore": 333.3226,
+          "maxScore": 377.9416,
+          "minRank": 209878,
+          "maxRank": 127937
+        },
+        {
+          "year": 2026,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 5,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        }
+      ],
+      "internalQuota": {
+        "2": 10,
+        "3": 10
+      },
+      "centralQuota": {
+        "1": 22,
+        "2": 22,
+        "3": 22,
+        "4": 22,
+        "hazirlik": 22
+      },
+      "capOpen": true,
+      "capRankRules": [
+        {
+          "scoreType": "SAY",
+          "maxRank": 300000,
+          "fromYear": 2019,
+          "toYear": null,
+          "text": "Mühendislik lisans programları için: 2019 yılı sonrasında YKS ile Üniversiteye yerleşerek kayıt yaptıran öğrencilerin ÇAP başvurularında ayrıca başarı sırası en düşük (SAY) 300.000'inci sırada olma başarı şartı aranır."
+        }
+      ],
+      "notes": [
+        "Kurum içi (başarıya göre) geçiş, 2027-2028 başvurularından itibaren: en az GNO 2.75; PHYS 101, MATH 103 ve MATH 104 derslerinden ortalama B almış olmak ve her bir dersten en az C almış olmak. (\"veya\" ile gruplanan derslerde notu yüksek olan sayılır; harf notu katsayıları esas alınır, AKTS farkı dikkate alınmaz.)"
+      ],
+      "internalRankRules": [
+        {
+          "scoreType": "SAY",
+          "maxRank": 300000,
+          "fromYear": 2021,
+          "toYear": null,
+          "text": "Kurum içi (başarıya göre) geçiş: 2021 yılı ve sonrasında YKS ile üniversiteye yerleşerek kayıt yaptıran adayların yatay geçiş başvurularında, Y-SAY puan türünde en az 300.000'inci başarı sırası şartı aranır."
+        }
+      ],
+      "centralRankRules": [
+        {
+          "scoreType": "SAY",
+          "maxRank": 300000,
+          "fromYear": 2019,
+          "toYear": null,
+          "text": "Merkezi yerleştirme puanı ile (Ek Madde-1) geçiş: 2019 yılı sonrasında YKS ile kayıt yaptıranlarda ayrıca başarı sırası en düşük (SAY) 300.000 şartı aranır."
+        }
+      ]
+    },
+    {
+      "programId": "BSAI",
+      "name": "Yapay Zeka ve Veri Mühendisliği",
+      "faculty": "Mühendislik Fakültesi",
+      "scoreType": "SAY",
+      "baseScores": [
+        {
+          "year": 2025,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 6,
+          "minScore": 517.5897,
+          "maxScore": 530.1513,
+          "minRank": 4778,
+          "maxRank": 1902
+        },
+        {
+          "year": 2026,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 6,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 34,
+          "minScore": 395.9662,
+          "maxScore": 460.1958,
+          "minRank": 103821,
+          "maxRank": 37220
+        },
+        {
+          "year": 2026,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 36,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 5,
+          "minScore": 313.6137,
+          "maxScore": 340.7883,
+          "minRank": 262928,
+          "maxRank": 193017
+        },
+        {
+          "year": 2026,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 3,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        }
+      ],
+      "internalQuota": {
+        "2": 7,
+        "3": 4
+      },
+      "centralQuota": {
+        "1": 15,
+        "2": 15,
+        "3": 15,
+        "4": 0,
+        "hazirlik": 15
+      },
+      "capOpen": true,
+      "capRankRules": [
+        {
+          "scoreType": "SAY",
+          "maxRank": 300000,
+          "fromYear": 2019,
+          "toYear": null,
+          "text": "Mühendislik lisans programları için: 2019 yılı sonrasında YKS ile Üniversiteye yerleşerek kayıt yaptıran öğrencilerin ÇAP başvurularında ayrıca başarı sırası en düşük (SAY) 300.000'inci sırada olma başarı şartı aranır."
+        }
+      ],
+      "notes": [
+        "Kurum içi (başarıya göre) geçiş, 2027-2028 başvurularından itibaren: en az GNO 2.75; MATH 103, MATH 104 ve (CS 104 veya CS 101) derslerinden ortalama B almış olmak ve her bir dersten en az C almış olmak. (\"veya\" ile gruplanan derslerde notu yüksek olan sayılır; harf notu katsayıları esas alınır, AKTS farkı dikkate alınmaz.)"
+      ],
+      "internalRankRules": [
+        {
+          "scoreType": "SAY",
+          "maxRank": 300000,
+          "fromYear": 2021,
+          "toYear": null,
+          "text": "Kurum içi (başarıya göre) geçiş: 2021 yılı ve sonrasında YKS ile üniversiteye yerleşerek kayıt yaptıran adayların yatay geçiş başvurularında, Y-SAY puan türünde en az 300.000'inci başarı sırası şartı aranır."
+        }
+      ],
+      "centralRankRules": [
+        {
+          "scoreType": "SAY",
+          "maxRank": 300000,
+          "fromYear": 2019,
+          "toYear": null,
+          "text": "Merkezi yerleştirme puanı ile (Ek Madde-1) geçiş: 2019 yılı sonrasında YKS ile kayıt yaptıranlarda ayrıca başarı sırası en düşük (SAY) 300.000 şartı aranır."
+        }
+      ]
+    },
+    {
+      "programId": "BAECON",
+      "name": "Ekonomi",
+      "faculty": "İşletme Fakültesi",
+      "scoreType": "EA",
+      "baseScores": [
+        {
+          "year": 2025,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 9,
+          "minScore": 484.3939,
+          "maxScore": 501.5867,
+          "minRank": 964,
+          "maxRank": 437
+        },
+        {
+          "year": 2026,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 9,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 22,
+          "minScore": 341.8899,
+          "maxScore": 478.5192,
+          "minRank": 149935,
+          "maxRank": 1185
+        },
+        {
+          "year": 2026,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 25,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 23,
+          "minScore": 279.911,
+          "maxScore": 309.9124,
+          "minRank": 501651,
+          "maxRank": 288111
+        },
+        {
+          "year": 2026,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 23,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        }
+      ],
+      "internalQuota": {
+        "2": 8,
+        "3": 7
+      },
+      "centralQuota": {
+        "1": 17,
+        "2": 17,
+        "3": 17,
+        "4": 17,
+        "hazirlik": 17
+      },
+      "capOpen": true,
+      "capRankRules": [],
+      "notes": [
+        "Kurum içi (başarıya göre) geçiş, 2027-2028 başvurularından itibaren: en az GNO 2.00; İşletme Fakültesi programlarına kayıtlı öğrenciler için ders koşulu aranmaz, diğer fakültelere kayıtlı öğrenciler için ECON 101 veya ECON 102 dersinden en az B almış olmak. (\"veya\" ile gruplanan derslerde notu yüksek olan sayılır; harf notu katsayıları esas alınır, AKTS farkı dikkate alınmaz.)"
+      ],
+      "internalRankRules": [],
+      "centralRankRules": []
+    },
+    {
+      "programId": "BABUS",
+      "name": "İşletme",
+      "faculty": "İşletme Fakültesi",
+      "scoreType": "EA",
+      "baseScores": [
+        {
+          "year": 2025,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 11,
+          "minScore": 480.0285,
+          "maxScore": 488.0588,
+          "minRank": 1115,
+          "maxRank": 817
+        },
+        {
+          "year": 2026,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 12,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 50,
+          "minScore": 347.8107,
+          "maxScore": 454.9568,
+          "minRank": 131665,
+          "maxRank": 2881
+        },
+        {
+          "year": 2026,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 50,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 24,
+          "minScore": 289.9278,
+          "maxScore": 337.7154,
+          "minRank": 419499,
+          "maxRank": 164233
+        },
+        {
+          "year": 2026,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 29,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        }
+      ],
+      "internalQuota": {
+        "2": 13,
+        "3": 11
+      },
+      "centralQuota": {
+        "1": 28,
+        "2": 28,
+        "3": 28,
+        "4": 28,
+        "hazirlik": 28
+      },
+      "capOpen": true,
+      "capRankRules": [],
+      "notes": [
+        "Kurum içi (başarıya göre) geçiş, 2027-2028 başvurularından itibaren: en az GNO 2.00; İşletme Fakültesi programlarına kayıtlı öğrenciler için ders koşulu aranmaz, diğer fakültelere kayıtlı öğrenciler için BUS 101 veya BUS 102 dersinden en az B almış olmak. (\"veya\" ile gruplanan derslerde notu yüksek olan sayılır; harf notu katsayıları esas alınır, AKTS farkı dikkate alınmaz.)"
+      ],
+      "internalRankRules": [],
+      "centralRankRules": []
+    },
+    {
+      "programId": "BABAF",
+      "name": "Uluslararası Finans",
+      "faculty": "İşletme Fakültesi",
+      "scoreType": "EA",
+      "baseScores": [
+        {
+          "year": 2025,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 6,
+          "minScore": 469.5384,
+          "maxScore": 475.6081,
+          "minRank": 1655,
+          "maxRank": 1314
+        },
+        {
+          "year": 2026,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 6,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 23,
+          "minScore": 312.5277,
+          "maxScore": 339.072,
+          "minRank": 273741,
+          "maxRank": 159460
+        },
+        {
+          "year": 2026,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 29,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 8,
+          "minScore": 271.2094,
+          "maxScore": 453.3282,
+          "minRank": 581118,
+          "maxRank": 3043
+        },
+        {
+          "year": 2026,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 8,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        }
+      ],
+      "internalQuota": {
+        "2": 6,
+        "3": 5
+      },
+      "centralQuota": {
+        "1": 13,
+        "2": 13,
+        "3": 13,
+        "4": 13,
+        "hazirlik": 13
+      },
+      "capOpen": true,
+      "capRankRules": [],
+      "notes": [
+        "Kurum içi (başarıya göre) geçiş, 2027-2028 başvurularından itibaren: en az GNO 2.00; İşletme Fakültesi programlarına kayıtlı öğrenciler için ders koşulu aranmaz, diğer fakültelere kayıtlı öğrenciler için MATH 101 veya MATH 103 dersinden en az B almış olmak. (\"veya\" ile gruplanan derslerde notu yüksek olan sayılır; harf notu katsayıları esas alınır, AKTS farkı dikkate alınmaz.)"
+      ],
+      "internalRankRules": [],
+      "centralRankRules": []
+    },
+    {
+      "programId": "BAIBUS",
+      "name": "Uluslararası Ticaret ve İşletmecilik",
+      "faculty": "İşletme Fakültesi",
+      "scoreType": "EA",
+      "baseScores": [
+        {
+          "year": 2025,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 14,
+          "minScore": 470.2178,
+          "maxScore": 478.9917,
+          "minRank": 1618,
+          "maxRank": 1167
+        },
+        {
+          "year": 2026,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 13,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 61,
+          "minScore": 322.554,
+          "maxScore": 429.9027,
+          "minRank": 224465,
+          "maxRank": 8181
+        },
+        {
+          "year": 2026,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 68,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 23,
+          "minScore": 284.3046,
+          "maxScore": 318.2423,
+          "minRank": 464246,
+          "maxRank": 244576
+        },
+        {
+          "year": 2026,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 20,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        }
+      ],
+      "internalQuota": {
+        "2": 15,
+        "3": 14
+      },
+      "centralQuota": {
+        "1": 31,
+        "2": 31,
+        "3": 31,
+        "4": 31,
+        "hazirlik": 31
+      },
+      "capOpen": true,
+      "capRankRules": [],
+      "notes": [
+        "Kurum içi (başarıya göre) geçiş, 2027-2028 başvurularından itibaren: en az GNO 2.00; İşletme Fakültesi programlarına kayıtlı öğrenciler için ders koşulu aranmaz, diğer fakültelere kayıtlı öğrenciler için IBUS 104 dersinden en az B almış olmak. (\"veya\" ile gruplanan derslerde notu yüksek olan sayılır; harf notu katsayıları esas alınır, AKTS farkı dikkate alınmaz.)"
+      ],
+      "internalRankRules": [],
+      "centralRankRules": []
+    },
+    {
+      "programId": "BAMIS",
+      "name": "Yönetim Bilişim Sistemleri",
+      "faculty": "İşletme Fakültesi",
+      "scoreType": "EA",
+      "baseScores": [
+        {
+          "year": 2025,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 7,
+          "minScore": 485.7162,
+          "maxScore": 491.54,
+          "minRank": 898,
+          "maxRank": 685
+        },
+        {
+          "year": 2026,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 7,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 38,
+          "minScore": 336.7547,
+          "maxScore": 438.5896,
+          "minRank": 167538,
+          "maxRank": 5424
+        },
+        {
+          "year": 2026,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 38,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 3,
+          "minScore": 313.8507,
+          "maxScore": 331.4441,
+          "minRank": 266774,
+          "maxRank": 187191
+        },
+        {
+          "year": 2026,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 10,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        }
+      ],
+      "internalQuota": {
+        "2": 7,
+        "3": 6
+      },
+      "centralQuota": {
+        "1": 17,
+        "2": 17,
+        "3": 17,
+        "4": 17,
+        "hazirlik": 17
+      },
+      "capOpen": true,
+      "capRankRules": [],
+      "notes": [
+        "Kurum içi (başarıya göre) geçiş, 2027-2028 başvurularından itibaren: en az GNO 2.00; İşletme Fakültesi programlarına kayıtlı öğrenciler için ders koşulu aranmaz, diğer fakültelere kayıtlı öğrenciler için MIS 103 dersinden en az B almış olmak. (\"veya\" ile gruplanan derslerde notu yüksek olan sayılır; harf notu katsayıları esas alınır, AKTS farkı dikkate alınmaz.)"
+      ],
+      "internalRankRules": [],
+      "centralRankRules": []
+    },
+    {
+      "programId": "BLAW",
+      "name": "Hukuk",
+      "faculty": "Hukuk Fakültesi",
+      "scoreType": "EA",
+      "baseScores": [
+        {
+          "year": 2025,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 13,
+          "minScore": 478.6566,
+          "maxScore": 500.8379,
+          "minRank": 1181,
+          "maxRank": 455
+        },
+        {
+          "year": 2026,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 10,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 83,
+          "minScore": 370.609,
+          "maxScore": 458.6136,
+          "minRank": 75680,
+          "maxRank": 2509
+        },
+        {
+          "year": 2026,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 63,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        }
+      ],
+      "internalQuota": {
+        "2": 14,
+        "3": 15
+      },
+      "centralQuota": {
+        "1": 33,
+        "2": 33,
+        "3": 33,
+        "4": 33,
+        "hazirlik": 33
+      },
+      "capOpen": true,
+      "capRankRules": [
+        {
+          "scoreType": "EA",
+          "maxRank": 190000,
+          "fromYear": null,
+          "toYear": 2019,
+          "text": "Hukuk lisans programı için: 2019 yıllarında YKS ile Üniversiteye yerleşerek kayıt yaptıran öğrencilerin bu programa ÇAP başvurusunda başarı sırası en düşük (EA) 190.000'inci sırada olma şartı aranır."
+        },
+        {
+          "scoreType": "EA",
+          "maxRank": 125000,
+          "fromYear": 2020,
+          "toYear": 2025,
+          "text": "2020, 2021, 2022, 2023, 2024 veya 2025 yıllarında YKS ile Üniversiteye yerleşerek kayıt yaptıran öğrencilerin bu programa ÇAP başvurusunda başarı sırası en düşük (EA) 125.000'inci sırada olma şartı aranır."
+        }
+      ],
+      "notes": [
+        "Kurum içi (başarıya göre) geçiş, 2027-2028 başvurularından itibaren: en az GNO 2.50; (HUK 105 veya HUK 106) ve HUK 107 derslerinden ortalama B almış olmak. (\"veya\" ile gruplanan derslerde notu yüksek olan sayılır; harf notu katsayıları esas alınır, AKTS farkı dikkate alınmaz.)"
+      ],
+      "internalRankRules": [
+        {
+          "scoreType": "EA",
+          "maxRank": 125000,
+          "fromYear": 2022,
+          "toYear": null,
+          "text": "Kurum içi (başarıya göre) geçiş: 2022 yılı ve sonrasında YKS ile üniversiteye yerleşerek kayıt yaptıran adayların bu programa yatay geçiş başvurularında, Y-EA puan türünde en az 125.000'inci başarı sırası şartı aranır."
+        }
+      ],
+      "centralRankRules": [
+        {
+          "scoreType": "EA",
+          "maxRank": 190000,
+          "fromYear": null,
+          "toYear": 2019,
+          "text": "Merkezi yerleştirme puanı ile (Ek Madde-1) geçiş: 2019 yıllarında kayıt yaptıranlar için başarı sırası en düşük (EA) 190.000; 2020-2025 yıllarında kayıt yaptıranlar için en düşük (EA) 125.000."
+        },
+        {
+          "scoreType": "EA",
+          "maxRank": 125000,
+          "fromYear": 2020,
+          "toYear": 2025,
+          "text": "Merkezi yerleştirme puanı ile (Ek Madde-1) geçiş: 2019 yıllarında kayıt yaptıranlar için başarı sırası en düşük (EA) 190.000; 2020-2025 yıllarında kayıt yaptıranlar için en düşük (EA) 125.000."
+        }
+      ]
+    },
+    {
+      "programId": "BAANTH",
+      "name": "Antropoloji",
+      "faculty": "Sosyal Bilimler Fakültesi",
+      "scoreType": "EA",
+      "baseScores": [
+        {
+          "year": 2025,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 10,
+          "minScore": 374.7534,
+          "maxScore": 419.0597,
+          "minRank": 67606,
+          "maxRank": 13806
+        },
+        {
+          "year": 2026,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 10,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 7,
+          "minScore": 210.0563,
+          "maxScore": 282.2756,
+          "minRank": 1261964,
+          "maxRank": 481274
+        },
+        {
+          "year": 2026,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 5,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        }
+      ],
+      "internalQuota": {
+        "2": 3,
+        "3": 3
+      },
+      "centralQuota": {
+        "1": 5,
+        "2": 5,
+        "3": 5,
+        "4": 0,
+        "hazirlik": 5
+      },
+      "capOpen": true,
+      "capRankRules": [],
+      "notes": [
+        "Kurum içi (başarıya göre) geçiş, 2027-2028 başvurularından itibaren: en az GNO 2.00; ders koşulu yok. (\"veya\" ile gruplanan derslerde notu yüksek olan sayılır; harf notu katsayıları esas alınır, AKTS farkı dikkate alınmaz.)"
+      ],
+      "internalRankRules": [],
+      "centralRankRules": []
+    },
+    {
+      "programId": "BAPSYC",
+      "name": "Psikoloji",
+      "faculty": "Sosyal Bilimler Fakültesi",
+      "scoreType": "EA",
+      "baseScores": [
+        {
+          "year": 2025,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 11,
+          "minScore": 460.7186,
+          "maxScore": 482.6084,
+          "minRank": 2329,
+          "maxRank": 1020
+        },
+        {
+          "year": 2026,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 11,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 38,
+          "minScore": 337.8521,
+          "maxScore": 458.2657,
+          "minRank": 163752,
+          "maxRank": 2545
+        },
+        {
+          "year": 2026,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 38,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 21,
+          "minScore": 288.4165,
+          "maxScore": 330.4309,
+          "minRank": 431049,
+          "maxRank": 191210
+        },
+        {
+          "year": 2026,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 14,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        }
+      ],
+      "internalQuota": {
+        "2": 11,
+        "3": 11
+      },
+      "centralQuota": {
+        "1": 20,
+        "2": 20,
+        "3": 20,
+        "4": 20,
+        "hazirlik": 20
+      },
+      "capOpen": true,
+      "capRankRules": [],
+      "notes": [
+        "Kurum içi (başarıya göre) geçiş, 2027-2028 başvurularından itibaren: en az GNO 2.75; PSY 100 ve (MATH 101 veya MATH 103) derslerinden ortalama B almış olmak. (\"veya\" ile gruplanan derslerde notu yüksek olan sayılır; harf notu katsayıları esas alınır, AKTS farkı dikkate alınmaz.)"
+      ],
+      "internalRankRules": [],
+      "centralRankRules": []
+    },
+    {
+      "programId": "BAIR",
+      "name": "Uluslararası İlişkiler",
+      "faculty": "Sosyal Bilimler Fakültesi",
+      "scoreType": "EA",
+      "baseScores": [
+        {
+          "year": 2025,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 8,
+          "minScore": 463.9942,
+          "maxScore": 475.4459,
+          "minRank": 2069,
+          "maxRank": 1327
+        },
+        {
+          "year": 2026,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 7,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 41,
+          "minScore": 296.0851,
+          "maxScore": 356.3882,
+          "minRank": 374766,
+          "maxRank": 108112
+        },
+        {
+          "year": 2026,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 46,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 2,
+          "minScore": 286.8154,
+          "maxScore": 294.0884,
+          "minRank": 443806,
+          "maxRank": 388875
+        },
+        {
+          "year": 2026,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 2,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        }
+      ],
+      "internalQuota": {
+        "2": 8,
+        "3": 7
+      },
+      "centralQuota": {
+        "1": 17,
+        "2": 17,
+        "3": 17,
+        "4": 17,
+        "hazirlik": 17
+      },
+      "capOpen": true,
+      "capRankRules": [],
+      "notes": [
+        "Kurum içi (başarıya göre) geçiş, 2027-2028 başvurularından itibaren: en az GNO 2.50; IR 101 ve (MATH 101 veya MATH 103) derslerinden ortalama B almış olmak. (\"veya\" ile gruplanan derslerde notu yüksek olan sayılır; harf notu katsayıları esas alınır, AKTS farkı dikkate alınmaz.)"
+      ],
+      "internalRankRules": [],
+      "centralRankRules": []
+    },
+    {
+      "programId": "BSIPD",
+      "name": "Endüstriyel Tasarım",
+      "faculty": "Mimarlık ve Tasarım Fakültesi",
+      "scoreType": "SAY",
+      "baseScores": [
+        {
+          "year": 2025,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 6,
+          "minScore": 448.1507,
+          "maxScore": 451.9328,
+          "minRank": 47828,
+          "maxRank": 44361
+        },
+        {
+          "year": 2026,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 5,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 26,
+          "minScore": 301.0737,
+          "maxScore": 435.9179,
+          "minRank": 304836,
+          "maxRank": 59445
+        },
+        {
+          "year": 2026,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 25,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 16,
+          "minScore": 266.1087,
+          "maxScore": 300.2742,
+          "minRank": 474153,
+          "maxRank": 307704
+        },
+        {
+          "year": 2026,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 12,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        }
+      ],
+      "internalQuota": {
+        "2": 7,
+        "3": 6
+      },
+      "centralQuota": {
+        "1": 13,
+        "2": 13,
+        "3": 13,
+        "4": 13,
+        "hazirlik": 13
+      },
+      "capOpen": true,
+      "capRankRules": [],
+      "notes": [
+        "Kurum içi (başarıya göre) geçiş, 2027-2028 başvurularından itibaren: en az GNO 2.50; ders koşulu yok. (\"veya\" ile gruplanan derslerde notu yüksek olan sayılır; harf notu katsayıları esas alınır, AKTS farkı dikkate alınmaz.)"
+      ],
+      "internalRankRules": [],
+      "centralRankRules": []
+    },
+    {
+      "programId": "BSINTAR",
+      "name": "İç Mimarlık ve Çevre Tasarımı",
+      "faculty": "Mimarlık ve Tasarım Fakültesi",
+      "scoreType": "EA",
+      "baseScores": [
+        {
+          "year": 2025,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 5,
+          "minScore": 421.7122,
+          "maxScore": 454.4382,
+          "minRank": 12206,
+          "maxRank": 2934
+        },
+        {
+          "year": 2026,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 5,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 27,
+          "minScore": 308.0907,
+          "maxScore": 355.5702,
+          "minRank": 298292,
+          "maxRank": 110208
+        },
+        {
+          "year": 2026,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 24,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 7,
+          "minScore": 293.3177,
+          "maxScore": 312.1639,
+          "minRank": 394381,
+          "maxRank": 275749
+        },
+        {
+          "year": 2026,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 6,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        }
+      ],
+      "internalQuota": {
+        "2": 6,
+        "3": 6
+      },
+      "centralQuota": {
+        "1": 12,
+        "2": 12,
+        "3": 12,
+        "4": 12,
+        "hazirlik": 12
+      },
+      "capOpen": true,
+      "capRankRules": [],
+      "notes": [
+        "Kurum içi (başarıya göre) geçiş, 2027-2028 başvurularından itibaren: en az GNO 2.50; ders koşulu yok. (\"veya\" ile gruplanan derslerde notu yüksek olan sayılır; harf notu katsayıları esas alınır, AKTS farkı dikkate alınmaz.)"
+      ],
+      "internalRankRules": [],
+      "centralRankRules": []
+    },
+    {
+      "programId": "BSCOD",
+      "name": "İletişim Tasarımı",
+      "faculty": "Mimarlık ve Tasarım Fakültesi",
+      "scoreType": "SÖZ",
+      "baseScores": [
+        {
+          "year": 2025,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 6,
+          "minScore": 458.6956,
+          "maxScore": 476.6168,
+          "minRank": 484,
+          "maxRank": 180
+        },
+        {
+          "year": 2026,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 5,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 35,
+          "minScore": 294.446,
+          "maxScore": 454.1522,
+          "minRank": 279948,
+          "maxRank": 604
+        },
+        {
+          "year": 2026,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 36,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        }
+      ],
+      "internalQuota": {
+        "2": 6,
+        "3": 5
+      },
+      "centralQuota": {
+        "1": 15,
+        "2": 15,
+        "3": 15,
+        "4": 15,
+        "hazirlik": 15
+      },
+      "capOpen": true,
+      "capRankRules": [],
+      "notes": [
+        "Kurum içi (başarıya göre) geçiş, 2027-2028 başvurularından itibaren: en az GNO 2.50; ders koşulu yok. (\"veya\" ile gruplanan derslerde notu yüksek olan sayılır; harf notu katsayıları esas alınır, AKTS farkı dikkate alınmaz.)"
+      ],
+      "internalRankRules": [],
+      "centralRankRules": []
+    },
+    {
+      "programId": "BSARCH (ENG)",
+      "name": "Mimarlık (İngilizce)",
+      "faculty": "Mimarlık ve Tasarım Fakültesi",
+      "scoreType": "SAY",
+      "baseScores": [
+        {
+          "year": 2025,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 11,
+          "minScore": 433.0256,
+          "maxScore": 452.7308,
+          "minRank": 62341,
+          "maxRank": 43659
+        },
+        {
+          "year": 2026,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 10,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 76,
+          "minScore": 329.2562,
+          "maxScore": 413.7157,
+          "minRank": 219574,
+          "maxRank": 83050
+        },
+        {
+          "year": 2026,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 68,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        }
+      ],
+      "internalQuota": {
+        "2": 13,
+        "3": 12
+      },
+      "centralQuota": {
+        "1": 25,
+        "2": 25,
+        "3": 25,
+        "4": 25,
+        "hazirlik": 25
+      },
+      "capOpen": true,
+      "capRankRules": [
+        {
+          "scoreType": "SAY",
+          "maxRank": 250000,
+          "fromYear": 2019,
+          "toYear": null,
+          "text": "Mimarlık (İngilizce) lisans programı için: 2019 yılı sonrasında YKS ile Üniversiteye yerleşerek kayıt yaptıran öğrencilerin ÇAP başvurularında ayrıca başarı sırası en düşük (SAY) 250.000'inci sırada olma başarı şartı aranır."
+        }
+      ],
+      "notes": [
+        "Kurum içi (başarıya göre) geçiş, 2027-2028 başvurularından itibaren: en az GNO 2.50; ders koşulu yok. (\"veya\" ile gruplanan derslerde notu yüksek olan sayılır; harf notu katsayıları esas alınır, AKTS farkı dikkate alınmaz.)"
+      ],
+      "internalRankRules": [
+        {
+          "scoreType": "SAY",
+          "maxRank": 250000,
+          "fromYear": 2021,
+          "toYear": null,
+          "text": "Kurum içi (başarıya göre) geçiş: 2021 yılı ve sonrasında YKS ile üniversiteye yerleşerek kayıt yaptıran adayların bu programa yatay geçiş başvurularında, Y-SAY puan türünde en az 250.000'inci başarı sırası şartı aranır."
+        }
+      ],
+      "centralRankRules": [
+        {
+          "scoreType": "SAY",
+          "maxRank": 250000,
+          "fromYear": 2019,
+          "toYear": null,
+          "text": "Merkezi yerleştirme puanı ile (Ek Madde-1) geçiş: 2019 yılı sonrasında YKS ile kayıt yaptıranlarda ayrıca başarı sırası en düşük (SAY) 250.000 şartı aranır."
+        }
+      ]
+    },
+    {
+      "programId": "BSAVM",
+      "name": "Havacılık Yönetimi",
+      "faculty": "Havacılık ve Uzay Bilimleri Fakültesi",
+      "scoreType": "EA",
+      "baseScores": [
+        {
+          "year": 2025,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 6,
+          "minScore": 460.67311,
+          "maxScore": 485.63224,
+          "minRank": 2336,
+          "maxRank": 904
+        },
+        {
+          "year": 2026,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 8,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 29,
+          "minScore": 291.80198,
+          "maxScore": 449.16603,
+          "minRank": 405458,
+          "maxRank": 3536
+        },
+        {
+          "year": 2026,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 35,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 13,
+          "minScore": 269.3908,
+          "maxScore": 289.8798,
+          "minRank": 598794,
+          "maxRank": 419843
+        },
+        {
+          "year": 2026,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 18,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        }
+      ],
+      "internalQuota": {
+        "2": 7,
+        "3": 7
+      },
+      "centralQuota": {
+        "1": 19,
+        "2": 19,
+        "3": 19,
+        "4": 19,
+        "hazirlik": 19
+      },
+      "capOpen": true,
+      "capRankRules": [],
+      "notes": [
+        "Kurum içi (başarıya göre) geçiş, 2027-2028 başvurularından itibaren: en az GNO 2.00; ders koşulu yok. (\"veya\" ile gruplanan derslerde notu yüksek olan sayılır; harf notu katsayıları esas alınır, AKTS farkı dikkate alınmaz.)",
+        "Ek koşul: havalimanı giriş kartı almaya engel adli sicil (arşiv) kaydı olmamalı ve mesleği icra etmeye engel sağlık sorunu bulunmamalı (sağlık heyet raporu, arşiv kayıtlı adli sicil belgesi istenir). ÇAP başvurusunda da aynı belgeler istenir."
+      ],
+      "internalRankRules": [],
+      "centralRankRules": []
+    },
+    {
+      "programId": "BSPLT",
+      "name": "Pilotaj",
+      "faculty": "Havacılık ve Uzay Bilimleri Fakültesi",
+      "scoreType": "SAY",
+      "baseScores": [
+        {
+          "year": 2025,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 7,
+          "minScore": 531.761,
+          "maxScore": 540.2751,
+          "minRank": 1657,
+          "maxRank": 553
+        },
+        {
+          "year": 2026,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 7,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 48,
+          "minScore": 300.952,
+          "maxScore": 463.5778,
+          "minRank": 305269,
+          "maxRank": 34440
+        },
+        {
+          "year": 2026,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 48,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        }
+      ],
+      "internalQuota": {
+        "2": 8,
+        "3": 8
+      },
+      "centralQuota": {
+        "1": 5,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "hazirlik": 5
+      },
+      "capOpen": false,
+      "capRankRules": [],
+      "notes": [
+        "ÇAP: Gastronomi ve Mutfak Sanatları ile Pilotaj programlarına ÇAP başvurusu alınmamaktadır.",
+        "Kurum içi (başarıya göre) geçiş, 2027-2028 başvurularından itibaren: en az GNO 2.00; ders koşulu yok. (\"veya\" ile gruplanan derslerde notu yüksek olan sayılır; harf notu katsayıları esas alınır, AKTS farkı dikkate alınmaz.)",
+        "Ek koşul: havalimanı giriş kartı almaya engel adli sicil (arşiv) kaydı olmamalı; SHGM ICAO Ek-1 Sınıf 1 sağlık sertifikası almaya engel sağlık sorunu olmamalı.",
+        "Kurum içi (başarıya göre) geçişte ilk kayıttaki burs koşullarının korunması kuralı Pilotaj programına geçişleri kapsamaz."
+      ],
+      "internalRankRules": [],
+      "centralRankRules": []
+    },
+    {
+      "programId": "BSGARM",
+      "name": "Gastronomi ve Mutfak Sanatları",
+      "faculty": "Uygulamalı Bilimler Fakültesi",
+      "scoreType": "SÖZ",
+      "baseScores": [
+        {
+          "year": 2025,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 8,
+          "minScore": 464.6334,
+          "maxScore": 479.8879,
+          "minRank": 351,
+          "maxRank": 148
+        },
+        {
+          "year": 2026,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 9,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 29,
+          "minScore": 334.6149,
+          "maxScore": 421.6583,
+          "minRank": 94858,
+          "maxRank": 2827
+        },
+        {
+          "year": 2026,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 35,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 25,
+          "minScore": 233.674,
+          "maxScore": 328.272,
+          "minRank": 816058,
+          "maxRank": 114667
+        },
+        {
+          "year": 2026,
+          "scholarship": "ucretli",
+          "scholarshipLabel": "Ücretli",
+          "quota": 24,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        }
+      ],
+      "internalQuota": {
+        "2": 9,
+        "3": 10
+      },
+      "centralQuota": {
+        "1": 21,
+        "2": 21,
+        "3": 21,
+        "4": 21,
+        "hazirlik": 21
+      },
+      "capOpen": false,
+      "capRankRules": [],
+      "notes": [
+        "ÇAP: Gastronomi ve Mutfak Sanatları ile Pilotaj programlarına ÇAP başvurusu alınmamaktadır.",
+        "Kurum içi (başarıya göre) geçiş, 2027-2028 başvurularından itibaren: en az GNO 2.50; GARM 103 veya GARM 122 derslerinden en az B almış olmak. (\"veya\" ile gruplanan derslerde notu yüksek olan sayılır; harf notu katsayıları esas alınır, AKTS farkı dikkate alınmaz.)",
+        "Merkezi yerleştirme puanı ile (Ek Madde-1) geçiş: yükseköğretim kurumuna 2015-2016 akademik yılı ve sonrasında kayıt olan öğrenciler başvurabilir."
+      ],
+      "internalRankRules": [],
+      "centralRankRules": []
+    },
+    {
+      "programId": "BSHOTM",
+      "name": "Otel Yöneticiliği",
+      "faculty": "Uygulamalı Bilimler Fakültesi",
+      "scoreType": "EA",
+      "baseScores": [
+        {
+          "year": 2025,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 4,
+          "minScore": 443.985,
+          "maxScore": 474.5835,
+          "minRank": 4292,
+          "maxRank": 1377
+        },
+        {
+          "year": 2026,
+          "scholarship": "tam",
+          "scholarshipLabel": "Tam Burslu",
+          "quota": 6,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        },
+        {
+          "year": 2025,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 31,
+          "minScore": 249.3306,
+          "maxScore": 345.1768,
+          "minRank": 814461,
+          "maxRank": 139560
+        },
+        {
+          "year": 2026,
+          "scholarship": "yuzde50",
+          "scholarshipLabel": "50% Burslu",
+          "quota": 42,
+          "minScore": null,
+          "maxScore": null,
+          "minRank": null,
+          "maxRank": null
+        }
+      ],
+      "internalQuota": {
+        "2": 5,
+        "3": 4
+      },
+      "centralQuota": {
+        "1": 15,
+        "2": 15,
+        "3": 15,
+        "4": 15,
+        "hazirlik": 15
+      },
+      "capOpen": true,
+      "capRankRules": [],
+      "notes": [
+        "Kurum içi (başarıya göre) geçiş, 2027-2028 başvurularından itibaren: en az GNO 2.00; ders koşulu yok. (\"veya\" ile gruplanan derslerde notu yüksek olan sayılır; harf notu katsayıları esas alınır, AKTS farkı dikkate alınmaz.)",
+        "Puan türü kaynaklar arasında farklı: aday.ozyegin.edu.tr 2025 tablosu EA diyor; kurum içi geçiş ve Ek Madde-1 kontenjan tablolarında SÖZ (Y-SÖZ, YGS-6/SÖZ) yazıyor. scoreType 2025 yerleşme tablosundan alındı."
+      ],
+      "internalRankRules": [],
+      "centralRankRules": []
+    }
+  ]
+}

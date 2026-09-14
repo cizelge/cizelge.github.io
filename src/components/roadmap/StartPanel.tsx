@@ -185,7 +185,7 @@ export function StartPanel({
       )}
 
       <p className="hint rm-rules">
-        Çift anadal için not ortalaman en az 2,72 olmalı ve sınıfının ilk %20'sinde olmalısın (ya da bölümün YKS
+        Çift anadal için not ortalaman en az 2,72 olmalı ve sınıfının ilk %20&apos;sinde olmalısın (ya da bölümün YKS
         sıralaması şartını sağlamalısın); başvuru 3. dönemin başından 5. dönemin başına kadar yapılır. Yandal için en az
         2,50 gerekir ve kaldığın ders olmamalı.{" "}
         <a className="link" href={MINOR_INFO_URL} target="_blank" rel="noreferrer">
