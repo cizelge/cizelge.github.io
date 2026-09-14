@@ -7,6 +7,7 @@ import { expandCorequisites, type RelaxedConstraint, type SectionRef } from "@/l
 import { visibleDays } from "@/lib/days";
 import { programYears } from "@/lib/planner/curriculum";
 import { downloadPng } from "@/lib/planner/download-image";
+import { OZYEGIN_CALENDAR } from "@/lib/calendar";
 import { buildIcs } from "@/lib/planner/ics";
 import { buildScheduleSvg, imageFileName } from "@/lib/planner/image";
 import { decodeState, EMPTY_STATE, encodeState, missingNotice, termSwitchQuery, type PlannerState } from "@/lib/planner/state";
@@ -178,13 +179,20 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
 
   function downloadIcs() {
     if (!current) return;
-    const blob = new Blob([buildIcs(current.sections, courses, nextMonday())], { type: "text/calendar" });
+    const calendar = OZYEGIN_CALENDAR[term.termId];
+    const ics = buildIcs(current.sections, courses, calendar ? { kind: "calendar", calendar } : { kind: "weeks", firstMonday: nextMonday() });
+    const blob = new Blob([ics], { type: "text/calendar" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
-    a.download = `program-${groupRank}.ics`;
+    a.download = `program-${term.termId}.ics`;
     a.click();
     URL.revokeObjectURL(a.href);
-    setNote("Takvim dosyası indirildi. Dersler önümüzdeki Pazartesiden itibaren 14 hafta tekrar eder.");
+    const fmt = (d: string) => new Intl.DateTimeFormat("tr-TR", { day: "numeric", month: "long" }).format(new Date(`${d}T12:00:00`));
+    setNote(
+      calendar
+        ? `Takvim dosyası indirildi. Dersler ${fmt(calendar.start)}–${fmt(calendar.end)} arasında tekrar eder; tatiller atlandı, telafi günleri eklendi.`
+        : "Takvim dosyası indirildi. Dersler önümüzdeki Pazartesiden itibaren 14 hafta tekrar eder.",
+    );
   }
 
   async function downloadImage() {

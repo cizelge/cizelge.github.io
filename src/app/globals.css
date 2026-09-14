@@ -676,6 +676,7 @@ a.term-option[aria-current="page"]:hover {
 }
 .block-code { font-weight: 700; display: block; }
 .block-section { font-weight: 500; opacity: 0.75; }
+.meeting-line { display: block; }
 .is-compact .block { padding: 0.2rem 0.4rem; font-size: 0.76rem; }
 .is-compact .block-code { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .block-sub { display: block; opacity: 0.85; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

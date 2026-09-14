@@ -65,7 +65,7 @@ export function WeekGrid({ meetings, freeDays, range, days, empty, compact = fal
                         "--lanes": count,
                       } as React.CSSProperties
                     }
-                    title={`${m.courseCode} ${m.sectionId}, ${m.start}–${m.end}${m.instructor ? `, ${personName(m.instructor)}` : ""}`}
+                    title={`${m.courseCode} ${m.sectionId}, ${m.start}–${m.end}${m.room ? `, ${m.room}` : ""}${m.instructor ? `, ${personName(m.instructor)}` : ""}`}
                   >
                     <span className="block-code">
                       {m.courseCode}
@@ -76,6 +76,7 @@ export function WeekGrid({ meetings, freeDays, range, days, empty, compact = fal
                         <span className="block-sub num">
                           {m.start}–{m.end}
                         </span>
+                        {m.room && <span className="block-sub block-room">{m.room}</span>}
                         {m.instructor && <span className="block-sub">{personName(m.instructor)}</span>}
                       </>
                     )}

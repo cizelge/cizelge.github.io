@@ -33,7 +33,8 @@ export default async function CoursePage(props: PageProps<"/ozyegin/[slug]">) {
   const course = findCourse(term, slug);
   if (!course) notFound();
 
-  const planQuery = [course.code, ...course.corequisites].map((c) => c.replace(/\s+/g, "")).join(",");
+  const hasCapacity = course.sections.some((s) => s.capacity !== null);
+  const planQuery =[course.code, ...course.corequisites].map((c) => c.replace(/\s+/g, "")).join(",");
   const meetings: PlacedMeeting[] = course.sections.flatMap((s, i) =>
     s.meetings.map((m) => ({
       courseCode: course.code,
@@ -42,6 +43,7 @@ export default async function CoursePage(props: PageProps<"/ozyegin/[slug]">) {
       start: m.start,
       end: m.end,
       instructor: s.instructors[0] ?? null,
+      room: m.room,
       color: i % 6,
     })),
   );
@@ -114,7 +116,8 @@ export default async function CoursePage(props: PageProps<"/ozyegin/[slug]">) {
               <tr>
                 <th scope="col">Şube</th>
                 <th scope="col">Hoca</th>
-                <th scope="col">Gün ve saat</th>
+                <th scope="col">Gün, saat ve derslik</th>
+                {hasCapacity && <th scope="col">Kota</th>}
               </tr>
             </thead>
             <tbody>
@@ -127,8 +130,14 @@ export default async function CoursePage(props: PageProps<"/ozyegin/[slug]">) {
                   <td className="num">
                     {s.meetings.length === 0
                       ? "Saat yok"
-                      : s.meetings.map((m) => `${DAY[m.day]} ${m.start}–${m.end}`).join(", ")}
+                      : s.meetings.map((m, k) => (
+                          <span key={k} className="meeting-line">
+                            {DAY[m.day]} {m.start}–{m.end}
+                            {m.room && <span className="hint"> {m.room}</span>}
+                          </span>
+                        ))}
                   </td>
+                  {hasCapacity && <td className="num">{s.capacity ?? "–"}</td>}
                 </tr>
               ))}
             </tbody>

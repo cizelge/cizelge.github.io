@@ -9,6 +9,8 @@ export interface PlacedMeeting {
   start: string;
   end: string;
   instructor: string | null;
+  /** Derslik ("EF_AB1.245"); bilinmiyorsa yok. */
+  room?: string | null;
   color: number;
 }
 
@@ -29,6 +31,7 @@ export function placeMeetings(
         start: m.start,
         end: m.end,
         instructor: section.instructors[0] ?? null,
+        room: m.room,
         color: colorOf(ref.courseCode),
       });
     }

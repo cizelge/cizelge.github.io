@@ -284,7 +284,7 @@ export function buildScheduleSvg(input: ScheduleImageInput): ScheduleImage {
         `</text>`,
     );
     if (h >= 40) {
-      out.push(text(fit(`${m.start}–${m.end}`, textW, 12), { x: textX, y: y + 35, "font-size": 12, fill: p.ink, "fill-opacity": 0.85 }));
+      out.push(text(fit(`${m.start}–${m.end}${m.room ? `  ${m.room}` : ""}`, textW, 12), { x: textX, y: y + 35, "font-size": 12, fill: p.ink, "fill-opacity": 0.85 }));
     }
     if (m.instructor && h >= 55) {
       out.push(

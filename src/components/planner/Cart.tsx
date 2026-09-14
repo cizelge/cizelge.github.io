@@ -68,6 +68,7 @@ export function Cart({ cart, courses, colorOf, locked, excluded, chosen, onRemov
                             <option key={s.id} value={s.id}>
                               {s.id}
                               {s.instructors[0] ? `, ${personName(s.instructors[0])}` : ""}
+                              {s.capacity ? `, kota ${s.capacity}` : ""}
                             </option>
                           ))}
                         </select>
