@@ -1,12 +1,10 @@
 import type { Course } from "@/lib/types";
 import type { Day, RankedSchedule } from "@/lib/engine";
 import { parseTime } from "@/lib/engine";
-import { formatDuration } from "@/lib/format";
+import { formatGap } from "@/lib/format";
 import { placeMeetings, timeRange } from "./placed";
 
-export function formatGap(minutes: number) {
-  return minutes === 0 ? "boşluk yok" : `${formatDuration(minutes)} boşluk`;
-}
+export { formatGap };
 
 export interface ScheduleGroup {
   /** Gruptaki ilk (en iyi) programın `schedules` içindeki yeri. */

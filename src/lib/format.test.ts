@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { formatDuration, personName } from "./format";
+import { formatDuration, formatGap, personName } from "./format";
 
 describe("personName", () => {
   it("title-cases Turkish upper-case names correctly", () => {
@@ -16,5 +16,12 @@ describe("formatDuration", () => {
     expect(formatDuration(45)).toBe("45 dk");
     expect(formatDuration(120)).toBe("2 sa");
     expect(formatDuration(150)).toBe("2 sa 30 dk");
+  });
+});
+
+describe("formatGap", () => {
+  it("says there is no gap, or how long it is", () => {
+    expect(formatGap(0)).toBe("boşluk yok");
+    expect(formatGap(150)).toBe("2 sa 30 dk boşluk");
   });
 });

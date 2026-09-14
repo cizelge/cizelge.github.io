@@ -17,3 +17,8 @@ export function formatDuration(minutes: number): string {
   const m = minutes % 60;
   return [h ? `${h} sa` : "", m ? `${m} dk` : ""].filter(Boolean).join(" ");
 }
+
+/** 150 -> "2 sa 30 dk boşluk", 0 -> "boşluk yok". */
+export function formatGap(minutes: number): string {
+  return minutes === 0 ? "boşluk yok" : `${formatDuration(minutes)} boşluk`;
+}
