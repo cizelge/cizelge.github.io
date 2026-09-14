@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useId, useMemo, useState } from "react";
 import type { Course, PlanPoolCourse, Program } from "@/lib/types";
 import {
@@ -142,6 +143,11 @@ export function Curriculum({ programs, termLabel, courses, cart, program, year, 
           ))}
         </>
       )}
+      <p className="hint curriculum-gap">
+        <Link href="/ozyegin/yol-haritasi" className="link">
+          Mezuniyet yol haritası
+        </Link>
+      </p>
     </section>
   );
 }

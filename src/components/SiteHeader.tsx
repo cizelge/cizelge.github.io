@@ -9,6 +9,9 @@ export function SiteHeader({ term }: { term?: string }) {
       </Link>
       {term && <span className="topbar-term">{term}</span>}
       <span className="topbar-spacer" />
+      <Link href="/ozyegin/yol-haritasi" className="btn btn-small btn-quiet">
+        Yol haritası
+      </Link>
       <Link href="/hakkinda" className="btn btn-small btn-quiet">
         Hakkında
       </Link>

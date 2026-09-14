@@ -1,0 +1,2488 @@
+{
+  "schoolId": "ozyegin",
+  "fetchedAt": "2026-09-14T08:59:11.665Z",
+  "minors": [
+    {
+      "id": "yandal-havacilik-yonetimi",
+      "name": "Havacılık Yönetimi Yandal Programı",
+      "department": "Havacılık Yönetimi",
+      "sourceUrl": "https://www.ozyegin.edu.tr/tr/havacilik-yonetimi/lisans-bsc-programi/cap-ve-yandal",
+      "status": "listed",
+      "required": [
+        {
+          "code": "AVM 100",
+          "title": "Sivil Havacılığa Giriş",
+          "credits": 6
+        },
+        {
+          "code": "AVM 102",
+          "title": "Havaalanı ve Faaliyetleri",
+          "credits": 6
+        },
+        {
+          "code": "AVM 301",
+          "title": "Havayolu Yönetimi",
+          "credits": 6
+        }
+      ],
+      "electiveGroups": [
+        {
+          "min": 3,
+          "note": "Fakülte-İçi Seçmeli: listeden 3 ders.",
+          "pool": [
+            {
+              "code": "AVM 202",
+              "title": "Havacılık Yönetiminde Veri Analizi",
+              "credits": 6
+            },
+            {
+              "code": "AVM 204",
+              "title": "Havaalanı Stratejik Planlaması ve Tasarımı",
+              "credits": 6
+            },
+            {
+              "code": "AVM 306",
+              "title": "Havacılıkta Operasyon Yönetimi",
+              "credits": 6
+            },
+            {
+              "code": "AVM 307",
+              "title": "İnsansız Hava Aracı Sistemlerine Giriş",
+              "credits": 6
+            },
+            {
+              "code": "AVM 309",
+              "title": "Hava Ulaştırma Ekonomisi",
+              "credits": 6
+            },
+            {
+              "code": "AVM 401",
+              "title": "Havayolu Filo Planlaması Ve Uçuş Ağı Yönetimi",
+              "credits": 6
+            },
+            {
+              "code": "AVM 402",
+              "title": "Havacılık İş Simülasyonu",
+              "credits": 6
+            },
+            {
+              "code": "AVM 407",
+              "title": "Havayolu İş Modelleri ve Stratejileri",
+              "credits": 6
+            },
+            {
+              "code": "AVM 414",
+              "title": "Hava Kargo Yönetimi",
+              "credits": 6
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Toplam 36 AKTS tamamlanmalı.",
+        "Yandal derslerinin not ortalaması en az 2.00 olmalı; sertifika anadaldan mezuniyetle verilir.",
+        "Havacılık Yönetimi yandalı için ek sağlık ve güvenlik soruşturması koşulları var (Yandal Öğrenimi sayfası).",
+        "Aynı sayfa SIS iframe'i (code=AVM) de içeriyor; buradaki liste sayfanın düz metninden alındı.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-kamu-hukuku",
+      "name": "Kamu Hukuku Yandal Programı (2021 ve öncesi girişliler)",
+      "department": "Hukuk",
+      "sourceUrl": "https://www.ozyegin.edu.tr/tr/kamu-hukuku-yandal-programi",
+      "status": "listed",
+      "required": [
+        {
+          "code": "HUK 109",
+          "title": "Temel Hukuk Bilgisi",
+          "credits": 4
+        },
+        {
+          "code": "HUK 105",
+          "title": "Anayasa Hukuku I",
+          "credits": 6
+        },
+        {
+          "code": "HUK 106",
+          "title": "Anayasa Hukuku II",
+          "credits": 6
+        },
+        {
+          "code": "HUK 203",
+          "title": "İdare Hukuku",
+          "credits": 6
+        },
+        {
+          "code": "HUK 204",
+          "title": "İdare Hukuku II",
+          "credits": 5
+        },
+        {
+          "code": "HUK 207",
+          "title": "Devletler Genel Hukuku I",
+          "credits": 4
+        },
+        {
+          "code": "HUK 201",
+          "title": "Ceza Hukuku Genel Hükümler I",
+          "credits": 6
+        },
+        {
+          "code": "HUK 202",
+          "title": "Ceza Hukuku Genel Hükümler II",
+          "credits": 6
+        },
+        {
+          "code": "HUK 310",
+          "title": "İnsan Hakları Hukuku",
+          "credits": 4
+        },
+        {
+          "code": "HUK 317",
+          "title": "Avrupa Birliği Teşkilatı ve Hukuku",
+          "credits": 3
+        }
+      ],
+      "electiveGroups": [],
+      "notes": [
+        "Liste yalnızca 2021 ve öncesinde programa başlayanlar için; güncel liste SIS iframe'inde (code=PBL).",
+        "En az 10 ders ve 44 kredi; yandal ve diploma CGPA en az 2.00.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-uluslararasi-finans",
+      "name": "Uluslararası Finans Yandal Programı",
+      "department": "Uluslararası Finans",
+      "sourceUrl": "https://www.ozyegin.edu.tr/tr/uluslararasi-finans/lisans-ba-programi/cap-ve-yandal",
+      "status": "listed",
+      "required": [
+        {
+          "code": "FIN 204",
+          "title": "Finansal Tablolar Analizi",
+          "credits": 6
+        },
+        {
+          "code": "ECON 309",
+          "title": "Para ve Bankacılık",
+          "credits": 6
+        },
+        {
+          "code": "ECON 301",
+          "title": "Ekonometri I",
+          "credits": 6
+        },
+        {
+          "code": "FIN 301",
+          "title": "Yatırımlar",
+          "credits": 6
+        },
+        {
+          "code": "FIN 302",
+          "title": "Kurumsal Finans",
+          "credits": 6
+        },
+        {
+          "code": "FIN 312",
+          "title": "Bankacılık ve Finansal Aracılık",
+          "credits": 6
+        }
+      ],
+      "electiveGroups": [],
+      "notes": [
+        "Anadalında BUS 101 olan fakülteler arası yandal öğrencileri BUS 100 ve BUS 190 derslerinden muaftır; BUS 101 olmayanlar BUS 100 ve BUS 190 derslerini tamamlar.",
+        "İşletme Fakültesi programları arasında yandal yapanlara, yandal programında o programın intibak kuralları uygulanır.",
+        "IBUS anadallı öğrenciler İşletme Fakültesi yandalında IBUS 402 ve IBUS 404 alır; bunlar MGMT 402 ve SEC 402 yerine sayılır.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-mimarlik-turkce",
+      "name": "Mimarlık (Türkçe) Yandal Programı",
+      "department": "Mimarlık (Türkçe)",
+      "sourceUrl": "https://www.ozyegin.edu.tr/tr/mimarlik-turkce-yandal-programi",
+      "status": "unlisted",
+      "required": [],
+      "electiveGroups": [],
+      "notes": [
+        "Resmi yandal sayfası ders listesini yalnızca SIS iframe'i (DegreeRequirementsWeb code=ARCH (TR)) içinde gösteriyor; sayfa HTML'inde ders listesi yok, SIS'e otomatik istek atılmadı.",
+        "Bölüm sayfalarında (mimarlik/lisans-barch, mimarlik/akademik-program) yandal bilgisi bulunamadı.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-bilgisayar-muhendisligi",
+      "name": "Bilgisayar Mühendisliği Yandal Programı",
+      "department": "Bilgisayar Mühendisliği",
+      "sourceUrl": "https://cs.ozyegin.edu.tr/tr/lisans-programi/cap-ve-yandal",
+      "status": "listed",
+      "required": [
+        {
+          "code": "MATH 211",
+          "title": "Doğrusal Cebir",
+          "credits": 6
+        },
+        {
+          "code": "CS 201",
+          "title": "Veri Yapıları ve Algoritmalar",
+          "credits": 6
+        },
+        {
+          "code": "CS 202",
+          "title": "Veritabanı Yönetim Sistemleri",
+          "credits": 6
+        },
+        {
+          "code": "CS 320",
+          "title": "Yazılım Mühendisliği",
+          "credits": 6
+        }
+      ],
+      "electiveGroups": [
+        {
+          "min": 1,
+          "note": "Zorunlu: MATH 217 veya CE 217 veya MATH 215.",
+          "pool": [
+            {
+              "code": "MATH 217",
+              "title": "Olasılık ve İstatistik",
+              "credits": 6
+            },
+            {
+              "code": "CE 217",
+              "title": "İnşaat Mühendisliğinde Olasılık ve İstatistik",
+              "credits": 6
+            },
+            {
+              "code": "MATH 215",
+              "title": "Olasılık ve Rassal Değişkenler",
+              "credits": 6
+            }
+          ]
+        },
+        {
+          "min": 1,
+          "note": "Zorunlu: CS 101 veya CS 103 veya CS 104.",
+          "pool": [
+            {
+              "code": "CS 101",
+              "title": "Bilgisayar Programlama",
+              "credits": 6
+            },
+            {
+              "code": "CS 103",
+              "title": "Bilgisayar Programlama",
+              "credits": null
+            },
+            {
+              "code": "CS 104",
+              "title": "Programlamaya Giriş",
+              "credits": 6
+            }
+          ]
+        },
+        {
+          "min": 1,
+          "note": "Zorunlu: CS 102 veya CS 105.",
+          "pool": [
+            {
+              "code": "CS 102",
+              "title": "Nesneye Dayalı Programlama",
+              "credits": 6
+            },
+            {
+              "code": "CS 105",
+              "title": "Nesne-Yönelimli Programlamaya Giriş",
+              "credits": 6
+            }
+          ]
+        },
+        {
+          "min": 1,
+          "note": "Zorunlu: MATH 112 veya CS 112.",
+          "pool": [
+            {
+              "code": "MATH 112",
+              "title": "Ayrık Matematik",
+              "credits": 6
+            },
+            {
+              "code": "CS 112",
+              "title": "Bilgisayar Bilimi için Ayrık Matematik",
+              "credits": 6
+            }
+          ]
+        },
+        {
+          "min": 1,
+          "note": "Seçmeli: 1 ders.",
+          "pool": [
+            {
+              "code": "CS 333",
+              "title": "Algoritma Analizi",
+              "credits": 6
+            },
+            {
+              "code": "CS 350",
+              "title": "İşletim Sistemleri",
+              "credits": 6
+            },
+            {
+              "code": "CS 447",
+              "title": "Bilgisayar Ağları",
+              "credits": 6
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Liste sayfadaki görselden (cs_sonn.png, 2023-2024 akademik yılı itibarıyla) okundu.",
+        "Kaynakta \"veya\" ile verilen zorunlu dersler en az 1 dersli gruplar olarak yazıldı.",
+        "İntibak: zorunluları ve CS 320'yi tamamlayanlar bir seçmeli alır; zorunluları ve CS 320 dışında bir seçmeliyi (CS 321, CS 333, CS 350, CS 410, CS 447) tamamlayanlar CS 320 alır.",
+        "İntibak: CS 320 almadan iki seçmeli tamamlayanların bir seçmelisi CS 320 yerine sayılır; seçmeli almamış olanlar CS 320 ve bir seçmeli alır.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-psikoloji",
+      "name": "Psikoloji Yandal Programı",
+      "department": "Psikoloji",
+      "sourceUrl": "https://www.ozyegin.edu.tr/tr/psikoloji-bolumu/lisans-ba-programi/yandal-ve-cift-anadal-ogrenimi",
+      "status": "listed",
+      "required": [],
+      "electiveGroups": [
+        {
+          "min": 1,
+          "note": "PSY 100 veya PSY 101.",
+          "pool": [
+            {
+              "code": "PSY 100",
+              "title": "Genel Psikoloji",
+              "credits": 6
+            },
+            {
+              "code": "PSY 101",
+              "title": "Psikolojiye Giriş I",
+              "credits": 6
+            }
+          ]
+        },
+        {
+          "min": 1,
+          "note": "PSY 201 veya PSY 202.",
+          "pool": [
+            {
+              "code": "PSY 201",
+              "title": "Bilişsel Psikoloji",
+              "credits": 6
+            },
+            {
+              "code": "PSY 202",
+              "title": "Öğrenme ve Bellek",
+              "credits": 6
+            }
+          ]
+        },
+        {
+          "min": 1,
+          "note": "PSY 203 veya PSY 204.",
+          "pool": [
+            {
+              "code": "PSY 203",
+              "title": "Gelişim Psikolojisi I",
+              "credits": 6
+            },
+            {
+              "code": "PSY 204",
+              "title": "Gelişim Psikolojisi II",
+              "credits": 6
+            }
+          ]
+        },
+        {
+          "min": 1,
+          "note": "PSY 205 veya PSY 206.",
+          "pool": [
+            {
+              "code": "PSY 205",
+              "title": "Sosyal Psikoloji I",
+              "credits": 6
+            },
+            {
+              "code": "PSY 206",
+              "title": "Sosyal Psikoloji II",
+              "credits": 6
+            }
+          ]
+        },
+        {
+          "min": 2,
+          "note": "Listeden 2 ders; üstteki satırlarda sayılan ders burada tekrar sayılmaz.",
+          "pool": [
+            {
+              "code": "PSY 201",
+              "title": "Bilişsel Psikoloji",
+              "credits": 6
+            },
+            {
+              "code": "PSY 202",
+              "title": "Öğrenme ve Bellek",
+              "credits": 6
+            },
+            {
+              "code": "PSY 203",
+              "title": "Gelişim Psikolojisi I",
+              "credits": 6
+            },
+            {
+              "code": "PSY 204",
+              "title": "Gelişim Psikolojisi II",
+              "credits": 6
+            },
+            {
+              "code": "PSY 205",
+              "title": "Sosyal Psikoloji I",
+              "credits": 6
+            },
+            {
+              "code": "PSY 206",
+              "title": "Sosyal Psikoloji II",
+              "credits": 6
+            },
+            {
+              "code": "PSY 207",
+              "title": "Araştırma Yöntemleri I",
+              "credits": 6
+            },
+            {
+              "code": "PSY 301",
+              "title": "Kişilik Kuramları ve Bireysel Farklılıklar",
+              "credits": 6
+            },
+            {
+              "code": "PSY 302",
+              "title": "Biyopsikoloji",
+              "credits": 6
+            },
+            {
+              "code": "PSY 303",
+              "title": "Yetişkin Psikopatalojisi",
+              "credits": 6
+            },
+            {
+              "code": "PSY 305",
+              "title": "İş ve Örgüt Psikolojisi",
+              "credits": 6
+            },
+            {
+              "code": "PSY 306",
+              "title": "Psikolojide Ölçme Teknikleri",
+              "credits": 6
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Kaynakta dört satırın her birinden bir ders zorunlu; bunlar en az 1 dersli gruplar olarak yazıldı.",
+        "Resmi yandal sayfası (psikoloji-yandal-programi) yalnızca SIS iframe'i (code=PSYC) gösteriyor; liste bölüm sayfasından alındı.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-otel-yoneticiligi",
+      "name": "Otel Yöneticiliği Yandal Programı",
+      "department": "Otel Yöneticiliği",
+      "sourceUrl": "https://www.ozyegin.edu.tr/tr/otel-yoneticiligi-yandal-programi",
+      "status": "unlisted",
+      "required": [],
+      "electiveGroups": [],
+      "notes": [
+        "Resmi yandal sayfası ders listesini yalnızca SIS iframe'i (DegreeRequirementsWeb code=HOTM) içinde gösteriyor; sayfa HTML'inde ders listesi yok, SIS'e otomatik istek atılmadı.",
+        "Bölümün yandal sayfası (otel-yoneticiligi/lisans-bsc-programi/yandal) de yalnızca aynı SIS iframe'ini içeriyor.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-ozel-hukuk",
+      "name": "Özel Hukuk Yandal Programı (2021 ve öncesi girişliler)",
+      "department": "Hukuk",
+      "sourceUrl": "https://www.ozyegin.edu.tr/tr/ozel-hukuk-yandal-programi",
+      "status": "listed",
+      "required": [
+        {
+          "code": "HUK 107",
+          "title": "Medeni Hukuk I: Giriş, Temel Kavramlar, Kişiler Hukuku",
+          "credits": 6
+        },
+        {
+          "code": "HUK 205",
+          "title": "Borçlar Hukuku Genel Hükümler I",
+          "credits": 4
+        },
+        {
+          "code": "HUK 206",
+          "title": "Borçlar Hukuku Genel Hükümler II",
+          "credits": 6
+        },
+        {
+          "code": "HUK 303",
+          "title": "Borçlar Hukuku Özel Hükümler I",
+          "credits": 3
+        },
+        {
+          "code": "HUK 304",
+          "title": "Borçlar Hukuku Özel Hükümler II",
+          "credits": 2
+        },
+        {
+          "code": "HUK 305",
+          "title": "Ticaret Hukuku: Genel Hükümler, Ticari İşletme, Kıymetli Evrak",
+          "credits": 4
+        },
+        {
+          "code": "HUK 306",
+          "title": "Ticaret Hukuku II",
+          "credits": 6
+        },
+        {
+          "code": "HUK 311",
+          "title": "Medeni Usul Hukuku I",
+          "credits": 4
+        },
+        {
+          "code": "HUK 404",
+          "title": "Deniz Ticaret Hukuku",
+          "credits": 4
+        },
+        {
+          "code": "HUK 409",
+          "title": "İş Hukuku I",
+          "credits": 4
+        }
+      ],
+      "electiveGroups": [],
+      "notes": [
+        "Liste yalnızca 2021 ve öncesinde programa başlayanlar için; güncel liste SIS iframe'inde (code=PRL).",
+        "En az 10 ders ve 40 kredi; yandal ve diploma CGPA en az 2.00.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-girisimcilik",
+      "name": "Girişimcilik Yandal Programı",
+      "department": "Girişimcilik",
+      "sourceUrl": "https://www.ozyegin.edu.tr/tr/girisimcilik/lisans-ba-programi/yandal",
+      "status": "listed",
+      "required": [
+        {
+          "code": "BUS 102",
+          "title": "İşletmeye Giriş II (Girişimcilik)",
+          "credits": 4
+        },
+        {
+          "code": "MKTG 201",
+          "title": "Pazarlama",
+          "credits": 6
+        }
+      ],
+      "electiveGroups": [
+        {
+          "min": 2,
+          "note": "Birincil seçmeli havuzundan en az 2 ders.",
+          "pool": [
+            {
+              "code": "ENTR 403",
+              "title": "Sosyal Girişimcilik ve Yenilikçilik",
+              "credits": 6
+            },
+            {
+              "code": "ENTR 407",
+              "title": "Aile Şirketlerinde Girişimci Yönetim",
+              "credits": 6
+            },
+            {
+              "code": "ENTR 408",
+              "title": "Kurum İçi Girişimcilik",
+              "credits": 6
+            },
+            {
+              "code": "SEC 499",
+              "title": "Yeni İş Geliştirme",
+              "credits": 6
+            }
+          ]
+        },
+        {
+          "min": 2,
+          "note": "Kalan 2 ders ikincil havuzdan ya da birincil havuzdan (ilk gruba sayılmayan) alınır.",
+          "pool": [
+            {
+              "code": "ENTR 302",
+              "title": "İş Modeli Geliştirme",
+              "credits": 6
+            },
+            {
+              "code": "ENTR 303",
+              "title": "Yaratıcılık ve Fikir Geliştirme",
+              "credits": 6
+            },
+            {
+              "code": "ENTR 304",
+              "title": "İnsan Odaklı Tasarım",
+              "credits": 6
+            },
+            {
+              "code": "MKTG 412",
+              "title": "Satış Yönetimi",
+              "credits": 6
+            },
+            {
+              "code": "MKTG 414",
+              "title": "İş Modeli İnovasyonu",
+              "credits": 6
+            },
+            {
+              "code": "MKTG 416",
+              "title": "Kişisel Satış ve Satış Yönetimi",
+              "credits": 6
+            },
+            {
+              "code": "MGMT 311",
+              "title": "Proje Yönetimi",
+              "credits": 6
+            },
+            {
+              "code": "SEC 406",
+              "title": "Technology and Innovation Management",
+              "credits": 6
+            },
+            {
+              "code": "MIS 306",
+              "title": "E-İş'in Temelleri",
+              "credits": 6
+            },
+            {
+              "code": "ENTR 305",
+              "title": "Girişimci Pazarlama",
+              "credits": 6
+            },
+            {
+              "code": "ENTR 308",
+              "title": "Girişimci Finans",
+              "credits": 6
+            },
+            {
+              "code": "ENTR 310",
+              "title": "Yeni Girişimlerde Liderlik ve Yönetim",
+              "credits": 6
+            },
+            {
+              "code": "ENTR 410",
+              "title": "Sürdürülebilir Kalkınma için Değer Yaratma",
+              "credits": 6
+            },
+            {
+              "code": "ENTR 412",
+              "title": "Fikirden Girişime",
+              "credits": 6
+            },
+            {
+              "code": "GARM 421",
+              "title": "Gastronomide Girişimcilik ve Yenileşim",
+              "credits": 5
+            },
+            {
+              "code": "HMAN 431",
+              "title": "Otel Endüstrisinde Girişimcilik ve Yenileşim",
+              "credits": 5
+            },
+            {
+              "code": "AVM 314",
+              "title": "Havacılıkta İnovasyon",
+              "credits": 6
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Zorunlu BUS 102 ve MKTG 201'e ek olarak havuzdan 4 ders; en az ikisi birincil havuzdan.",
+        "GARM 421 yalnızca Gastronomi, HMAN 431 yalnızca Otel Yöneticiliği, AVM 314 yalnızca Havacılık Yönetimi öğrencileri için ikincil havuza sayılır.",
+        "Serbest ya da fakülte dışı seçmeliler uygun seçilirse yandal çok az ek krediyle tamamlanabilir (girisimcilik-yandal-programi sayfası).",
+        "Anadalında BUS 101 olan fakülteler arası yandal öğrencileri BUS 100 ve BUS 190 derslerinden muaftır; BUS 101 olmayanlar BUS 100 ve BUS 190 derslerini tamamlar.",
+        "İşletme Fakültesi programları arasında yandal yapanlara, yandal programında o programın intibak kuralları uygulanır.",
+        "IBUS anadallı öğrenciler İşletme Fakültesi yandalında IBUS 402 ve IBUS 404 alır; bunlar MGMT 402 ve SEC 402 yerine sayılır.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-mimarlik-ingilizce",
+      "name": "Mimarlık (İngilizce) Yandal Programı",
+      "department": "Mimarlık (İngilizce)",
+      "sourceUrl": "https://www.ozyegin.edu.tr/tr/mimarlik-ingilizce-yandal-programi",
+      "status": "unlisted",
+      "required": [],
+      "electiveGroups": [],
+      "notes": [
+        "Resmi yandal sayfası ders listesini yalnızca SIS iframe'i (DegreeRequirementsWeb code=ARCH (ENG)) içinde gösteriyor; sayfa HTML'inde ders listesi yok, SIS'e otomatik istek atılmadı.",
+        "Bölüm sayfalarında yandal bilgisi bulunamadı.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-elektrik-elektronik",
+      "name": "Elektrik-Elektronik Mühendisliği Yandal Programı",
+      "department": "Elektrik-Elektronik Mühendisliği",
+      "sourceUrl": "https://ee.ozyegin.edu.tr/tr/lisans-programi/cap-ve-yandal",
+      "status": "listed",
+      "required": [
+        {
+          "code": "MATH 211",
+          "title": "Doğrusal Cebir",
+          "credits": 6
+        },
+        {
+          "code": "MATH 217",
+          "title": "Olasılık ve İstatistik",
+          "credits": 6
+        },
+        {
+          "code": "MATH 212",
+          "title": "Diferansiyel Denklemler",
+          "credits": 6
+        },
+        {
+          "code": "EE 201",
+          "title": "Sinyaller ve Sistemler",
+          "credits": 6
+        },
+        {
+          "code": "EE 202",
+          "title": "Devre Analizi",
+          "credits": 6
+        },
+        {
+          "code": "EE 203",
+          "title": "Sayısal Sistemler",
+          "credits": 6
+        },
+        {
+          "code": "EE 301",
+          "title": "Elektronik I",
+          "credits": 6
+        }
+      ],
+      "electiveGroups": [
+        {
+          "min": 2,
+          "note": "Seçmeli: en az 2 ders.",
+          "pool": [
+            {
+              "code": "EE 302",
+              "title": "AI Tabanlı Sayısal Sinyal İşleme",
+              "credits": 6
+            },
+            {
+              "code": "EE 303",
+              "title": "Güç Sistemlerinin Temelleri",
+              "credits": 6
+            },
+            {
+              "code": "EE 321",
+              "title": "Mikroişlemciler",
+              "credits": 6
+            },
+            {
+              "code": "EE 341",
+              "title": "Haberleşme Sistemlerinin Temelleri",
+              "credits": 6
+            },
+            {
+              "code": "EE 462",
+              "title": "HDL Tabanlı Sayısal Sistemler Tasarımı",
+              "credits": 6
+            },
+            {
+              "code": "EE 367",
+              "title": "Optiğe Giriş",
+              "credits": 6
+            },
+            {
+              "code": "EE 372",
+              "title": "Elektrik Makineleri",
+              "credits": 6
+            },
+            {
+              "code": "EE 422",
+              "title": "Sayısal Konuşma İşleme",
+              "credits": 6
+            },
+            {
+              "code": "EE 442",
+              "title": "Sayısal Haberleşmeye Giriş",
+              "credits": 6
+            },
+            {
+              "code": "EE 473",
+              "title": "Enerji Sistemleri",
+              "credits": 6
+            },
+            {
+              "code": "EE 480",
+              "title": "İleri Optoelektronik: Yenilikçi Tasarımlar",
+              "credits": 6
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Kaynaktaki yazım hataları düzeltildi: \"EE302\" -> EE 302, \"EE3 41\" -> EE 341, \"EE480\" -> EE 480.",
+        "EE 462'nin eski kodu EE 362.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-uluslararasi-iliskiler",
+      "name": "Uluslararası İlişkiler Yandal Programı",
+      "department": "Uluslararası İlişkiler",
+      "sourceUrl": "https://www.ozyegin.edu.tr/tr/uluslararasi-iliskiler/lisans-ba-programi/yan-dal-ve-cift-anadal-ogrenimi",
+      "status": "listed",
+      "required": [
+        {
+          "code": "IR 101",
+          "title": "Siyaset Bilimine Giriş",
+          "credits": 6
+        },
+        {
+          "code": "IR 205",
+          "title": "Uluslararası İlişkilere Giriş",
+          "credits": 6
+        },
+        {
+          "code": "IR 206",
+          "title": "Siyasal Düşünce",
+          "credits": 6
+        }
+      ],
+      "electiveGroups": [
+        {
+          "min": 1,
+          "note": "IR 303 veya IR 304 (en az biri).",
+          "pool": [
+            {
+              "code": "IR 303",
+              "title": "Türkiye'de Siyaset",
+              "credits": 6
+            },
+            {
+              "code": "IR 304",
+              "title": "Türk Dış Politikası",
+              "credits": 6
+            }
+          ]
+        },
+        {
+          "min": 2,
+          "note": "Yukarıda seçilenler dışında en az 2 IR kodlu ders.",
+          "pool": [
+            {
+              "code": "IR 201",
+              "title": "Araştırma Yöntemleri I",
+              "credits": 6
+            },
+            {
+              "code": "IR 202",
+              "title": "Araştırma Yöntemleri II",
+              "credits": 6
+            },
+            {
+              "code": "IR 203",
+              "title": "Karşılaştırmalı Siyasete Giriş",
+              "credits": 6
+            },
+            {
+              "code": "IR 204",
+              "title": "Uluslararası Örgütler",
+              "credits": 6
+            },
+            {
+              "code": "IR 209",
+              "title": "Politik İdeolojiler",
+              "credits": 6
+            },
+            {
+              "code": "IR 301",
+              "title": "Diplomasi Tarihi",
+              "credits": 6
+            },
+            {
+              "code": "IR 302",
+              "title": "Diplomasi Tarihi II",
+              "credits": 6
+            },
+            {
+              "code": "IR 303",
+              "title": "Türkiye'de Siyaset",
+              "credits": 6
+            },
+            {
+              "code": "IR 304",
+              "title": "Türk Dış Politikası",
+              "credits": 6
+            },
+            {
+              "code": "IR 305",
+              "title": "Uluslararası İlişkiler Teorisi",
+              "credits": 6
+            },
+            {
+              "code": "IR 306",
+              "title": "Uluslararası Hukuk",
+              "credits": 6
+            },
+            {
+              "code": "IR 307",
+              "title": "Liberalizm: Dostları ve Rakipleri",
+              "credits": 6
+            },
+            {
+              "code": "IR 310",
+              "title": "İç Savaş ve Yerel Çatışma",
+              "credits": 6
+            },
+            {
+              "code": "IR 311",
+              "title": "Uluslararası Çatışma Analizi",
+              "credits": 6
+            },
+            {
+              "code": "IR 312",
+              "title": "Amerikan Politikası",
+              "credits": 6
+            },
+            {
+              "code": "IR 313",
+              "title": "Tartışmalı Fikirler: Politik ve Toplumsal Konular",
+              "credits": 6
+            },
+            {
+              "code": "IR 314",
+              "title": "Uluslararası Göç",
+              "credits": 6
+            },
+            {
+              "code": "IR 315",
+              "title": "Barış ve Çatışma Çalışmaları",
+              "credits": 6
+            },
+            {
+              "code": "IR 316",
+              "title": "Politik Psikoloji",
+              "credits": 6
+            },
+            {
+              "code": "IR 317",
+              "title": "Askeri Strateji",
+              "credits": 6
+            },
+            {
+              "code": "IR 318",
+              "title": "Avrupa'yı Keşfetmek!",
+              "credits": 6
+            },
+            {
+              "code": "IR 319",
+              "title": "Ortadoğu'da Siyaset",
+              "credits": 6
+            },
+            {
+              "code": "IR 320",
+              "title": "Cinsiyet ve Siyaset",
+              "credits": 6
+            },
+            {
+              "code": "IR 321",
+              "title": "Milliyetçilik ve Milletler",
+              "credits": 6
+            },
+            {
+              "code": "IR 322",
+              "title": "Küresel Siyasette Seçilmiş Konular",
+              "credits": 6
+            },
+            {
+              "code": "IR 323",
+              "title": "Rusya Siyaseti",
+              "credits": 6
+            },
+            {
+              "code": "IR 324",
+              "title": "Siyasal Antropoloji",
+              "credits": 6
+            },
+            {
+              "code": "IR 325",
+              "title": "Türk Dış Politikasında Güncel Konular",
+              "credits": 6
+            },
+            {
+              "code": "IR 326",
+              "title": "Irk ve Etnisite Siyaseti",
+              "credits": 6
+            },
+            {
+              "code": "IR 327",
+              "title": "Kentsel Politikalar: Kentlerin Sosyolojik Olarak Okunması",
+              "credits": 6
+            },
+            {
+              "code": "IR 328",
+              "title": "Otoriter Rejimler",
+              "credits": 6
+            },
+            {
+              "code": "IR 329",
+              "title": "Demokrasi ve Demokratikleşme",
+              "credits": 6
+            },
+            {
+              "code": "IR 330",
+              "title": "Birinci Dünya Savaşının Kökenleri",
+              "credits": 6
+            },
+            {
+              "code": "IR 331",
+              "title": "Uluslararası Krizlerde İnsani Müdahale",
+              "credits": 6
+            },
+            {
+              "code": "IR 333",
+              "title": "Dünya Siyasetinde Afrika",
+              "credits": 6
+            },
+            {
+              "code": "IR 334",
+              "title": "Avrupa Entegrasyonunun Ekonomi Politiği",
+              "credits": 6
+            },
+            {
+              "code": "IR 335",
+              "title": "Politik Ekoloji",
+              "credits": 6
+            },
+            {
+              "code": "IR 336",
+              "title": "Fransızca Uluslararası İlişkiler",
+              "credits": 6
+            },
+            {
+              "code": "IR 337",
+              "title": "Teknoloji, İnovasyon ve Dünya Siyaseti",
+              "credits": 6
+            },
+            {
+              "code": "IR 338",
+              "title": "Küresel Enerji Politikaları",
+              "credits": 6
+            },
+            {
+              "code": "IR 339",
+              "title": "Siyaset, Sanat ve Toplum",
+              "credits": 6
+            },
+            {
+              "code": "IR 390",
+              "title": "Uluslararası İlişkiler Stajı",
+              "credits": 6
+            },
+            {
+              "code": "IR 400",
+              "title": "Uluslararası İlişkilerde Bağımsız Çalışma",
+              "credits": 6
+            },
+            {
+              "code": "IR 401",
+              "title": "Uluslararası Ekonomi Politikası",
+              "credits": 6
+            },
+            {
+              "code": "IR 402",
+              "title": "Uluslararası Çevre Siyaseti",
+              "credits": 6
+            },
+            {
+              "code": "IR 403",
+              "title": "Küresel Gıda Politikaları",
+              "credits": 6
+            },
+            {
+              "code": "IR 404",
+              "title": "Siyasi Coğrafya",
+              "credits": 6
+            },
+            {
+              "code": "IR 405",
+              "title": "Türkiye Siyasetinde Seçilmiş Konular",
+              "credits": 6
+            },
+            {
+              "code": "IR 406",
+              "title": "Karşılaştırmalı Kamu Politikaları",
+              "credits": 6
+            },
+            {
+              "code": "IR 407",
+              "title": "Uluslararası Kalkınma",
+              "credits": 6
+            },
+            {
+              "code": "IR 408",
+              "title": "Politika Teorisi İçerisindeki Güncel Tartışmalar",
+              "credits": 6
+            },
+            {
+              "code": "IR 409",
+              "title": "Karşılaştırmalı Sosyal Politika",
+              "credits": 6
+            },
+            {
+              "code": "IR 410",
+              "title": "İktidar: Siyaset Teorisi Üzerine Bir Çalışma",
+              "credits": 6
+            },
+            {
+              "code": "IR 411",
+              "title": "İnsan Hakları Politikaları",
+              "credits": 6
+            },
+            {
+              "code": "IR 412",
+              "title": "Eleştirel Teori ve Siyaset",
+              "credits": 6
+            },
+            {
+              "code": "IR 413",
+              "title": "Karşılaştırmalı Siyasal Kurumlar: Siyasi Partiler ve Seçim Sistemleri",
+              "credits": 6
+            },
+            {
+              "code": "IR 414",
+              "title": "Avrupa'da Göç ve Hareketlilik",
+              "credits": 6
+            },
+            {
+              "code": "IR 415",
+              "title": "Karşılaştırmalı Siyasi Liderlik",
+              "credits": 6
+            },
+            {
+              "code": "IR 416",
+              "title": "Küresel Güvenliğin Geleceği",
+              "credits": 6
+            },
+            {
+              "code": "IR 417",
+              "title": "Kentler ve Savaş",
+              "credits": 6
+            },
+            {
+              "code": "IR 418",
+              "title": "Siyaset Biliminde İleri Araştırma Yöntemleri",
+              "credits": 6
+            },
+            {
+              "code": "IR 419",
+              "title": "Toplumsal Hareketler ve Protestolar",
+              "credits": 6
+            },
+            {
+              "code": "IR 420",
+              "title": "Siyasal ve Toplumsal Açıdan Popüler Müzik",
+              "credits": 6
+            },
+            {
+              "code": "IR 421",
+              "title": "Programlamalı Sosyal Bilimler",
+              "credits": 6
+            },
+            {
+              "code": "IR 422",
+              "title": "Aşkın Siyaseti",
+              "credits": 6
+            },
+            {
+              "code": "IR 423",
+              "title": "Küresel Soğuk Savaş",
+              "credits": 6
+            },
+            {
+              "code": "IR 424",
+              "title": "Dijital Çağda Demokrasi",
+              "credits": 6
+            },
+            {
+              "code": "IR 425",
+              "title": "Kentsel Diplomasi",
+              "credits": 6
+            },
+            {
+              "code": "IR 426",
+              "title": "Karşılaştırmalı Anayasa Hukuku",
+              "credits": 6
+            },
+            {
+              "code": "IR 427",
+              "title": "Küresel Güney’de Hukuk ve Toplum",
+              "credits": 6
+            },
+            {
+              "code": "IR 428",
+              "title": "Dijital Dönüşümler ve Toplum",
+              "credits": 6
+            },
+            {
+              "code": "IR 429",
+              "title": "Avrupa’da Çeşitlilik ve Yönetişim",
+              "credits": 6
+            },
+            {
+              "code": "IR 430",
+              "title": "Latin Amerika Siyaseti",
+              "credits": 6
+            },
+            {
+              "code": "IR 431",
+              "title": "Avrupa'nın Üçlü Krizi: Göç, Teknoloji ve İklim",
+              "credits": 6
+            },
+            {
+              "code": "IR 432",
+              "title": "Siyaset ve Strateji",
+              "credits": 6
+            },
+            {
+              "code": "IR 433",
+              "title": "Küreselleşen Dünyada Vatandaşlık",
+              "credits": 6
+            },
+            {
+              "code": "IR 480",
+              "title": "Açık Kaynak İnternet Araştırmaları",
+              "credits": 6
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Son grubun kaynağı bir kural (\"en az iki IR kodlu ders\"); havuz 2026-2027 dönem verisi ve müfredat havuzlarındaki 100-400 düzeyi IR kodlarından türetildi.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-gastronomi",
+      "name": "Gastronomi ve Mutfak Sanatları Yandal Programı",
+      "department": "Gastronomi ve Mutfak Sanatları",
+      "sourceUrl": "https://www.ozyegin.edu.tr/tr/gastronomi-ve-mutfak-sanatlari-yandal-programi",
+      "status": "unlisted",
+      "required": [],
+      "electiveGroups": [],
+      "notes": [
+        "Resmi yandal sayfası ders listesini yalnızca SIS iframe'i (DegreeRequirementsWeb code=GARM) içinde gösteriyor; sayfa HTML'inde ders listesi yok, SIS'e otomatik istek atılmadı.",
+        "Bölümün yandal sayfası (gastronomi-ve-mutfak-sanatlari/lisans-bsc-programi/yandal) de yalnızca aynı SIS iframe'ini içeriyor.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-hukuk",
+      "name": "Hukuk Yandal Programı",
+      "department": "Hukuk",
+      "sourceUrl": "https://www.ozyegin.edu.tr/tr/hukuk-yandal-programi",
+      "status": "unlisted",
+      "required": [],
+      "electiveGroups": [],
+      "notes": [
+        "Resmi yandal sayfası ders listesini yalnızca SIS iframe'i (DegreeRequirementsWeb code=LAW) içinde gösteriyor; sayfa HTML'inde ders listesi yok, SIS'e otomatik istek atılmadı.",
+        "Kamu Hukuku ve Özel Hukuk yandallarının 2021 ve öncesi listeleri ayrı kayıtlarda.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-ekonomi",
+      "name": "Ekonomi Yandal Programı",
+      "department": "Ekonomi",
+      "sourceUrl": "https://www.ozyegin.edu.tr/tr/ekonomi/lisans-ba-programi/cap-ve-yandal",
+      "status": "listed",
+      "required": [
+        {
+          "code": "ECON 201",
+          "title": "İleri Mikroekonomi",
+          "credits": 6
+        },
+        {
+          "code": "ECON 202",
+          "title": "İleri Makroekonomi",
+          "credits": 6
+        },
+        {
+          "code": "ECON 301",
+          "title": "Ekonometri I",
+          "credits": 6
+        },
+        {
+          "code": "ECON 302",
+          "title": "Ekonometri II",
+          "credits": 6
+        }
+      ],
+      "electiveGroups": [
+        {
+          "min": 1,
+          "note": "Listeden en az 1 ders.",
+          "pool": [
+            {
+              "code": "ECON 303",
+              "title": "Uluslararası Ticaret ve Ekonomi",
+              "credits": 6
+            },
+            {
+              "code": "ECON 304",
+              "title": "Endüstriyel Organizasyon",
+              "credits": 6
+            },
+            {
+              "code": "ECON 307",
+              "title": "Oyun Kuramı",
+              "credits": 6
+            }
+          ]
+        },
+        {
+          "min": 1,
+          "note": "BAECON Program İçi Seçmeli derslerinden biri; havuz programs.json'daki BAECON Program-İçi Seçmeli listesinden.",
+          "pool": [
+            {
+              "code": "ECON 310",
+              "title": "Sağlık Ekonomisi",
+              "credits": 6
+            },
+            {
+              "code": "ECON 311",
+              "title": "Deneysel İktisat",
+              "credits": 6
+            },
+            {
+              "code": "ECON 402",
+              "title": "Türkiye Ekonomisi",
+              "credits": 6
+            },
+            {
+              "code": "ECON 403",
+              "title": "Bağımsız Araştırma - ECON",
+              "credits": 6
+            },
+            {
+              "code": "ECON 406",
+              "title": "Uygulamalı Mikroekonometri",
+              "credits": 6
+            },
+            {
+              "code": "ECON 407",
+              "title": "Çevre Ekonomisi ve Politikası",
+              "credits": 6
+            },
+            {
+              "code": "ECON 420",
+              "title": "Büyüme ve Gelişme",
+              "credits": 6
+            },
+            {
+              "code": "ENTR 308",
+              "title": "Girişimci Finans",
+              "credits": 6
+            },
+            {
+              "code": "FIN 204",
+              "title": "Finansal Tablolar Analizi",
+              "credits": 6
+            },
+            {
+              "code": "FIN 301",
+              "title": "Yatırımlar",
+              "credits": 6
+            },
+            {
+              "code": "FIN 302",
+              "title": "Kurumsal Finans",
+              "credits": 6
+            },
+            {
+              "code": "FIN 312",
+              "title": "Bankacılık ve Finansal Aracılık",
+              "credits": 6
+            },
+            {
+              "code": "FIN 341",
+              "title": "Finansal Ekonometri",
+              "credits": 6
+            },
+            {
+              "code": "FIN 401",
+              "title": "Uluslararası Finans",
+              "credits": 6
+            },
+            {
+              "code": "FIN 404",
+              "title": "Sabit Getirili Menkul Kıymetler",
+              "credits": 6
+            },
+            {
+              "code": "FIN 411",
+              "title": "Türev Enstrümanlar ve Risk Yönetimi",
+              "credits": 6
+            },
+            {
+              "code": "FIN 412",
+              "title": "İleri Düzey Yatırımlar",
+              "credits": 6
+            },
+            {
+              "code": "FIN 419",
+              "title": "Şirket Değerleme",
+              "credits": 6
+            },
+            {
+              "code": "MIS 315",
+              "title": "Veri Analizi ve Karar Modellemesi",
+              "credits": 6
+            },
+            {
+              "code": "MIS 321",
+              "title": "Veri Madenciliği",
+              "credits": 6
+            },
+            {
+              "code": "OPER 312",
+              "title": "Tedarik Zinciri Yönetimi",
+              "credits": 6
+            },
+            {
+              "code": "OPER 313",
+              "title": "Gelir Yönetimi",
+              "credits": 6
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Anadalında BUS 101 olan fakülteler arası yandal öğrencileri BUS 100 ve BUS 190 derslerinden muaftır; BUS 101 olmayanlar BUS 100 ve BUS 190 derslerini tamamlar.",
+        "İşletme Fakültesi programları arasında yandal yapanlara, yandal programında o programın intibak kuralları uygulanır.",
+        "IBUS anadallı öğrenciler İşletme Fakültesi yandalında IBUS 402 ve IBUS 404 alır; bunlar MGMT 402 ve SEC 402 yerine sayılır.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-endustriyel-tasarim",
+      "name": "Endüstri Ürünleri Tasarımı Yandal Programı",
+      "department": "Endüstriyel Tasarım",
+      "sourceUrl": "https://www.ozyegin.edu.tr/tr/endustri-urunleri-tasarimi-yandal-programi",
+      "status": "unlisted",
+      "required": [],
+      "electiveGroups": [],
+      "notes": [
+        "Resmi yandal sayfası ders listesini yalnızca SIS iframe'i (DegreeRequirementsWeb code=IDE) içinde gösteriyor; sayfa HTML'inde ders listesi yok, SIS'e otomatik istek atılmadı.",
+        "Bölüm sayfasında (endustriyel-tasarim/akademik-program) yandal bilgisi bulunamadı.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-endustri-muhendisligi",
+      "name": "Endüstri Mühendisliği Yandal Programı",
+      "department": "Endüstri Mühendisliği",
+      "sourceUrl": "https://ie.ozyegin.edu.tr/tr/lisans-programi/cap-ve-yandal",
+      "status": "listed",
+      "required": [
+        {
+          "code": "MATH 211",
+          "title": "Doğrusal Cebir",
+          "credits": 6
+        },
+        {
+          "code": "MATH 215",
+          "title": "Olasılık ve Rassal Değişkenler",
+          "credits": 6
+        },
+        {
+          "code": "MATH 216",
+          "title": "Uygulamalı İstatistik",
+          "credits": 6
+        },
+        {
+          "code": "IE 246",
+          "title": "Yöneylem Araştırması için Programlama",
+          "credits": 6
+        },
+        {
+          "code": "IE 302",
+          "title": "Üretim Sistemleri Analizi",
+          "credits": 6
+        },
+        {
+          "code": "IE 201",
+          "title": "Yöneylem Araştırması I",
+          "credits": 6
+        },
+        {
+          "code": "IE 301",
+          "title": "Yöneylem Araştırması II",
+          "credits": 6
+        },
+        {
+          "code": "IE 325",
+          "title": "Benzetişim Modellemesi ve Analizi",
+          "credits": 6
+        }
+      ],
+      "electiveGroups": [
+        {
+          "min": 1,
+          "note": "Listeden 1 ders.",
+          "pool": [
+            {
+              "code": "IE 343",
+              "title": "Yöneylem Araştırması Algoritmaları",
+              "credits": 6
+            },
+            {
+              "code": "IE 342",
+              "title": "Matematiksel Modelleme ve Kesin Metodlar",
+              "credits": 6
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Yandala Güz 2018'den önce başlayıp 2020-2021 öncesinde IE seçmeli almış ya da alacak olanlar IE 246'dan muaftır.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-antropoloji",
+      "name": "Antropoloji Yandal Programı",
+      "department": "Antropoloji",
+      "sourceUrl": "https://www.ozyegin.edu.tr/tr/antropoloji/lisans-ba-programi/yandal-ve-cift-anadal-ogrenimi",
+      "status": "listed",
+      "required": [
+        {
+          "code": "ANTH 101",
+          "title": "Antropolojiye Giriş",
+          "credits": 6
+        }
+      ],
+      "electiveGroups": [
+        {
+          "min": 1,
+          "note": "Zorunlu: SOC 104 veya SOC 201.",
+          "pool": [
+            {
+              "code": "SOC 104",
+              "title": "Sosyolojiye Giriş",
+              "credits": 6
+            },
+            {
+              "code": "SOC 201",
+              "title": "Sosyal Bilimlere Giriş",
+              "credits": 6
+            }
+          ]
+        },
+        {
+          "min": 1,
+          "note": "Zorunlu: ANTH 201 veya ANTH 202.",
+          "pool": [
+            {
+              "code": "ANTH 201",
+              "title": "Antropolojik Düşünce Tarihi",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 202",
+              "title": "Antropoloji Kuramları",
+              "credits": 6
+            }
+          ]
+        },
+        {
+          "min": 3,
+          "note": "(a) bendinde alınmamış 3 ders; listedekiler dışında tüm ANTH kodlu dersler de sayılır.",
+          "pool": [
+            {
+              "code": "ANTH 201",
+              "title": "Antropolojik Düşünce Tarihi",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 202",
+              "title": "Antropoloji Kuramları",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 203",
+              "title": "Araştırma Yöntemleri I",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 204",
+              "title": "Araştırma Yöntemleri II",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 205",
+              "title": "Ekonomi, Kültür ve Politika",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 206",
+              "title": "Bilim, Teknoloji ve Toplum",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 301",
+              "title": "İşletme, Yenilikçilik ve Tasarım Antropolojisi",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 302",
+              "title": "Toplumsal Kuramda İleri Konular",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 303",
+              "title": "Toplumsal Cinsiyet, Toplum, Siyaset",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 304",
+              "title": "Türkiye Antropolojisi",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 311",
+              "title": "Film Yoluyla Kültürü Anlamak",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 312",
+              "title": "Bilim ve Sanatta İnsanlar Hakkında Yaratıcı Düşünme",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 313",
+              "title": "Yemek, Kültür ve Kimlik",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 314",
+              "title": "Şehirler: Kent Hayatını Anlamak",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 315",
+              "title": "Toplumsal Hareketler",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 316",
+              "title": "Siyasal Antropoloji",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 317",
+              "title": "Dilsel Antropoloji",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 318",
+              "title": "Dijital Etnografi",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 410",
+              "title": "Beden ve Teknoloji",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 411",
+              "title": "Tarihsel Antropoloji",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 412",
+              "title": "Duygular Antropolojisi",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 413",
+              "title": "Görsel Antropoloji",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 414",
+              "title": "Çevre ve İnsan Coğrafyası",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 420",
+              "title": "Sosyo-Kültürel Antropolojide Seçilmiş Konular",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 430",
+              "title": "Piyasa Etnografisi",
+              "credits": 6
+            },
+            {
+              "code": "SOC 302",
+              "title": "Din ve Sekülerlik Sosyolojisi ve Siyaseti",
+              "credits": 6
+            },
+            {
+              "code": "SOC 304",
+              "title": "Çalışma ve İstihdamın Sosyolojisi: Modern Çalışma Hayatına Giriş",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 212",
+              "title": "Çevre ve Toplum",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 300",
+              "title": "Antropolojide Staj",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 319",
+              "title": "Afetler ve Dayanıklı Kentler",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 320",
+              "title": "İnsana Benzer Teknolojiler: Toplumda Robotik ve Yapay Zekayı Anlamak",
+              "credits": 6
+            },
+            {
+              "code": "ANTH 321",
+              "title": "Dijital Kültür ve Toplum",
+              "credits": 6
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Zorunlu kısım toplam 18 AKTS, seçmeli kısım toplam 18 AKTS.",
+        "Kaynakta \"veya\" ile verilen zorunlular en az 1 dersli gruplar olarak yazıldı; ANTH 201/202 zorunlu grupta sayılan ders seçmeli grupta tekrar sayılmaz.",
+        "Son havuzun sonuna eklenen 5 ANTH dersi kaynakta tek tek yazmıyor; \"tüm ANTH kodlu dersler\" kuralından dönem verisi ve müfredat havuzlarıyla türetildi.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-isletme",
+      "name": "İşletme Yandal Programı",
+      "department": "İşletme",
+      "sourceUrl": "https://www.ozyegin.edu.tr/tr/isletme/lisans-ba-programi/cap-ve-yandal",
+      "status": "listed",
+      "required": [
+        {
+          "code": "FIN 202",
+          "title": "Finans",
+          "credits": 6
+        },
+        {
+          "code": "MGMT 202",
+          "title": "Örgütler",
+          "credits": 6
+        },
+        {
+          "code": "OPER 202",
+          "title": "Operasyon Yönetimi",
+          "credits": 6
+        },
+        {
+          "code": "MIS 311",
+          "title": "Yönetim Bilişim Sistemlerine Giriş",
+          "credits": 6
+        },
+        {
+          "code": "MKTG 201",
+          "title": "Pazarlama",
+          "credits": 6
+        }
+      ],
+      "electiveGroups": [
+        {
+          "min": 1,
+          "note": "Listeden en az 1 ders.",
+          "pool": [
+            {
+              "code": "BUS 201",
+              "title": "İş Kararı Modelleme",
+              "credits": 6
+            },
+            {
+              "code": "BUS 301",
+              "title": "İş Analitiği",
+              "credits": 6
+            }
+          ]
+        },
+        {
+          "min": 1,
+          "note": "FIN, MGMT, MIS, MKTG veya OPER Program İçi Seçmeli derslerinden biri; havuz programs.json'daki BABUS Program-İçi Seçmeli (FIN/MGMT/MIS/MKTG/OPER) listelerinin birleşimi.",
+          "pool": [
+            {
+              "code": "MKTG 311",
+              "title": "Pazarlama Araştırması",
+              "credits": 6
+            },
+            {
+              "code": "MKTG 313",
+              "title": "Pazarlama Stratejileri",
+              "credits": 6
+            },
+            {
+              "code": "MKTG 314",
+              "title": "Tüketici Davranışları",
+              "credits": 6
+            },
+            {
+              "code": "FIN 301",
+              "title": "Yatırımlar",
+              "credits": 6
+            },
+            {
+              "code": "FIN 302",
+              "title": "Kurumsal Finans",
+              "credits": 6
+            },
+            {
+              "code": "FIN 312",
+              "title": "Bankacılık ve Finansal Aracılık",
+              "credits": 6
+            },
+            {
+              "code": "MGMT 306",
+              "title": "İnsan Kaynakları Yönetimi",
+              "credits": 6
+            },
+            {
+              "code": "MGMT 311",
+              "title": "Proje Yönetimi",
+              "credits": 6
+            },
+            {
+              "code": "MGMT 314",
+              "title": "Örgütlerde Liderlik ve İnsan Yönetimi",
+              "credits": 6
+            },
+            {
+              "code": "MIS 203",
+              "title": "Veritabanı Yönetimi",
+              "credits": 6
+            },
+            {
+              "code": "MIS 305",
+              "title": "İşletmelerde Dijital Dönüşüm",
+              "credits": 6
+            },
+            {
+              "code": "MIS 306",
+              "title": "E-İş'in Temelleri",
+              "credits": 6
+            },
+            {
+              "code": "OPER 312",
+              "title": "Tedarik Zinciri Yönetimi",
+              "credits": 6
+            },
+            {
+              "code": "OPER 313",
+              "title": "Gelir Yönetimi",
+              "credits": 6
+            },
+            {
+              "code": "OPER 314",
+              "title": "Hizmet Operasyonları Yönetimi",
+              "credits": 6
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Anadalında BUS 101 olan fakülteler arası yandal öğrencileri BUS 100 ve BUS 190 derslerinden muaftır; BUS 101 olmayanlar BUS 100 ve BUS 190 derslerini tamamlar.",
+        "İşletme Fakültesi programları arasında yandal yapanlara, yandal programında o programın intibak kuralları uygulanır.",
+        "IBUS anadallı öğrenciler İşletme Fakültesi yandalında IBUS 402 ve IBUS 404 alır; bunlar MGMT 402 ve SEC 402 yerine sayılır.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-ic-mimarlik",
+      "name": "İç Mimarlık ve Çevre Tasarımı Yandal Programı",
+      "department": "İç Mimarlık ve Çevre Tasarımı",
+      "sourceUrl": "https://www.ozyegin.edu.tr/tr/ic-mimarlik-ve-cevre-tasarimi-yandal-programi",
+      "status": "unlisted",
+      "required": [],
+      "electiveGroups": [],
+      "notes": [
+        "Resmi yandal sayfası ders listesini yalnızca SIS iframe'i (DegreeRequirementsWeb code=INTAR) içinde gösteriyor; sayfa HTML'inde ders listesi yok, SIS'e otomatik istek atılmadı.",
+        "Bölüm sayfalarında (ic-mimarlik-ve-cevre-tasarimi/lisans, /akademik-program) yandal bilgisi bulunamadı.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-makina-muhendisligi",
+      "name": "Makina Mühendisliği Yandal Programı",
+      "department": "Makina Mühendisliği",
+      "sourceUrl": "https://me.ozyegin.edu.tr/tr/lisans-programi/cap-ve-yandal",
+      "status": "listed",
+      "required": [
+        {
+          "code": "MATH 104",
+          "title": "Mühendislik için Yüksek Matematik II",
+          "credits": 8
+        },
+        {
+          "code": "MATH 212",
+          "title": "Diferansiyel Denklemler",
+          "credits": 6
+        },
+        {
+          "code": "ME 112",
+          "title": "İmalat Metotlarına Giriş",
+          "credits": 4
+        },
+        {
+          "code": "ME 212",
+          "title": "Katı Mekaniği",
+          "credits": 6
+        },
+        {
+          "code": "ME 202",
+          "title": "Termodinamik",
+          "credits": 6
+        },
+        {
+          "code": "ME 256",
+          "title": "Malzeme Bilimi",
+          "credits": 6
+        },
+        {
+          "code": "ME 211",
+          "title": "Mühendislik Mekaniği: Statik",
+          "credits": 6
+        },
+        {
+          "code": "ME 321",
+          "title": "Akışkanlar Mekaniği",
+          "credits": 6
+        }
+      ],
+      "electiveGroups": [
+        {
+          "min": 2,
+          "note": "Listeden 2 ders.",
+          "pool": [
+            {
+              "code": "ME 323",
+              "title": "Isı Transferi: İletim, Taşınım ve Isınım",
+              "credits": 6
+            },
+            {
+              "code": "ME 301",
+              "title": "Deneysel Mühendislik",
+              "credits": 6
+            },
+            {
+              "code": "ME 311",
+              "title": "Mühendislik Mekaniği: Dinamik",
+              "credits": 6
+            },
+            {
+              "code": "ME 312",
+              "title": "Makina Sistemleri ve Kontrol",
+              "credits": 6
+            },
+            {
+              "code": "ME 334",
+              "title": "Makina Tasarımı",
+              "credits": 6
+            },
+            {
+              "code": "ME 324",
+              "title": "Termal Sistem Tasarımı",
+              "credits": 6
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Kaynaktaki \"Math 104\" ve \"Math 212\" MATH 104 ve MATH 212 olarak düzeltildi.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-uluslararasi-ticaret",
+      "name": "Uluslararası Ticaret ve İşletmecilik Yandal Programı",
+      "department": "Uluslararası Ticaret ve İşletmecilik",
+      "sourceUrl": "https://www.ozyegin.edu.tr/tr/uluslararasi-ticaret-ve-isletmecilik/lisans-ba-programi/cap-ve-yandal",
+      "status": "listed",
+      "required": [
+        {
+          "code": "IBUS 104",
+          "title": "Küresel Yöneticiliğe ilk Adım",
+          "credits": 6
+        },
+        {
+          "code": "IBUS 204",
+          "title": "Uluslararası İşletme",
+          "credits": 6
+        },
+        {
+          "code": "IBUS 301",
+          "title": "İhracat ve İthalat Yönetimi",
+          "credits": 6
+        },
+        {
+          "code": "MGMT 404",
+          "title": "Uluslararası Yönetim",
+          "credits": 6
+        },
+        {
+          "code": "IBUS 402",
+          "title": "Küresel Stratejik Yönetim",
+          "credits": 6
+        }
+      ],
+      "electiveGroups": [
+        {
+          "min": 1,
+          "note": "BAIBUS Program İçi Seçmeli derslerinden biri; havuz programs.json'daki BAIBUS Program-İçi Seçmeli listesinden.",
+          "pool": [
+            {
+              "code": "ENTR 410",
+              "title": "Sürdürülebilir Kalkınma için Değer Yaratma",
+              "credits": 6
+            },
+            {
+              "code": "FIN 401",
+              "title": "Uluslararası Finans",
+              "credits": 6
+            },
+            {
+              "code": "HIST 104",
+              "title": "Dünya Tarihi II",
+              "credits": 6
+            },
+            {
+              "code": "IBUS 303",
+              "title": "Global Organizasyonlarda Farklılık ve Dahiliyet",
+              "credits": 6
+            },
+            {
+              "code": "IBUS 306",
+              "title": "Çok Uluslu Şirketlerin Yönetimi",
+              "credits": 6
+            },
+            {
+              "code": "IBUS 312",
+              "title": "Çin'i Anlamak: Ekonomi, Politika ve İş Dünyası",
+              "credits": 6
+            },
+            {
+              "code": "IBUS 313",
+              "title": "Hindistan'da İş Yapmak",
+              "credits": 6
+            },
+            {
+              "code": "IBUS 403",
+              "title": "Uluslararası Satın almalar ve Birleşmeler",
+              "credits": 6
+            },
+            {
+              "code": "IBUS 405",
+              "title": "Bağımsız Araştırma - IBUS",
+              "credits": 6
+            },
+            {
+              "code": "IBUS 406",
+              "title": "Küresel Rekabetçi Stratejisi ve Dinamikleri",
+              "credits": 6
+            },
+            {
+              "code": "IBUS 407",
+              "title": "Küresel Endüstrileri Anlamak",
+              "credits": 6
+            },
+            {
+              "code": "IBUS 409",
+              "title": "Küresel Ekonomi ve Gelişmekte Olan Piyasalar",
+              "credits": 6
+            },
+            {
+              "code": "IBUS 411",
+              "title": "Doğrudan Dış Yatırım için Ülke Analizi",
+              "credits": 6
+            },
+            {
+              "code": "MGMT 313",
+              "title": "Müzakere Becerileri",
+              "credits": 6
+            },
+            {
+              "code": "MGMT 319",
+              "title": "Kültürlerarası Liderlik",
+              "credits": 6
+            },
+            {
+              "code": "MGMT 321",
+              "title": "Yapay Zeka Ürün Stratejisi ve Yönetimi",
+              "credits": 6
+            },
+            {
+              "code": "MGMT 406",
+              "title": "Uluslararası İnsan Kaynakları Yönetimi",
+              "credits": 6
+            },
+            {
+              "code": "MKTG 315",
+              "title": "Uluslararası Pazarlama",
+              "credits": 6
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Anadalında BUS 101 olan fakülteler arası yandal öğrencileri BUS 100 ve BUS 190 derslerinden muaftır; BUS 101 olmayanlar BUS 100 ve BUS 190 derslerini tamamlar.",
+        "İşletme Fakültesi programları arasında yandal yapanlara, yandal programında o programın intibak kuralları uygulanır.",
+        "IBUS anadallı öğrenciler İşletme Fakültesi yandalında IBUS 402 ve IBUS 404 alır; bunlar MGMT 402 ve SEC 402 yerine sayılır.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-iletisim-tasarimi",
+      "name": "İletişim ve Tasarımı Yandal Programı",
+      "department": "İletişim Tasarımı",
+      "sourceUrl": "https://cod.ozyegin.edu.tr/minor.html",
+      "status": "listed",
+      "required": [
+        {
+          "code": "COD 101",
+          "title": "İletişim Tasarımına Giriş",
+          "credits": 4
+        },
+        {
+          "code": "COD 103",
+          "title": "Grafik Tasarım Araçları",
+          "credits": 6
+        },
+        {
+          "code": "COD 104",
+          "title": "Fotoğraf",
+          "credits": 5
+        },
+        {
+          "code": "COD 106",
+          "title": "Tasarım İçin Kavram Geliştirme",
+          "credits": 5
+        },
+        {
+          "code": "COD 205",
+          "title": "Tipografik İletişim",
+          "credits": 5
+        },
+        {
+          "code": "COD 305",
+          "title": "Etkileşim Tasarımı",
+          "credits": 5
+        }
+      ],
+      "electiveGroups": [
+        {
+          "min": 0,
+          "note": "Kaynak seçmeli dersleri listeliyor ama kaç tane alınacağını yazmıyor.",
+          "pool": [
+            {
+              "code": "COD 204",
+              "title": "Hareketli Görsel Medya",
+              "credits": 5
+            },
+            {
+              "code": "COD 209",
+              "title": "İnteraktif Tasarım Araçları",
+              "credits": 5
+            },
+            {
+              "code": "COD 306",
+              "title": "Kullanıcı Deneyimi Değerlendirmesi",
+              "credits": 5
+            },
+            {
+              "code": "COD 312",
+              "title": "İkon Tasarımı",
+              "credits": 5
+            },
+            {
+              "code": "COD 313",
+              "title": "Sayısal Tipografi",
+              "credits": 5
+            },
+            {
+              "code": "COD 316",
+              "title": "Anlatı Yapıları",
+              "credits": 5
+            },
+            {
+              "code": "COD 319",
+              "title": "Mekansal İletişim",
+              "credits": 5
+            },
+            {
+              "code": "COD 321",
+              "title": "Görsel Üretim, Gerçekçilik ve Etik",
+              "credits": 5
+            },
+            {
+              "code": "COD 417",
+              "title": "Oyun Tasarımı",
+              "credits": 5
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Seçmeli ders sayısı kaynakta yok; grup en az 0 ders olarak kaydedildi, yol haritasına eklenmez.",
+        "Resmi yandal sayfası (iletisim-ve-tasarimi-yandal-programi) yalnızca SIS iframe'i (code=CODE) gösteriyor; liste bölüm sitesinden alındı.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-insaat-muhendisligi",
+      "name": "İnşaat Mühendisliği Yandal Programı",
+      "department": "İnşaat Mühendisliği",
+      "sourceUrl": "https://ce.ozyegin.edu.tr/tr/lisans-programi/cap-ve-yandal",
+      "status": "listed",
+      "required": [
+        {
+          "code": "MATH 211",
+          "title": "Doğrusal Cebir",
+          "credits": 6
+        },
+        {
+          "code": "MATH 217",
+          "title": "Olasılık ve İstatistik",
+          "credits": 6
+        },
+        {
+          "code": "CE 203",
+          "title": "Mukavemet",
+          "credits": 6
+        },
+        {
+          "code": "CE 301",
+          "title": "Yapı Statiği",
+          "credits": 6
+        },
+        {
+          "code": "CE 302",
+          "title": "Zemin Mekaniği",
+          "credits": 6
+        },
+        {
+          "code": "CE 210",
+          "title": "Akışkanlar Mekaniği",
+          "credits": 6
+        },
+        {
+          "code": "CE 205",
+          "title": "Yapı Malzemeleri",
+          "credits": 6
+        }
+      ],
+      "electiveGroups": [
+        {
+          "min": 2,
+          "note": "Listeden 2 ders.",
+          "pool": [
+            {
+              "code": "CE 208",
+              "title": "Yapı İşletmesi",
+              "credits": 6
+            },
+            {
+              "code": "CE 304",
+              "title": "Betonarme",
+              "credits": 6
+            },
+            {
+              "code": "CE 306",
+              "title": "Temel İnşaatı",
+              "credits": 6
+            },
+            {
+              "code": "CE 310",
+              "title": "Ulaştırma Mühendisliği",
+              "credits": 4
+            },
+            {
+              "code": "CE 311",
+              "title": "Hidrolik",
+              "credits": 4
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Liste 2019-2020 ve sonrasında yandala başlayanlar için.",
+        "2019-2020 öncesi başlayanlarda CE 210 yerine CE 208 zorunlu; seçmeliler CE 304, CE 305, CE 306, CE 310 içinden 2 ders.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    },
+    {
+      "id": "yandal-yonetim-bilisim-sistemleri",
+      "name": "Yönetim Bilişim Sistemleri Yandal Programı",
+      "department": "Yönetim Bilişim Sistemleri",
+      "sourceUrl": "https://www.ozyegin.edu.tr/tr/yonetim-bilisim-sistemleri/lisans-ba-programi/cap-ve-yandal",
+      "status": "listed",
+      "required": [
+        {
+          "code": "MIS 100",
+          "title": "Bilişim Teknolojilerine Giriş",
+          "credits": 4
+        },
+        {
+          "code": "MIS 103",
+          "title": "Bilgisayar Programlamaya Giriş",
+          "credits": 6
+        },
+        {
+          "code": "MIS 203",
+          "title": "Veritabanı Yönetimi",
+          "credits": 6
+        },
+        {
+          "code": "MIS 206",
+          "title": "İş Süreçleri Analizi",
+          "credits": 6
+        },
+        {
+          "code": "MIS 304",
+          "title": "Bilişim Güvenliği",
+          "credits": 6
+        }
+      ],
+      "electiveGroups": [
+        {
+          "min": 1,
+          "note": "BAMIS Program İçi Seçmeli derslerinden biri; havuz programs.json'daki BAMIS Program-İçi Seçmeli listesinden.",
+          "pool": [
+            {
+              "code": "ACCT 301",
+              "title": "Yönetim Muhasebesi",
+              "credits": 6
+            },
+            {
+              "code": "BUS 201",
+              "title": "İş Kararı Modelleme",
+              "credits": 6
+            },
+            {
+              "code": "CS 440",
+              "title": "Finansta Makine Öğrenmesi",
+              "credits": 6
+            },
+            {
+              "code": "ENTR 302",
+              "title": "İş Modeli Geliştirme",
+              "credits": 6
+            },
+            {
+              "code": "IE 360",
+              "title": "İş Analizi",
+              "credits": 6
+            },
+            {
+              "code": "IE 412",
+              "title": "Sosyal Ağ Analitiği",
+              "credits": 6
+            },
+            {
+              "code": "MIS 303",
+              "title": "İnternet Programlama",
+              "credits": 6
+            },
+            {
+              "code": "MIS 305",
+              "title": "İşletmelerde Dijital Dönüşüm",
+              "credits": 6
+            },
+            {
+              "code": "MIS 306",
+              "title": "E-İş'in Temelleri",
+              "credits": 6
+            },
+            {
+              "code": "MIS 314",
+              "title": "Bilgi Teknolojileri Yönetişimi ve Denetimi",
+              "credits": 6
+            },
+            {
+              "code": "MIS 315",
+              "title": "Veri Analizi ve Karar Modellemesi",
+              "credits": 6
+            },
+            {
+              "code": "MIS 317",
+              "title": "İşletmeler için Bulut Bilişim",
+              "credits": 6
+            },
+            {
+              "code": "MIS 403",
+              "title": "Bağımsız Araştırma - MIS",
+              "credits": 6
+            },
+            {
+              "code": "MKTG 311",
+              "title": "Pazarlama Araştırması",
+              "credits": 6
+            },
+            {
+              "code": "OPER 312",
+              "title": "Tedarik Zinciri Yönetimi",
+              "credits": 6
+            },
+            {
+              "code": "OPER 313",
+              "title": "Gelir Yönetimi",
+              "credits": 6
+            },
+            {
+              "code": "PSY 206",
+              "title": "Sosyal Psikoloji II",
+              "credits": 6
+            },
+            {
+              "code": "PSY 305",
+              "title": "İş ve Örgüt Psikolojisi",
+              "credits": 6
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Anadalında BUS 101 olan fakülteler arası yandal öğrencileri BUS 100 ve BUS 190 derslerinden muaftır; BUS 101 olmayanlar BUS 100 ve BUS 190 derslerini tamamlar.",
+        "İşletme Fakültesi programları arasında yandal yapanlara, yandal programında o programın intibak kuralları uygulanır.",
+        "IBUS anadallı öğrenciler İşletme Fakültesi yandalında IBUS 402 ve IBUS 404 alır; bunlar MGMT 402 ve SEC 402 yerine sayılır.",
+        "Başvuru için genel not ortalaması en az 2.50 olmalı; anadal ortalaması 2.30'un altına düşerse yandal kaydı silinir (Yandal Öğrenimi sayfası)."
+      ]
+    }
+  ]
+}

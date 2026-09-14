@@ -5,6 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { buildTermOptions, defaultTerm, parseTermLabel, sortTermData, termHasTimes, type TermOption } from "./terms";
 import type { Course, ProgramsData, TermData } from "./types";
+import type { MinorsData } from "./roadmap/types";
 
 export const USING_SAMPLE_DATA = process.env.SAMPLE_DATA === "1";
 
@@ -13,6 +14,8 @@ const root = path.join(/*turbopackIgnore: true*/ process.cwd(), USING_SAMPLE_DAT
 
 /** Bölüm müfredatları dönem dosyalarının yanında durur ama dönem dosyası değildir. */
 const PROGRAMS_FILE = "programs.json";
+/** Yandal ders listeleri de dönem dosyası değildir. */
+const MINORS_FILE = "minors.json";
 
 // Derlemede her ders sayfası dönemi yeniden ister; dosyalar süreç başına bir kez okunur.
 const cache = new Map<string, TermData[]>();
@@ -22,7 +25,7 @@ export function loadTerms(schoolId: string): TermData[] {
   const cached = cache.get(schoolId);
   if (cached) return cached;
   const dir = path.join(/*turbopackIgnore: true*/ root, schoolId);
-  const files = fs.readdirSync(/*turbopackIgnore: true*/ dir).filter((f) => f.endsWith(".json") && f !== PROGRAMS_FILE);
+  const files = fs.readdirSync(/*turbopackIgnore: true*/ dir).filter((f) => f.endsWith(".json") && f !== PROGRAMS_FILE && f !== MINORS_FILE);
   if (files.length === 0) throw new Error(`${dir} içinde veri yok`);
   const terms = sortTermData(
     files.map((f) => JSON.parse(fs.readFileSync(/*turbopackIgnore: true*/ path.join(dir, f), "utf8")) as TermData),
@@ -55,6 +58,13 @@ export function loadPrograms(schoolId: string): ProgramsData | null {
   const file = path.join(/*turbopackIgnore: true*/ root, schoolId, PROGRAMS_FILE);
   if (!fs.existsSync(/*turbopackIgnore: true*/ file)) return null;
   return JSON.parse(fs.readFileSync(/*turbopackIgnore: true*/ file, "utf8")) as ProgramsData;
+}
+
+/** data/<okul>/minors.json; yoksa null (yandal seçimi gizlenir). */
+export function loadMinors(schoolId: string): MinorsData | null {
+  const file = path.join(/*turbopackIgnore: true*/ root, schoolId, MINORS_FILE);
+  if (!fs.existsSync(/*turbopackIgnore: true*/ file)) return null;
+  return JSON.parse(fs.readFileSync(/*turbopackIgnore: true*/ file, "utf8")) as MinorsData;
 }
 
 export function findCourse(term: TermData, slug: string): Course | undefined {
