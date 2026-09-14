@@ -8,6 +8,7 @@ const full: RoadmapState = {
   yandal: "yandal-matematik",
   start: { year: 2, season: "bahar" },
   completion: { "BSCS:y1-guz:0": true, "BSCS:y1-guz:4": "MATH 103" },
+  grades: { "BSCS:y1-guz:0": "B+", "BSCS:y1-guz:2": "F" },
   maxCredits: 35,
 };
 
@@ -30,9 +31,16 @@ describe("validateState", () => {
       yandal: null,
       start: { year: 1.5, season: "yaz" },
       completion: { a: true, b: false, c: "", d: "CS 101", e: 3 },
+      grades: { a: "A", b: "E", c: 4 },
       maxCredits: 500,
     });
-    expect(s).toEqual({ ...EMPTY_STATE, completion: { a: true, d: "CS 101" } });
+    expect(s).toEqual({ ...EMPTY_STATE, completion: { a: true, d: "CS 101" }, grades: { a: "A" } });
+  });
+
+  it("notları olmayan eski kaydı boş notlarla açar", () => {
+    const { grades: _, ...old } = full;
+    void _;
+    expect(validateState(old).grades).toEqual({});
   });
 
   it("çift anadal anadalla aynıysa düşer", () => {

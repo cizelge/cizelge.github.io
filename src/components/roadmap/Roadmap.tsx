@@ -4,13 +4,15 @@ import { useEffect, useMemo, useState } from "react";
 import type { TermSeason } from "@/lib/terms";
 import type { Program, TermData } from "@/lib/types";
 import { criticalCourses, unreadablePrerequisites } from "@/lib/roadmap/critical";
+import { computeGpa, gradeEntries, maxLoad } from "@/lib/roadmap/gpa";
 import { minorRequirements } from "@/lib/roadmap/minors";
 import { buildOfferingMap } from "@/lib/roadmap/offering";
 import { buildPlan } from "@/lib/roadmap/plan";
-import { markUntil, passedCodes, programProgress } from "@/lib/roadmap/progress";
+import { markUntil, passedCodes, passedEcts, programProgress } from "@/lib/roadmap/progress";
 import { programRequirements } from "@/lib/roadmap/requirements";
 import { DEFAULT_START, EMPTY_STATE, loadState, planStart, saveState, type RoadmapState } from "@/lib/roadmap/storage";
 import type { Completion, Minor, RoadmapProgram } from "@/lib/roadmap/types";
+import { GpaPanel } from "./GpaPanel";
 import { PassedCourses } from "./PassedCourses";
 import { PrereqWarnings } from "./PrereqWarnings";
 import { StartPanel } from "./StartPanel";
@@ -63,7 +65,7 @@ export function Roadmap({ programs, minors, terms, current }: Props) {
     return list;
   }, [anadal, cap, minor]);
 
-  const { completion, maxCredits } = state;
+  const { completion, grades, maxCredits } = state;
   const start = state.start ?? DEFAULT_START;
 
   const offering = useMemo(() => buildOfferingMap(terms, roadmap), [terms, roadmap]);
@@ -79,6 +81,11 @@ export function Roadmap({ programs, minors, terms, current }: Props) {
         : buildPlan(roadmap, completion, offering, { start: planStart(current, start.season), maxCredits }),
     [roadmap, completion, offering, current, start.season, maxCredits],
   );
+  const entries = useMemo(() => gradeEntries(roadmap, completion, grades), [roadmap, completion, grades]);
+  const gpa = computeGpa(entries).gpa;
+  const loadLimit = maxLoad(gpa, { cap: !!cap, passedEcts: passedEcts(roadmap, completion) });
+  // Hedef hesabı için kalan AKTS: planda yer alan derslerin toplamı (yerleşemeyenler hariç, tahmin).
+  const remainingCredits = plan ? plan.terms.reduce((n, t) => n + t.credits, 0) : 0;
   const critical = useMemo(() => criticalCourses(roadmap, completion).slice(0, 5), [roadmap, completion]);
   const unreadable = useMemo(() => unreadablePrerequisites(roadmap, completion), [roadmap, completion]);
 
@@ -131,7 +138,13 @@ export function Roadmap({ programs, minors, terms, current }: Props) {
           onMarkPrevious={markPrevious}
         />
         {roadmap.length > 0 && (
-          <PassedCourses programs={roadmap} completion={completion} passed={passed} onChange={setCompletion} />
+          <PassedCourses
+            programs={roadmap}
+            completion={completion}
+            passed={passed}
+            grades={grades}
+            onChange={(next, nextGrades) => update({ completion: next, grades: nextGrades })}
+          />
         )}
         {anadal && (
           <button type="button" className="btn btn-pen tab-jump" onClick={() => setTab("program")}>
@@ -158,12 +171,14 @@ export function Roadmap({ programs, minors, terms, current }: Props) {
         ) : (
           <>
             <Summary programs={roadmap} progress={progress} plan={plan} remaining={remaining} />
+            <GpaPanel entries={entries} remainingCredits={remainingCredits} loadLimit={loadLimit} cap={!!cap} />
             <TermPlan
               programs={roadmap}
               plan={plan}
               unreadableIds={unreadable.map((u) => u.requirementId)}
               maxCredits={maxCredits}
               onMaxCredits={(n) => update({ maxCredits: n })}
+              loadLimit={gpa === null && !cap ? null : loadLimit}
               anadalId={anadal?.id ?? null}
             />
             <PrereqWarnings critical={critical} unreadable={unreadable} />

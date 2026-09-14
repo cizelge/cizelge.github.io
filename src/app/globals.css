@@ -1069,3 +1069,40 @@ a.term-option[aria-current="page"]:hover {
 @media (max-width: 480px) {
   .topbar { gap: 0.35rem; }
 }
+
+/* Harf notu ve ortalama */
+.rm-req { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 0.5rem; align-items: start; }
+.rm-req > .rm-check,
+.rm-req > .rm-pick { grid-column: 1; }
+.rm-req > .rm-pick { grid-column: 1 / -1; }
+.rm-req > .rm-grade { grid-column: 2; grid-row: 1; }
+.rm-req > .rm-req-hint,
+.rm-req > .rm-grade-row { grid-column: 1 / -1; }
+.rm-grade-row { display: flex; justify-content: flex-end; margin-top: 0.3rem; }
+.rm-grade {
+  width: 4.6rem;
+  min-height: 32px;
+  padding-block: 0;
+  font-size: 0.85rem;
+  color: var(--ink-2);
+}
+.rm-grade.has-grade { color: var(--ink); font-weight: 700; }
+.rm-failed { color: var(--danger); }
+
+.rm-gpa { display: flex; flex-direction: column; gap: 0.6rem; max-width: 40rem; }
+.rm-gpa-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 1rem; }
+.rm-gpa-value { margin: 0; font-size: 2.4rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
+.rm-gpa-head .hint { flex: 1; min-width: 14rem; }
+.rm-scale-track { position: relative; height: 10px; border-radius: 999px; background: var(--paper-2); border: 1px solid var(--rule); }
+.rm-scale-fill { position: absolute; inset: 0 auto 0 0; border-radius: inherit; background: var(--hl-0); }
+.rm-scale-tick { position: absolute; top: -4px; bottom: -4px; width: 2px; margin-left: -1px; background: var(--rule-strong); }
+.rm-scale-tick.is-met { background: var(--ink); }
+.rm-thresholds { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.2rem 1rem; font-size: 0.85rem; color: var(--ink-2); }
+.rm-thresholds li.is-met { color: var(--ink); }
+.rm-thresholds li.is-met .num { font-weight: 700; }
+.rm-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: 0.75rem; }
+.rm-tool { display: grid; gap: 0.4rem; align-content: start; padding: 0.75rem 0.85rem; border: 1px solid var(--rule); border-radius: var(--radius-m); }
+.rm-target { width: 7rem; }
+.rm-tool-result { margin: 0; font-size: 0.9rem; }
+.rm-limit { font-size: 0.85rem; flex-basis: 100%; }
+.chip[data-over] { border-style: dashed; }

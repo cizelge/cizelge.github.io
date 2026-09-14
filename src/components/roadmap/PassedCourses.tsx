@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useMemo } from "react";
+import { GRADES, type Grade, type Grades } from "@/lib/roadmap/gpa";
 import { hasCode, isDone, passedCodes } from "@/lib/roadmap/progress";
 import type { Completion, Requirement, RoadmapProgram } from "@/lib/roadmap/types";
 import { creditsText, KIND_HL, KIND_LABEL, slotLabel } from "./shared";
@@ -9,7 +10,8 @@ interface Props {
   programs: RoadmapProgram[];
   completion: Completion;
   passed: ReadonlySet<string>;
-  onChange: (completion: Completion) => void;
+  grades: Grades;
+  onChange: (completion: Completion, grades: Grades) => void;
 }
 
 interface Group {
@@ -29,14 +31,31 @@ function groupBySlot(program: RoadmapProgram): Group[] {
   return [...groups.values()];
 }
 
-export function PassedCourses({ programs, completion, passed, onChange }: Props) {
+export function PassedCourses({ programs, completion, passed, grades, onChange }: Props) {
   const id = useId();
 
+  /** İşaret kaldırılınca not da silinir. */
   function set(reqId: string, value: true | string | null) {
     const next = { ...completion };
-    if (value === null) delete next[reqId];
-    else next[reqId] = value;
-    onChange(next);
+    const nextGrades = { ...grades };
+    if (value === null) {
+      delete next[reqId];
+      delete nextGrades[reqId];
+    } else next[reqId] = value;
+    onChange(next, nextGrades);
+  }
+
+  /** Geçer not dersi geçildi yapar; F dersi kalanlara döndürür ama ortalamada tutulur. */
+  function setGrade(reqId: string, grade: Grade | null) {
+    const next = { ...completion };
+    const nextGrades = { ...grades };
+    if (grade === null) delete nextGrades[reqId];
+    else {
+      nextGrades[reqId] = grade;
+      if (grade === "F") delete next[reqId];
+      else if (next[reqId] === undefined) next[reqId] = true;
+    }
+    onChange(next, nextGrades);
   }
 
   return (
@@ -51,7 +70,9 @@ export function PassedCourses({ programs, completion, passed, onChange }: Props)
           others={programs.filter((o) => o !== p)}
           completion={completion}
           passed={passed}
+          grades={grades}
           onSet={set}
+          onGrade={setGrade}
         />
       ))}
     </section>
@@ -63,13 +84,17 @@ function ProgramBlock({
   others,
   completion,
   passed,
+  grades,
   onSet,
+  onGrade,
 }: {
   program: RoadmapProgram;
   others: RoadmapProgram[];
   completion: Completion;
   passed: ReadonlySet<string>;
+  grades: Grades;
   onSet: (reqId: string, value: true | string | null) => void;
+  onGrade: (reqId: string, grade: Grade | null) => void;
 }) {
   const groups = useMemo(() => groupBySlot(program), [program]);
   const passedElsewhere = passedCodes(others, completion);
@@ -107,7 +132,9 @@ function ProgramBlock({
                   mark={completion[r.id]}
                   passed={passed}
                   passedElsewhere={passedElsewhere}
+                  grade={grades[r.id] ?? null}
                   onSet={onSet}
+                  onGrade={onGrade}
                 />
               ))}
             </ul>
@@ -123,14 +150,25 @@ function RequirementRow({
   mark,
   passed,
   passedElsewhere,
+  grade,
   onSet,
+  onGrade,
 }: {
   req: Requirement;
   mark: true | string | undefined;
   passed: ReadonlySet<string>;
   passedElsewhere: ReadonlySet<string>;
+  grade: Grade | null;
   onSet: (reqId: string, value: true | string | null) => void;
+  onGrade: (reqId: string, grade: Grade | null) => void;
 }) {
+  const label = req.code ?? req.title;
+  const gradeSelect = (
+    <GradeSelect value={grade} label={label} onChange={(g) => onGrade(req.id, g)} />
+  );
+  const failed = grade === "F" && (
+    <span className="hint rm-req-hint rm-failed">F aldın; ders planda tekrar yer alır.</span>
+  );
   // Havuzlu seçmeli: hangi dersin alındığı seçilir.
   if (req.kind === "elective" && req.pool) {
     const value = typeof mark === "string" ? mark : "";
@@ -157,6 +195,8 @@ function RequirementRow({
             ))}
           </select>
         </label>
+        {(mark !== undefined || grade) && <div className="rm-grade-row">{gradeSelect}</div>}
+        {failed}
       </li>
     );
   }
@@ -178,11 +218,31 @@ function RequirementRow({
           <span className="rm-req-credits num">{creditsText(req.credits)}</span>
         </span>
       </label>
+      {!viaOther && gradeSelect}
+      {failed}
       {viaOther && (
         <span className="hint rm-req-hint">
           {req.code && hasCode(passedElsewhere, req.code) ? "diğer programda geçtin" : "seçmeli olarak geçtin"}
         </span>
       )}
     </li>
+  );
+}
+
+function GradeSelect({ value, label, onChange }: { value: Grade | null; label: string; onChange: (g: Grade | null) => void }) {
+  return (
+    <select
+      className={`select rm-grade${value ? " has-grade" : ""}`}
+      aria-label={`${label} harf notu`}
+      value={value ?? ""}
+      onChange={(e) => onChange(e.target.value === "" ? null : (e.target.value as Grade))}
+    >
+      <option value="">Not</option>
+      {GRADES.map((g) => (
+        <option key={g} value={g}>
+          {g}
+        </option>
+      ))}
+    </select>
   );
 }

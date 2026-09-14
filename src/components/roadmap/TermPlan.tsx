@@ -11,6 +11,8 @@ interface Props {
   plan: PlanResult;
   unreadableIds: string[];
   maxCredits: number;
+  /** Ortalamaya göre yönetmelikteki dönem sınırı; not girilmediyse null. */
+  loadLimit: number | null;
   onMaxCredits: (n: number) => void;
   anadalId: string | null;
 }
@@ -30,7 +32,7 @@ interface Row {
   unreadable: boolean;
 }
 
-export function TermPlan({ programs, plan, unreadableIds, maxCredits, onMaxCredits, anadalId }: Props) {
+export function TermPlan({ programs, plan, unreadableIds, maxCredits, onMaxCredits, anadalId, loadLimit }: Props) {
   const index = useMemo(() => {
     const m = new Map<string, { req: Requirement; kind: RoadmapProgramKind }>();
     for (const p of programs) for (const r of p.requirements) m.set(r.id, { req: r, kind: p.kind });
@@ -83,6 +85,8 @@ export function TermPlan({ programs, plan, unreadableIds, maxCredits, onMaxCredi
                 type="button"
                 className="chip num"
                 aria-pressed={maxCredits === n}
+                aria-describedby={loadLimit !== null && n > loadLimit ? "rm-limit" : undefined}
+                data-over={loadLimit !== null && n > loadLimit ? "" : undefined}
                 onClick={() => onMaxCredits(n)}
               >
                 {n}
@@ -90,6 +94,13 @@ export function TermPlan({ programs, plan, unreadableIds, maxCredits, onMaxCredi
             ))}
           </div>
         </div>
+        {loadLimit !== null && (
+          <p className="hint rm-limit" id="rm-limit">
+            {maxCredits > loadLimit
+              ? `Yönetmeliğe göre en fazla ${loadLimit} AKTS alabilirsin; bu plan sınırın üstünde.`
+              : `Yönetmeliğe göre sınırın ${loadLimit} AKTS.`}
+          </p>
+        )}
         {showLegend && (
           <ul className="rm-legend" aria-label="Renkler">
             {programs.map((p) => (

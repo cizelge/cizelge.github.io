@@ -1,6 +1,7 @@
 // Yol haritası sayfasının tarayıcıda kalan durumu. Okurken her alan doğrulanır;
 // bozuk ya da eski bir kayıt sayfayı kırmaz, varsayılana döner.
 import type { TermSeason } from "../terms";
+import { isGrade, type Grades } from "./gpa";
 import type { Completion } from "./types";
 
 export const STORAGE_KEY = "yol-haritasi:ozyegin";
@@ -15,6 +16,8 @@ export interface RoadmapState {
   /** Müfredatta başlanacak dönem (1. yıl Güz gibi); null = varsayılan. */
   start: { year: number; season: StartSeason } | null;
   completion: Completion;
+  /** Gereksinim id -> son harf notu (isteğe bağlı). */
+  grades: Grades;
   maxCredits: number;
 }
 
@@ -31,6 +34,7 @@ export const EMPTY_STATE: RoadmapState = {
   yandal: null,
   start: null,
   completion: {},
+  grades: {},
   maxCredits: DEFAULT_MAX_CREDITS,
 };
 
@@ -39,7 +43,7 @@ const idOrNull = (v: unknown) => (typeof v === "string" && v.trim() !== "" ? v :
 
 /** Bilinmeyen biçimi olabildiğince kurtarır; kurtarılamayan alan varsayılana döner. */
 export function validateState(raw: unknown): RoadmapState {
-  if (!isRecord(raw) || raw.version !== 1) return { ...EMPTY_STATE, completion: {} };
+  if (!isRecord(raw) || raw.version !== 1) return { ...EMPTY_STATE, completion: {}, grades: {} };
 
   const anadal = idOrNull(raw.anadal);
   const capRaw = idOrNull(raw.cap);
@@ -60,11 +64,17 @@ export function validateState(raw: unknown): RoadmapState {
     }
   }
 
+  // Notlar sonradan eklendi: eski kayıtlarda alan yok.
+  const grades: Grades = {};
+  if (isRecord(raw.grades)) {
+    for (const [id, value] of Object.entries(raw.grades)) if (isGrade(value)) grades[id] = value;
+  }
+
   const m = raw.maxCredits;
   const maxCredits =
     typeof m === "number" && Number.isFinite(m) && m >= MIN_CREDITS && m <= MAX_CREDITS ? Math.round(m) : DEFAULT_MAX_CREDITS;
 
-  return { version: 1, anadal, cap, yandal: idOrNull(raw.yandal), start, completion, maxCredits };
+  return { version: 1, anadal, cap, yandal: idOrNull(raw.yandal), start, completion, grades, maxCredits };
 }
 
 export function parseState(text: string | null): RoadmapState {
