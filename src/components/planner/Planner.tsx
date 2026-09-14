@@ -6,7 +6,9 @@ import type { Course, ProgramsData, TermData } from "@/lib/types";
 import { expandCorequisites, type RelaxedConstraint, type SectionRef } from "@/lib/engine";
 import { visibleDays } from "@/lib/days";
 import { programYears } from "@/lib/planner/curriculum";
+import { downloadPng } from "@/lib/planner/download-image";
 import { buildIcs } from "@/lib/planner/ics";
+import { buildScheduleSvg, imageFileName } from "@/lib/planner/image";
 import { decodeState, EMPTY_STATE, encodeState, missingNotice, termSwitchQuery, type PlannerState } from "@/lib/planner/state";
 import { useSchedules } from "@/lib/planner/useSchedules";
 import { Cart } from "./Cart";
@@ -185,6 +187,24 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
     setNote("Takvim dosyası indirildi. Dersler önümüzdeki Pazartesiden itibaren 14 hafta tekrar eder.");
   }
 
+  async function downloadImage() {
+    if (!current) return;
+    try {
+      const image = buildScheduleSvg({
+        meetings: placed,
+        days,
+        freeDays: state.freeDays,
+        termLabel: term.termLabel,
+        title: `${groupRank}. program`,
+        summary: current.summary,
+      });
+      await downloadPng(image, imageFileName(term.termId));
+      setNote("Görsel indirildi.");
+    } catch {
+      setNote("Görsel oluşturulamadı.");
+    }
+  }
+
   const status = !ready
     ? ""
     : state.cart.length === 0
@@ -349,6 +369,9 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
               </button>
               <button type="button" className="btn" onClick={downloadIcs}>
                 Takvime ekle
+              </button>
+              <button type="button" className="btn" onClick={downloadImage}>
+                Görsel olarak indir
               </button>
             </div>
           </div>
