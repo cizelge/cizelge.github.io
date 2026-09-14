@@ -12,7 +12,7 @@ export interface Explanation {
 }
 
 /**
- * Why is there no schedule, and which single constraint could be dropped?
+ * Why is there no schedule, and which one or two constraints could be dropped?
  *
  * Reason, smallest first:
  *  1. a course with no eligible section;
@@ -23,7 +23,9 @@ export interface Explanation {
  *
  * Suggestions: remove exactly one free day, one lock (of a selected course)
  * or one exclusion (of a selected course), re-run the search and report those
- * that give at least one schedule.
+ * that give at least one schedule. When none does, try pairs of those removals
+ * (at most `MAX_PAIR_TRIALS`) and report the `MAX_PAIR_SUGGESTIONS` pairs with
+ * the most schedules.
  */
 export function explainNoSolution(
   input: Constraints & { candidateCap?: number },
@@ -81,34 +83,77 @@ function describeOverlap(a: PreparedSection, b: PreparedSection) {
   return { day: slot.day, start: formatTime(slot.minute), end: formatTime(slot.minute + SLOT_MINUTES) };
 }
 
+/** How many unordered pairs of removals are tried at most (all pairs of the first 10 candidates). */
+export const MAX_PAIR_TRIALS = 45;
+/** How many pair suggestions are returned at most. */
+export const MAX_PAIR_SUGGESTIONS = 3;
+
+interface Removal {
+  constraint: RelaxedConstraint;
+  /** Set for exclusions: the index in `input.excluded` (duplicates are removed one at a time). */
+  excludedIndex?: number;
+}
+
+function relaxAll(input: Constraints, removals: readonly Removal[]): Constraints {
+  const days = new Set<number>();
+  const locks = new Set<string>();
+  const excluded = new Set<number>();
+  for (const r of removals) {
+    if (r.constraint.kind === "freeDay") days.add(r.constraint.day);
+    else if (r.constraint.kind === "lock") locks.add(r.constraint.courseCode);
+    else excluded.add(r.excludedIndex!);
+  }
+  const locked = { ...input.locked };
+  for (const code of locks) delete locked[code];
+  return {
+    ...input,
+    freeDays: input.freeDays.filter((d) => !days.has(d)),
+    locked,
+    excluded: input.excluded.filter((_, k) => !excluded.has(k)),
+  };
+}
+
 function findSuggestions(input: Constraints, cap: number): Suggestion[] {
   const selected = new Set(input.courses.map((c) => normalizeCode(c.code)));
-  const trials: { constraint: RelaxedConstraint; relaxed: Constraints }[] = [];
-
-  for (const day of new Set(input.freeDays)) {
-    trials.push({
-      constraint: { kind: "freeDay", day },
-      relaxed: { ...input, freeDays: input.freeDays.filter((d) => d !== day) },
-    });
-  }
-  for (const [courseCode, sectionId] of Object.entries(input.locked)) {
-    if (!selected.has(normalizeCode(courseCode))) continue;
-    const locked = { ...input.locked };
-    delete locked[courseCode];
-    trials.push({ constraint: { kind: "lock", courseCode, sectionId }, relaxed: { ...input, locked } });
-  }
+  const freeDays: Removal[] = [...new Set(input.freeDays)].map((day) => ({ constraint: { kind: "freeDay", day } }));
+  const locks: Removal[] = Object.entries(input.locked)
+    .filter(([courseCode]) => selected.has(normalizeCode(courseCode)))
+    .map(([courseCode, sectionId]) => ({ constraint: { kind: "lock", courseCode, sectionId } }));
+  const exclusions: Removal[] = [];
   input.excluded.forEach((ex, index) => {
     if (!selected.has(normalizeCode(ex.courseCode))) return;
-    trials.push({
+    exclusions.push({
       constraint: { kind: "exclusion", courseCode: ex.courseCode, sectionId: ex.sectionId },
-      relaxed: { ...input, excluded: input.excluded.filter((_, k) => k !== index) },
+      excludedIndex: index,
     });
   });
 
-  const suggestions: Suggestion[] = [];
-  for (const { constraint, relaxed } of trials) {
-    const { count, truncated } = countSchedules(prepareCourses(relaxed), cap);
-    if (count > 0) suggestions.push({ constraint, scheduleCount: count, truncated });
+  const trial = (removals: Removal[]): Suggestion | null => {
+    const { count, truncated } = countSchedules(prepareCourses(relaxAll(input, removals)), cap);
+    if (count === 0) return null;
+    const constraints = removals.map((r) => r.constraint);
+    return { constraint: constraints[0], constraints, scheduleCount: count, truncated };
+  };
+
+  const singles = [...freeDays, ...locks, ...exclusions]
+    .map((r) => trial([r]))
+    .filter((s): s is Suggestion => s !== null);
+  if (singles.length > 0) return singles;
+
+  // Pairs, by priority: free days first, then exclusions, then locks. Pairs are
+  // enumerated in colex order ((0,1), (0,2), (1,2), (0,3), …), so the first 45
+  // are exactly the pairs among the ten highest-priority candidates.
+  const ranked = [...freeDays, ...exclusions, ...locks];
+  const pairs: Suggestion[] = [];
+  let tried = 0;
+  outer: for (let j = 1; j < ranked.length; j++) {
+    for (let i = 0; i < j; i++) {
+      if (tried++ === MAX_PAIR_TRIALS) break outer;
+      const s = trial([ranked[i], ranked[j]]);
+      if (s) pairs.push(s);
+    }
   }
-  return suggestions;
+  // Array.prototype.sort is stable: ties keep the trial order.
+  pairs.sort((a, b) => b.scheduleCount - a.scheduleCount || Number(b.truncated) - Number(a.truncated));
+  return pairs.slice(0, MAX_PAIR_SUGGESTIONS);
 }

@@ -172,6 +172,23 @@ function allRelaxations(input: Constraints): RelaxedConstraint[] {
   ];
 }
 
+/** Pair candidates by priority: free days, then exclusions, then locks. */
+function pairRelaxations(input: Constraints): RelaxedConstraint[] {
+  return [
+    ...input.freeDays.map((day) => ({ kind: "freeDay", day }) as const),
+    ...input.excluded.map((e) => ({ kind: "exclusion", ...e }) as const),
+    ...Object.entries(input.locked).map(([courseCode, sectionId]) => ({ kind: "lock", courseCode, sectionId }) as const),
+  ];
+}
+
+/** All unordered pairs in colex order, first `limit` of them (independent of the engine's loop). */
+function firstPairs<T>(xs: readonly T[], limit: number): [T, T][] {
+  const all: { i: number; j: number }[] = [];
+  for (let i = 0; i < xs.length; i++) for (let j = i + 1; j < xs.length; j++) all.push({ i, j });
+  all.sort((a, b) => a.j - b.j || a.i - b.i);
+  return all.slice(0, limit).map(({ i, j }) => [xs[i], xs[j]]);
+}
+
 // ---------- the comparison ----------
 const TRIALS = 400;
 
@@ -180,6 +197,8 @@ describe("engine vs brute-force reference", () => {
     let withSolutions = 0;
     let withoutSolutions = 0;
     const reasonKinds = { noEligibleSection: 0, pairConflict: 0, groupConflict: 0 };
+    let withSingles = 0;
+    let withPairs = 0;
 
     for (let seed = 1; seed <= TRIALS; seed++) {
       const input = randomInput(mulberry32(seed));
@@ -229,11 +248,32 @@ describe("engine vs brute-force reference", () => {
         }
       }
 
-      const expected = allRelaxations(input)
-        .map((constraint) => ({ constraint, scheduleCount: reference(relax(input, constraint), input.weights).length }))
+      const singles = allRelaxations(input)
+        .map((constraint) => ({
+          constraint,
+          constraints: [constraint],
+          scheduleCount: reference(relax(input, constraint), input.weights).length,
+        }))
         .filter((s) => s.scheduleCount > 0)
         .map((s) => ({ ...s, truncated: false }));
-      expect(got.suggestions, ctx).toEqual(expected);
+      if (singles.length > 0) {
+        withSingles++;
+        expect(got.suggestions, ctx).toEqual(singles);
+        continue;
+      }
+
+      const pairs = firstPairs(pairRelaxations(input), 45)
+        .map(([a, b]) => ({
+          constraint: a,
+          constraints: [a, b],
+          scheduleCount: reference(relax(relax(input, a), b), input.weights).length,
+          truncated: false,
+        }))
+        .filter((s) => s.scheduleCount > 0)
+        .sort((a, b) => b.scheduleCount - a.scheduleCount)
+        .slice(0, 3);
+      if (pairs.length > 0) withPairs++;
+      expect(got.suggestions, ctx).toEqual(pairs);
     }
 
     // make sure the generator exercises both branches meaningfully
@@ -242,5 +282,7 @@ describe("engine vs brute-force reference", () => {
     expect(reasonKinds.noEligibleSection).toBeGreaterThan(0);
     expect(reasonKinds.pairConflict).toBeGreaterThan(0);
     expect(reasonKinds.groupConflict).toBeGreaterThan(0);
+    expect(withSingles).toBeGreaterThan(50);
+    expect(withPairs).toBeGreaterThan(10);
   });
 });

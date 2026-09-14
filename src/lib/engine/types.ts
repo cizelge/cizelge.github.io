@@ -115,8 +115,11 @@ export type RelaxedConstraint =
   | { kind: "exclusion"; courseCode: string; sectionId: string };
 
 export interface Suggestion {
+  /** The first entry of `constraints`; for a single-removal suggestion, the only one. */
   constraint: RelaxedConstraint;
-  /** Schedules found with that one constraint removed (capped at candidateCap). */
+  /** Every constraint to remove together: one, or two when no single removal is enough. */
+  constraints: RelaxedConstraint[];
+  /** Schedules found with those constraints removed (capped at candidateCap). */
   scheduleCount: number;
   truncated: boolean;
 }
