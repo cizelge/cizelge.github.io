@@ -122,7 +122,9 @@ export const THRESHOLDS: readonly Threshold[] = [
   { value: 2, label: "Yeterli öğrenci" },
   { value: 2.2, label: "Erasmus başvurusu" },
   { value: 2.5, label: "Yandal başvurusu" },
-  { value: 3, label: "Çift anadal başvurusu, onur" },
+  // Çift Anadal sayfası (2026): başvuru ve devam için en az 2,72.
+  { value: 2.72, label: "Çift anadal başvurusu" },
+  { value: 3, label: "Onur" },
   { value: 3.5, label: "Yüksek onur" },
 ];
 
