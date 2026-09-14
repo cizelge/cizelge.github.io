@@ -1,16 +1,23 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { GenerateInput, GenerateResult } from "../engine";
-import type { WorkerRequest, WorkerResponse } from "./schedule.worker";
+import type { GenerateInput } from "../engine";
+import type { WorkerRequest, WorkerResponse, WorkerResult } from "./schedule.worker";
 
 export interface SchedulesState {
-  result: Omit<GenerateResult, "candidates"> | null;
+  result: WorkerResult | null;
   pending: boolean;
 }
 
+export interface SchedulesView {
+  /** İlk kaç haftalık düzen istensin. */
+  layoutLimit: number;
+  /** Şube seçenekleri istenen düzen. */
+  layout: number;
+}
+
 /** Girdi her değiştiğinde (kısa bir beklemeyle) işçiye gönderir; yalnızca en son isteğin cevabını kullanır. */
-export function useSchedules(input: GenerateInput | null): SchedulesState {
+export function useSchedules(input: GenerateInput | null, view: SchedulesView): SchedulesState {
   const workerRef = useRef<Worker | null>(null);
   const latestId = useRef(0);
   const [state, setState] = useState<SchedulesState>({ result: null, pending: false });
@@ -24,7 +31,7 @@ export function useSchedules(input: GenerateInput | null): SchedulesState {
     return () => worker.terminate();
   }, []);
 
-  const key = input ? JSON.stringify(input) : "";
+  const key = input ? JSON.stringify([input, view.layoutLimit, view.layout]) : "";
   useEffect(() => {
     if (!input) {
       latestId.current++;
@@ -33,11 +40,11 @@ export function useSchedules(input: GenerateInput | null): SchedulesState {
     const id = ++latestId.current;
     const timer = setTimeout(() => {
       setState((s) => ({ ...s, pending: true }));
-      const message: WorkerRequest = { id, input };
+      const message: WorkerRequest = { id, input, ...view };
       workerRef.current?.postMessage(message);
     }, 60);
     return () => clearTimeout(timer);
-    // key, input'un içeriğini temsil ediyor
+    // key, girdinin ve görünümün içeriğini temsil ediyor
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key]);
 

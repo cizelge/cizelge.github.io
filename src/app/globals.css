@@ -604,6 +604,54 @@ a.term-option[aria-current="page"]:hover {
   background: var(--hl);
 }
 .mini-meta { font-size: 0.78rem; color: var(--ink-2); line-height: 1.3; }
+.mini-more {
+  justify-content: center;
+  gap: 0.4rem;
+  border-style: dashed;
+  font-weight: 600;
+}
+.mini-more .hint { font-weight: 400; font-size: 0.78rem; }
+
+/* ---------- Aynı düzenin şube seçenekleri ---------- */
+
+.variants { margin-block: 0.25rem 1rem; }
+.variants-title { font-size: 1rem; font-weight: 700; margin: 0 0 0.5rem; }
+.variants-title .hint { font-weight: 400; font-size: 0.85rem; }
+.variants-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  max-height: 15.5rem;
+  overflow-y: auto;
+}
+.variant {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 1.25rem;
+  width: 100%;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-m);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.variant:hover { border-color: var(--rule-strong); }
+.variant[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.variant-rank { font-weight: 800; min-width: 1.6rem; }
+.variant-pick { display: inline-flex; align-items: center; gap: 0.5rem; }
+@media (min-width: 40rem) {
+  /* Seçenekler alt alta karşılaştırılsın diye ders sütunları hizalı. */
+  .variant-pick { min-width: 18rem; }
+}
+.variant-pick .section-tag { font-size: 0.85rem; white-space: nowrap; }
+.variant-who { font-size: 0.9rem; }
 
 /* ---------- Seçili programın özeti ---------- */
 

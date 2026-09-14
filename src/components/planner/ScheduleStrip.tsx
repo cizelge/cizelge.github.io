@@ -1,68 +1,46 @@
 import type { Course } from "@/lib/types";
-import type { Day, RankedSchedule } from "@/lib/engine";
+import type { Day } from "@/lib/engine";
 import { parseTime } from "@/lib/engine";
 import { formatGap } from "@/lib/format";
+import type { LayoutCard } from "@/lib/planner/schedule.worker";
 import { placeMeetings, timeRange } from "./placed";
 
 export { formatGap };
 
-export interface ScheduleGroup {
-  /** Gruptaki ilk (en iyi) programın `schedules` içindeki yeri. */
-  first: number;
-  /** Aynı haftalık düzene sahip programların yerleri. */
-  members: number[];
-}
-
-/**
- * Haftalık düzeni birebir aynı olan programları gruplar. Aynı saatte açılan iki şube
- * (ör. CS 201 A ve B) ayrı programlar üretir ama çizelgede aynı görünür.
- */
-export function groupSchedules(schedules: readonly RankedSchedule[], courses: ReadonlyMap<string, Course>): ScheduleGroup[] {
-  const bySignature = new Map<string, ScheduleGroup>();
-  schedules.forEach((s, i) => {
-    const signature = placeMeetings(s.sections, courses, () => 0)
-      .map((m) => `${m.courseCode}|${m.day}|${m.start}|${m.end}`)
-      .sort()
-      .join(";");
-    const group = bySignature.get(signature);
-    if (group) group.members.push(i);
-    else bySignature.set(signature, { first: i, members: [i] });
-  });
-  return [...bySignature.values()];
-}
-
 interface Props {
-  schedules: RankedSchedule[];
-  groups: ScheduleGroup[];
+  layouts: LayoutCard[];
+  /** Bütün düzenlerin sayısı; kartlar bundan azsa sonda "daha fazla" düğmesi çıkar. */
+  layoutCount: number;
   selected: number;
   onSelect: (index: number) => void;
+  onMore: () => void;
   courses: ReadonlyMap<string, Course>;
   colorOf: (code: string) => number;
   /** Haritadaki gün sütunları (WeekGrid ile aynı liste). */
   days: Day[];
 }
 
-export function ScheduleStrip({ schedules, groups, selected, onSelect, courses, colorOf, days }: Props) {
+export function ScheduleStrip({ layouts, layoutCount, selected, onSelect, onMore, courses, colorOf, days }: Props) {
   const cols = days.length;
-  const all = groups.flatMap((g) => placeMeetings(schedules[g.first].sections, courses, colorOf));
+  const all = layouts.flatMap((l) => placeMeetings(l.best.sections, courses, colorOf));
   const range = timeRange(all);
   const span = range.end - range.start;
+  const remaining = layoutCount - layouts.length;
 
   return (
     <div className="strip" role="group" aria-label="Haftalık düzenler, en uygun olan başta">
-      {groups.map((g, rank) => {
-        const s = schedules[g.first];
+      {layouts.map((l, rank) => {
+        const s = l.best;
         const meetings = placeMeetings(s.sections, courses, colorOf);
         const hours = s.summary.earliestStart && s.summary.latestEnd ? `${s.summary.earliestStart}–${s.summary.latestEnd}` : "";
-        const variants = g.members.length - 1;
         return (
           <button
-            key={g.first}
+            key={rank}
             type="button"
             className="mini"
-            aria-pressed={g.members.includes(selected)}
-            onClick={() => onSelect(g.first)}
-            aria-label={`${rank + 1}. program: ${s.summary.days} gün, ${formatGap(s.summary.gapMinutes)}${hours ? `, ${hours}` : ""}${variants ? `, aynı saatlerde ${variants} şube seçeneği daha` : ""}`}
+            aria-pressed={rank === selected}
+            onClick={() => onSelect(rank)}
+            aria-label={`${rank + 1}. program: ${s.summary.days} gün, ${formatGap(s.summary.gapMinutes)}${hours ? `, ${hours}` : ""}${l.size > 1 ? `, ${l.size} şube seçeneği` : ""}`}
           >
             <span className="mini-head">
               <span className="mini-rank num">{rank + 1}</span>
@@ -89,11 +67,17 @@ export function ScheduleStrip({ schedules, groups, selected, onSelect, courses, 
             <span className="mini-meta num">
               <span>{formatGap(s.summary.gapMinutes)}</span>
               {hours && <span>{hours}</span>}
-              {variants > 0 && <span className="mini-variants">+{variants} şube seçeneği</span>}
+              {l.size > 1 && <span className="mini-variants">{l.size.toLocaleString("tr-TR")} şube seçeneği</span>}
             </span>
           </button>
         );
       })}
+      {remaining > 0 && (
+        <button type="button" className="mini mini-more" onClick={onMore}>
+          <span>Sonraki {Math.min(50, remaining)} düzeni göster</span>
+          <span className="hint num">{remaining.toLocaleString("tr-TR")} düzen daha var</span>
+        </button>
+      )}
     </div>
   );
 }

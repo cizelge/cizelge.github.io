@@ -18,12 +18,14 @@ import { Curriculum } from "./Curriculum";
 import { NoSolution } from "./NoSolution";
 import { placeMeetings, timeRange } from "./placed";
 import { Tuning } from "./Preferences";
-import { formatGap, groupSchedules, ScheduleStrip } from "./ScheduleStrip";
+import { formatGap, ScheduleStrip } from "./ScheduleStrip";
 import { TermSelect } from "./TermSelect";
+import { Variants } from "./Variants";
 import { WeekGrid } from "./WeekGrid";
 
 const STORAGE_KEY = "planlayici:";
 const HIGHLIGHTERS = 6;
+const LAYOUT_PAGE = 50;
 
 function readStorage(key: string): string | null {
   try {
@@ -72,6 +74,7 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
   const [missing, setMissing] = useState<string[]>([]);
   const [tab, setTab] = useState<"dersler" | "program">("dersler");
   const [note, setNote] = useState("");
+  const [layoutLimit, setLayoutLimit] = useState(LAYOUT_PAGE);
 
   // İlk yükleme: önce linkteki durum, yoksa bu tarayıcıda kalan son durum.
   useEffect(() => {
@@ -95,7 +98,10 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
   }, [state, ready, term.schoolId, term.termId]);
 
   const colorOf = (code: string) => Math.max(0, state.cart.indexOf(code)) % HIGHLIGHTERS;
-  const update = (patch: Partial<PlannerState>) => setState((s) => ({ ...s, selected: 0, ...patch }));
+  const update = (patch: Partial<PlannerState>) => {
+    setLayoutLimit(LAYOUT_PAGE);
+    setState((s) => ({ ...s, selected: 0, variant: 0, ...patch }));
+  };
 
   const input = useMemo(
     () =>
@@ -110,13 +116,18 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
           },
     [state.cart, state.freeDays, state.locked, state.excluded, state.weights, courses],
   );
-  const { result, pending } = useSchedules(ready && hasTimes ? input : null);
+  // Linkten gelen düzen sırası ilk sayfanın dışındaysa o düzene kadar yükle.
+  const limit = Math.max(layoutLimit, Math.ceil((state.selected + 1) / LAYOUT_PAGE) * LAYOUT_PAGE);
+  const { result, pending } = useSchedules(ready && hasTimes ? input : null, { layoutLimit: limit, layout: state.selected });
 
-  const schedules = useMemo(() => result?.schedules ?? [], [result]);
-  const selectedIndex = Math.min(state.selected, Math.max(0, schedules.length - 1));
-  const current = schedules[selectedIndex];
-  const groups = useMemo(() => groupSchedules(schedules, courses), [schedules, courses]);
-  const groupRank = Math.max(0, groups.findIndex((g) => g.members.includes(selectedIndex))) + 1;
+  const layouts = useMemo(() => result?.layouts ?? [], [result]);
+  const layoutCount = result?.layoutCount ?? 0;
+  const selectedLayout = Math.min(state.selected, Math.max(0, layouts.length - 1));
+  // Başka bir düzene geçildiğinde işçinin cevabı gelene kadar eski düzenin seçenekleri gösterilmez.
+  const variants = result && result.layout === selectedLayout ? result.variants : [];
+  const selectedVariant = Math.min(state.variant, Math.max(0, variants.length - 1));
+  const current = variants[selectedVariant] ?? layouts[selectedLayout]?.best;
+  const groupRank = selectedLayout + 1;
   const cartSections: SectionRef[] = state.cart.flatMap((code) =>
     (courses.get(code)?.sections ?? []).map((s) => ({ courseCode: code, sectionId: s.id })),
   );
@@ -219,10 +230,10 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
       ? ""
       : pending && !result
         ? "Programlar hesaplanıyor"
-        : schedules.length === 0
+        : !result || result.total === 0
           ? ""
-          : `${result?.truncated ? "50.000'den fazla" : schedules.length === 50 ? "En iyi 50" : schedules.length} çakışmasız program${
-              groups.length < schedules.length ? `, ${groups.length} farklı haftalık düzen` : " bulundu"
+          : `${result.truncated ? `${result.total.toLocaleString("tr-TR")}'den fazla` : result.total.toLocaleString("tr-TR")} çakışmasız program${
+              layoutCount < result.total ? `, ${layoutCount.toLocaleString("tr-TR")} farklı haftalık düzen` : " bulundu"
             }`;
 
   return (
@@ -331,19 +342,20 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
           />
         )}
 
-        {groups.length > 1 && (
+        {(layouts.length > 1 || layoutCount > layouts.length) && (
           <ScheduleStrip
-            schedules={schedules}
-            groups={groups}
-            selected={selectedIndex}
-            onSelect={(i) => setState((s) => ({ ...s, selected: i }))}
+            layouts={layouts}
+            layoutCount={layoutCount}
+            selected={selectedLayout}
+            onSelect={(i) => setState((s) => ({ ...s, selected: i, variant: 0 }))}
+            onMore={() => setLayoutLimit(limit + LAYOUT_PAGE)}
             courses={courses}
             colorOf={colorOf}
             days={days}
           />
         )}
 
-        {result && schedules.length === 0 && state.cart.length > 0 && (
+        {result && result.total === 0 && state.cart.length > 0 && (
           <NoSolution reason={result.reason} suggestions={result.suggestions} onApply={applySuggestion} />
         )}
 
@@ -383,6 +395,17 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
               </button>
             </div>
           </div>
+        )}
+
+        {current && (
+          <Variants
+            variants={variants}
+            size={layouts[selectedLayout]?.size ?? variants.length}
+            selected={selectedVariant}
+            onSelect={(i) => setState((s) => ({ ...s, variant: i }))}
+            courses={courses}
+            colorOf={colorOf}
+          />
         )}
 
         <WeekGrid
