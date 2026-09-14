@@ -156,6 +156,7 @@ function TermCard({
   anadalId: string | null;
   showKinds: boolean;
 }) {
+  const abroad = !!term.erasmus;
   const codes = rows.filter((r) => r.code).map((r) => r.code!.replace(/\s+/g, ""));
   const hasElectives = rows.some((r) => !r.code);
   const params = [codes.length ? `d=${codes.join(",")}` : "", anadalId ? `bolum=${encodeURIComponent(anadalId)}` : ""]
@@ -163,11 +164,17 @@ function TermCard({
     .join("&");
 
   return (
-    <li className="rm-term">
+    <li className={abroad ? "rm-term rm-term-erasmus" : "rm-term"}>
       <div className="rm-term-head">
-        <h3 className="rm-term-label">{term.label}</h3>
+        <h3 className="rm-term-label">
+          {term.label}
+          {abroad && <span className="rm-erasmus-tag">Erasmus</span>}
+        </h3>
         <span className="hint num">{term.credits} AKTS</span>
       </div>
+      {abroad && rows.length === 0 && (
+        <p className="hint rm-erasmus-empty">Bu dönem Özyeğin&apos;den ders yok; yurt dışına taşınacak seçmeli kalmadı.</p>
+      )}
       <ul className="rm-rows">
         {rows.map((r) => (
           <li key={r.key} className="rm-row">
@@ -182,7 +189,7 @@ function TermCard({
             )}
             <span className="rm-row-main">
               {r.code && <span className="rm-req-code num">{r.code}</span>}
-              <span className="rm-req-title">{r.title}</span>
+              <span className="rm-req-title">{abroad ? `Yurt dışında alınacak: ${r.title}` : r.title}</span>
               {r.unreadable && <span className="hint rm-row-hint">koşulu SIS&apos;ten kontrol et</span>}
             </span>
             <span className="rm-req-credits num">{creditsText(r.credits)}</span>
@@ -190,12 +197,18 @@ function TermCard({
         ))}
       </ul>
       <div className="rm-term-foot">
-        {codes.length > 0 && (
-          <Link className="btn btn-small" href={`/ozyegin?${params}`}>
-            Planlayıcıda aç
-          </Link>
+        {abroad ? (
+          <span className="hint">Dersler dönüşte saydırılır; eşleştirmeyi bölüm koordinatörüyle yap.</span>
+        ) : (
+          <>
+            {codes.length > 0 && (
+              <Link className="btn btn-small" href={`/ozyegin?${params}`}>
+                Planlayıcıda aç
+              </Link>
+            )}
+            {hasElectives && <span className="hint">Seçmeliler planlayıcıda aranarak eklenir.</span>}
+          </>
         )}
-        {hasElectives && <span className="hint">Seçmeliler planlayıcıda aranarak eklenir.</span>}
       </div>
     </li>
   );

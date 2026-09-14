@@ -202,3 +202,91 @@ describe("buildPlan: gerçek BSCS", () => {
     expect(plan.graduation).toBe("2030 Bahar");
   });
 });
+
+describe("buildPlan: Erasmus dönemi", () => {
+  const elective = (credits: number, slot: Requirement["slot"]): Requirement => ({
+    ...course("", credits, { slot }),
+    kind: "elective",
+    code: null,
+  });
+  const at = (startYear: number, season: "guz" | "bahar", ects = 30) => ({ term: { startYear, season }, ects });
+
+  it("yoksa plan aynı; Erasmus dönemi planın dışındaysa yok sayılır", () => {
+    const reqs = [course("A 1", 5), elective(5, { year: 1, season: "bahar" })];
+    const base = buildPlan([prog(reqs)], {}, new Map(), opts);
+    expect(base.terms.some((t) => "erasmus" in t)).toBe(false);
+    expect(buildPlan([prog(reqs)], {}, new Map(), { ...opts, erasmus: at(2025, "bahar") })).toEqual(base);
+    expect(buildPlan([prog(reqs)], {}, new Map(), { ...opts, erasmus: at(2035, "guz") })).toEqual(base);
+  });
+
+  it("zorunlu ders sonraki döneme kayar, seçmeli mevsime bakmadan AKTS hakkı kadar yurt dışına gider", () => {
+    const a = course("A 1", 5);
+    const eG = elective(5, { year: 1, season: "guz" });
+    const eB = elective(5, { year: 1, season: "bahar" });
+    const eB2 = elective(5, { year: 1, season: "bahar" });
+    const plan = buildPlan([prog([a, eG, eB, eB2])], {}, new Map(), { ...opts, erasmus: at(2026, "guz", 10) });
+    expect(plan.terms[0]).toEqual({
+      startYear: 2026,
+      season: "guz",
+      label: "2026 Güz",
+      requirementIds: [eG.id, eB.id],
+      credits: 10,
+      erasmus: true,
+    });
+    expect(plan.terms[1].erasmus).toBeUndefined();
+    expect(plan.terms[1].requirementIds).toEqual([a.id, eB2.id]);
+    expect(plan.graduation).toBe("2027 Bahar");
+  });
+
+  it("önce yalnızca o mevsimde yer bulabilen seçmeli yurt dışına gider", () => {
+    const eAny = elective(5, { year: 1, season: "other" });
+    const eG = elective(5, { year: 1, season: "guz" });
+    const plan = buildPlan([prog([eAny, eG])], {}, new Map(), { ...opts, erasmus: at(2026, "guz", 5) });
+    expect(plan.terms.map((t) => [t.label, t.requirementIds, !!t.erasmus])).toEqual([
+      ["2026 Güz", [eG.id], true],
+      ["2027 Bahar", [eAny.id], false],
+    ]);
+  });
+
+  it("boş Erasmus dönemi de dönem sayılır; ön koşul zinciri bekler", () => {
+    const a = course("A 1", 5);
+    const b = course("B 1", 5, { prerequisites: "A 1" });
+    const plan = buildPlan([prog([a, b])], {}, new Map(), { ...opts, erasmus: at(2026, "bahar") });
+    expect(plan.terms.map((t) => [t.label, t.requirementIds.length, !!t.erasmus])).toEqual([
+      ["2026 Güz", 1, false],
+      ["2027 Bahar", 0, true],
+      ["2027 Güz", 1, false],
+    ]);
+    expect(termOf(plan, b.id)).toBe(2);
+    expect(plan.graduation).toBe("2027 Güz");
+  });
+
+  it("AKTS hakkı 0 ise yurt dışına seçmeli gitmez", () => {
+    const e = elective(5, { year: 1, season: "guz" });
+    const plan = buildPlan([prog([e])], {}, new Map(), { ...opts, erasmus: at(2026, "guz", 0) });
+    expect(plan.terms[0]).toMatchObject({ erasmus: true, requirementIds: [], credits: 0 });
+    expect(plan.terms.map((t) => t.label)).toEqual(["2026 Güz", "2027 Bahar", "2027 Güz"]);
+    expect(plan.graduation).toBe("2027 Güz");
+  });
+});
+
+describe("buildPlan: gerçek BSCS ile Erasmus", () => {
+  it("3. yıl Bahar yurt dışında: zorunlu ders yok, seçmeliler en fazla 30 AKTS, mezuniyet bir dönem kayar", () => {
+    const bscs = programRequirements((programsData as ProgramsData).programs.find((p) => p.id === "BSCS")!, "anadal");
+    const offering = buildOfferingMap([guzData as TermData, baharData as TermData], [bscs]);
+    const plan = buildPlan([bscs], {}, offering, {
+      start: { startYear: 2026, season: "guz" },
+      maxCredits: 30,
+      erasmus: { term: { startYear: 2028, season: "bahar" }, ects: 30 },
+    });
+    const byId = new Map(bscs.requirements.map((r) => [r.id, r]));
+    const abroad = plan.terms.filter((t) => t.erasmus);
+    expect(abroad.map((t) => t.label)).toEqual(["2029 Bahar"]);
+    expect(abroad[0].requirementIds.length).toBeGreaterThan(0);
+    expect(abroad[0].requirementIds.every((id) => byId.get(id)!.kind === "elective")).toBe(true);
+    expect(abroad[0].credits).toBeLessThanOrEqual(30);
+    expect(plan.unplaced).toEqual([]);
+    expect(plan.terms).toHaveLength(9);
+    expect(plan.graduation).toBe("2030 Güz");
+  });
+});

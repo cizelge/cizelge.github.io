@@ -7,6 +7,7 @@ import { buildTermOptions, defaultTerm, parseTermLabel, sortTermData, termHasTim
 import type { Course, ProgramsData, TermData } from "./types";
 import type { MinorsData } from "./roadmap/types";
 import type { TransferData } from "./transfer/types";
+import type { ErasmusData } from "./erasmus/types";
 
 export const USING_SAMPLE_DATA = process.env.SAMPLE_DATA === "1";
 
@@ -19,6 +20,8 @@ const PROGRAMS_FILE = "programs.json";
 const MINORS_FILE = "minors.json";
 /** Yatay geçiş ve çift anadal verisi de dönem dosyası değildir. */
 const TRANSFER_FILE = "transfer.json";
+/** Erasmus başvuru ve hibe verisi de dönem dosyası değildir. */
+const ERASMUS_FILE = "erasmus.json";
 
 // Derlemede her ders sayfası dönemi yeniden ister; dosyalar süreç başına bir kez okunur.
 const cache = new Map<string, TermData[]>();
@@ -28,7 +31,7 @@ export function loadTerms(schoolId: string): TermData[] {
   const cached = cache.get(schoolId);
   if (cached) return cached;
   const dir = path.join(/*turbopackIgnore: true*/ root, schoolId);
-  const files = fs.readdirSync(/*turbopackIgnore: true*/ dir).filter((f) => f.endsWith(".json") && f !== PROGRAMS_FILE && f !== MINORS_FILE && f !== TRANSFER_FILE);
+  const files = fs.readdirSync(/*turbopackIgnore: true*/ dir).filter((f) => f.endsWith(".json") && f !== PROGRAMS_FILE && f !== MINORS_FILE && f !== TRANSFER_FILE && f !== ERASMUS_FILE);
   if (files.length === 0) throw new Error(`${dir} içinde veri yok`);
   const terms = sortTermData(
     files.map((f) => JSON.parse(fs.readFileSync(/*turbopackIgnore: true*/ path.join(dir, f), "utf8")) as TermData),
@@ -75,6 +78,13 @@ export function loadTransfer(schoolId: string): TransferData | null {
   const file = path.join(/*turbopackIgnore: true*/ root, schoolId, TRANSFER_FILE);
   if (!fs.existsSync(/*turbopackIgnore: true*/ file)) return null;
   return JSON.parse(fs.readFileSync(/*turbopackIgnore: true*/ file, "utf8")) as TransferData;
+}
+
+/** data/<okul>/erasmus.json; yoksa null (Erasmus sayfası kısa bir not gösterir). */
+export function loadErasmus(schoolId: string): ErasmusData | null {
+  const file = path.join(/*turbopackIgnore: true*/ root, schoolId, ERASMUS_FILE);
+  if (!fs.existsSync(/*turbopackIgnore: true*/ file)) return null;
+  return JSON.parse(fs.readFileSync(/*turbopackIgnore: true*/ file, "utf8")) as ErasmusData;
 }
 
 export function findCourse(term: TermData, slug: string): Course | undefined {

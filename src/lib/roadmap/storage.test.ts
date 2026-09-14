@@ -10,6 +10,7 @@ const full: RoadmapState = {
   completion: { "BSCS:y1-guz:0": true, "BSCS:y1-guz:4": "MATH 103" },
   grades: { "BSCS:y1-guz:0": "B+", "BSCS:y1-guz:2": "F" },
   maxCredits: 35,
+  erasmus: null,
 };
 
 describe("validateState", () => {
@@ -80,5 +81,37 @@ describe("planStart", () => {
   });
   it("şu an Yaz: bir sonraki akademik yıl", () => {
     expect(planStart({ startYear: 2026, season: "yaz" }, "bahar")).toEqual({ startYear: 2027, season: "bahar" });
+  });
+});
+
+describe("validateState: Erasmus", () => {
+  const erasmus = { term: { startYear: 2028, season: "bahar" as const }, ects: 24 };
+
+  it("geçerli Erasmus seçimini korur, gidiş dönüş aynı", () => {
+    const s = { ...full, erasmus };
+    expect(validateState(s)).toEqual(s);
+    expect(parseState(serializeState(s))).toEqual(s);
+  });
+
+  it("Erasmus alanı olmayan eski kaydı null ile açar", () => {
+    const { erasmus: _, ...old } = full;
+    void _;
+    expect(validateState(old)).toEqual(full);
+    expect(EMPTY_STATE.erasmus).toBeNull();
+  });
+
+  it("bozuk Erasmus null olur, AKTS yuvarlanır", () => {
+    const bad = [
+      5,
+      { ects: 30 },
+      { term: { startYear: 2028.5, season: "guz" }, ects: 30 },
+      { term: { startYear: 2028, season: "yaz" }, ects: 30 },
+      { term: { startYear: 2028, season: "guz" }, ects: 43 },
+      { term: { startYear: 2028, season: "guz" }, ects: -1 },
+      { term: { startYear: 2028, season: "guz" }, ects: "30" },
+    ];
+    for (const e of bad) expect(validateState({ ...full, erasmus: e }).erasmus).toBeNull();
+    expect(validateState({ ...full, erasmus: { ...erasmus, ects: 17.6 } }).erasmus).toEqual({ ...erasmus, ects: 18 });
+    expect(validateState({ ...full, erasmus: { ...erasmus, ects: 0 } }).erasmus).toEqual({ ...erasmus, ects: 0 });
   });
 });

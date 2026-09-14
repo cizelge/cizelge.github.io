@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { TermSeason } from "@/lib/terms";
 import type { Program, TermData } from "@/lib/types";
 import { criticalCourses, unreadablePrerequisites } from "@/lib/roadmap/critical";
+import { DEFAULT_ERASMUS_ECTS, suggestErasmusTerms } from "@/lib/roadmap/erasmus";
 import { computeGpa, gradeEntries, maxLoad } from "@/lib/roadmap/gpa";
 import { minorRequirements } from "@/lib/roadmap/minors";
 import { buildOfferingMap } from "@/lib/roadmap/offering";
@@ -11,7 +12,8 @@ import { buildPlan } from "@/lib/roadmap/plan";
 import { markUntil, passedCodes, passedEcts, programProgress } from "@/lib/roadmap/progress";
 import { programRequirements } from "@/lib/roadmap/requirements";
 import { DEFAULT_START, EMPTY_STATE, loadState, planStart, saveState, type RoadmapState } from "@/lib/roadmap/storage";
-import type { Completion, Minor, RoadmapProgram } from "@/lib/roadmap/types";
+import type { Completion, Minor, PlanOptions, RoadmapProgram } from "@/lib/roadmap/types";
+import { ErasmusPlanner } from "./ErasmusPlanner";
 import { GpaPanel } from "./GpaPanel";
 import { PassedCourses } from "./PassedCourses";
 import { PrereqWarnings } from "./PrereqWarnings";
@@ -33,6 +35,8 @@ export function Roadmap({ programs, minors, terms, current }: Props) {
   const [ready, setReady] = useState(false);
   const [tab, setTab] = useState<"dersler" | "program">("dersler");
   const [note, setNote] = useState("");
+  // Erasmus dönemi seçilmemişken de kutudaki AKTS önerilerde kullanılır.
+  const [ectsDraft, setEctsDraft] = useState(DEFAULT_ERASMUS_ECTS);
 
   // Kayıt sunucuda yok: ilk çizim boş durumla yapılır, sonra tarayıcıdaki kayıt okunur.
   useEffect(() => {
@@ -74,12 +78,33 @@ export function Roadmap({ programs, minors, terms, current }: Props) {
     () => roadmap.map((p) => programProgress(p, completion, passed)),
     [roadmap, completion, passed],
   );
+  const erasmus = state.erasmus;
+  const erasmusEcts = erasmus?.ects ?? ectsDraft;
+  const planOptions = useMemo<PlanOptions>(
+    () => ({ start: planStart(current, start.season), maxCredits }),
+    [current, start.season, maxCredits],
+  );
+  // Erasmussuz plan: Erasmus dönemi seçenekleri ve öneriler buna göre.
+  const basePlan = useMemo(
+    () => (roadmap.length === 0 ? null : buildPlan(roadmap, completion, offering, planOptions)),
+    [roadmap, completion, offering, planOptions],
+  );
   const plan = useMemo(
+    () => (!basePlan || !erasmus ? basePlan : buildPlan(roadmap, completion, offering, { ...planOptions, erasmus })),
+    [basePlan, erasmus, roadmap, completion, offering, planOptions],
+  );
+  const erasmusSuggestions = useMemo(
     () =>
-      roadmap.length === 0
-        ? null
-        : buildPlan(roadmap, completion, offering, { start: planStart(current, start.season), maxCredits }),
-    [roadmap, completion, offering, current, start.season, maxCredits],
+      !basePlan
+        ? []
+        : suggestErasmusTerms(
+            roadmap,
+            completion,
+            offering,
+            { ...planOptions, erasmus: { term: planOptions.start, ects: erasmusEcts } },
+            basePlan.terms.length,
+          ).slice(0, 3),
+    [basePlan, roadmap, completion, offering, planOptions, erasmusEcts],
   );
   const entries = useMemo(() => gradeEntries(roadmap, completion, grades), [roadmap, completion, grades]);
   const gpa = computeGpa(entries).gpa;
@@ -172,6 +197,19 @@ export function Roadmap({ programs, minors, terms, current }: Props) {
           <>
             <Summary programs={roadmap} progress={progress} plan={plan} remaining={remaining} />
             <GpaPanel entries={entries} remainingCredits={remainingCredits} loadLimit={loadLimit} cap={!!cap} />
+            {basePlan && basePlan.terms.length > 0 && (
+              <ErasmusPlanner
+                terms={basePlan.terms}
+                value={erasmus}
+                ects={erasmusEcts}
+                suggestions={erasmusSuggestions}
+                onTerm={(term) => update({ erasmus: term ? { term, ects: erasmusEcts } : null })}
+                onEcts={(n) => {
+                  setEctsDraft(n);
+                  if (erasmus) update({ erasmus: { term: erasmus.term, ects: n } });
+                }}
+              />
+            )}
             <TermPlan
               programs={roadmap}
               plan={plan}

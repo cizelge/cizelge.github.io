@@ -148,7 +148,27 @@ export function buildPlan(
       term.requirementIds.push(...u.reqIds);
     };
 
-    for (const u of units) {
+    const abroad =
+      options.erasmus !== undefined &&
+      options.erasmus.term.startYear === startYear &&
+      options.erasmus.term.season === season;
+
+    if (abroad) {
+      // Erasmus: Özyeğin'den ders yok. Kalan seçmeliler (mevsime bakmadan) AKTS hakkı kadar yurt dışına.
+      term.erasmus = true;
+      const limit = Math.max(0, options.erasmus!.ects);
+      // Önce yalnızca bu mevsimde yer bulabilen seçmeliler (yoksa bir yıl beklerlerdi), sonra kalanlar; müfredat sırasıyla.
+      const onlyHere = (u: Unit) => (u.seasons.size === 1 && u.seasons.has(season) ? 0 : 1);
+      const electives = units.filter((u) => u.code === null).sort((a, b) => onlyHere(a) - onlyHere(b));
+      for (const u of electives) {
+        if (placed.has(u.key) || limit === 0) continue;
+        if (term.credits + u.credits > limit) continue;
+        put(u);
+        term.credits += u.credits;
+      }
+    }
+
+    for (const u of abroad ? [] : units) {
       if (placed.has(u.key) || !u.seasons.has(season)) continue;
       // Ders kendi başına AKTS sınırını aşıyorsa boş döneme tek başına konur.
       if (term.credits + u.credits > options.maxCredits && !(term.credits === 0 && inTerm.length === 0)) continue;
@@ -168,7 +188,9 @@ export function buildPlan(
     }
 
     terms.push(term);
-    idle = inTerm.length === 0 ? idle + 1 : 0;
+    // Boş Erasmus dönemi "ilerleme yok" sayılmaz: sonraki dönemlerde yerleşecek ders olabilir.
+    if (inTerm.length > 0) idle = 0;
+    else if (!abroad) idle++;
     for (const u of inTerm) if (u.code) addPassed(passed, u.code);
     ects += term.credits;
     if (season === "guz") season = "bahar";
@@ -178,7 +200,10 @@ export function buildPlan(
     }
   }
 
-  while (terms.length > 0 && terms[terms.length - 1].requirementIds.length === 0) terms.pop();
+  // Sondaki boş dönemler atılır; Erasmus dönemi (boş olsa da) planın parçasıdır.
+  while (terms.length > 0 && terms[terms.length - 1].requirementIds.length === 0 && !terms[terms.length - 1].erasmus) {
+    terms.pop();
+  }
 
   const unplaced: PlanResult["unplaced"] = [];
   for (const u of units) {

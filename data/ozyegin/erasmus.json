@@ -1,0 +1,71 @@
+{
+  "schoolId": "ozyegin",
+  "fetchedAt": "2026-09-14T12:00:00.000Z",
+  "callYear": "2026-27",
+  "sources": [
+    {
+      "label": "Erasmus+ Öğrenim Hareketliliği: Giden Öğrenci (başvuru koşulları, puanlama, hibe ve seyahat tabloları)",
+      "url": "https://www.ozyegin.edu.tr/tr/uluslararasi-degisim-ve-isbirligi-programlari/erasmus-ogrenim-hareketliligi/giden-ogrenci"
+    },
+    {
+      "label": "Erasmus+ Study Mobility: Outgoing Students (İngilizce sayfa, içerik aynı)",
+      "url": "https://www.ozyegin.edu.tr/en/international-exchange-and-partnership-programs/erasmus-study-mobility/outgoing-students"
+    },
+    {
+      "label": "Erasmus+ Öğrenim Hareketliliği Sıkça Sorulan Sorular (PDF)",
+      "url": "https://www.ozyegin.edu.tr/sites/default/files/upload/Uluslararasi/sss_tr.pdf"
+    }
+  ],
+  "eligibility": {
+    "minGpa": 2.2,
+    "minEle": 60,
+    "minEctsAtApplication": 24,
+    "minEctsAtNomination": 54
+  },
+  "score": {
+    "gpaWeight": 0.5,
+    "eleWeight": 0.5,
+    "gpaTo100": {
+      "factor": 25,
+      "assumption": "İlanda 4'lük ortalamanın 100'lüğe nasıl çevrildiği yazmıyor; burada 25 ile çarpıldı (3,00 → 75)."
+    },
+    "ranking": "Fakülte/yüksekokul bazında"
+  },
+  "criteria": [
+    { "id": "previous", "label": "Aynı öğrenim kademesinde daha önce Erasmus+ programına katıldım", "points": -10, "perCount": true },
+    { "id": "withdrew", "label": "Önceki yıllarda taahhütname verdikten sonra programdan çekildim", "points": -10, "perCount": true },
+    { "id": "homeCountry", "label": "Vatandaşı olduğum ülkeye gitmek istiyorum", "points": -10, "perCount": false },
+    { "id": "eleAbsent", "label": "ELE sınavına kaydolup geçerli mazeretsiz girmedim (yeniden başvuruda)", "points": -5, "perCount": false },
+    { "id": "orientationAbsent", "label": "Daha önce yerleşip zorunlu oryantasyona geçerli mazeretsiz katılmadım", "points": -5, "perCount": false },
+    { "id": "disability", "label": "Engelli öğrenciyim (sağlık kurulu raporu)", "points": 10, "perCount": false },
+    { "id": "veteran", "label": "Gazi/şehit çocuğuyum", "points": 15, "perCount": false },
+    { "id": "disaster", "label": "Ben ya da birinci derece yakınım AFAD afetzede maddi desteği alıyor", "points": 10, "perCount": false },
+    { "id": "socialProtection", "label": "2828 veya 5395 sayılı kanun kapsamında koruma, bakım ve barınma altındayım", "points": 10, "perCount": false }
+  ],
+  "grant": {
+    "monthly": [
+      {
+        "group": "Grup 1-2",
+        "countries": "Danimarka, İrlanda, Finlandiya, İsveç, Lihtenştayn, Norveç, Lüksemburg, İzlanda, Belçika, Almanya, Fransa, İtalya, Avusturya, Yunanistan, İspanya, Kıbrıs, Hollanda, Portekiz, Malta, Estonya, Letonya, Çekya, Slovenya, Slovakya",
+        "euro": 600
+      },
+      {
+        "group": "Grup 3",
+        "countries": "Bulgaristan, Litvanya, Macaristan, Polonya, Romanya, Kuzey Makedonya, Hırvatistan, Sırbistan, Türkiye",
+        "euro": 450
+      }
+    ],
+    "maxFundedMonths": 4,
+    "disadvantagedMonthly": 250,
+    "travel": [
+      { "minKm": 10, "maxKm": 99, "standard": 28, "green": 56 },
+      { "minKm": 100, "maxKm": 499, "standard": 211, "green": 285 },
+      { "minKm": 500, "maxKm": 1999, "standard": 309, "green": 417 },
+      { "minKm": 2000, "maxKm": 2999, "standard": 395, "green": 535 },
+      { "minKm": 3000, "maxKm": 3999, "standard": 580, "green": 785 },
+      { "minKm": 4000, "maxKm": 7999, "standard": 1188, "green": 1188 },
+      { "minKm": 8000, "maxKm": null, "standard": 1735, "green": 1735 }
+    ]
+  },
+  "durationMonths": { "min": 2, "max": 12 }
+}

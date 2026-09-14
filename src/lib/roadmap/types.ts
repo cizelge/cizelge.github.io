@@ -151,6 +151,8 @@ export interface PlanTerm {
   label: string;
   requirementIds: string[];
   credits: number;
+  /** Erasmus dönemi: Özyeğin'de ders yok; yalnızca yurt dışında alınıp saydırılacak seçmeliler. */
+  erasmus?: true;
 }
 
 export interface PlanResult {
@@ -168,6 +170,8 @@ export interface PlanOptions {
   maxCredits: number;
   /** Güvenlik sınırı; varsayılan 16 dönem. */
   maxTerms?: number;
+  /** Yurt dışında geçirilecek dönem ve orada saydırılacak en fazla AKTS (yalnızca seçmeliler). */
+  erasmus?: { term: { startYear: number; season: "guz" | "bahar" }; ects: number };
 }
 
 /*

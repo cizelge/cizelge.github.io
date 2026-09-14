@@ -19,7 +19,12 @@ export interface RoadmapState {
   /** Gereksinim id -> son harf notu (isteğe bağlı). */
   grades: Grades;
   maxCredits: number;
+  /** Yurt dışında geçirilecek takvim dönemi ve orada saydırılacak AKTS; null = Erasmus yok. */
+  erasmus: { term: { startYear: number; season: StartSeason }; ects: number } | null;
 }
+
+export const ERASMUS_MIN_ECTS = 0;
+export const ERASMUS_MAX_ECTS = 42;
 
 export const DEFAULT_START = { year: 1, season: "guz" as StartSeason };
 export const CREDIT_CHOICES = [30, 35, 40, 45] as const;
@@ -36,6 +41,7 @@ export const EMPTY_STATE: RoadmapState = {
   completion: {},
   grades: {},
   maxCredits: DEFAULT_MAX_CREDITS,
+  erasmus: null,
 };
 
 const isRecord = (v: unknown): v is Record<string, unknown> => typeof v === "object" && v !== null && !Array.isArray(v);
@@ -74,7 +80,18 @@ export function validateState(raw: unknown): RoadmapState {
   const maxCredits =
     typeof m === "number" && Number.isFinite(m) && m >= MIN_CREDITS && m <= MAX_CREDITS ? Math.round(m) : DEFAULT_MAX_CREDITS;
 
-  return { version: 1, anadal, cap, yandal: idOrNull(raw.yandal), start, completion, grades, maxCredits };
+  return { version: 1, anadal, cap, yandal: idOrNull(raw.yandal), start, completion, grades, maxCredits, erasmus: validErasmus(raw.erasmus) };
+}
+
+/** Erasmus sonradan eklendi: eski kayıtta alan yok; bozuksa null. */
+function validErasmus(raw: unknown): RoadmapState["erasmus"] {
+  if (!isRecord(raw) || !isRecord(raw.term)) return null;
+  const { startYear, season } = raw.term;
+  const { ects } = raw;
+  if (typeof startYear !== "number" || !Number.isInteger(startYear) || startYear < 2000 || startYear > 2100) return null;
+  if (season !== "guz" && season !== "bahar") return null;
+  if (typeof ects !== "number" || !Number.isFinite(ects) || ects < ERASMUS_MIN_ECTS || ects > ERASMUS_MAX_ECTS) return null;
+  return { term: { startYear, season }, ects: Math.round(ects) };
 }
 
 export function parseState(text: string | null): RoadmapState {
