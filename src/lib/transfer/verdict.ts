@@ -47,7 +47,11 @@ export function verdictFor(result: PathResult, history: HistoryStats | null): Ve
   const verdict = decide(history, missing);
   // Kurum içi geçişte Türkiye geneli taban puan şartı veride yok; cevap bunu hatırlatır.
   if (result.path === "internal") verdict.detail += " YKS puanının eşdeğer programların en düşük tabanını geçtiğini ayrıca kontrol et.";
-  if (gaps.length > 0) verdict.detail += ` Kontrol edilemeyen: ${gaps.join(" ")}`;
+  if (gaps.length > 0) {
+    verdict.detail += ` Kontrol edilemeyen: ${gaps.join(" ")}`;
+    // Bir şart hiç kontrol edilemediyse "büyük ihtimalle" denmez.
+    if (verdict.level === "likely") Object.assign(verdict, { level: "maybe", title: "Olabilir" });
+  }
   return verdict;
 }
 

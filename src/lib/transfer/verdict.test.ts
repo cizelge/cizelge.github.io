@@ -49,7 +49,7 @@ describe("verdictFor", () => {
 
   it("treats missing source data as a note, not as missing user input", () => {
     const v = verdictFor(path([ok("scoreType"), { id: "score", status: "unknown", text: "2024 taban puanı veride yok." }], "central"), stats(20, 18));
-    expect(v.level).toBe("likely");
+    expect(v.level).toBe("maybe");
     expect(v.detail).toContain("Kontrol edilemeyen: 2024 taban puanı veride yok.");
   });
 });
