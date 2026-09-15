@@ -2148,3 +2148,12 @@ a.pc-pill:hover { border-color: var(--ink); background: var(--paper-2); }
     background: linear-gradient(transparent 58%, color-mix(in oklab, var(--hl-0) 45%, var(--paper)) 58%, color-mix(in oklab, var(--hl-0) 45%, var(--paper)) 92%, transparent 92%);
   }
 }
+
+/* Dar telefonda başlıktaki üç bağlantı (Takvim, Not hesabı, Hakkında) tek satıra sığsın. */
+@media (max-width: 860px) {
+  .topbar-nav .nav-about { white-space: nowrap; }
+}
+@media (max-width: 430px) {
+  .topbar-nav .btn-small.nav-about { padding-inline: 0.35rem; font-size: 0.86rem; }
+  .topbar .wordmark { flex-shrink: 0; }
+}
