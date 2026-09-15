@@ -14,9 +14,13 @@ interface Props {
   onRemove: (code: string) => void;
   onLock: (code: string, sectionId: string | null) => void;
   onToggleExclude: (ref: SectionRef) => void;
+  /** Bütün dersleri sepetten çıkarır. */
+  onClear: () => void;
+  /** Son boşaltmayı geri alır; geri alınacak bir şey yoksa verilmez. */
+  onUndoClear?: () => void;
 }
 
-export function Cart({ cart, courses, colorOf, locked, excluded, chosen, onRemove, onLock, onToggleExclude }: Props) {
+export function Cart({ cart, courses, colorOf, locked, excluded, chosen, onRemove, onLock, onToggleExclude, onClear, onUndoClear }: Props) {
   const ects = cart.reduce((sum, code) => sum + (courses.get(code)?.ects ?? 0), 0);
 
   return (
@@ -24,8 +28,29 @@ export function Cart({ cart, courses, colorOf, locked, excluded, chosen, onRemov
       <h2 className="group-title" id="sepet">
         Sepetin
         <span className="aside num">{cart.length ? `${cart.length} ders, ${ects} AKTS` : ""}</span>
+        {cart.length > 0 && (
+          <button type="button" className="cart-clear" onClick={onClear} aria-label="Sepeti boşalt, bütün dersleri çıkar" title="Sepeti boşalt">
+            <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+              <path
+                d="M2.5 4h11M6.5 4V2.75h3V4M4 4l.7 9.25h6.6L12 4M6.6 6.5v4.5M9.4 6.5v4.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+        )}
       </h2>
-      {cart.length === 0 ? (
+      {cart.length === 0 && onUndoClear ? (
+        <p className="hint cart-undo" role="status">
+          Sepet boşaltıldı.{" "}
+          <button type="button" className="link-btn" onClick={onUndoClear}>
+            Geri al
+          </button>
+        </p>
+      ) : cart.length === 0 ? (
         <p className="hint">Eklediğin dersler burada, çizelgedeki renkleriyle görünür.</p>
       ) : (
         <ul className="cart">

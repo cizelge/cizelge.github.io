@@ -53,9 +53,11 @@ interface PlannerProps {
   programs: ProgramsData | null;
   /** Dönem seçicinin seçenekleri (termOptions); boşsa seçici gösterilmez. */
   termOptions?: readonly TermOption[];
+  /** Çizelgedeki ders kutuları ders sayfasına bağlansın mı (sayfalar yalnızca varsayılan dönem için var). */
+  coursePages?: boolean;
 }
 
-export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
+export function Planner({ term, programs, termOptions = [], coursePages = false }: PlannerProps) {
   const courses = useMemo(() => new Map<string, Course>(term.courses.map((c) => [c.code, c])), [term]);
   // Özyeğin bir dönemi önce yalnızca ders listesiyle yayınlar; saatler gelene kadar program oluşturulmaz.
   const hasTimes = useMemo(() => termHasTimes(term), [term]);
@@ -74,6 +76,8 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
   const [missing, setMissing] = useState<string[]>([]);
   const [tab, setTab] = useState<"dersler" | "program">("dersler");
   const [note, setNote] = useState("");
+  // Sepeti boşaltmadan önceki hâl; "Geri al" için. Yeni ders eklenince unutulur.
+  const [cleared, setCleared] = useState<Pick<PlannerState, "cart" | "locked" | "excluded" | "picks"> | null>(null);
   const [layoutLimit, setLayoutLimit] = useState(LAYOUT_PAGE);
 
   // İlk yükleme: önce linkteki durum, yoksa bu tarayıcıda kalan son durum.
@@ -147,6 +151,7 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
   const range = timeRange(placed);
 
   function addCourse(code: string) {
+    setCleared(null);
     const course = courses.get(code);
     if (!course || state.cart.includes(code)) return;
     const withCoreqs = expandCorequisites([course], term.courses).map((c) => c.code);
@@ -157,10 +162,12 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
   }
 
   function addCourses(codes: string[]) {
+    setCleared(null);
     update({ cart: [...state.cart, ...codes.filter((c) => !state.cart.includes(c))] });
   }
 
   function removeCourse(code: string) {
+    setCleared(null);
     const { [code]: _, ...locked } = state.locked;
     void _;
     update({
@@ -287,6 +294,20 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
             void _;
             update({ locked: id ? { ...rest, [code]: id } : rest });
           }}
+          onClear={() => {
+            setCleared({ cart: state.cart, locked: state.locked, excluded: state.excluded, picks: state.picks });
+            update({ cart: [], locked: {}, excluded: [], picks: {} });
+            setNote("Sepet boşaltıldı.");
+          }}
+          onUndoClear={
+            cleared
+              ? () => {
+                  update(cleared);
+                  setCleared(null);
+                  setNote("Sepet geri getirildi.");
+                }
+              : undefined
+          }
           onToggleExclude={(ref) => {
             const has = state.excluded.some((e) => e.courseCode === ref.courseCode && e.sectionId === ref.sectionId);
             update({
@@ -404,6 +425,14 @@ export function Planner({ term, programs, termOptions = [] }: PlannerProps) {
         )}
 
         <WeekGrid
+          hrefOf={
+            coursePages
+              ? (m) => {
+                  const slug = courses.get(m.courseCode)?.slug;
+                  return slug ? `/ozyegin/${slug}` : null;
+                }
+              : undefined
+          }
           renderSection={(m) => {
             const ids = alternatives[m.courseCode];
             const course = courses.get(m.courseCode);

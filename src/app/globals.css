@@ -1994,3 +1994,30 @@ a.pc-pill:hover { border-color: var(--ink); background: var(--paper-2); }
   .tuning-more { position: relative; }
   .tuning-more > .tuning-panel { left: 0; right: auto; width: 24rem; }
 }
+
+/* ---------- Sepet: hepsini sil ---------- */
+.cart-clear {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin: -0.4rem -0.3rem -0.4rem 0.1rem;
+  border: 0;
+  border-radius: var(--radius-s);
+  background: transparent;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+.cart-clear:hover { background: color-mix(in oklab, var(--danger) 12%, transparent); color: var(--danger); }
+.cart-undo .link-btn,
+.link-btn {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--pen);
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+@media (max-width: 860px) { .cart-clear { width: 44px; height: 44px; } }
