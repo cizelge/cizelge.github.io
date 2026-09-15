@@ -3,6 +3,7 @@
 import { useEffect, useId, useMemo, useState } from "react";
 import { matchShuttle, NEEDS_TRAVEL_TIME, NO_INBOUND, NO_OUTBOUND, type DayMatch, type ShuttleMeeting } from "@/lib/shuttle/match";
 import type { ShuttleData, ShuttleRoute } from "@/lib/shuttle/types";
+import { loadShuttlePrefs as load, saveShuttlePrefs as save } from "@/lib/shuttle/prefs";
 import styles from "./ShuttlePanel.module.css";
 
 interface Props {
@@ -10,36 +11,9 @@ interface Props {
   meetings: ShuttleMeeting[];
 }
 
-const STORAGE_KEY = "servis:ozyegin";
 const BUFFER = 15;
 const AFTER_CLASS = 10;
 const OFFICIAL_URL = "https://www.ozyegin.edu.tr/tr/iletisim/servis-saatleri";
-
-interface Saved {
-  routeId: string;
-  travelMinutes: number | null;
-}
-
-function load(): Saved | null {
-  try {
-    const raw: unknown = JSON.parse(window.localStorage.getItem(STORAGE_KEY) ?? "null");
-    if (typeof raw !== "object" || raw === null) return null;
-    const r = raw as Record<string, unknown>;
-    if (typeof r.routeId !== "string") return null;
-    const t = r.travelMinutes;
-    return { routeId: r.routeId, travelMinutes: typeof t === "number" && Number.isFinite(t) && t > 0 ? t : null };
-  } catch {
-    return null;
-  }
-}
-
-function save(state: Saved) {
-  try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  } catch {
-    /* gizli pencere, dolu depo vb.: sessizce geç */
-  }
-}
 
 function needsTravelInput(route: ShuttleRoute): boolean {
   if (route.travelMinutes !== undefined) return false;

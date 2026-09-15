@@ -6,6 +6,17 @@ import { usePathname } from "next/navigation";
 // Telefonda alt gezinme çubuğu. Etkin sayfanın adının altında logodaki fosforlu kalem çizgisi.
 export const NAV_ITEMS: { href: string; label: string; match: (p: string) => boolean; icon: React.ReactNode }[] = [
   {
+    href: "/ozyegin/bugun",
+    label: "Bugün",
+    match: (p) => p === "/ozyegin/bugun",
+    icon: (
+      <>
+        <circle cx="12" cy="12" r="8.5" />
+        <path d="M12 7.5V12l3 2" />
+      </>
+    ),
+  },
+  {
     href: "/ozyegin",
     label: "Program",
     // Planlayıcı, dönem sayfaları ve ders sayfaları (araç sayfaları hariç).
@@ -55,7 +66,7 @@ export const NAV_ITEMS: { href: string; label: string; match: (p: string) => boo
   },
 ];
 
-const TOOL_PATHS = ["/ozyegin/yol-haritasi", "/ozyegin/on-sart-diyagrami", "/ozyegin/gecis", "/ozyegin/erasmus", "/ozyegin/takvim", "/ozyegin/final-hesabi"];
+const TOOL_PATHS = ["/ozyegin/bugun", "/ozyegin/yol-haritasi", "/ozyegin/on-sart-diyagrami", "/ozyegin/gecis", "/ozyegin/erasmus", "/ozyegin/takvim", "/ozyegin/final-hesabi"];
 
 export function MobileNav() {
   // Statik yayında adresler "/" ile bitiyor (trailingSlash); eşleştirmeden önce atılır.
