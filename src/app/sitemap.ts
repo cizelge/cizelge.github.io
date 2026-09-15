@@ -1,4 +1,7 @@
 import type { MetadataRoute } from "next";
+
+// Statik dışa aktarımda (GitHub Pages) derleme sırasında dosyaya yazılır.
+export const dynamic = "force-static";
 import { loadErasmus, loadTerm, loadTerms, loadTransfer } from "@/lib/data";
 
 const siteUrl = process.env.SITE_URL ?? "http://localhost:3000";
