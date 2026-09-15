@@ -22,6 +22,13 @@ export function TopNav() {
           <span className="nav-label">{LONG_LABEL[item.href] ?? item.label}</span>
         </Link>
       ))}
+      <Link
+        href="/ozyegin/takvim"
+        className="btn btn-small btn-quiet nav-about"
+        aria-current={pathname === "/ozyegin/takvim" ? "page" : undefined}
+      >
+        <span className="nav-label">Takvim</span>
+      </Link>
       <Link href="/hakkinda" className="btn btn-small btn-quiet nav-about" aria-current={aboutActive ? "page" : undefined}>
         <span className="nav-label">Hakkında</span>
       </Link>

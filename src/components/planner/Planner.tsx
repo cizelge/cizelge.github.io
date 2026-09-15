@@ -22,6 +22,9 @@ import { formatGap, ScheduleStrip } from "./ScheduleStrip";
 import { TermSelect } from "./TermSelect";
 import { SectionSwitch } from "./SectionSwitch";
 import { WeekGrid } from "./WeekGrid";
+import { RegistrationPlan } from "./RegistrationPlan";
+import { ShuttlePanel } from "./ShuttlePanel";
+import type { ShuttleData } from "@/lib/shuttle/types";
 
 const STORAGE_KEY = "planlayici:";
 const HIGHLIGHTERS = 6;
@@ -55,9 +58,11 @@ interface PlannerProps {
   termOptions?: readonly TermOption[];
   /** Çizelgedeki ders kutuları ders sayfasına bağlansın mı (sayfalar yalnızca varsayılan dönem için var). */
   coursePages?: boolean;
+  /** Kampüs servis saatleri; yoksa servis paneli gösterilmez. */
+  shuttle?: ShuttleData | null;
 }
 
-export function Planner({ term, programs, termOptions = [], coursePages = false }: PlannerProps) {
+export function Planner({ term, programs, termOptions = [], coursePages = false, shuttle = null }: PlannerProps) {
   const courses = useMemo(() => new Map<string, Course>(term.courses.map((c) => [c.code, c])), [term]);
   // Özyeğin bir dönemi önce yalnızca ders listesiyle yayınlar; saatler gelene kadar program oluşturulmaz.
   const hasTimes = useMemo(() => termHasTimes(term), [term]);
@@ -423,6 +428,9 @@ export function Planner({ term, programs, termOptions = [], coursePages = false 
             </div>
           </div>
         )}
+
+        <RegistrationPlan input={input} current={current} courses={courses} colorOf={colorOf} termLabel={term.termLabel} />
+        {shuttle && current && <ShuttlePanel data={shuttle} meetings={placed} />}
 
         <WeekGrid
           hrefOf={

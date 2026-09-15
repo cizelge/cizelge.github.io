@@ -55,7 +55,7 @@ export const NAV_ITEMS: { href: string; label: string; match: (p: string) => boo
   },
 ];
 
-const TOOL_PATHS = ["/ozyegin/yol-haritasi", "/ozyegin/on-sart-diyagrami", "/ozyegin/gecis", "/ozyegin/erasmus"];
+const TOOL_PATHS = ["/ozyegin/yol-haritasi", "/ozyegin/on-sart-diyagrami", "/ozyegin/gecis", "/ozyegin/erasmus", "/ozyegin/takvim"];
 
 export function MobileNav() {
   // Statik yayında adresler "/" ile bitiyor (trailingSlash); eşleştirmeden önce atılır.

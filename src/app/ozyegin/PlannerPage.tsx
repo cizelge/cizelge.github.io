@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Planner } from "@/components/planner/Planner";
-import { loadPrograms, loadTerm, termOptions } from "@/lib/data";
+import { loadPrograms, loadShuttle, loadTerm, termOptions } from "@/lib/data";
 import { slimProgramsForClient } from "@/lib/planner/curriculum";
 import { termPath } from "@/lib/terms";
 import type { TermData } from "@/lib/types";
@@ -34,6 +34,7 @@ export function PlannerPage({ term }: { term: TermData }) {
         term={term}
         programs={programs ? slimProgramsForClient(programs) : null}
         termOptions={termOptions(SCHOOL)}
+        shuttle={loadShuttle(SCHOOL)}
       />
       <footer className="site-footer">
         <span>Veriler en son {formatDate(term.fetchedAt)} tarihinde güncellendi.</span>

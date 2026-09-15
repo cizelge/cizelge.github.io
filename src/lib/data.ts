@@ -9,6 +9,7 @@ import type { MinorsData } from "./roadmap/types";
 import type { TransferHistoryData } from "./transfer/history";
 import type { TransferData } from "./transfer/types";
 import type { ErasmusData } from "./erasmus/types";
+import type { ShuttleData } from "./shuttle/types";
 import type { PartnersData } from "./erasmus/universities";
 
 export const USING_SAMPLE_DATA = process.env.SAMPLE_DATA === "1";
@@ -28,7 +29,10 @@ const ERASMUS_FILE = "erasmus.json";
 const PARTNERS_FILE = "partners.json";
 /** Geçmiş dönemlerin yatay geçiş, ÇAP ve yandal başvuru sonuç sayıları da dönem dosyası değildir. */
 const TRANSFER_HISTORY_FILE = "transfer-history.json";
-const NOT_TERM_FILES = new Set([PROGRAMS_FILE, MINORS_FILE, TRANSFER_FILE, ERASMUS_FILE, PARTNERS_FILE, TRANSFER_HISTORY_FILE]);
+/** Kampüs servis saatleri ve akademik takvim de dönem dosyası değildir. */
+const SHUTTLE_FILE = "shuttle.json";
+const ACADEMIC_CALENDAR_FILE = "academic-calendar.json";
+const NOT_TERM_FILES = new Set([PROGRAMS_FILE, MINORS_FILE, TRANSFER_FILE, ERASMUS_FILE, PARTNERS_FILE, TRANSFER_HISTORY_FILE, SHUTTLE_FILE, ACADEMIC_CALENDAR_FILE]);
 
 // Derlemede her ders sayfası dönemi yeniden ister; dosyalar süreç başına bir kez okunur.
 const cache = new Map<string, TermData[]>();
@@ -92,6 +96,13 @@ export function loadTransferHistory(schoolId: string): TransferHistoryData | nul
   const file = path.join(/*turbopackIgnore: true*/ root, schoolId, TRANSFER_HISTORY_FILE);
   if (!fs.existsSync(/*turbopackIgnore: true*/ file)) return null;
   return JSON.parse(fs.readFileSync(/*turbopackIgnore: true*/ file, "utf8")) as TransferHistoryData;
+}
+
+/** data/<okul>/shuttle.json; yoksa null (planlayıcı servis panelini göstermez). */
+export function loadShuttle(schoolId: string): ShuttleData | null {
+  const file = path.join(/*turbopackIgnore: true*/ root, schoolId, SHUTTLE_FILE);
+  if (!fs.existsSync(/*turbopackIgnore: true*/ file)) return null;
+  return JSON.parse(fs.readFileSync(/*turbopackIgnore: true*/ file, "utf8")) as ShuttleData;
 }
 
 /** data/<okul>/erasmus.json; yoksa null (Erasmus sayfası kısa bir not gösterir). */
