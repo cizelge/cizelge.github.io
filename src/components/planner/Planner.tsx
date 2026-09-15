@@ -24,6 +24,7 @@ import { SectionSwitch } from "./SectionSwitch";
 import { WeekGrid } from "./WeekGrid";
 import { RegistrationPlan } from "./RegistrationPlan";
 import { ShuttlePanel } from "./ShuttlePanel";
+import { ElectiveFinder } from "./ElectiveFinder";
 import type { ShuttleData } from "@/lib/shuttle/types";
 
 const STORAGE_KEY = "planlayici:";
@@ -431,6 +432,18 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
 
         <RegistrationPlan input={input} current={current} courses={courses} colorOf={colorOf} termLabel={term.termLabel} />
         {shuttle && current && <ShuttlePanel data={shuttle} meetings={placed} />}
+        {programs && current && (
+          <ElectiveFinder
+            programs={programs.programs}
+            programId={state.program}
+            courses={term.courses}
+            meetings={placed}
+            cart={state.cart}
+            freeDays={state.freeDays}
+            days={days}
+            onAdd={addCourse}
+          />
+        )}
 
         <WeekGrid
           hrefOf={
