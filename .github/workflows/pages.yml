@@ -30,6 +30,9 @@ jobs:
         run: npm run build:pages
         env:
           SITE_URL: https://cizelge.github.io
+          # Oy servisi yayınlanınca depo ayarlarından "RATINGS_API" değişkeni verilir; boşsa oylama görünmez.
+          NEXT_PUBLIC_RATINGS_API: ${{ vars.RATINGS_API }}
+          NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out

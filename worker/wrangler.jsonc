@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cizelge-oy",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-01",
+  "observability": { "enabled": true },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "cizelge-oy",
+      "database_id": "yerel-deneme"
+    }
+  ],
+  "vars": {
+    "ALLOWED_ORIGINS": "https://cizelge.github.io,http://localhost:3000"
+  }
+}

@@ -131,7 +131,7 @@
 
 .add {
   grid-column: 2;
-  grid-row: 1 / span 3;
+  grid-row: 1 / span 4;
   align-self: center;
   min-height: 40px;
 }
@@ -145,3 +145,5 @@
 @media (prefers-reduced-motion: reduce) {
   .summary::after { transition: none; }
 }
+
+.rating { grid-column: 1; }
