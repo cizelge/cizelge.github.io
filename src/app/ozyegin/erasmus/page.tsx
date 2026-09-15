@@ -3,8 +3,9 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Erasmus } from "@/components/erasmus/Erasmus";
-import { loadErasmus, loadPrograms } from "@/lib/data";
+import { loadErasmus, loadPartners, loadPrograms } from "@/lib/data";
 import { slimPrograms } from "@/lib/erasmus/prefill";
+import { partnerItems } from "@/lib/erasmus/universities";
 
 const SCHOOL = "ozyegin";
 
@@ -18,12 +19,14 @@ export const metadata: Metadata = {
 export default function ErasmusPage() {
   const data = loadErasmus(SCHOOL);
   const programs = loadPrograms(SCHOOL)?.programs ?? [];
+  // Anlaşmalı okullar hafif listeyle (ad, ülke, şehir, kod) gider; geniş ECHE listesi tarayıcıda gerektiğinde yüklenir.
+  const partners = partnerItems(loadPartners(SCHOOL));
 
   return (
     <>
       <SiteHeader term="Özyeğin, Erasmus" />
       {data ? (
-        <Erasmus data={data} programs={slimPrograms(programs)} />
+        <Erasmus data={data} programs={slimPrograms(programs)} partners={partners} />
       ) : (
         <main id="icerik" className="page prose">
           <h1 className="board-title">Erasmus başvurusu</h1>

@@ -17,6 +17,9 @@ export function SiteHeader({ term }: { term?: string }) {
           <span className="nav-long">Geçiş ve ÇAP</span>
           <span className="nav-short">Geçiş</span>
         </Link>
+        <Link href="/ozyegin/on-sart-diyagrami" className="btn btn-small btn-quiet">
+          Ön şart
+        </Link>
         <Link href="/ozyegin/erasmus" className="btn btn-small btn-quiet">
           Erasmus
         </Link>

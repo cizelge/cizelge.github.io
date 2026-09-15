@@ -142,6 +142,11 @@ export function PrereqMap({ anadal, cap, terms, passed, criticalCodes, current }
 
       {open && graph && layout && (
         <div className="pm-body" onKeyDown={onKey}>
+          <p className="pm-link">
+            <Link href="/ozyegin/on-sart-diyagrami" className="link">
+              Tam ekran ön şart diyagramı
+            </Link>
+          </p>
           {cap && (
             <div className="chips pm-switch" role="group" aria-label="Program">
               {(["anadal", "cap"] as const).map((k) => (

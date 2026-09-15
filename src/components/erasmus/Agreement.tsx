@@ -5,9 +5,11 @@ import { useId, useMemo } from "react";
 import { draftTotals } from "@/lib/erasmus/agreement";
 import type { RemainingRequirement } from "@/lib/erasmus/prefill";
 import type { AgreementDraft, AgreementRow } from "@/lib/erasmus/types";
+import { findUniversity, universityDetail, type UniversityItem } from "@/lib/erasmus/universities";
 import { canonicalCode } from "@/lib/roadmap/progress";
 import { parseDecimalInput } from "@/lib/transfer/profile-storage";
 import { formatNumber, NumberField } from "./NumberField";
+import { UniversityCombobox, useEcheInstitutions } from "./UniversityCombobox";
 
 interface Props {
   draft: AgreementDraft;
@@ -17,6 +19,8 @@ interface Props {
   programName: string | null;
   /** Elle yazılan kodun AKTS'si (müfredatlardan). */
   codeCredits: ReadonlyMap<string, number>;
+  /** Özyeğin'in anlaşmalı olduğu okullar. */
+  partners: readonly UniversityItem[];
 }
 
 /** Bir dönem için bundan az AKTS görünürse bilgi notu çıkar. */
@@ -43,10 +47,14 @@ function groupByProgram(list: readonly RemainingRequirement[]) {
 
 const matchValue = (m: AgreementRow["match"]) => (m === null ? "" : m.kind === "code" ? "code" : `r:${m.requirementId}`);
 
-export function Agreement({ draft, onDraft, remaining, hasRoadmap, programName, codeCredits }: Props) {
+export function Agreement({ draft, onDraft, remaining, hasRoadmap, programName, codeCredits, partners }: Props) {
   const id = useId();
   const byId = useMemo(() => new Map(remaining.map((r) => [r.id, r])), [remaining]);
   const groups = useMemo(() => groupByProgram(remaining), [remaining]);
+  const eche = useEcheInstitutions();
+  // Kayıtta yalnızca ad tutulur; ülke ve kod listede bulunursa gösterilir.
+  const host = useMemo(() => findUniversity(draft.hostUniversity, partners, eche.items), [draft.hostUniversity, partners, eche.items]);
+  const hostName = draft.hostUniversity.trim();
 
   const lookupCredits = (m: NonNullable<AgreementRow["match"]>) =>
     m.kind === "requirement" ? (byId.get(m.requirementId)?.credits ?? null) : (codeCredits.get(canonicalCode(m.code)) ?? null);
@@ -96,16 +104,17 @@ export function Agreement({ draft, onDraft, remaining, hasRoadmap, programName, 
           </p>
         )}
 
-        <label className="field er-host">
-          <span className="field-label">Karşı üniversite</span>
-          <input
-            className="select gc-input"
-            autoComplete="off"
-            placeholder="Technische Universität München"
-            value={draft.hostUniversity}
-            onChange={(e) => onDraft({ ...draft, hostUniversity: e.target.value })}
-          />
-        </label>
+        <UniversityCombobox
+          label="Karşı üniversite"
+          placeholder="Okul, şehir, ülke ya da Erasmus kodu"
+          value={draft.hostUniversity}
+          onChange={(v) => onDraft({ ...draft, hostUniversity: v })}
+          partners={partners}
+          others={eche.items}
+          othersStatus={eche.status}
+          onFirstFocus={eche.load}
+          detail={universityDetail(host)}
+        />
 
         {draft.rows.length > 0 && (
           <div className="er-rows-wrap">
@@ -253,7 +262,7 @@ export function Agreement({ draft, onDraft, remaining, hasRoadmap, programName, 
           )}
           <div>
             <dt>Karşı üniversite</dt>
-            <dd>{draft.hostUniversity.trim() || "—"}</dd>
+            <dd>{hostName ? (host?.country ? `${hostName} (${host.country})` : hostName) : "—"}</dd>
           </div>
         </dl>
         <table>

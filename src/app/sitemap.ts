@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/ozyegin`, lastModified: updated },
     ...otherTerms.map((t) => ({ url: `${siteUrl}/ozyegin/donem/${t.termId}`, lastModified: new Date(t.fetchedAt) })),
     { url: `${siteUrl}/ozyegin/yol-haritasi`, lastModified: updated },
+    { url: `${siteUrl}/ozyegin/on-sart-diyagrami`, lastModified: updated },
     { url: `${siteUrl}/ozyegin/gecis`, lastModified: transfer ? new Date(transfer.fetchedAt) : updated },
     { url: `${siteUrl}/ozyegin/erasmus`, lastModified: erasmus ? new Date(erasmus.fetchedAt) : updated },
     { url: `${siteUrl}/hakkinda` },

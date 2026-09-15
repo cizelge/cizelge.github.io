@@ -23,7 +23,7 @@ function parse(text: string): PrereqExpr {
 }
 
 /** Ağaçtaki ders kodları ve kenar türü: herhangi bir "or" altında -> "or"; aynı kod iki yerde ise "and" kazanır. */
-function courseKinds(expr: PrereqExpr): Map<string, EdgeKind> {
+export function courseKinds(expr: PrereqExpr): Map<string, EdgeKind> {
   const out = new Map<string, EdgeKind>();
   const walk = (e: PrereqExpr, underOr: boolean) => {
     if (e.kind === "course") {
@@ -42,7 +42,7 @@ function courseKinds(expr: PrereqExpr): Map<string, EdgeKind> {
  * "or" seçenek grupları: "(A or B) and (C or D)" -> A,B grup 0; C,D grup 1. İç içe or dıştaki grubu paylaşır.
  * Aynı kod "and" altında da geçiyorsa null (zorunlu).
  */
-function courseGroups(expr: PrereqExpr): Map<string, number | null> {
+export function courseGroups(expr: PrereqExpr): Map<string, number | null> {
   const out = new Map<string, number | null>();
   let next = 0;
   const walk = (e: PrereqExpr, group: number | null) => {

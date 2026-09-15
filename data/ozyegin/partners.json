@@ -1,0 +1,2440 @@
+{
+  "schoolId": "ozyegin",
+  "fetchedAt": "2026-09-15T08:00:00.000Z",
+  "sources": [
+    {
+      "label": "Partner Institutions: Uluslararası Değişim ve İşbirliği Programları Ofisi (Erasmus+, Global Exchange, SEMP, KA171 tabloları)",
+      "url": "https://www.ozyegin.edu.tr/en/international-exchange-and-partnership-programs/partner-institutions"
+    },
+    {
+      "label": "Ortak Kurumlar (aynı tablonun Türkçe sayfası)",
+      "url": "https://www.ozyegin.edu.tr/tr/uluslararasi-degisim-ve-isbirligi-programlari/ortak-kurumlar"
+    },
+    {
+      "label": "Hukuk Fakültesi, Partnerlerimiz",
+      "url": "https://www.ozyegin.edu.tr/tr/hukuk-fakultesi/partnerlerimiz"
+    },
+    {
+      "label": "Psikoloji Bölümü, Partnerlerimiz",
+      "url": "https://www.ozyegin.edu.tr/tr/psikoloji-bolumu/partnerlerimiz"
+    },
+    {
+      "label": "Havacılık Yönetimi, Erasmus",
+      "url": "https://www.ozyegin.edu.tr/tr/havacilik-yonetimi/erasmus"
+    },
+    {
+      "label": "Erasmus kodları ve şehirler: Avrupa Komisyonu, ECHE sahibi yükseköğretim kurumları listesi (17.08.2026)",
+      "url": "https://erasmus-plus.ec.europa.eu/document/higher-education-institutions-holding-an-eche-2021-2027"
+    }
+  ],
+  "partners": [
+    {
+      "name": "Aachen University of Applied Sciences",
+      "country": "Almanya",
+      "city": "Aachen",
+      "erasmusCode": "D AACHEN02",
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "AANT - Accademia delle Arti e Nuove Tecnologie",
+      "country": "İtalya",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Communication Design",
+        "Industrial Design"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "ADA University",
+      "country": "Azerbaycan",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Architecture",
+        "Business Administration",
+        "Communication Design",
+        "Computer Science",
+        "Economics",
+        "Electrical and Electronics Engineering",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "International Relations",
+        "Law",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "Adam Mickiewicz University in Poznan",
+      "country": "Polonya",
+      "city": "Poznan",
+      "erasmusCode": "PL POZNAN01",
+      "departments": [
+        "Law"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Alice Salomon Hochschule - Berlin",
+      "country": "Almanya",
+      "city": "Berlin",
+      "erasmusCode": "D BERLIN05",
+      "departments": [
+        "Psychology"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "American University of Beirut",
+      "country": "Lübnan",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Amsterdam University of Applied Sciences",
+      "country": "Hollanda",
+      "city": "Amsterdam",
+      "erasmusCode": "NL AMSTERD05",
+      "departments": [
+        "Aviation Management"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Aristotle University of Thessaloniki",
+      "country": "Yunanistan",
+      "city": "Thessaloniki",
+      "erasmusCode": "G THESSAL01",
+      "departments": [
+        "Civil Engineering",
+        "Law"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Audencia Business School",
+      "country": "Fransa",
+      "city": "Nantes",
+      "erasmusCode": "F NANTES12",
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems",
+        "MBA"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Bandung Institute of Technology",
+      "country": "Endonezya",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "Beijing Foreign Studies University",
+      "country": "Çin",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "BESIGN The Sustainable Design School",
+      "country": "Fransa",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Communication Design",
+        "Industrial Design",
+        "Interior Architecture and Environmental Design"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "Colorado Mesa University",
+      "country": "ABD",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Hotel Management"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "Constructor University",
+      "country": "Almanya",
+      "city": "Bremen",
+      "erasmusCode": "D BREMEN09",
+      "departments": [
+        "Computer Science",
+        "Industrial Engineering",
+        "International Relations",
+        "Psychology"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Cracow University of Technology",
+      "country": "Polonya",
+      "city": "Krakow",
+      "erasmusCode": "PL KRAKOW03",
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Democritus University of Thrace",
+      "country": "Yunanistan",
+      "city": "Komotini",
+      "erasmusCode": "G KOMOTIN01",
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Duale Hochschule Baden-Württemberg Mosbach",
+      "country": "Almanya",
+      "city": "Mosbach",
+      "erasmusCode": "D MOSBACH01",
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "Industrial Engineering",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "EBS Universität",
+      "country": "Almanya",
+      "city": "Oestrich-Winkel",
+      "erasmusCode": "D OESTRIC01",
+      "departments": [
+        "Law"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Ecclesiastical Academy of Athens",
+      "country": "Yunanistan",
+      "city": "Athina",
+      "erasmusCode": "G ATHINE56",
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Eindhoven University of Technology",
+      "country": "Hollanda",
+      "city": "Eindhoven",
+      "erasmusCode": "NL EINDHOV17",
+      "departments": [
+        "Industrial Engineering"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Emlyon Business School",
+      "country": "Fransa",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems",
+        "MBA"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Erasmus Brussels University of Applied Sciences and Arts",
+      "country": "Belçika",
+      "city": "Brussel",
+      "erasmusCode": "B BRUSSEL46",
+      "departments": [
+        "Hotel Management"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Escola Superior Artes e Design",
+      "country": "Portekiz",
+      "city": "Matosinhos",
+      "erasmusCode": "P MATOSIN01",
+      "departments": [
+        "Communication Design",
+        "Industrial Design",
+        "Interior Architecture and Environmental Design"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Escola Superior Artística do Porto",
+      "country": "Portekiz",
+      "city": "Porto",
+      "erasmusCode": "P PORTO08",
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "ESDES Lyon Business School",
+      "country": "Fransa",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Estonian Aviation Academy",
+      "country": "Estonya",
+      "city": "Tartu",
+      "erasmusCode": "EE TARTU03",
+      "departments": [
+        "Aviation Management"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Estonian Business School",
+      "country": "Estonya",
+      "city": "Tallinn",
+      "erasmusCode": "EE TALLINN02",
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "European University Viadrina",
+      "country": "Almanya",
+      "city": "Frankfurt (Oder)",
+      "erasmusCode": "D FRANKFU08",
+      "departments": [
+        "Anthropology",
+        "International Relations",
+        "Law"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "FH Joanneum University of Applied Sciences",
+      "country": "Avusturya",
+      "city": "Graz",
+      "erasmusCode": "A GRAZ09",
+      "departments": [
+        "Communication Design",
+        "Industrial Design"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "FHNW University of Applied Sciences and Arts Northwestern Switzerland",
+      "country": "İsviçre",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "other"
+      ]
+    },
+    {
+      "name": "FHWien University of Applied Sciences of WKW",
+      "country": "Avusturya",
+      "city": "Wien",
+      "erasmusCode": "A WIEN21",
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "Hotel Management",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Free University of Bozen-Bolzano",
+      "country": "İtalya",
+      "city": "Bolzano",
+      "erasmusCode": "I BOLZANO01",
+      "departments": [
+        "Business Administration",
+        "Communication Design",
+        "Design",
+        "Economics",
+        "Entrepreneurship",
+        "Hotel Management",
+        "Industrial Design",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems",
+        "Technology and Society"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Ghent University",
+      "country": "Belçika",
+      "city": "Gent",
+      "erasmusCode": "B GENT01",
+      "departments": [
+        "Law"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Gheorghe Asachi Technical University of Iasi",
+      "country": "Romanya",
+      "city": "Iasi",
+      "erasmusCode": "RO IASI05",
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Haaga-Helia University of Applied Sciences",
+      "country": "Finlandiya",
+      "city": "Helsinki",
+      "erasmusCode": "SF HELSINK40",
+      "departments": [
+        "Aviation Management",
+        "Hotel Management"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Hochschule Pforzheim",
+      "country": "Almanya",
+      "city": "Pforzheim",
+      "erasmusCode": "D PFORZHE01",
+      "departments": [
+        "Business Administration",
+        "Electrical and Electronics Engineering",
+        "Industrial Engineering",
+        "Management Information Systems",
+        "Mechanical Engineering"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "IE University",
+      "country": "İspanya",
+      "city": "Segovia",
+      "erasmusCode": "E SEGOVIA01",
+      "departments": [
+        "Business Administration",
+        "Communication Design",
+        "Computer Science",
+        "Economics",
+        "Entrepreneurship",
+        "Industrial Design",
+        "International Business and Trade",
+        "International Finance",
+        "International Relations",
+        "Management Information Systems",
+        "Psychology"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "IESEG School of Management",
+      "country": "Fransa",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Inha University",
+      "country": "Güney Kore",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Business Administration",
+        "Civil Engineering",
+        "Economics",
+        "Electrical and Electronics Engineering",
+        "Entrepreneurship",
+        "Industrial Engineering",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems",
+        "Mechanical Engineering"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "Instituto Superior Manuel Teixeira Gomes",
+      "country": "Portekiz",
+      "city": "Portimao",
+      "erasmusCode": "P PORTIMA02",
+      "departments": [
+        "Architecture",
+        "Communication Design"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "IPSA - Institute of Polytechnic Science and Aeronautics",
+      "country": "Fransa",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Electrical and Electronics Engineering",
+        "Mechanical Engineering"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "ISM University of Management and Economics",
+      "country": "Litvanya",
+      "city": "Vilnius",
+      "erasmusCode": "LT VILNIUS25",
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "ITMO-Saint Petersburg National Research University",
+      "country": "Rusya",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Computer Science"
+      ],
+      "programs": [
+        "erasmus",
+        "bilateral"
+      ]
+    },
+    {
+      "name": "Jagiellonian University",
+      "country": "Polonya",
+      "city": "Krakow",
+      "erasmusCode": "PL KRAKOW01",
+      "departments": [
+        "Law"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Karlsruhe Institute of Technology - KIT",
+      "country": "Almanya",
+      "city": "Karlsruhe",
+      "erasmusCode": "D KARLSRU01",
+      "departments": [
+        "Industrial Engineering"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Kaunas University of Technology",
+      "country": "Litvanya",
+      "city": "Kaunas",
+      "erasmusCode": "LT KAUNAS02",
+      "departments": [
+        "Industrial Engineering",
+        "Mechanical Engineering"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Kazakh-British Technical University",
+      "country": "Kazakistan",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Computer Science"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "KEDGE Business School",
+      "country": "Fransa",
+      "city": "Talence",
+      "erasmusCode": "F BORDEAU57",
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "Entrepreneurship (MA)",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems",
+        "MBA"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "King Mongkut’s University of Technology Thonburi",
+      "country": "Tayland",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Architecture",
+        "Civil Engineering",
+        "Computer Science",
+        "Industrial Design",
+        "Interior Architecture and Environmental Design"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "Lahore University of Management and Science",
+      "country": "Pakistan",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Anthropology",
+        "Business Administration",
+        "Economics",
+        "Electrical and Electronics Engineering",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "International Relations",
+        "Law",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "Lazarski University",
+      "country": "Polonya",
+      "city": "Warszawa",
+      "erasmusCode": "PL WARSZAW14",
+      "departments": [
+        "Aviation Management"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Lingnan University",
+      "country": "Hong Kong",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Artificial Intelligence and Data Engineering",
+        "Business Administration",
+        "Data Science",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems",
+        "Psychology"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "Linnaeus University",
+      "country": "İsveç",
+      "city": "Vaxjo",
+      "erasmusCode": "S VAXJO03",
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Lobachevsky State University of Nizhny Novgorod",
+      "country": "Rusya",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "International Relations",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "Lodz University of Technology",
+      "country": "Polonya",
+      "city": "Lodz",
+      "erasmusCode": "PL LODZ02",
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Maastricht University",
+      "country": "Hollanda",
+      "city": "Maastricht",
+      "erasmusCode": "NL MAASTRI01",
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Mainz Catholic University of Applied Sciences",
+      "country": "Almanya",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "International Relations"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Martin-Luther University Halle-Wittenberg",
+      "country": "Almanya",
+      "city": "Halle",
+      "erasmusCode": "D HALLE01",
+      "departments": [
+        "Law"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Memorial University of Newfoundland",
+      "country": "Kanada",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Business Administration",
+        "Civil Engineering",
+        "Computer Science",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "International Relations",
+        "Law",
+        "Management Information Systems",
+        "Mechanical Engineering",
+        "Psychology"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "Metropolia University of Applied Sciences",
+      "country": "Finlandiya",
+      "city": "Helsinki",
+      "erasmusCode": "SF HELSINK41",
+      "departments": [
+        "Civil Engineering",
+        "Computer Science",
+        "Electrical and Electronics Engineering",
+        "Mechanical Engineering"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "National Central University",
+      "country": "Tayvan",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Business Administration",
+        "Civil Engineering",
+        "Computer Science",
+        "Economics",
+        "Electrical and Electronics Engineering",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems",
+        "Mechanical Engineering"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "National Dong Hwa University",
+      "country": "Tayvan",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Business Administration",
+        "Computer Science",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems",
+        "Psychology"
+      ],
+      "programs": [
+        "bilateral",
+        "other"
+      ]
+    },
+    {
+      "name": "National Taiwan University of Science and Technology",
+      "country": "Tayvan",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Architecture",
+        "Business Administration",
+        "Civil Engineering",
+        "Communication Design",
+        "Computer Science",
+        "Economics",
+        "Electrical and Electronics Engineering",
+        "Entrepreneurship",
+        "Industrial Design",
+        "Industrial Engineering",
+        "Interior Architecture and Environmental Design",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems",
+        "Mechanical Engineering"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "NEOMA Business School",
+      "country": "Fransa",
+      "city": "Mont-Saint-Aignan",
+      "erasmusCode": "F REIMS25",
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Opole University of Technology",
+      "country": "Polonya",
+      "city": "Opole",
+      "erasmusCode": "PL OPOLE02",
+      "departments": [
+        "Architecture",
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "Industrial Engineering",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Oregon State University",
+      "country": "ABD",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Civil Engineering",
+        "Computer Science",
+        "Electrical and Electronics Engineering",
+        "Industrial Engineering",
+        "Mechanical Engineering"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "Osaka Institute of Technology",
+      "country": "Japonya",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Civil Engineering",
+        "Computer Science",
+        "Mechanical Engineering"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "OWL University of Applied Sciences and Arts",
+      "country": "Almanya",
+      "city": "Lemgo",
+      "erasmusCode": "D LEMGO01",
+      "departments": [
+        "Architecture",
+        "Interior Architecture and Environmental Design"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Panteion University",
+      "country": "Yunanistan",
+      "city": "Athina",
+      "erasmusCode": "G KALLITH02",
+      "departments": [
+        "International Relations"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Politecnico di Bari",
+      "country": "İtalya",
+      "city": "Bari",
+      "erasmusCode": "I BARI05",
+      "departments": [
+        "Architecture",
+        "Civil Engineering",
+        "Industrial Design"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Politecnico di Milano",
+      "country": "İtalya",
+      "city": "Milano",
+      "erasmusCode": "I MILANO02",
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Politecnico di Torino",
+      "country": "İtalya",
+      "city": "Torino",
+      "erasmusCode": "I TORINO02",
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Poznan University of Technology",
+      "country": "Polonya",
+      "city": "Poznan",
+      "erasmusCode": "PL POZNAN02",
+      "departments": [
+        "Electrical and Electronics Engineering"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Prague University of Economics and Business",
+      "country": "Çekya",
+      "city": "Praha",
+      "erasmusCode": "CZ PRAHA09",
+      "departments": [
+        "Business Administration",
+        "Computer Science",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "International Relations",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Quilmes National University",
+      "country": "Arjantin",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "International Relations",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "Riga Graduate School of Law",
+      "country": "Letonya",
+      "city": "Riga",
+      "erasmusCode": "LV RIGA34",
+      "departments": [
+        "Law"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Ritsumeikan Asia Pacific University",
+      "country": "Japonya",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "International Relations",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "erasmus",
+        "bilateral"
+      ]
+    },
+    {
+      "name": "Ruhr-Universität Bochum",
+      "country": "Almanya",
+      "city": "Bochum",
+      "erasmusCode": "D BOCHUM01",
+      "departments": [
+        "Law"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Sapienza - University di Roma",
+      "country": "İtalya",
+      "city": "Roma",
+      "erasmusCode": "I ROMA01",
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "School of Law and Public Administration in Przemyśl",
+      "country": "Polonya",
+      "city": "Rzeszow",
+      "erasmusCode": "PL PRZEMYS01",
+      "departments": [
+        "Law"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Sejong University",
+      "country": "Güney Kore",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Business Administration",
+        "Civil Engineering",
+        "Computer Science",
+        "Economics",
+        "Electrical and Electronics Engineering",
+        "Entrepreneurship",
+        "Gastronomy and Culinary Arts",
+        "Hotel Management",
+        "Industrial Engineering",
+        "International Business and Trade",
+        "International Finance",
+        "International Relations",
+        "Management Information Systems",
+        "Mechanical Engineering"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "Seoul National University of Science and Technology",
+      "country": "Güney Kore",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Industrial Engineering"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "Shanghai University of Electric Power (SUEP)",
+      "country": "Çin",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Computer Science",
+        "Electrical and Electronics Engineering",
+        "Mechanical Engineering"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "Silesian University of Technology",
+      "country": "Polonya",
+      "city": "Gliwice",
+      "erasmusCode": "PL GLIWICE01",
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Sirindhorn International Institute of Technology - Thammasat University",
+      "country": "Tayland",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Civil Engineering",
+        "Computer Science"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "South Ural State University",
+      "country": "Rusya",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Business Administration",
+        "Civil Engineering",
+        "Computer Science",
+        "Economics",
+        "Electrical and Electronics Engineering",
+        "Entrepreneurship",
+        "Industrial Engineering",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems",
+        "Mechanical Engineering"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "Technical University of Civil Engineering of Bucharest",
+      "country": "Romanya",
+      "city": "Bucuresti",
+      "erasmusCode": "RO BUCURES08",
+      "departments": [
+        "Civil Engineering"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Tecnologico de Monterrey",
+      "country": "Meksika",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "Industrial Engineering",
+        "International Business and Trade",
+        "International Finance",
+        "International Relations",
+        "Law",
+        "Management Information Systems",
+        "Psychology"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "The American University of Cairo",
+      "country": "Mısır",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Architecture",
+        "Business Administration",
+        "Computer Science",
+        "Economics",
+        "Electrical and Electronics Engineering",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "International Relations",
+        "Management Information Systems",
+        "Mechanical Engineering"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "The Catholic University of Korea",
+      "country": "Güney Kore",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Business Administration",
+        "Computer Science",
+        "Economics",
+        "Electrical and Electronics Engineering",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "International Relations",
+        "Management Information Systems",
+        "Psychology"
+      ],
+      "programs": [
+        "bilateral",
+        "other"
+      ]
+    },
+    {
+      "name": "The University of Information Technology and Management in Rzeszow",
+      "country": "Polonya",
+      "city": "Rzeszow",
+      "erasmusCode": "PL RZESZOW03",
+      "departments": [
+        "Aviation Management"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Thomas More University of Applied Sciences",
+      "country": "Belçika",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Hotel Management",
+        "International Business and Trade"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Tilburg University",
+      "country": "Hollanda",
+      "city": "Tilburg",
+      "erasmusCode": "NL TILBURG01",
+      "departments": [
+        "Anthropology",
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "International Relations",
+        "Management Information Systems",
+        "Psychology"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Tongji University",
+      "country": "Çin",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Communication Design",
+        "Industrial Design",
+        "Interior Architecture and Environmental Design"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "UDIT - University School of Design, Innovation, and Technology",
+      "country": "İspanya",
+      "city": "Madrid",
+      "erasmusCode": "E MADRID205",
+      "departments": [
+        "Interior Architecture and Environmental Design"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Universidad de Monterrey",
+      "country": "Meksika",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Architecture",
+        "Business Administration",
+        "Communication Design",
+        "Economics",
+        "Entrepreneurship",
+        "Industrial Design",
+        "Interior Architecture and Environmental Design",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "Universidad de Sevilla",
+      "country": "İspanya",
+      "city": "Sevilla",
+      "erasmusCode": "E SEVILLA01",
+      "departments": [
+        "Architecture",
+        "Civil Engineering"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Universidad de Zaragoza",
+      "country": "İspanya",
+      "city": "Zaragoza",
+      "erasmusCode": "E ZARAGOZ01",
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Universidad Politecnica De Madrid",
+      "country": "İspanya",
+      "city": "Madrid",
+      "erasmusCode": "E MADRID05",
+      "departments": [
+        "Computer Science",
+        "Electrical and Electronics Engineering",
+        "Mechanical Engineering"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Universidad San Ignacio de Loyola (USIL)",
+      "country": "Peru",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "Gastronomy and Culinary Arts",
+        "Hotel Management",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "Universidade Catolica Portuguesa",
+      "country": "Portekiz",
+      "city": "Lisboa",
+      "erasmusCode": "P LISBOA01",
+      "departments": [
+        "Psychology"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Universidade Fernando Pessoa",
+      "country": "Portekiz",
+      "city": "Porto",
+      "erasmusCode": "P PORTO26",
+      "departments": [
+        "Psychology"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Universidade Nova de Lisboa",
+      "country": "Portekiz",
+      "city": "Lisboa",
+      "erasmusCode": "P LISBOA03",
+      "departments": [
+        "Mechanical Engineering"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Università degli Studi \"G. d'Annunzio\" Chieti – Pescara",
+      "country": "İtalya",
+      "city": "Chieti",
+      "erasmusCode": "I CHIETI01",
+      "departments": [
+        "Architecture",
+        "Civil Engineering",
+        "Communication Design",
+        "Industrial Design",
+        "Interior Architecture and Environmental Design",
+        "Psychology"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Università degli Studi della Campania \"Luigi Vanvitelli\"",
+      "country": "İtalya",
+      "city": "Caserta",
+      "erasmusCode": "I NAPOLI09",
+      "departments": [
+        "Architecture",
+        "Communication Design",
+        "Industrial Design",
+        "Interior Architecture and Environmental Design",
+        "Law"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Università degli Studi di Ferrara",
+      "country": "İtalya",
+      "city": "Ferrara",
+      "erasmusCode": "I FERRARA01",
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Università degli Studi di Napoli Federico II",
+      "country": "İtalya",
+      "city": "Napoli",
+      "erasmusCode": "I NAPOLI01",
+      "departments": [
+        "Architecture",
+        "Artificial Intelligence & Data Engineering",
+        "Computer Science",
+        "Electrical and Electronics Engineering",
+        "International Relations",
+        "Law"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Università degli Studi di Palermo",
+      "country": "İtalya",
+      "city": "Palermo",
+      "erasmusCode": "I PALERMO01",
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Università Roma Tre",
+      "country": "İtalya",
+      "city": "Roma",
+      "erasmusCode": "I ROMA16",
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Université de Bretagne Occidentale",
+      "country": "Fransa",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Law"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Universite Toulouse Paul Sabatier III",
+      "country": "Fransa",
+      "city": "Toulouse",
+      "erasmusCode": "F TOULOUS03",
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Universiti Teknologi Petronas",
+      "country": "Malezya",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Artificial Intelligence and Data Engineering",
+        "Business Administration",
+        "Civil Engineering",
+        "Computer Science",
+        "Economics",
+        "Electrical and Electronics Engineering",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "University Institute of Lisbon (ISCTE)",
+      "country": "Portekiz",
+      "city": "Lisboa",
+      "erasmusCode": "P LISBOA07",
+      "departments": [
+        "Anthropology"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University Mediterranea of Reggio Calabria",
+      "country": "İtalya",
+      "city": "Reggio Calabria",
+      "erasmusCode": "I REGGIO01",
+      "departments": [
+        "Architecture",
+        "Communication Design"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of \"St. Kliment Ohridski\" - Bitola",
+      "country": "Kuzey Makedonya",
+      "city": "Bitola",
+      "erasmusCode": "MK BITOLA01",
+      "departments": [
+        "International Relations"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Alberta",
+      "country": "Kanada",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "University of Bari Aldo Moro",
+      "country": "İtalya",
+      "city": "Bari",
+      "erasmusCode": "I BARI01",
+      "departments": [
+        "Law"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Bialystok",
+      "country": "Polonya",
+      "city": "Bialystok",
+      "erasmusCode": "PL BIALYST04",
+      "departments": [
+        "Law"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Bologna",
+      "country": "İtalya",
+      "city": "Bologna",
+      "erasmusCode": "I BOLOGNA01",
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Bremen",
+      "country": "Almanya",
+      "city": "Bremen",
+      "erasmusCode": "D BREMEN01",
+      "departments": [
+        "Law"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Cagliari",
+      "country": "İtalya",
+      "city": "Cagliari",
+      "erasmusCode": "I CAGLIAR01",
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Cardenal Herrera",
+      "country": "İspanya",
+      "city": "Valencia",
+      "erasmusCode": "E VALENCI08",
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Debrecen",
+      "country": "Macaristan",
+      "city": "Debrecen",
+      "erasmusCode": "HU DEBRECE01",
+      "departments": [
+        "Architecture",
+        "Artificial Intelligence & Data Engineering",
+        "Business Administration",
+        "Civil Engineering",
+        "Computer Science",
+        "Economics",
+        "Electrical and Electronics Engineering",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems",
+        "Mechanical Engineering"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Fribourg",
+      "country": "İsviçre",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Law"
+      ],
+      "programs": [
+        "erasmus",
+        "other"
+      ]
+    },
+    {
+      "name": "University of Girona",
+      "country": "İspanya",
+      "city": "Girona",
+      "erasmusCode": "E GIRONA02",
+      "departments": [
+        "Law"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Gottingen",
+      "country": "Almanya",
+      "city": "Gottingen",
+      "erasmusCode": "D GOTTING01",
+      "departments": [
+        "Law"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Ioannina",
+      "country": "Yunanistan",
+      "city": "Ioannina",
+      "erasmusCode": "G IOANNIN01",
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Kassel",
+      "country": "Almanya",
+      "city": "Kassel",
+      "erasmusCode": "D KASSEL01",
+      "departments": [
+        "Law"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Liege",
+      "country": "Belçika",
+      "city": "Liege",
+      "erasmusCode": "B LIEGE01",
+      "departments": [
+        "Law"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Limerick",
+      "country": "İrlanda",
+      "city": "Limerick",
+      "erasmusCode": "IRLLIMERIC01",
+      "departments": [
+        "Psychology"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Lodz",
+      "country": "Polonya",
+      "city": "Lodz",
+      "erasmusCode": "PL LODZ01",
+      "departments": [
+        "Business Administration",
+        "Computer Science",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Mannheim",
+      "country": "Almanya",
+      "city": "Mannheim",
+      "erasmusCode": "D MANNHEI01",
+      "departments": [
+        "Law"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Maribor",
+      "country": "Slovenya",
+      "city": "Maribor",
+      "erasmusCode": "SI MARIBOR01",
+      "departments": [
+        "Law"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Modena and Reggio Emilia",
+      "country": "İtalya",
+      "city": "Modena",
+      "erasmusCode": "I MODENA01",
+      "departments": [
+        "Economics",
+        "International Finance"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Nis",
+      "country": "Sırbistan",
+      "city": "Nis",
+      "erasmusCode": "RS NIS01",
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of North Carolina at Charlotte",
+      "country": "ABD",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "University of Novi Sad",
+      "country": "Sırbistan",
+      "city": "Novi Sad",
+      "erasmusCode": "RS NOVISAD02",
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Osnabrück",
+      "country": "Almanya",
+      "city": "Osnabrueck",
+      "erasmusCode": "D OSNABRU01",
+      "departments": [
+        "Psychology"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Pannonia",
+      "country": "Macaristan",
+      "city": "Veszprem",
+      "erasmusCode": "HU VESZPRE01",
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Pavia",
+      "country": "İtalya",
+      "city": "Pavia",
+      "erasmusCode": "I PAVIA01",
+      "departments": [
+        "Psychology"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Pecs",
+      "country": "Macaristan",
+      "city": "Pecs",
+      "erasmusCode": "HU PECS01",
+      "departments": [
+        "Architecture",
+        "Civil Engineering",
+        "Computer Science",
+        "Interior Architecture and Environmental Design"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Porto",
+      "country": "Portekiz",
+      "city": "Porto",
+      "erasmusCode": "P PORTO02",
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Prishtine",
+      "country": "Kosova",
+      "city": "Pristina",
+      "erasmusCode": "XK PRISTIN05",
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Salerno",
+      "country": "İtalya",
+      "city": "Fisciano",
+      "erasmusCode": "I SALERNO01",
+      "departments": [
+        "Law"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Split",
+      "country": "Hırvatistan",
+      "city": "Split",
+      "erasmusCode": "HR SPLIT01",
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Szczecin",
+      "country": "Polonya",
+      "city": "Szczecin",
+      "erasmusCode": "PL SZCZECI01",
+      "departments": [
+        "International Relations"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Texas at Dallas",
+      "country": "ABD",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Anthropology",
+        "Business Administration",
+        "Communication Design",
+        "Computer Science",
+        "Economics",
+        "Electrical and Electronics Engineering",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "International Relations",
+        "Management Information Systems",
+        "Mechanical Engineering",
+        "Psychology"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "University of Thessaly",
+      "country": "Yunanistan",
+      "city": "Volos",
+      "erasmusCode": "G VOLOS01",
+      "departments": [
+        "Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Trento",
+      "country": "İtalya",
+      "city": "Trento",
+      "erasmusCode": "I TRENTO01",
+      "departments": [
+        "Psychology"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Valencia",
+      "country": "İspanya",
+      "city": "Valencia",
+      "erasmusCode": "E VALENCI01",
+      "departments": [
+        "International Relations"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of West Attica",
+      "country": "Yunanistan",
+      "city": "Athina",
+      "erasmusCode": "G EGALEO02",
+      "departments": [
+        "Interior Architecture"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Western Macedonia",
+      "country": "Yunanistan",
+      "city": "Kozani",
+      "erasmusCode": "G KOZANI02",
+      "departments": [
+        "Electrical and Electronics Engineering",
+        "Mechanical Engineering"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "University of Zilina",
+      "country": "Slovakya",
+      "city": "Zilina",
+      "erasmusCode": "SK ZILINA01",
+      "departments": [
+        "Aviation Management"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Vilnius College of Design",
+      "country": "Litvanya",
+      "city": "Vilnius",
+      "erasmusCode": "LT VILNIUS23",
+      "departments": [
+        "Communication Design",
+        "Interior Architecture and Environmental Design"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "VSB - Technical University of Ostrava",
+      "country": "Çekya",
+      "city": "Ostrava",
+      "erasmusCode": "CZ OSTRAVA01",
+      "departments": [
+        "Architecture",
+        "Civil Engineering"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Vytautas Magnus University",
+      "country": "Litvanya",
+      "city": "Kaunas",
+      "erasmusCode": "LT KAUNAS01",
+      "departments": [
+        "Anthropology",
+        "International Relations",
+        "Psychology"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "West University of Timişoara",
+      "country": "Romanya",
+      "city": "Timisoara",
+      "erasmusCode": "RO TIMISOA01",
+      "departments": [
+        "Artificial Intelligence & Data Engineering",
+        "Business Administration",
+        "Computer Science",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Woosong University",
+      "country": "Güney Kore",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "Gastronomy and Culinary Arts",
+        "Hotel Management",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "Xiamen University",
+      "country": "Çin",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "bilateral"
+      ]
+    },
+    {
+      "name": "Yokohama National University",
+      "country": "Japonya",
+      "city": null,
+      "erasmusCode": null,
+      "departments": [
+        "Business Administration",
+        "Civil Engineering",
+        "Computer Science",
+        "Economics",
+        "Electrical and Electronics Engineering",
+        "Entrepreneurship",
+        "Industrial Engineering",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems",
+        "Mechanical Engineering"
+      ],
+      "programs": [
+        "erasmus",
+        "bilateral"
+      ]
+    },
+    {
+      "name": "Zagreb School of Economics and Management",
+      "country": "Hırvatistan",
+      "city": "Zagreb",
+      "erasmusCode": "HR ZAGREB06",
+      "departments": [
+        "Business Administration",
+        "Economics",
+        "Entrepreneurship",
+        "International Business and Trade",
+        "International Finance",
+        "Management Information Systems"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    },
+    {
+      "name": "Zuyd University of Applied Sciences",
+      "country": "Hollanda",
+      "city": "Heerlen",
+      "erasmusCode": "NL HEERLEN14",
+      "departments": [
+        "Gastronomy and Culinary Arts",
+        "Hotel Management"
+      ],
+      "programs": [
+        "erasmus"
+      ]
+    }
+  ]
+}

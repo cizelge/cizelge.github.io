@@ -15,6 +15,7 @@ import {
 } from "@/lib/erasmus/prefill";
 import type { AgreementDraft, ErasmusData } from "@/lib/erasmus/types";
 import { loadState } from "@/lib/roadmap/storage";
+import type { UniversityItem } from "@/lib/erasmus/universities";
 import type { Program } from "@/lib/types";
 import { Agreement } from "./Agreement";
 import { Grant } from "./Grant";
@@ -25,11 +26,13 @@ interface Props {
   data: ErasmusData;
   /** Hafifletilmiş müfredatlar (src/lib/erasmus/prefill.ts slimPrograms). */
   programs: Program[];
+  /** Özyeğin'in anlaşmalı olduğu okullar (karşı üniversite seçimi). */
+  partners: UniversityItem[];
 }
 
 type Prefillable = "gpa" | "ects";
 
-export function Erasmus({ data, programs }: Props) {
+export function Erasmus({ data, programs, partners }: Props) {
   // Kullanıcının kendi girdiği bilgiler kaydedilir; yol haritasından gelenler ayrı tutulur, kaydedilmez.
   const [own, setOwn] = useState<ErasmusProfile>(EMPTY_ERASMUS_PROFILE);
   const [prefill, setPrefill] = useState<ErasmusPrefill>(EMPTY_PREFILL);
@@ -121,6 +124,7 @@ export function Erasmus({ data, programs }: Props) {
           hasRoadmap={!ready || prefill.hasRoadmap}
           programName={prefill.programName}
           codeCredits={codeCredits}
+          partners={partners}
         />
 
         <section className="gc-sources er-screen" aria-label="Kaynaklar">
