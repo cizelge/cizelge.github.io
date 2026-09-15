@@ -1,0 +1,892 @@
+{
+  "schoolId": "ozyegin",
+  "academicYear": "2026-2027",
+  "fetchedAt": "2026-09-15",
+  "sources": [
+    {
+      "label": "2026-2027 akademik takvim (PDF, Lisans sütunu)",
+      "url": "https://www.ozyegin.edu.tr/sites/default/files/upload/OgrenciHizmetleri/2026.09.08_2026-2027_akademik_takvim_tr.pdf"
+    },
+    {
+      "label": "Akademik takvim sayfası",
+      "url": "https://www.ozyegin.edu.tr/tr/akademik-takvim"
+    },
+    {
+      "label": "Yandal öğrenimi başvuru takvimi",
+      "url": "https://www.ozyegin.edu.tr/tr/ogrenci-hizmetleri/basvuru-kabul/yandal-ogrenimi"
+    }
+  ],
+  "events": [
+    {
+      "id": "2026-07-01-yurt-disindan-kabul-edilen-ogrencilerin-kayitlari",
+      "title": "Yurt dışından kabul edilen öğrencilerin kayıtları",
+      "start": "2026-07-01",
+      "end": "2026-11-30",
+      "category": "kayit",
+      "term": null,
+      "source": 0
+    },
+    {
+      "id": "2026-07-09-kurumlararasi-basariya-gore-yatay-gecis-basvurulari",
+      "title": "Kurumlararası başarıya göre yatay geçiş başvuruları",
+      "start": "2026-07-09",
+      "end": "2026-07-20",
+      "category": "basvuru",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2026-08-03-kurumlararasi-basariya-gore-yatay-gecis-sonuclari",
+      "title": "Kurumlararası başarıya göre yatay geçiş sonuçları",
+      "start": "2026-08-03",
+      "end": null,
+      "category": "basvuru",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2026-08-03-yatay-gecis-cift-anadal-ve-yandal-basvurulari",
+      "title": "Yatay geçiş, çift anadal ve yandal başvuruları",
+      "start": "2026-08-03",
+      "end": "2026-08-14",
+      "time": "10:00",
+      "category": "basvuru",
+      "term": "guz",
+      "note": "Merkezi yerleştirme puanıyla yatay geçiş, kurum içi yatay geçiş, çift anadal ve yandal. Başvuru formu SIS'te ilk gün 10.00'da açılır, son gün 15.00'te kapanır. Tarihler akademik takvimle aynı.",
+      "source": 2
+    },
+    {
+      "id": "2026-08-10-kurumlararasi-yatay-geciste-kabul-edilenlerin-kayitlari",
+      "title": "Kurumlararası yatay geçişte kabul edilenlerin kayıtları",
+      "start": "2026-08-10",
+      "end": "2026-08-11",
+      "category": "kayit",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2026-08-18-yandal-basvurusu-icin-trace-ingilizce-sinavi",
+      "title": "Yandal başvurusu için TRACE İngilizce sınavı",
+      "start": "2026-08-18",
+      "end": null,
+      "category": "sinav",
+      "term": "guz",
+      "note": "Yüz yüze. Türkçe programda okuyup öğrenim dili İngilizce olan bir programda yandal yapmak isteyenler için. Yandal sayfasında yazıyor, akademik takvimde yok.",
+      "source": 2
+    },
+    {
+      "id": "2026-08-24-kampus-tatili",
+      "title": "Kampüs tatili",
+      "start": "2026-08-24",
+      "end": "2026-08-28",
+      "category": "tatil",
+      "term": null,
+      "source": 0
+    },
+    {
+      "id": "2026-08-24-universiteye-yeni-kayitlar",
+      "title": "Üniversiteye yeni kayıtlar",
+      "start": "2026-08-24",
+      "end": "2026-08-28",
+      "category": "kayit",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2026-08-30-zafer-bayrami",
+      "title": "Zafer Bayramı",
+      "start": "2026-08-30",
+      "end": null,
+      "category": "tatil",
+      "term": null,
+      "source": 0
+    },
+    {
+      "id": "2026-09-02-yatay-gecis-cift-anadal-ve-yandal-sonuclari",
+      "title": "Yatay geçiş, çift anadal ve yandal sonuçları",
+      "start": "2026-09-02",
+      "end": null,
+      "time": "19:00",
+      "category": "basvuru",
+      "term": "guz",
+      "note": "Sonuçlar web sayfasında ilan edilir. Tarih akademik takvimle aynı.",
+      "source": 2
+    },
+    {
+      "id": "2026-09-03-yatay-gecis-cift-anadal-ve-yandalda-kabul-edilenlerin-kayitl",
+      "title": "Yatay geçiş, çift anadal ve yandalda kabul edilenlerin kayıtları",
+      "start": "2026-09-03",
+      "end": "2026-09-04",
+      "category": "kayit",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2026-09-07-placement-ingilizce-sinavi",
+      "title": "Placement İngilizce sınavı",
+      "start": "2026-09-07",
+      "end": null,
+      "category": "sinav",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2026-09-07-placement-sinav-sonuclari",
+      "title": "Placement sınav sonuçları",
+      "start": "2026-09-07",
+      "end": null,
+      "time": "19:00",
+      "category": "not",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2026-09-08-trace-ingilizce-sinavi",
+      "title": "TRACE İngilizce sınavı",
+      "start": "2026-09-08",
+      "end": null,
+      "category": "sinav",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2026-09-10-trace-sinav-sonuclari",
+      "title": "TRACE sınav sonuçları",
+      "start": "2026-09-10",
+      "end": null,
+      "time": "16:00",
+      "category": "not",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2026-09-11-birinci-yariyil-ogrencilerinin-ders-onyuklemeleri",
+      "title": "Birinci yarıyıl öğrencilerinin ders önyüklemeleri",
+      "start": "2026-09-11",
+      "end": "2026-09-12",
+      "category": "kayit",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2026-09-14-guz-ders-kayitlari",
+      "title": "Güz ders kayıtları",
+      "start": "2026-09-14",
+      "end": "2026-09-16",
+      "category": "kayit",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2026-09-17-yeni-ogrenciler-icin-oryantasyon",
+      "title": "Yeni öğrenciler için oryantasyon",
+      "start": "2026-09-17",
+      "end": "2026-09-18",
+      "category": "diger",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2026-09-21-guz-dersleri-basliyor",
+      "title": "Güz dersleri başlıyor",
+      "start": "2026-09-21",
+      "end": null,
+      "category": "ders",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2026-09-23-guz-ders-ekleme-birakma",
+      "title": "Güz ders ekleme-bırakma",
+      "start": "2026-09-23",
+      "end": "2026-09-29",
+      "category": "kayit",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2026-10-28-cumhuriyet-bayrami",
+      "title": "Cumhuriyet Bayramı",
+      "start": "2026-10-28",
+      "end": "2026-10-29",
+      "category": "tatil",
+      "term": "guz",
+      "note": "Ders yok. Telafileri 7 ve 21 Kasım'da.",
+      "source": 0
+    },
+    {
+      "id": "2026-10-30-kampus-tatili",
+      "title": "Kampüs tatili",
+      "start": "2026-10-30",
+      "end": null,
+      "category": "tatil",
+      "term": "guz",
+      "note": "Ders yok. Telafisi 5 Aralık'ta.",
+      "source": 0
+    },
+    {
+      "id": "2026-11-07-telafi-gunu-carsamba-dersleri",
+      "title": "Telafi günü: Çarşamba dersleri",
+      "start": "2026-11-07",
+      "end": null,
+      "category": "ders",
+      "term": "guz",
+      "note": "28 Ekim Çarşamba günü olan dersler yapılır.",
+      "source": 0
+    },
+    {
+      "id": "2026-11-21-telafi-gunu-persembe-dersleri",
+      "title": "Telafi günü: Perşembe dersleri",
+      "start": "2026-11-21",
+      "end": null,
+      "category": "ders",
+      "term": "guz",
+      "note": "29 Ekim Perşembe günü olan dersler yapılır.",
+      "source": 0
+    },
+    {
+      "id": "2026-11-23-guz-dersten-cekilme",
+      "title": "Güz dersten çekilme",
+      "start": "2026-11-23",
+      "end": "2026-11-27",
+      "category": "kayit",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2026-12-05-telafi-gunu-cuma-dersleri",
+      "title": "Telafi günü: Cuma dersleri",
+      "start": "2026-12-05",
+      "end": null,
+      "category": "ders",
+      "term": "guz",
+      "note": "30 Ekim Cuma günü olan dersler yapılır.",
+      "source": 0
+    },
+    {
+      "id": "2026-12-25-guz-dersleri-bitiyor",
+      "title": "Güz dersleri bitiyor",
+      "start": "2026-12-25",
+      "end": null,
+      "category": "ders",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2026-12-26-guz-donem-sonu-sinavlari",
+      "title": "Güz dönem sonu sınavları",
+      "start": "2026-12-26",
+      "end": "2027-01-06",
+      "category": "sinav",
+      "term": "guz",
+      "note": "31 Aralık 2026'da sınav yok.",
+      "source": 0
+    },
+    {
+      "id": "2027-01-01-yilbasi-tatili",
+      "title": "Yılbaşı tatili",
+      "start": "2027-01-01",
+      "end": null,
+      "category": "tatil",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2027-01-04-guz-notlari-3-ocak-tan-onceki-sinavlar",
+      "title": "Güz notları: 3 Ocak'tan önceki sınavlar",
+      "start": "2027-01-04",
+      "end": null,
+      "time": "18:00",
+      "category": "not",
+      "term": "guz",
+      "note": "3 Ocak hariç. Not girişi son saat 15.00, notlar 18.00'de ilan edilir.",
+      "source": 0
+    },
+    {
+      "id": "2027-01-06-kurum-ici-yatay-gecis-cift-anadal-ve-yandal-basvurulari",
+      "title": "Kurum içi yatay geçiş, çift anadal ve yandal başvuruları",
+      "start": "2027-01-06",
+      "end": "2027-01-12",
+      "category": "basvuru",
+      "term": "bahar",
+      "source": 0
+    },
+    {
+      "id": "2027-01-07-guz-donem-sonu-mazeret-sinavlari",
+      "title": "Güz dönem sonu mazeret sınavları",
+      "start": "2027-01-07",
+      "end": "2027-01-09",
+      "category": "sinav",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2027-01-08-guz-notlari-3-6-ocak-sinavlari",
+      "title": "Güz notları: 3–6 Ocak sınavları",
+      "start": "2027-01-08",
+      "end": null,
+      "time": "18:00",
+      "category": "not",
+      "term": "guz",
+      "note": "Not girişi son saat 15.00, notlar 18.00'de ilan edilir.",
+      "source": 0
+    },
+    {
+      "id": "2027-01-11-trace-ingilizce-sinavi",
+      "title": "TRACE İngilizce sınavı",
+      "start": "2027-01-11",
+      "end": null,
+      "category": "sinav",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2027-01-11-azami-sure-sonu-ek-sinav-1-ve-tek-ders-sinavi-basvurulari",
+      "title": "Azami süre sonu ek sınav 1 ve tek ders sınavı başvuruları",
+      "start": "2027-01-11",
+      "end": "2027-01-13",
+      "category": "basvuru",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2027-01-12-guz-eksik-notlar",
+      "title": "Güz eksik notlar",
+      "start": "2027-01-12",
+      "end": null,
+      "time": "18:00",
+      "category": "not",
+      "term": "guz",
+      "note": "Eksik not girişleri için son gün. Not girişi son saat 15.00, notlar 18.00'de ilan edilir. Mazeret sınavı notları için ayrı bir gün yazmıyor.",
+      "source": 0
+    },
+    {
+      "id": "2027-01-13-trace-sinav-sonuclari",
+      "title": "TRACE sınav sonuçları",
+      "start": "2027-01-13",
+      "end": null,
+      "time": "16:00",
+      "category": "not",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2027-01-14-kurum-ici-yatay-gecis-cift-anadal-ve-yandal-sonuclari",
+      "title": "Kurum içi yatay geçiş, çift anadal ve yandal sonuçları",
+      "start": "2027-01-14",
+      "end": null,
+      "category": "basvuru",
+      "term": "bahar",
+      "source": 0
+    },
+    {
+      "id": "2027-01-14-birinci-yariyil-ogrencilerinin-ders-onyuklemeleri",
+      "title": "Birinci yarıyıl öğrencilerinin ders önyüklemeleri",
+      "start": "2027-01-14",
+      "end": "2027-01-15",
+      "category": "kayit",
+      "term": "bahar",
+      "note": "Takvimde \"1.semester öğrencilerinin\" diye geçiyor.",
+      "source": 0
+    },
+    {
+      "id": "2027-01-15-kurum-ici-yatay-gecis-cift-anadal-ve-yandalda-kabul-edilenle",
+      "title": "Kurum içi yatay geçiş, çift anadal ve yandalda kabul edilenlerin kayıtları",
+      "start": "2027-01-15",
+      "end": null,
+      "category": "kayit",
+      "term": "bahar",
+      "source": 0
+    },
+    {
+      "id": "2027-01-18-azami-sure-sonu-ek-sinav-1-ve-tek-ders-sinavlari",
+      "title": "Azami süre sonu ek sınav 1 ve tek ders sınavları",
+      "start": "2027-01-18",
+      "end": "2027-01-19",
+      "category": "sinav",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2027-01-18-bahar-ders-kayitlari",
+      "title": "Bahar ders kayıtları",
+      "start": "2027-01-18",
+      "end": "2027-01-19",
+      "category": "kayit",
+      "term": "bahar",
+      "source": 0
+    },
+    {
+      "id": "2027-01-20-bahar-dersleri-basliyor",
+      "title": "Bahar dersleri başlıyor",
+      "start": "2027-01-20",
+      "end": null,
+      "category": "ders",
+      "term": "bahar",
+      "source": 0
+    },
+    {
+      "id": "2027-01-20-ek-sinav-1-ve-tek-ders-sinavi-notlari",
+      "title": "Ek sınav 1 ve tek ders sınavı notları",
+      "start": "2027-01-20",
+      "end": null,
+      "category": "not",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2027-01-21-azami-sure-sonu-ek-sinav-2-basvurulari",
+      "title": "Azami süre sonu ek sınav 2 başvuruları",
+      "start": "2027-01-21",
+      "end": null,
+      "category": "basvuru",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2027-01-22-bahar-ders-ekleme-birakma",
+      "title": "Bahar ders ekleme-bırakma",
+      "start": "2027-01-22",
+      "end": "2027-01-28",
+      "category": "kayit",
+      "term": "bahar",
+      "source": 0
+    },
+    {
+      "id": "2027-01-25-azami-sure-sonu-ek-sinav-2",
+      "title": "Azami süre sonu ek sınav 2",
+      "start": "2027-01-25",
+      "end": "2027-01-26",
+      "category": "sinav",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2027-01-27-ek-sinav-2-notlari",
+      "title": "Ek sınav 2 notları",
+      "start": "2027-01-27",
+      "end": null,
+      "category": "not",
+      "term": "guz",
+      "source": 0
+    },
+    {
+      "id": "2027-03-08-ramazan-bayrami",
+      "title": "Ramazan Bayramı",
+      "start": "2027-03-08",
+      "end": "2027-03-11",
+      "category": "tatil",
+      "term": "bahar",
+      "note": "Ders yok. Takvim bu hafta için yalnızca Pazartesi (20 Mart) ve Salı (3 Nisan) telafisi veriyor.",
+      "source": 0
+    },
+    {
+      "id": "2027-03-12-kampus-tatili",
+      "title": "Kampüs tatili",
+      "start": "2027-03-12",
+      "end": null,
+      "category": "tatil",
+      "term": "bahar",
+      "note": "Ders yok.",
+      "source": 0
+    },
+    {
+      "id": "2027-03-20-telafi-gunu-pazartesi-dersleri",
+      "title": "Telafi günü: Pazartesi dersleri",
+      "start": "2027-03-20",
+      "end": null,
+      "category": "ders",
+      "term": "bahar",
+      "note": "Takvimde yalnızca \"Pazartesi günü olan dersler için\" yazıyor; 8 Mart'ın telafisi olduğu düşünülüyor.",
+      "source": 0
+    },
+    {
+      "id": "2027-03-29-bahar-dersten-cekilme",
+      "title": "Bahar dersten çekilme",
+      "start": "2027-03-29",
+      "end": "2027-04-02",
+      "category": "kayit",
+      "term": "bahar",
+      "source": 0
+    },
+    {
+      "id": "2027-04-03-telafi-gunu-sali-dersleri",
+      "title": "Telafi günü: Salı dersleri",
+      "start": "2027-04-03",
+      "end": null,
+      "category": "ders",
+      "term": "bahar",
+      "note": "Takvimde yalnızca \"Salı günü olan dersler için\" yazıyor; 9 Mart'ın telafisi olduğu düşünülüyor.",
+      "source": 0
+    },
+    {
+      "id": "2027-04-17-telafi-gunu-cuma-dersleri",
+      "title": "Telafi günü: Cuma dersleri",
+      "start": "2027-04-17",
+      "end": null,
+      "category": "ders",
+      "term": "bahar",
+      "note": "23 Nisan Cuma günü olan dersler yapılır.",
+      "source": 0
+    },
+    {
+      "id": "2027-04-23-ulusal-egemenlik-ve-cocuk-bayrami",
+      "title": "Ulusal Egemenlik ve Çocuk Bayramı",
+      "start": "2027-04-23",
+      "end": null,
+      "category": "tatil",
+      "term": "bahar",
+      "source": 0
+    },
+    {
+      "id": "2027-04-30-bahar-dersleri-bitiyor",
+      "title": "Bahar dersleri bitiyor",
+      "start": "2027-04-30",
+      "end": null,
+      "category": "ders",
+      "term": "bahar",
+      "source": 0
+    },
+    {
+      "id": "2027-05-01-emek-ve-dayanisma-gunu",
+      "title": "Emek ve Dayanışma Günü",
+      "start": "2027-05-01",
+      "end": null,
+      "category": "tatil",
+      "term": "bahar",
+      "source": 0
+    },
+    {
+      "id": "2027-05-02-bahar-donem-sonu-sinavlari",
+      "title": "Bahar dönem sonu sınavları",
+      "start": "2027-05-02",
+      "end": "2027-05-11",
+      "category": "sinav",
+      "term": "bahar",
+      "source": 0
+    },
+    {
+      "id": "2027-05-08-bahar-notlari-7-mayis-tan-onceki-sinavlar",
+      "title": "Bahar notları: 7 Mayıs'tan önceki sınavlar",
+      "start": "2027-05-08",
+      "end": null,
+      "time": "18:00",
+      "category": "not",
+      "term": "bahar",
+      "note": "7 Mayıs hariç. Not girişi son saat 15.00, notlar 18.00'de ilan edilir.",
+      "source": 0
+    },
+    {
+      "id": "2027-05-12-bahar-donem-sonu-mazeret-sinavlari",
+      "title": "Bahar dönem sonu mazeret sınavları",
+      "start": "2027-05-12",
+      "end": "2027-05-14",
+      "category": "sinav",
+      "term": "bahar",
+      "source": 0
+    },
+    {
+      "id": "2027-05-13-bahar-notlari-7-11-mayis-sinavlari",
+      "title": "Bahar notları: 7–11 Mayıs sınavları",
+      "start": "2027-05-13",
+      "end": null,
+      "time": "18:00",
+      "category": "not",
+      "term": "bahar",
+      "note": "Not girişi son saat 15.00, notlar 18.00'de ilan edilir.",
+      "source": 0
+    },
+    {
+      "id": "2027-05-15-kurban-bayrami",
+      "title": "Kurban Bayramı",
+      "start": "2027-05-15",
+      "end": "2027-05-19",
+      "category": "tatil",
+      "term": "bahar",
+      "source": 0
+    },
+    {
+      "id": "2027-05-19-ataturk-u-anma-genclik-ve-spor-bayrami",
+      "title": "Atatürk'ü Anma, Gençlik ve Spor Bayramı",
+      "start": "2027-05-19",
+      "end": null,
+      "category": "tatil",
+      "term": "bahar",
+      "source": 0
+    },
+    {
+      "id": "2027-05-20-bahar-eksik-notlar",
+      "title": "Bahar eksik notlar",
+      "start": "2027-05-20",
+      "end": null,
+      "time": "18:00",
+      "category": "not",
+      "term": "bahar",
+      "note": "Eksik not girişleri için son gün. Not girişi son saat 15.00, notlar 18.00'de ilan edilir.",
+      "source": 0
+    },
+    {
+      "id": "2027-05-24-tek-ders-sinavi-basvurulari",
+      "title": "Tek ders sınavı başvuruları",
+      "start": "2027-05-24",
+      "end": null,
+      "category": "basvuru",
+      "term": "bahar",
+      "source": 0
+    },
+    {
+      "id": "2027-05-27-tek-ders-sinavlari",
+      "title": "Tek ders sınavları",
+      "start": "2027-05-27",
+      "end": null,
+      "category": "sinav",
+      "term": "bahar",
+      "source": 0
+    },
+    {
+      "id": "2027-05-27-trace-ingilizce-sinavi",
+      "title": "TRACE İngilizce sınavı",
+      "start": "2027-05-27",
+      "end": null,
+      "category": "sinav",
+      "term": "bahar",
+      "source": 0
+    },
+    {
+      "id": "2027-05-28-tek-ders-sinavi-notlari",
+      "title": "Tek ders sınavı notları",
+      "start": "2027-05-28",
+      "end": null,
+      "category": "not",
+      "term": "bahar",
+      "source": 0
+    },
+    {
+      "id": "2027-05-29-diploma-toreni",
+      "title": "Diploma töreni",
+      "start": "2027-05-29",
+      "end": null,
+      "category": "diger",
+      "term": "bahar",
+      "source": 0
+    },
+    {
+      "id": "2027-05-31-trace-sinav-sonuclari",
+      "title": "TRACE sınav sonuçları",
+      "start": "2027-05-31",
+      "end": null,
+      "time": "16:00",
+      "category": "not",
+      "term": "bahar",
+      "source": 0
+    },
+    {
+      "id": "2027-06-24-yaz-okulu-ders-kayitlari",
+      "title": "Yaz okulu ders kayıtları",
+      "start": "2027-06-24",
+      "end": "2027-06-25",
+      "category": "kayit",
+      "term": "yaz",
+      "source": 0
+    },
+    {
+      "id": "2027-06-28-kampus-tatili",
+      "title": "Kampüs tatili",
+      "start": "2027-06-28",
+      "end": "2027-07-02",
+      "category": "tatil",
+      "term": "yaz",
+      "source": 0
+    },
+    {
+      "id": "2027-07-05-yaz-dersleri-basliyor",
+      "title": "Yaz dersleri başlıyor",
+      "start": "2027-07-05",
+      "end": null,
+      "category": "ders",
+      "term": "yaz",
+      "source": 0
+    },
+    {
+      "id": "2027-07-05-2027-2028-icin-yatay-gecis-cift-anadal-ve-yandal-basvurulari",
+      "title": "2027-2028 için yatay geçiş, çift anadal ve yandal başvuruları",
+      "start": "2027-07-05",
+      "end": "2027-07-14",
+      "category": "basvuru",
+      "term": null,
+      "note": "Kurumlararası ve kurum içi başarıya göre yatay geçiş, çift anadal ve yandal.",
+      "source": 0
+    },
+    {
+      "id": "2027-07-07-yaz-ders-ekleme-birakma",
+      "title": "Yaz ders ekleme-bırakma",
+      "start": "2027-07-07",
+      "end": "2027-07-09",
+      "category": "kayit",
+      "term": "yaz",
+      "source": 0
+    },
+    {
+      "id": "2027-07-15-demokrasi-ve-milli-birlik-gunu",
+      "title": "Demokrasi ve Millî Birlik Günü",
+      "start": "2027-07-15",
+      "end": null,
+      "category": "tatil",
+      "term": "yaz",
+      "note": "Ders yok. Telafisi 17 Temmuz'da.",
+      "source": 0
+    },
+    {
+      "id": "2027-07-17-telafi-gunu-persembe-dersleri",
+      "title": "Telafi günü: Perşembe dersleri",
+      "start": "2027-07-17",
+      "end": null,
+      "category": "ders",
+      "term": "yaz",
+      "note": "15 Temmuz Perşembe günü olan dersler yapılır.",
+      "source": 0
+    },
+    {
+      "id": "2027-08-02-yaz-dersten-cekilme",
+      "title": "Yaz dersten çekilme",
+      "start": "2027-08-02",
+      "end": "2027-08-06",
+      "category": "kayit",
+      "term": "yaz",
+      "source": 0
+    },
+    {
+      "id": "2027-08-02-2027-2028-icin-merkezi-yerlestirme-puaniyla-yatay-gecis-basv",
+      "title": "2027-2028 için merkezi yerleştirme puanıyla yatay geçiş başvuruları",
+      "start": "2027-08-02",
+      "end": "2027-08-13",
+      "category": "basvuru",
+      "term": null,
+      "note": "Kurum içi ve kurum dışı.",
+      "source": 0
+    },
+    {
+      "id": "2027-08-20-yaz-dersleri-bitiyor",
+      "title": "Yaz dersleri bitiyor",
+      "start": "2027-08-20",
+      "end": null,
+      "category": "ders",
+      "term": "yaz",
+      "source": 0
+    },
+    {
+      "id": "2027-08-21-yaz-donem-sonu-sinavlari",
+      "title": "Yaz dönem sonu sınavları",
+      "start": "2027-08-21",
+      "end": "2027-08-25",
+      "category": "sinav",
+      "term": "yaz",
+      "source": 0
+    },
+    {
+      "id": "2027-08-25-yaz-notlari-24-agustos-tan-onceki-sinavlar",
+      "title": "Yaz notları: 24 Ağustos'tan önceki sınavlar",
+      "start": "2027-08-25",
+      "end": null,
+      "time": "18:00",
+      "category": "not",
+      "term": "yaz",
+      "note": "24 Ağustos hariç. Not girişi son saat 15.00, notlar 18.00'de ilan edilir.",
+      "source": 0
+    },
+    {
+      "id": "2027-08-26-yaz-notlari-24-25-agustos-sinavlari",
+      "title": "Yaz notları: 24–25 Ağustos sınavları",
+      "start": "2027-08-26",
+      "end": null,
+      "time": "18:00",
+      "category": "not",
+      "term": "yaz",
+      "note": "Not girişi son saat 15.00, notlar 18.00'de ilan edilir.",
+      "source": 0
+    },
+    {
+      "id": "2027-08-26-yaz-donem-sonu-mazeret-sinavlari",
+      "title": "Yaz dönem sonu mazeret sınavları",
+      "start": "2027-08-26",
+      "end": "2027-08-27",
+      "category": "sinav",
+      "term": "yaz",
+      "source": 0
+    },
+    {
+      "id": "2027-08-30-zafer-bayrami",
+      "title": "Zafer Bayramı",
+      "start": "2027-08-30",
+      "end": null,
+      "category": "tatil",
+      "term": "yaz",
+      "source": 0
+    },
+    {
+      "id": "2027-08-31-yaz-eksik-notlar",
+      "title": "Yaz eksik notlar",
+      "start": "2027-08-31",
+      "end": null,
+      "time": "18:00",
+      "category": "not",
+      "term": "yaz",
+      "note": "Eksik not girişleri için son gün. Not girişi son saat 15.00, notlar 18.00'de ilan edilir.",
+      "source": 0
+    },
+    {
+      "id": "2027-09-01-azami-sure-sonu-ek-sinav-1-ve-tek-ders-sinavi-basvurulari",
+      "title": "Azami süre sonu ek sınav 1 ve tek ders sınavı başvuruları",
+      "start": "2027-09-01",
+      "end": null,
+      "category": "basvuru",
+      "term": "yaz",
+      "source": 0
+    },
+    {
+      "id": "2027-09-06-azami-sure-sonu-ek-sinav-1-ve-tek-ders-sinavlari",
+      "title": "Azami süre sonu ek sınav 1 ve tek ders sınavları",
+      "start": "2027-09-06",
+      "end": "2027-09-07",
+      "category": "sinav",
+      "term": "yaz",
+      "source": 0
+    },
+    {
+      "id": "2027-09-08-ek-sinav-1-ve-tek-ders-sinavi-notlari",
+      "title": "Ek sınav 1 ve tek ders sınavı notları",
+      "start": "2027-09-08",
+      "end": null,
+      "category": "not",
+      "term": "yaz",
+      "source": 0
+    },
+    {
+      "id": "2027-09-09-azami-sure-sonu-ek-sinav-2-basvurulari",
+      "title": "Azami süre sonu ek sınav 2 başvuruları",
+      "start": "2027-09-09",
+      "end": null,
+      "category": "basvuru",
+      "term": "yaz",
+      "source": 0
+    },
+    {
+      "id": "2027-09-13-azami-sure-sonu-ek-sinav-2",
+      "title": "Azami süre sonu ek sınav 2",
+      "start": "2027-09-13",
+      "end": "2027-09-14",
+      "category": "sinav",
+      "term": "yaz",
+      "source": 0
+    },
+    {
+      "id": "2027-09-15-ek-sinav-2-notlari",
+      "title": "Ek sınav 2 notları",
+      "start": "2027-09-15",
+      "end": null,
+      "category": "not",
+      "term": "yaz",
+      "source": 0
+    }
+  ]
+}

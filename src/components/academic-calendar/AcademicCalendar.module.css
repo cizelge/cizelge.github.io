@@ -1,0 +1,233 @@
+.root {
+  max-width: 48rem;
+  color: var(--ink);
+}
+
+.head { margin-bottom: 1.5rem; }
+.lede {
+  margin: 0.4rem 0 0;
+  color: var(--ink-2);
+  max-width: 36rem;
+}
+
+/* ---------- Yaklaşan ---------- */
+
+.upcoming {
+  margin-bottom: 1.75rem;
+  padding: 0.9rem 1rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-m);
+  background: var(--paper-2);
+  min-height: 7rem;
+}
+.nextList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.7rem;
+}
+.nextItem {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.05rem;
+  min-width: 0;
+}
+.nextWhen {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--pen);
+}
+.nextTitle {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.nextDate {
+  font-size: 0.9rem;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 40rem) {
+  .nextItem {
+    grid-template-columns: 7.5rem minmax(0, 1fr) auto;
+    align-items: baseline;
+    column-gap: 1rem;
+  }
+  .nextDate { text-align: right; }
+}
+
+/* ---------- Süzgeç ve toplu indirme ---------- */
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem 1rem;
+}
+.target { min-height: 44px; }
+.status {
+  min-height: 1.4em;
+  margin: 0.5rem 0 1.25rem;
+}
+
+/* ---------- Aylar ---------- */
+
+.month { margin-bottom: 1.75rem; }
+.month :global(.group-title) {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 0.5rem 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+.rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "date"
+    "body"
+    "add";
+  gap: 0.25rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--rule);
+  min-width: 0;
+}
+.row[data-past] .date,
+.row[data-past] .body { opacity: 0.55; }
+
+.date {
+  grid-area: date;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.5rem;
+}
+.time { font-weight: 400; }
+
+.body {
+  grid-area: body;
+  min-width: 0;
+}
+.title {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+.meta {
+  margin: 0.25rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.75rem;
+  font-size: 0.85rem;
+  color: var(--ink-2);
+}
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.swatch {
+  display: inline-block;
+  width: 0.9rem;
+  height: 0.55rem;
+  border-radius: 2px;
+  background: color-mix(in oklab, var(--hl, var(--rule-strong)) var(--hl-mix), transparent);
+  border: 1px solid color-mix(in oklab, var(--hl, var(--rule-strong)) 80%, var(--ink));
+}
+.swatch[data-category="basvuru"] { --hl: var(--hl-2); }
+.swatch[data-category="kayit"] { --hl: var(--hl-3); }
+.swatch[data-category="sinav"] { --hl: var(--hl-4); }
+.swatch[data-category="tatil"] { --hl: var(--hl-1); }
+.swatch[data-category="ders"] { --hl: var(--hl-5); }
+.swatch[data-category="not"] { --hl: var(--hl-0); }
+
+.now {
+  font-weight: 600;
+  color: var(--pen);
+}
+.note {
+  margin: 0.3rem 0 0;
+  font-size: 0.88rem;
+  color: var(--ink-2);
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.add {
+  grid-area: add;
+  justify-self: start;
+  min-height: 44px;
+  margin-top: 0.25rem;
+}
+
+@media (min-width: 40rem) {
+  .row {
+    grid-template-columns: 7.5rem minmax(0, 1fr) auto;
+    grid-template-areas: "date body add";
+    column-gap: 1rem;
+    align-items: start;
+  }
+  .date {
+    flex-direction: column;
+    padding-top: 0.1rem;
+  }
+  .add {
+    margin-top: 0;
+    min-height: 36px;
+    color: var(--ink-2);
+    border-color: var(--rule);
+  }
+  .add:hover { color: var(--ink); border-color: var(--rule-strong); }
+}
+
+/* Dokunmatik ekranda hedef her genişlikte 44px. */
+@media (pointer: coarse) {
+  .add { min-height: 44px; }
+}
+
+/* ---------- Kaynaklar ---------- */
+
+.sources {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+}
+.sourceList {
+  margin: 0 0 0.75rem;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.35rem;
+}
+.sourceList a {
+  display: inline-block;
+  padding: 0.35rem 0;
+  overflow-wrap: anywhere;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .add { transition: color 0.15s ease, border-color 0.15s ease; }
+}
