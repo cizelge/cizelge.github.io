@@ -98,7 +98,7 @@ export interface Check {
 }
 
 export interface PathResult {
-  path: "internal" | "central" | "cap";
+  path: "internal" | "central" | "cap" | "yandal";
   /** Genel durum: bir fail varsa fail; fail yok ama unknown varsa unknown; hepsi ok ise ok. */
   status: CheckStatus;
   checks: Check[];

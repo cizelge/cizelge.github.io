@@ -1,26 +1,43 @@
 "use client";
 
+import type { HistoryIndex } from "@/lib/transfer/history";
 import type { BaseScore, CheckStatus, PathResult, QuotaByYear, TransferProgram } from "@/lib/transfer/types";
+import { verdictFor, type Verdict, type VerdictLevel } from "@/lib/transfer/verdict";
 
-export type PathKey = "internal" | "central" | "cap";
+export type PathKey = "internal" | "central" | "cap" | "yandal";
 
 export interface Evaluation {
   program: TransferProgram;
   internal: PathResult;
   central: PathResult;
   cap: PathResult;
+  yandal: PathResult;
 }
 
 export const PATH_LABELS: Record<PathKey, string> = {
   internal: "Yatay geçiş",
   central: "Merkezi puan",
   cap: "Çift anadal",
+  yandal: "Yandal",
 };
+
+/** Pildeki kısa cevap. */
+export const VERDICT_SHORT: Record<VerdictLevel, string> = {
+  likely: "büyük ihtimalle olur",
+  maybe: "olabilir",
+  hard: "zor",
+  no: "olmaz",
+  eligible: "şartlar tamam",
+  unknown: "bilgi eksik",
+};
+
+const VERDICT_ICON: Record<VerdictLevel, string> = { likely: "✓", maybe: "✓", hard: "!", no: "✕", eligible: "✓", unknown: "?" };
 
 const PATH_TITLES: Record<PathKey, string> = {
   internal: "Kurum içi yatay geçiş",
   central: "Merkezi puanla yatay geçiş",
   cap: "Çift anadal",
+  yandal: "Yandal",
 };
 
 const ICONS: Record<CheckStatus, string> = { ok: "✓", fail: "✕", unknown: "?" };
@@ -34,7 +51,7 @@ export const STATUS_TEXT: Record<CheckStatus, string> = {
 const num = (n: number, digits = 5) => n.toLocaleString("tr-TR", { maximumFractionDigits: digits });
 /** YKS puanı: kaynaktaki gibi en fazla beş ondalık, uygunluk cümleleriyle aynı yazım. */
 const score = (n: number) => num(n, 5);
-const ALL_PATHS: PathKey[] = ["internal", "central", "cap"];
+const ALL_PATHS: PathKey[] = ["cap", "yandal", "internal", "central"];
 
 const LEVELS: (keyof QuotaByYear)[] = ["hazirlik", "1", "2", "3", "4"];
 const levelLabel = (l: keyof QuotaByYear) => (l === "hazirlik" ? "Hazırlık" : `${l}. sınıf`);
@@ -54,14 +71,14 @@ function latestBase(rows: readonly BaseScore[]): { year: number; minScore: numbe
   };
 }
 
-function StatusPill({ path, result }: { path: PathKey; result: PathResult }) {
+function StatusPill({ path, result, verdict }: { path: PathKey; result: PathResult; verdict: Verdict }) {
   return (
-    <span className="gc-pill" data-status={result.status}>
+    <span className="gc-pill gc-verdict" data-level={verdict.level}>
       <span className="gc-pill-icon" aria-hidden="true">
-        {ICONS[result.status]}
+        {VERDICT_ICON[verdict.level]}
       </span>
-      {PATH_LABELS[path]}
-      <span className="sr-only">: {STATUS_TEXT[result.status]}</span>
+      <span className="gc-pill-label">{PATH_LABELS[path]}: </span>
+      {VERDICT_SHORT[verdict.level]}
       {result.quota !== null && (
         <span className="gc-pill-quota num">
           <span className="sr-only">, kontenjan </span>
@@ -81,8 +98,21 @@ function QuotaLine({ label, table }: { label: string; table: QuotaByYear | null 
   );
 }
 
-export function ResultRow({ result, paths }: { result: Evaluation; paths: readonly PathKey[] }) {
+const pct = (r: number | null) => (r === null ? "—" : `%${Math.round(r * 100)}`);
+
+export function ResultRow({
+  result,
+  paths,
+  history,
+}: {
+  result: Evaluation;
+  paths: readonly PathKey[];
+  history: HistoryIndex[string];
+}) {
   const { program } = result;
+  const verdicts = Object.fromEntries(
+    ALL_PATHS.map((p) => [p, verdictFor(result[p], history[p] ?? null)]),
+  ) as Record<PathKey, Verdict>;
   const base = latestBase(program.baseScores);
   // "2025 taban 374,7534 EA, 67.606. sıra"
   const baseText = base
@@ -107,9 +137,9 @@ export function ResultRow({ result, paths }: { result: Evaluation; paths: readon
               {baseText && <span className="num"> · {baseText}</span>}
             </span>
           </span>
-          <span className="gc-pills">
+          <span className="gc-pills" data-count={paths.length}>
             {paths.map((p) => (
-              <StatusPill key={p} path={p} result={result[p]} />
+              <StatusPill key={p} path={p} result={result[p]} verdict={verdicts[p]} />
             ))}
           </span>
         </summary>
@@ -118,12 +148,13 @@ export function ResultRow({ result, paths }: { result: Evaluation; paths: readon
           {ALL_PATHS.map((p) => (
             <section key={p} className="gc-path">
               <h3 className="gc-path-title">
-                <span className="gc-pill-icon" data-status={result[p].status} aria-hidden="true">
-                  {ICONS[result[p].status]}
-                </span>
                 {PATH_TITLES[p]}
-                <span className="gc-path-status">{STATUS_TEXT[result[p].status]}</span>
+                <span className="gc-verdict-title" data-level={verdicts[p].level}>
+                  <span aria-hidden="true">{VERDICT_ICON[verdicts[p].level]} </span>
+                  {verdicts[p].title}
+                </span>
               </h3>
+              <p className="gc-verdict-detail">{verdicts[p].detail}</p>
               <ul className="gc-checks">
                 {result[p].checks.map((c, i) => (
                   <li key={`${c.id}-${i}`} data-status={c.status}>
@@ -137,6 +168,17 @@ export function ResultRow({ result, paths }: { result: Evaluation; paths: readon
                   </li>
                 ))}
               </ul>
+              {history[p] && history[p]!.rows.length > 0 && (
+                <p className="hint gc-small gc-history">
+                  Geçmiş dönemler:{" "}
+                  {history[p]!.rows.slice(0, 6).map((r, i) => (
+                    <span key={r.term} className="num">
+                      {i > 0 && "; "}
+                      {r.term} {r.accepted + r.conditional}/{r.applications} kabul ({pct(r.rate)})
+                    </span>
+                  ))}
+                </p>
+              )}
               {p === "internal" && <QuotaLine label="Kontenjan" table={program.internalQuota} />}
               {p === "central" && <QuotaLine label="Kontenjan" table={program.centralQuota} />}
             </section>

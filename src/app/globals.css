@@ -1948,3 +1948,36 @@ a.pc-pill:hover { border-color: var(--ink); background: var(--paper-2); }
 .uc-free .uc-name { color: var(--pen); }
 .uc-more { padding: 0.4rem 0.55rem; color: var(--ink-2); font-size: 0.8rem; }
 .uc-detail { color: var(--ink); font-size: 0.87rem; }
+
+/* ---------- Geçiş: olur mu olmaz mı ---------- */
+.gc-verdict { border-style: solid; }
+.gc-verdict[data-level="likely"] { --hl: var(--hl-1); background: color-mix(in oklab, var(--hl) var(--hl-mix), var(--paper)); border-color: transparent; color: var(--hl-text); }
+.gc-verdict[data-level="maybe"] { --hl: var(--hl-0); background: color-mix(in oklab, var(--hl) var(--hl-mix), var(--paper)); border-color: transparent; color: var(--hl-text); }
+.gc-verdict[data-level="hard"] { --hl: var(--hl-4); background: color-mix(in oklab, var(--hl) var(--hl-mix), var(--paper)); border-color: transparent; color: var(--hl-text); }
+.gc-verdict[data-level="no"] { color: var(--danger); border-color: color-mix(in oklab, var(--danger) 45%, transparent); background: transparent; }
+.gc-verdict[data-level="eligible"] { border-color: var(--rule-strong); background: transparent; }
+.gc-verdict[data-level="unknown"] { border-style: dashed; background: transparent; color: var(--ink-2); }
+.gc-verdict-title { margin-left: 0.5rem; font-weight: 700; }
+.gc-verdict-title[data-level="no"] { color: var(--danger); }
+.gc-verdict-title[data-level="unknown"] { color: var(--ink-2); }
+.gc-verdict-detail { margin: 0.1rem 0 0.4rem; font-size: 0.92rem; }
+.gc-history { margin: 0.25rem 0; }
+.gc-verdict { white-space: normal; }
+.gc-columns { display: none; }
+/* Geniş ekranda yol adları sütun başlığında; etiketlerde yalnızca cevap kalır. */
+@media (min-width: 1100px) {
+  .gc-columns,
+  .gc-summary { display: grid; grid-template-columns: 1.2rem minmax(12rem, 1fr) repeat(var(--cols, 4), 9.5rem); align-items: center; column-gap: 0.6rem; }
+  .gc-columns { padding: 0.35rem 0.25rem; color: var(--ink-2); font-size: 0.82rem; font-weight: 600; }
+  .gc-columns > span:first-child { grid-column: 2; }
+  .gc-columns[data-count="1"], .gc-summary:has(.gc-pills[data-count="1"]) { --cols: 1; }
+  .gc-pills { display: contents; }
+  .gc-pill-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .gc-verdict { justify-self: start; }
+}
+.gc-detail { grid-template-columns: minmax(0, 1fr); }
+.gc-history, .gc-verdict-detail { overflow-wrap: anywhere; }
+@media (min-width: 1100px) {
+  .gc-columns,
+  .gc-summary { grid-template-columns: 1.2rem minmax(12rem, 1fr) repeat(var(--cols, 4), 11rem); }
+}

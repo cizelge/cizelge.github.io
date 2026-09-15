@@ -6,6 +6,7 @@ import path from "node:path";
 import { buildTermOptions, defaultTerm, parseTermLabel, sortTermData, termHasTimes, type TermOption } from "./terms";
 import type { Course, ProgramsData, TermData } from "./types";
 import type { MinorsData } from "./roadmap/types";
+import type { TransferHistoryData } from "./transfer/history";
 import type { TransferData } from "./transfer/types";
 import type { ErasmusData } from "./erasmus/types";
 import type { PartnersData } from "./erasmus/universities";
@@ -25,6 +26,9 @@ const TRANSFER_FILE = "transfer.json";
 const ERASMUS_FILE = "erasmus.json";
 /** Değişim anlaşması olan okullar da dönem dosyası değildir. */
 const PARTNERS_FILE = "partners.json";
+/** Geçmiş dönemlerin yatay geçiş, ÇAP ve yandal başvuru sonuç sayıları da dönem dosyası değildir. */
+const TRANSFER_HISTORY_FILE = "transfer-history.json";
+const NOT_TERM_FILES = new Set([PROGRAMS_FILE, MINORS_FILE, TRANSFER_FILE, ERASMUS_FILE, PARTNERS_FILE, TRANSFER_HISTORY_FILE]);
 
 // Derlemede her ders sayfası dönemi yeniden ister; dosyalar süreç başına bir kez okunur.
 const cache = new Map<string, TermData[]>();
@@ -34,7 +38,7 @@ export function loadTerms(schoolId: string): TermData[] {
   const cached = cache.get(schoolId);
   if (cached) return cached;
   const dir = path.join(/*turbopackIgnore: true*/ root, schoolId);
-  const files = fs.readdirSync(/*turbopackIgnore: true*/ dir).filter((f) => f.endsWith(".json") && f !== PROGRAMS_FILE && f !== MINORS_FILE && f !== TRANSFER_FILE && f !== ERASMUS_FILE && f !== PARTNERS_FILE);
+  const files = fs.readdirSync(/*turbopackIgnore: true*/ dir).filter((f) => f.endsWith(".json") && !NOT_TERM_FILES.has(f));
   if (files.length === 0) throw new Error(`${dir} içinde veri yok`);
   const terms = sortTermData(
     files.map((f) => JSON.parse(fs.readFileSync(/*turbopackIgnore: true*/ path.join(dir, f), "utf8")) as TermData),
@@ -81,6 +85,13 @@ export function loadTransfer(schoolId: string): TransferData | null {
   const file = path.join(/*turbopackIgnore: true*/ root, schoolId, TRANSFER_FILE);
   if (!fs.existsSync(/*turbopackIgnore: true*/ file)) return null;
   return JSON.parse(fs.readFileSync(/*turbopackIgnore: true*/ file, "utf8")) as TransferData;
+}
+
+/** data/<okul>/transfer-history.json; yoksa null (geçiş sayfası geçmiş oranları göstermez). */
+export function loadTransferHistory(schoolId: string): TransferHistoryData | null {
+  const file = path.join(/*turbopackIgnore: true*/ root, schoolId, TRANSFER_HISTORY_FILE);
+  if (!fs.existsSync(/*turbopackIgnore: true*/ file)) return null;
+  return JSON.parse(fs.readFileSync(/*turbopackIgnore: true*/ file, "utf8")) as TransferHistoryData;
 }
 
 /** data/<okul>/erasmus.json; yoksa null (Erasmus sayfası kısa bir not gösterir). */

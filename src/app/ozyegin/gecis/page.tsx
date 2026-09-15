@@ -3,7 +3,8 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Transfer } from "@/components/transfer/Transfer";
-import { loadPrograms, loadTransfer } from "@/lib/data";
+import { loadPrograms, loadTransfer, loadTransferHistory } from "@/lib/data";
+import { buildHistoryIndex } from "@/lib/transfer/history";
 import { buildPrefillIndex } from "@/lib/transfer/profile-storage";
 
 const SCHOOL = "ozyegin";
@@ -27,6 +28,7 @@ export default function TransferPage() {
           data={data}
           programs={programs.map((p) => ({ id: p.id, name: p.name, faculty: p.faculty }))}
           prefillIndex={buildPrefillIndex(programs)}
+          history={buildHistoryIndex(loadTransferHistory(SCHOOL))}
         />
       ) : (
         <main id="icerik" className="page prose">

@@ -10,6 +10,7 @@ import {
   saveProfile,
   type PrefillIndex,
 } from "@/lib/transfer/profile-storage";
+import type { HistoryIndex } from "@/lib/transfer/history";
 import type { StudentProfile, TransferData } from "@/lib/transfer/types";
 import { ProfileForm, type ProgramOption } from "./ProfileForm";
 import { Results } from "./Results";
@@ -20,11 +21,13 @@ interface Props {
   programs: ProgramOption[];
   /** Yol haritası kaydından ortalama ve AKTS hesaplamak için sıkıştırılmış müfredatlar. */
   prefillIndex: PrefillIndex;
+  /** Geçmiş dönemlerin başvuru sonuç özetleri (bölüm -> yol). */
+  history: HistoryIndex;
 }
 
 type Field = keyof StudentProfile;
 
-export function Transfer({ data, programs, prefillIndex }: Props) {
+export function Transfer({ data, programs, prefillIndex, history }: Props) {
   // Kullanıcının kendi girdiği bilgiler (kaydedilir); ön doldurma ayrı tutulur, kaydedilmez.
   const [own, setOwn] = useState<StudentProfile>(EMPTY_PROFILE);
   const [prefill, setPrefill] = useState<Partial<StudentProfile>>({});
@@ -80,7 +83,7 @@ export function Transfer({ data, programs, prefillIndex }: Props) {
       </aside>
 
       <main className="board" id="icerik">
-        <Results data={data} profile={profile} ready={ready} />
+        <Results data={data} profile={profile} ready={ready} history={history} />
       </main>
     </div>
   );

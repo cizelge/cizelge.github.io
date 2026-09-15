@@ -1,0 +1,4790 @@
+{
+ "schoolId": "ozyegin",
+ "fetchedAt": "2026-09-15T08:23:46+00:00",
+ "sources": [
+  {
+   "term": "2019-2020 Güz",
+   "path": "central",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/201910%20Merkezi%20Yerle%C5%9Ftirme%20Puan%C4%B1%20ile%20Kurum%20%C4%B0%C3%A7i%20Yatay%20Ge%C3%A7i%C5%9F%20-%20web%20ilan%C4%B1_TR.pdf"
+  },
+  {
+   "term": "2019-2020 Güz",
+   "path": "internal",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/201910%20Kurum%20%C4%B0%C3%A7i%20%28Programlar%20Aras%C4%B1%29%20Yatay%20Ge%C3%A7i%C5%9F%20-%20web%20ilan%C4%B1_TR.pdf"
+  },
+  {
+   "term": "2019-2020 Güz",
+   "path": "yandal",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/201910%20Yandal%20Ba%C5%9Fvuru%20Sonu%C3%A7lar%C4%B1_TR.pdf"
+  },
+  {
+   "term": "2019-2020 Bahar",
+   "path": "yandal",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/201920%20Yandal%20Ba%C5%9Fvuru%20Sonu%C3%A7lar%C4%B1_TR.pdf"
+  },
+  {
+   "term": "2020-2021 Güz",
+   "path": "cap",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/202010%20%C3%87AP%20web%20ilan%C4%B1%20-%20T%C3%BCrk%C3%A7e.pdf"
+  },
+  {
+   "term": "2020-2021 Güz",
+   "path": "internal",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/202010%20Kurum%20%C4%B0%C3%A7i%20%28Programlar%20Aras%C4%B1%29%20Yatay%20Ge%C3%A7i%C5%9F%20-%20web%20ilan%C4%B1_TR.pdf"
+  },
+  {
+   "term": "2020-2021 Güz",
+   "path": "yandal",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/202010%20Yandal%20Ba%C5%9Fvuru%20Sonu%C3%A7lar%C4%B1_TR.pdf"
+  },
+  {
+   "term": "2021-2022 Güz",
+   "path": "cap",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/202110%20%C3%87AP%20web%20ilan%C4%B1%20-%20T%C3%BCrk%C3%A7e.pdf"
+  },
+  {
+   "term": "2021-2022 Güz",
+   "path": "central",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/202110%20Merkezi%20Yerle%C5%9Ftirme%20Puan%C4%B1%20ile%20Kurum%20%C4%B0%C3%A7i%20Yatay%20Ge%C3%A7i%C5%9F%20-%20web%20ilan%C4%B1_TR.pdf"
+  },
+  {
+   "term": "2021-2022 Güz",
+   "path": "internal",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/202110%20Kurum%20%C4%B0%C3%A7i%20%28Programlar%20Aras%C4%B1%29%20Yatay%20Ge%C3%A7i%C5%9F%20-%20web%20ilan%C4%B1_TR.pdf"
+  },
+  {
+   "term": "2021-2022 Güz",
+   "path": "yandal",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/202110%20Yandal%20Ba%C5%9Fvuru%20Sonu%C3%A7lar%C4%B1_TR.pdf"
+  },
+  {
+   "term": "2021-2022 Bahar",
+   "path": "internal",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/202120%20Kurum%20%C4%B0%C3%A7i%20%28Programlar%20Aras%C4%B1%29%20Yatay%20Ge%C3%A7i%C5%9F%20-%20web%20ilan%C4%B1_TR.pdf"
+  },
+  {
+   "term": "2021-2022 Bahar",
+   "path": "yandal",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/202120%20Yandal%20Ba%C5%9Fvuru%20Sonu%C3%A7lar%C4%B1_TR.pdf"
+  },
+  {
+   "term": "2022-2023 Güz",
+   "path": "cap",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/202210%20%C3%87AP%20web%20ilan%C4%B1%20-%20T%C3%BCrk%C3%A7e.pdf"
+  },
+  {
+   "term": "2022-2023 Güz",
+   "path": "central",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/202210%20Merkezi%20Yerle%C5%9Ftirme%20Puan%C4%B1%20ile%20Kurum%20%C4%B0%C3%A7i%20Yatay%20Ge%C3%A7i%C5%9F%20-%20web%20ilan%C4%B1_TR.pdf"
+  },
+  {
+   "term": "2022-2023 Güz",
+   "path": "internal",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/202210%20Kurum%20%C4%B0%C3%A7i%20%28Programlar%20Aras%C4%B1%29%20Yatay%20Ge%C3%A7i%C5%9F%20-%20web%20ilan%C4%B1_TR.pdf"
+  },
+  {
+   "term": "2022-2023 Güz",
+   "path": "yandal",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/202210%20Yandal%20Ba%C5%9Fvuru%20Sonu%C3%A7lar%C4%B1_TR.pdf"
+  },
+  {
+   "term": "2023-2024 Güz",
+   "path": "cap",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/202310%20%C3%87AP%20web%20ilan%C4%B1%20-%20T%C3%BCrk%C3%A7e.pdf"
+  },
+  {
+   "term": "2023-2024 Güz",
+   "path": "central",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/202310%20Merkezi%20Yerle%C5%9Ftirme%20Puan%C4%B1%20ile%20Kurum%20%C4%B0%C3%A7i%20Yatay%20Ge%C3%A7i%C5%9F%20-%20web%20ilan%C4%B1_TR.pdf"
+  },
+  {
+   "term": "2023-2024 Güz",
+   "path": "internal",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/202310%20Kurum%20%C4%B0%C3%A7i%20%28Programlar%20Aras%C4%B1%29%20Yatay%20Ge%C3%A7i%C5%9F%20-%20web%20ilan%C4%B1_TR.pdf"
+  },
+  {
+   "term": "2023-2024 Güz",
+   "path": "yandal",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/202310%20Yandal%20Ba%C5%9Fvuru%20Sonu%C3%A7lar%C4%B1_TR.pdf"
+  },
+  {
+   "term": "2023-2024 Bahar",
+   "path": "cap",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/202320%20%C3%87AP%20web%20ilan%C4%B1%20-%20T%C3%BCrk%C3%A7e.pdf"
+  },
+  {
+   "term": "2023-2024 Bahar",
+   "path": "internal",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/202320%20Kurum%20%C4%B0%C3%A7i%20%28Programlar%20Aras%C4%B1%29%20Yatay%20Ge%C3%A7i%C5%9F%20-%20web%20ilan%C4%B1_TR.pdf"
+  },
+  {
+   "term": "2023-2024 Bahar",
+   "path": "yandal",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/202320%20Yandal%20Ba%C5%9Fvuru%20Sonu%C3%A7lar%C4%B1_TR.pdf"
+  },
+  {
+   "term": "2024-2025 Güz",
+   "path": "cap",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/202410%20%C3%87AP%20Ba%C5%9Fvuru%20Sonu%C3%A7lar%C4%B1_TR.pdf"
+  },
+  {
+   "term": "2024-2025 Güz",
+   "path": "yandal",
+   "url": "https://my.ozyegin.edu.tr/sites/default/files/users/2278/202410%20Yandal%20Ba%C5%9Fvuru%20Sonu%C3%A7lar%C4%B1_TR.pdf"
+  }
+ ],
+ "terms": [
+  {
+   "term": "2019-2020 Güz",
+   "termCode": "201910",
+   "path": "central",
+   "programs": [
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 12,
+     "firstChoice": 9,
+     "accepted": 10,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 10,
+     "firstChoice": 8,
+     "accepted": 9,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (TR)",
+     "name": "Mimarlık (Türkçe)",
+     "applications": 8,
+     "firstChoice": 8,
+     "accepted": 8,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BABAF",
+     "name": "Uluslararası Finans",
+     "applications": 5,
+     "firstChoice": 0,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 5,
+     "firstChoice": 3,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAPSYC",
+     "name": "Psikoloji",
+     "applications": 5,
+     "firstChoice": 5,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BLAW",
+     "name": "Hukuk",
+     "applications": 4,
+     "firstChoice": 4,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 4,
+     "firstChoice": 4,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSPLT",
+     "name": "Pilotaj",
+     "applications": 3,
+     "firstChoice": 3,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSCOD",
+     "name": "İletişim Tasarımı",
+     "applications": 3,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAIR",
+     "name": "Uluslararası İlişkiler",
+     "applications": 3,
+     "firstChoice": 3,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAENT",
+     "name": "Girişimcilik",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (ENG)",
+     "name": "Mimarlık (İngilizce)",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSME",
+     "name": "Makina Mühendisliği",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSHOTM",
+     "name": "Otel Yöneticiliği",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSAVM",
+     "name": "Havacılık Yönetimi",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSIPD",
+     "name": "Endüstriyel Tasarım",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSINTAR",
+     "name": "İç Mimarlık ve Çevre Tasarımı",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSGARM",
+     "name": "Gastronomi ve Mutfak Sanatları",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2019-2020 Güz",
+   "termCode": "201910",
+   "path": "internal",
+   "programs": [
+    {
+     "programId": "BSARCH (ENG)",
+     "name": "Mimarlık (İngilizce)",
+     "applications": 8,
+     "firstChoice": 7,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 8,
+     "firstChoice": 8,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 6,
+     "other": 0
+    },
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 7,
+     "firstChoice": 5,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 5,
+     "firstChoice": 2,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 4,
+     "firstChoice": 4,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 3,
+     "firstChoice": 3,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSME",
+     "name": "Makina Mühendisliği",
+     "applications": 3,
+     "firstChoice": 2,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSCOD",
+     "name": "İletişim Tasarımı",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (TR)",
+     "name": "Mimarlık (Türkçe)",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BLAW",
+     "name": "Hukuk",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSCE",
+     "name": "İnşaat Mühendisliği",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAPSYC",
+     "name": "Psikoloji",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSHOTM",
+     "name": "Otel Yöneticiliği",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2019-2020 Güz",
+   "termCode": "201910",
+   "path": "yandal",
+   "programs": [
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 13,
+     "firstChoice": 10,
+     "accepted": 10,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 7,
+     "firstChoice": 6,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAPSYC",
+     "name": "Psikoloji",
+     "applications": 6,
+     "firstChoice": 4,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAMIS",
+     "name": "Yönetim Bilişim Sistemleri",
+     "applications": 6,
+     "firstChoice": 6,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAIR",
+     "name": "Uluslararası İlişkiler",
+     "applications": 4,
+     "firstChoice": 4,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSCOD",
+     "name": "İletişim Tasarımı",
+     "applications": 3,
+     "firstChoice": 3,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSHOTM",
+     "name": "Otel Yöneticiliği",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSAVM",
+     "name": "Havacılık Yönetimi",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BLAW",
+     "name": "Hukuk",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSINTAR",
+     "name": "İç Mimarlık ve Çevre Tasarımı",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAENT",
+     "name": "Girişimcilik",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2019-2020 Bahar",
+   "termCode": "201920",
+   "path": "yandal",
+   "programs": [
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 13,
+     "firstChoice": 13,
+     "accepted": 11,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 9,
+     "firstChoice": 8,
+     "accepted": 7,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSCOD",
+     "name": "İletişim Tasarımı",
+     "applications": 8,
+     "firstChoice": 7,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BAMIS",
+     "name": "Yönetim Bilişim Sistemleri",
+     "applications": 6,
+     "firstChoice": 2,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAPSYC",
+     "name": "Psikoloji",
+     "applications": 5,
+     "firstChoice": 3,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSHOTM",
+     "name": "Otel Yöneticiliği",
+     "applications": 5,
+     "firstChoice": 5,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSINTAR",
+     "name": "İç Mimarlık ve Çevre Tasarımı",
+     "applications": 4,
+     "firstChoice": 4,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BLAW",
+     "name": "Hukuk",
+     "applications": 4,
+     "firstChoice": 3,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 3,
+     "firstChoice": 2,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSIPD",
+     "name": "Endüstriyel Tasarım",
+     "applications": 3,
+     "firstChoice": 3,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSGARM",
+     "name": "Gastronomi ve Mutfak Sanatları",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (TR)",
+     "name": "Mimarlık (Türkçe)",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAENT",
+     "name": "Girişimcilik",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BABAF",
+     "name": "Uluslararası Finans",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 2,
+     "firstChoice": 0,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSME",
+     "name": "Makina Mühendisliği",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2020-2021 Güz",
+   "termCode": "202010",
+   "path": "cap",
+   "programs": [
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 11,
+     "firstChoice": 6,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 5,
+     "other": 0
+    },
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 8,
+     "firstChoice": 7,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 5,
+     "other": 0
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 8,
+     "firstChoice": 6,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BAMIS",
+     "name": "Yönetim Bilişim Sistemleri",
+     "applications": 6,
+     "firstChoice": 5,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 6,
+     "firstChoice": 4,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (ENG)",
+     "name": "Mimarlık (İngilizce)",
+     "applications": 3,
+     "firstChoice": 3,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BAPSYC",
+     "name": "Psikoloji",
+     "applications": 3,
+     "firstChoice": 2,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAIR",
+     "name": "Uluslararası İlişkiler",
+     "applications": 3,
+     "firstChoice": 2,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BABAF",
+     "name": "Uluslararası Finans",
+     "applications": 3,
+     "firstChoice": 1,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSAVM",
+     "name": "Havacılık Yönetimi",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSHOTM",
+     "name": "Otel Yöneticiliği",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSINTAR",
+     "name": "İç Mimarlık ve Çevre Tasarımı",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSIPD",
+     "name": "Endüstriyel Tasarım",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BLAW",
+     "name": "Hukuk",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAENT",
+     "name": "Girişimcilik",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (TR)",
+     "name": "Mimarlık (Türkçe)",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSME",
+     "name": "Makina Mühendisliği",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSCE",
+     "name": "İnşaat Mühendisliği",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2020-2021 Güz",
+   "termCode": "202010",
+   "path": "internal",
+   "programs": [
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 12,
+     "firstChoice": 12,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 10,
+     "other": 0
+    },
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 12,
+     "firstChoice": 9,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 7,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (ENG)",
+     "name": "Mimarlık (İngilizce)",
+     "applications": 4,
+     "firstChoice": 4,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 3,
+     "firstChoice": 3,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 3,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAIR",
+     "name": "Uluslararası İlişkiler",
+     "applications": 3,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (TR)",
+     "name": "Mimarlık (Türkçe)",
+     "applications": 2,
+     "firstChoice": 0,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BLAW",
+     "name": "Hukuk",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSME",
+     "name": "Makina Mühendisliği",
+     "applications": 2,
+     "firstChoice": 0,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSCOD",
+     "name": "İletişim Tasarımı",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSINTAR",
+     "name": "İç Mimarlık ve Çevre Tasarımı",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAMIS",
+     "name": "Yönetim Bilişim Sistemleri",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BABAF",
+     "name": "Uluslararası Finans",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2020-2021 Güz",
+   "termCode": "202010",
+   "path": "yandal",
+   "programs": [
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 35,
+     "firstChoice": 33,
+     "accepted": 15,
+     "conditional": 0,
+     "rejected": 20,
+     "other": 0
+    },
+    {
+     "programId": "BSCOD",
+     "name": "İletişim Tasarımı",
+     "applications": 26,
+     "firstChoice": 18,
+     "accepted": 8,
+     "conditional": 0,
+     "rejected": 18,
+     "other": 0
+    },
+    {
+     "programId": "BAMIS",
+     "name": "Yönetim Bilişim Sistemleri",
+     "applications": 17,
+     "firstChoice": 12,
+     "accepted": 15,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 16,
+     "firstChoice": 12,
+     "accepted": 14,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSINTAR",
+     "name": "İç Mimarlık ve Çevre Tasarımı",
+     "applications": 14,
+     "firstChoice": 10,
+     "accepted": 13,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAPSYC",
+     "name": "Psikoloji",
+     "applications": 12,
+     "firstChoice": 8,
+     "accepted": 9,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 9,
+     "firstChoice": 5,
+     "accepted": 7,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSAVM",
+     "name": "Havacılık Yönetimi",
+     "applications": 8,
+     "firstChoice": 8,
+     "accepted": 8,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BABAF",
+     "name": "Uluslararası Finans",
+     "applications": 8,
+     "firstChoice": 5,
+     "accepted": 7,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 7,
+     "firstChoice": 5,
+     "accepted": 7,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSIPD",
+     "name": "Endüstriyel Tasarım",
+     "applications": 7,
+     "firstChoice": 4,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAIR",
+     "name": "Uluslararası İlişkiler",
+     "applications": 6,
+     "firstChoice": 2,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSHOTM",
+     "name": "Otel Yöneticiliği",
+     "applications": 6,
+     "firstChoice": 5,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 4,
+     "firstChoice": 3,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (TR)",
+     "name": "Mimarlık (Türkçe)",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (ENG)",
+     "name": "Mimarlık (İngilizce)",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSGARM",
+     "name": "Gastronomi ve Mutfak Sanatları",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BLAW",
+     "name": "Hukuk",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSCE",
+     "name": "İnşaat Mühendisliği",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAENT",
+     "name": "Girişimcilik",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2021-2022 Güz",
+   "termCode": "202110",
+   "path": "cap",
+   "programs": [
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 15,
+     "firstChoice": 10,
+     "accepted": 11,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 11,
+     "firstChoice": 9,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 5,
+     "other": 0
+    },
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 10,
+     "firstChoice": 6,
+     "accepted": 8,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BAPSYC",
+     "name": "Psikoloji",
+     "applications": 9,
+     "firstChoice": 9,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 5,
+     "other": 0
+    },
+    {
+     "programId": "BAMIS",
+     "name": "Yönetim Bilişim Sistemleri",
+     "applications": 8,
+     "firstChoice": 7,
+     "accepted": 7,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSINTAR",
+     "name": "İç Mimarlık ve Çevre Tasarımı",
+     "applications": 7,
+     "firstChoice": 6,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 6,
+     "other": 0
+    },
+    {
+     "programId": "BABAF",
+     "name": "Uluslararası Finans",
+     "applications": 6,
+     "firstChoice": 6,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 5,
+     "firstChoice": 2,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSIPD",
+     "name": "Endüstriyel Tasarım",
+     "applications": 5,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 4,
+     "firstChoice": 3,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 4,
+     "firstChoice": 2,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BLAW",
+     "name": "Hukuk",
+     "applications": 3,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BAIR",
+     "name": "Uluslararası İlişkiler",
+     "applications": 3,
+     "firstChoice": 1,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSCOD",
+     "name": "İletişim Tasarımı",
+     "applications": 3,
+     "firstChoice": 2,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BAENT",
+     "name": "Girişimcilik",
+     "applications": 3,
+     "firstChoice": 3,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSAVM",
+     "name": "Havacılık Yönetimi",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (ENG)",
+     "name": "Mimarlık (İngilizce)",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSME",
+     "name": "Makina Mühendisliği",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSCE",
+     "name": "İnşaat Mühendisliği",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSHOTM",
+     "name": "Otel Yöneticiliği",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (TR)",
+     "name": "Mimarlık (Türkçe)",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2021-2022 Güz",
+   "termCode": "202110",
+   "path": "central",
+   "programs": [
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 8,
+     "firstChoice": 5,
+     "accepted": 8,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 7,
+     "firstChoice": 3,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 5,
+     "firstChoice": 5,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BAPSYC",
+     "name": "Psikoloji",
+     "applications": 5,
+     "firstChoice": 4,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BAENT",
+     "name": "Girişimcilik",
+     "applications": 4,
+     "firstChoice": 3,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 4,
+     "firstChoice": 4,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BLAW",
+     "name": "Hukuk",
+     "applications": 3,
+     "firstChoice": 3,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (TR)",
+     "name": "Mimarlık (Türkçe)",
+     "applications": 3,
+     "firstChoice": 3,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSINTAR",
+     "name": "İç Mimarlık ve Çevre Tasarımı",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 2,
+     "firstChoice": 0,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAIR",
+     "name": "Uluslararası İlişkiler",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSGARM",
+     "name": "Gastronomi ve Mutfak Sanatları",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSPLT",
+     "name": "Pilotaj",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 1
+    },
+    {
+     "programId": "BABAF",
+     "name": "Uluslararası Finans",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSIPD",
+     "name": "Endüstriyel Tasarım",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSHOTM",
+     "name": "Otel Yöneticiliği",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2021-2022 Güz",
+   "termCode": "202110",
+   "path": "internal",
+   "programs": [
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 15,
+     "firstChoice": 13,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 9,
+     "other": 0
+    },
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 8,
+     "firstChoice": 7,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 6,
+     "firstChoice": 5,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 5,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 5,
+     "firstChoice": 2,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 4,
+     "firstChoice": 3,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (ENG)",
+     "name": "Mimarlık (İngilizce)",
+     "applications": 3,
+     "firstChoice": 3,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSME",
+     "name": "Makina Mühendisliği",
+     "applications": 3,
+     "firstChoice": 3,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (TR)",
+     "name": "Mimarlık (Türkçe)",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSINTAR",
+     "name": "İç Mimarlık ve Çevre Tasarımı",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSAVM",
+     "name": "Havacılık Yönetimi",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAENT",
+     "name": "Girişimcilik",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAMIS",
+     "name": "Yönetim Bilişim Sistemleri",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAIR",
+     "name": "Uluslararası İlişkiler",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2021-2022 Güz",
+   "termCode": "202110",
+   "path": "yandal",
+   "programs": [
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 31,
+     "firstChoice": 22,
+     "accepted": 27,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 30,
+     "firstChoice": 29,
+     "accepted": 26,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BAPSYC",
+     "name": "Psikoloji",
+     "applications": 20,
+     "firstChoice": 15,
+     "accepted": 13,
+     "conditional": 0,
+     "rejected": 7,
+     "other": 0
+    },
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 16,
+     "firstChoice": 9,
+     "accepted": 12,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BSCOD",
+     "name": "İletişim Tasarımı",
+     "applications": 15,
+     "firstChoice": 11,
+     "accepted": 8,
+     "conditional": 0,
+     "rejected": 7,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 14,
+     "firstChoice": 9,
+     "accepted": 9,
+     "conditional": 0,
+     "rejected": 5,
+     "other": 0
+    },
+    {
+     "programId": "BAMIS",
+     "name": "Yönetim Bilişim Sistemleri",
+     "applications": 13,
+     "firstChoice": 9,
+     "accepted": 12,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSINTAR",
+     "name": "İç Mimarlık ve Çevre Tasarımı",
+     "applications": 12,
+     "firstChoice": 9,
+     "accepted": 10,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BAENT",
+     "name": "Girişimcilik",
+     "applications": 11,
+     "firstChoice": 8,
+     "accepted": 9,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 10,
+     "firstChoice": 4,
+     "accepted": 10,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAIR",
+     "name": "Uluslararası İlişkiler",
+     "applications": 8,
+     "firstChoice": 6,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BABAF",
+     "name": "Uluslararası Finans",
+     "applications": 7,
+     "firstChoice": 4,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSHOTM",
+     "name": "Otel Yöneticiliği",
+     "applications": 5,
+     "firstChoice": 4,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 5,
+     "firstChoice": 3,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (ENG)",
+     "name": "Mimarlık (İngilizce)",
+     "applications": 5,
+     "firstChoice": 5,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSIPD",
+     "name": "Endüstriyel Tasarım",
+     "applications": 4,
+     "firstChoice": 3,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BLAW",
+     "name": "Hukuk",
+     "applications": 4,
+     "firstChoice": 3,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSCE",
+     "name": "İnşaat Mühendisliği",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSME",
+     "name": "Makina Mühendisliği",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSGARM",
+     "name": "Gastronomi ve Mutfak Sanatları",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (TR)",
+     "name": "Mimarlık (Türkçe)",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2021-2022 Bahar",
+   "termCode": "202120",
+   "path": "internal",
+   "programs": [
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 7,
+     "firstChoice": 6,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 6,
+     "other": 0
+    },
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 5,
+     "firstChoice": 4,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 4,
+     "firstChoice": 2,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 4,
+     "firstChoice": 3,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (TR)",
+     "name": "Mimarlık (Türkçe)",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAIR",
+     "name": "Uluslararası İlişkiler",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSINTAR",
+     "name": "İç Mimarlık ve Çevre Tasarımı",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (ENG)",
+     "name": "Mimarlık (İngilizce)",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAENT",
+     "name": "Girişimcilik",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2021-2022 Bahar",
+   "termCode": "202120",
+   "path": "yandal",
+   "programs": [
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 21,
+     "firstChoice": 21,
+     "accepted": 19,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 20,
+     "firstChoice": 12,
+     "accepted": 15,
+     "conditional": 0,
+     "rejected": 5,
+     "other": 0
+    },
+    {
+     "programId": "BSCOD",
+     "name": "İletişim Tasarımı",
+     "applications": 17,
+     "firstChoice": 13,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 12,
+     "other": 0
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 12,
+     "firstChoice": 8,
+     "accepted": 8,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BAPSYC",
+     "name": "Psikoloji",
+     "applications": 11,
+     "firstChoice": 7,
+     "accepted": 9,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSIPD",
+     "name": "Endüstriyel Tasarım",
+     "applications": 10,
+     "firstChoice": 7,
+     "accepted": 7,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 8,
+     "firstChoice": 3,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 5,
+     "other": 0
+    },
+    {
+     "programId": "BAIR",
+     "name": "Uluslararası İlişkiler",
+     "applications": 6,
+     "firstChoice": 6,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSINTAR",
+     "name": "İç Mimarlık ve Çevre Tasarımı",
+     "applications": 6,
+     "firstChoice": 4,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BAMIS",
+     "name": "Yönetim Bilişim Sistemleri",
+     "applications": 6,
+     "firstChoice": 4,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (ENG)",
+     "name": "Mimarlık (İngilizce)",
+     "applications": 6,
+     "firstChoice": 4,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BABAF",
+     "name": "Uluslararası Finans",
+     "applications": 5,
+     "firstChoice": 4,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BSHOTM",
+     "name": "Otel Yöneticiliği",
+     "applications": 4,
+     "firstChoice": 4,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BLAW",
+     "name": "Hukuk",
+     "applications": 3,
+     "firstChoice": 2,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (TR)",
+     "name": "Mimarlık (Türkçe)",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BAENT",
+     "name": "Girişimcilik",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSCE",
+     "name": "İnşaat Mühendisliği",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSGARM",
+     "name": "Gastronomi ve Mutfak Sanatları",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2022-2023 Güz",
+   "termCode": "202210",
+   "path": "cap",
+   "programs": [
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 20,
+     "firstChoice": 19,
+     "accepted": 13,
+     "conditional": 0,
+     "rejected": 7,
+     "other": 0
+    },
+    {
+     "programId": "BAMIS",
+     "name": "Yönetim Bilişim Sistemleri",
+     "applications": 11,
+     "firstChoice": 11,
+     "accepted": 10,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 8,
+     "firstChoice": 4,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BAPSYC",
+     "name": "Psikoloji",
+     "applications": 8,
+     "firstChoice": 7,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 6,
+     "firstChoice": 4,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 5,
+     "other": 0
+    },
+    {
+     "programId": "BLAW",
+     "name": "Hukuk",
+     "applications": 4,
+     "firstChoice": 4,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 4,
+     "firstChoice": 2,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BAENT",
+     "name": "Girişimcilik",
+     "applications": 3,
+     "firstChoice": 0,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BAIR",
+     "name": "Uluslararası İlişkiler",
+     "applications": 3,
+     "firstChoice": 3,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSCOD",
+     "name": "İletişim Tasarımı",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BABAF",
+     "name": "Uluslararası Finans",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSCE",
+     "name": "İnşaat Mühendisliği",
+     "applications": 2,
+     "firstChoice": 0,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSINTAR",
+     "name": "İç Mimarlık ve Çevre Tasarımı",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (ENG)",
+     "name": "Mimarlık (İngilizce)",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSHOTM",
+     "name": "Otel Yöneticiliği",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSIPD",
+     "name": "Endüstriyel Tasarım",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2022-2023 Güz",
+   "termCode": "202210",
+   "path": "central",
+   "programs": [
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 19,
+     "firstChoice": 13,
+     "accepted": 13,
+     "conditional": 0,
+     "rejected": 6,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 9,
+     "firstChoice": 7,
+     "accepted": 8,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (TR)",
+     "name": "Mimarlık (Türkçe)",
+     "applications": 8,
+     "firstChoice": 7,
+     "accepted": 8,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 5,
+     "firstChoice": 2,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAMIS",
+     "name": "Yönetim Bilişim Sistemleri",
+     "applications": 5,
+     "firstChoice": 3,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 5,
+     "firstChoice": 5,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSCE",
+     "name": "İnşaat Mühendisliği",
+     "applications": 5,
+     "firstChoice": 4,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAPSYC",
+     "name": "Psikoloji",
+     "applications": 5,
+     "firstChoice": 4,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BLAW",
+     "name": "Hukuk",
+     "applications": 4,
+     "firstChoice": 4,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSINTAR",
+     "name": "İç Mimarlık ve Çevre Tasarımı",
+     "applications": 4,
+     "firstChoice": 3,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAENT",
+     "name": "Girişimcilik",
+     "applications": 3,
+     "firstChoice": 1,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BABAF",
+     "name": "Uluslararası Finans",
+     "applications": 3,
+     "firstChoice": 2,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 3,
+     "firstChoice": 3,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSIPD",
+     "name": "Endüstriyel Tasarım",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAIR",
+     "name": "Uluslararası İlişkiler",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSGARM",
+     "name": "Gastronomi ve Mutfak Sanatları",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSPLT",
+     "name": "Pilotaj",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (ENG)",
+     "name": "Mimarlık (İngilizce)",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSME",
+     "name": "Makina Mühendisliği",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2022-2023 Güz",
+   "termCode": "202210",
+   "path": "internal",
+   "programs": [
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 8,
+     "firstChoice": 8,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 5,
+     "other": 0
+    },
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 5,
+     "firstChoice": 5,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 5,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 4,
+     "firstChoice": 3,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (ENG)",
+     "name": "Mimarlık (İngilizce)",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSCOD",
+     "name": "İletişim Tasarımı",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSAVM",
+     "name": "Havacılık Yönetimi",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAMIS",
+     "name": "Yönetim Bilişim Sistemleri",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSME",
+     "name": "Makina Mühendisliği",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAIR",
+     "name": "Uluslararası İlişkiler",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2022-2023 Güz",
+   "termCode": "202210",
+   "path": "yandal",
+   "programs": [
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 37,
+     "firstChoice": 37,
+     "accepted": 34,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 23,
+     "firstChoice": 16,
+     "accepted": 20,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BSCOD",
+     "name": "İletişim Tasarımı",
+     "applications": 22,
+     "firstChoice": 16,
+     "accepted": 13,
+     "conditional": 0,
+     "rejected": 9,
+     "other": 0
+    },
+    {
+     "programId": "BAPSYC",
+     "name": "Psikoloji",
+     "applications": 16,
+     "firstChoice": 11,
+     "accepted": 10,
+     "conditional": 0,
+     "rejected": 5,
+     "other": 1
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 12,
+     "firstChoice": 10,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 5,
+     "other": 1
+    },
+    {
+     "programId": "BAMIS",
+     "name": "Yönetim Bilişim Sistemleri",
+     "applications": 10,
+     "firstChoice": 7,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 1
+    },
+    {
+     "programId": "BAIR",
+     "name": "Uluslararası İlişkiler",
+     "applications": 8,
+     "firstChoice": 5,
+     "accepted": 7,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 1
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 7,
+     "firstChoice": 7,
+     "accepted": 7,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSHOTM",
+     "name": "Otel Yöneticiliği",
+     "applications": 7,
+     "firstChoice": 7,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 1
+    },
+    {
+     "programId": "BSINTAR",
+     "name": "İç Mimarlık ve Çevre Tasarımı",
+     "applications": 7,
+     "firstChoice": 6,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BABAF",
+     "name": "Uluslararası Finans",
+     "applications": 5,
+     "firstChoice": 3,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAENT",
+     "name": "Girişimcilik",
+     "applications": 4,
+     "firstChoice": 3,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 1
+    },
+    {
+     "programId": "BLAW",
+     "name": "Hukuk",
+     "applications": 4,
+     "firstChoice": 3,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSAVM",
+     "name": "Havacılık Yönetimi",
+     "applications": 4,
+     "firstChoice": 3,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (ENG)",
+     "name": "Mimarlık (İngilizce)",
+     "applications": 4,
+     "firstChoice": 4,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 3,
+     "firstChoice": 0,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSME",
+     "name": "Makina Mühendisliği",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSIPD",
+     "name": "Endüstriyel Tasarım",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSGARM",
+     "name": "Gastronomi ve Mutfak Sanatları",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (TR)",
+     "name": "Mimarlık (Türkçe)",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 1
+    },
+    {
+     "programId": "BSCE",
+     "name": "İnşaat Mühendisliği",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2023-2024 Güz",
+   "termCode": "202310",
+   "path": "cap",
+   "programs": [
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 22,
+     "firstChoice": 21,
+     "accepted": 14,
+     "conditional": 1,
+     "rejected": 7,
+     "other": 0
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 12,
+     "firstChoice": 9,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 6,
+     "other": 0
+    },
+    {
+     "programId": "BABAF",
+     "name": "Uluslararası Finans",
+     "applications": 9,
+     "firstChoice": 5,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 6,
+     "other": 0
+    },
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 9,
+     "firstChoice": 7,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 5,
+     "other": 0
+    },
+    {
+     "programId": "BAMIS",
+     "name": "Yönetim Bilişim Sistemleri",
+     "applications": 7,
+     "firstChoice": 5,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BAPSYC",
+     "name": "Psikoloji",
+     "applications": 6,
+     "firstChoice": 6,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 5,
+     "firstChoice": 2,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 4,
+     "firstChoice": 3,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 3,
+     "firstChoice": 1,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAIR",
+     "name": "Uluslararası İlişkiler",
+     "applications": 3,
+     "firstChoice": 2,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSINTAR",
+     "name": "İç Mimarlık ve Çevre Tasarımı",
+     "applications": 3,
+     "firstChoice": 2,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BSME",
+     "name": "Makina Mühendisliği",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BLAW",
+     "name": "Hukuk",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (TR)",
+     "name": "Mimarlık (Türkçe)",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSCOD",
+     "name": "İletişim Tasarımı",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 0,
+     "conditional": 1,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAENT",
+     "name": "Girişimcilik",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSCE",
+     "name": "İnşaat Mühendisliği",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2023-2024 Güz",
+   "termCode": "202310",
+   "path": "central",
+   "programs": [
+    {
+     "programId": "BSARCH (TR)",
+     "name": "Mimarlık (Türkçe)",
+     "applications": 8,
+     "firstChoice": 7,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 7,
+     "firstChoice": 6,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 6,
+     "firstChoice": 6,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 5,
+     "firstChoice": 4,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BLAW",
+     "name": "Hukuk",
+     "applications": 4,
+     "firstChoice": 4,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSHOTM",
+     "name": "Otel Yöneticiliği",
+     "applications": 4,
+     "firstChoice": 3,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAMIS",
+     "name": "Yönetim Bilişim Sistemleri",
+     "applications": 3,
+     "firstChoice": 3,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (ENG)",
+     "name": "Mimarlık (İngilizce)",
+     "applications": 3,
+     "firstChoice": 2,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 2,
+     "firstChoice": 0,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSCE",
+     "name": "İnşaat Mühendisliği",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 2,
+     "firstChoice": 0,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAIR",
+     "name": "Uluslararası İlişkiler",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAPSYC",
+     "name": "Psikoloji",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BABAF",
+     "name": "Uluslararası Finans",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAENT",
+     "name": "Girişimcilik",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSIPD",
+     "name": "Endüstriyel Tasarım",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSINTAR",
+     "name": "İç Mimarlık ve Çevre Tasarımı",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSGARM",
+     "name": "Gastronomi ve Mutfak Sanatları",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2023-2024 Güz",
+   "termCode": "202310",
+   "path": "internal",
+   "programs": [
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 11,
+     "firstChoice": 10,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 5,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (ENG)",
+     "name": "Mimarlık (İngilizce)",
+     "applications": 8,
+     "firstChoice": 8,
+     "accepted": 7,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 6,
+     "firstChoice": 6,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 5,
+     "firstChoice": 4,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 3,
+     "firstChoice": 2,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (TR)",
+     "name": "Mimarlık (Türkçe)",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSME",
+     "name": "Makina Mühendisliği",
+     "applications": 2,
+     "firstChoice": 0,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BAIR",
+     "name": "Uluslararası İlişkiler",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BABAF",
+     "name": "Uluslararası Finans",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2023-2024 Güz",
+   "termCode": "202310",
+   "path": "yandal",
+   "programs": [
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 32,
+     "firstChoice": 31,
+     "accepted": 26,
+     "conditional": 2,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 23,
+     "firstChoice": 16,
+     "accepted": 9,
+     "conditional": 5,
+     "rejected": 9,
+     "other": 0
+    },
+    {
+     "programId": "BAPSYC",
+     "name": "Psikoloji",
+     "applications": 18,
+     "firstChoice": 12,
+     "accepted": 12,
+     "conditional": 4,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSCOD",
+     "name": "İletişim Tasarımı",
+     "applications": 18,
+     "firstChoice": 16,
+     "accepted": 10,
+     "conditional": 1,
+     "rejected": 7,
+     "other": 0
+    },
+    {
+     "programId": "BAIR",
+     "name": "Uluslararası İlişkiler",
+     "applications": 15,
+     "firstChoice": 11,
+     "accepted": 10,
+     "conditional": 1,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BAMIS",
+     "name": "Yönetim Bilişim Sistemleri",
+     "applications": 12,
+     "firstChoice": 10,
+     "accepted": 6,
+     "conditional": 4,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSHOTM",
+     "name": "Otel Yöneticiliği",
+     "applications": 10,
+     "firstChoice": 8,
+     "accepted": 5,
+     "conditional": 4,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BABAF",
+     "name": "Uluslararası Finans",
+     "applications": 9,
+     "firstChoice": 6,
+     "accepted": 4,
+     "conditional": 1,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 8,
+     "firstChoice": 6,
+     "accepted": 5,
+     "conditional": 1,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 8,
+     "firstChoice": 4,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSINTAR",
+     "name": "İç Mimarlık ve Çevre Tasarımı",
+     "applications": 7,
+     "firstChoice": 6,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAENT",
+     "name": "Girişimcilik",
+     "applications": 7,
+     "firstChoice": 3,
+     "accepted": 3,
+     "conditional": 2,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSIPD",
+     "name": "Endüstriyel Tasarım",
+     "applications": 7,
+     "firstChoice": 1,
+     "accepted": 4,
+     "conditional": 1,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 4,
+     "firstChoice": 4,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSAVM",
+     "name": "Havacılık Yönetimi",
+     "applications": 3,
+     "firstChoice": 3,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSGARM",
+     "name": "Gastronomi ve Mutfak Sanatları",
+     "applications": 2,
+     "firstChoice": 0,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (TR)",
+     "name": "Mimarlık (Türkçe)",
+     "applications": 2,
+     "firstChoice": 0,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSCE",
+     "name": "İnşaat Mühendisliği",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BLAW",
+     "name": "Hukuk",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (ENG)",
+     "name": "Mimarlık (İngilizce)",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2023-2024 Bahar",
+   "termCode": "202320",
+   "path": "cap",
+   "programs": [
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 8,
+     "firstChoice": 8,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 8,
+     "firstChoice": 6,
+     "accepted": 7,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 6,
+     "firstChoice": 3,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 5,
+     "other": 0
+    },
+    {
+     "programId": "BAMIS",
+     "name": "Yönetim Bilişim Sistemleri",
+     "applications": 5,
+     "firstChoice": 5,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAPSYC",
+     "name": "Psikoloji",
+     "applications": 3,
+     "firstChoice": 3,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 3,
+     "firstChoice": 1,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BABAF",
+     "name": "Uluslararası Finans",
+     "applications": 3,
+     "firstChoice": 1,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSME",
+     "name": "Makina Mühendisliği",
+     "applications": 2,
+     "firstChoice": 0,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAENT",
+     "name": "Girişimcilik",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSIPD",
+     "name": "Endüstriyel Tasarım",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSHOTM",
+     "name": "Otel Yöneticiliği",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAIR",
+     "name": "Uluslararası İlişkiler",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2023-2024 Bahar",
+   "termCode": "202320",
+   "path": "internal",
+   "programs": [
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 4,
+     "firstChoice": 4,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 3,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 3,
+     "firstChoice": 3,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSCOD",
+     "name": "İletişim Tasarımı",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (ENG)",
+     "name": "Mimarlık (İngilizce)",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (TR)",
+     "name": "Mimarlık (Türkçe)",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 2,
+     "firstChoice": 0,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BABAF",
+     "name": "Uluslararası Finans",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2023-2024 Bahar",
+   "termCode": "202320",
+   "path": "yandal",
+   "programs": [
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 17,
+     "firstChoice": 14,
+     "accepted": 14,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 15,
+     "firstChoice": 11,
+     "accepted": 13,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSCOD",
+     "name": "İletişim Tasarımı",
+     "applications": 13,
+     "firstChoice": 12,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 8,
+     "other": 0
+    },
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 12,
+     "firstChoice": 6,
+     "accepted": 8,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BAIR",
+     "name": "Uluslararası İlişkiler",
+     "applications": 7,
+     "firstChoice": 6,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSHOTM",
+     "name": "Otel Yöneticiliği",
+     "applications": 7,
+     "firstChoice": 7,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAMIS",
+     "name": "Yönetim Bilişim Sistemleri",
+     "applications": 6,
+     "firstChoice": 2,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 6,
+     "firstChoice": 5,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BAPSYC",
+     "name": "Psikoloji",
+     "applications": 6,
+     "firstChoice": 6,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 5,
+     "firstChoice": 2,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BABAF",
+     "name": "Uluslararası Finans",
+     "applications": 5,
+     "firstChoice": 2,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSGARM",
+     "name": "Gastronomi ve Mutfak Sanatları",
+     "applications": 4,
+     "firstChoice": 3,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSINTAR",
+     "name": "İç Mimarlık ve Çevre Tasarımı",
+     "applications": 4,
+     "firstChoice": 2,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSIPD",
+     "name": "Endüstriyel Tasarım",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSCE",
+     "name": "İnşaat Mühendisliği",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSME",
+     "name": "Makina Mühendisliği",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BAENT",
+     "name": "Girişimcilik",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2024-2025 Güz",
+   "termCode": "202410",
+   "path": "cap",
+   "programs": [
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 20,
+     "firstChoice": 19,
+     "accepted": 13,
+     "conditional": 0,
+     "rejected": 7,
+     "other": 0
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 17,
+     "firstChoice": 13,
+     "accepted": 8,
+     "conditional": 0,
+     "rejected": 9,
+     "other": 0
+    },
+    {
+     "programId": "BAMIS",
+     "name": "Yönetim Bilişim Sistemleri",
+     "applications": 9,
+     "firstChoice": 7,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 5,
+     "other": 0
+    },
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 8,
+     "firstChoice": 4,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 6,
+     "other": 0
+    },
+    {
+     "programId": "BAPSYC",
+     "name": "Psikoloji",
+     "applications": 7,
+     "firstChoice": 6,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 7,
+     "firstChoice": 4,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 5,
+     "other": 0
+    },
+    {
+     "programId": "BABAF",
+     "name": "Uluslararası Finans",
+     "applications": 4,
+     "firstChoice": 2,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 4,
+     "firstChoice": 3,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSCOD",
+     "name": "İletişim Tasarımı",
+     "applications": 3,
+     "firstChoice": 1,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSINTAR",
+     "name": "İç Mimarlık ve Çevre Tasarımı",
+     "applications": 3,
+     "firstChoice": 3,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BLAW",
+     "name": "Hukuk",
+     "applications": 3,
+     "firstChoice": 3,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BAENT",
+     "name": "Girişimcilik",
+     "applications": 3,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSME",
+     "name": "Makina Mühendisliği",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BAIR",
+     "name": "Uluslararası İlişkiler",
+     "applications": 2,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 2,
+     "firstChoice": 0,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSIPD",
+     "name": "Endüstriyel Tasarım",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSAVM",
+     "name": "Havacılık Yönetimi",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (ENG)",
+     "name": "Mimarlık (İngilizce)",
+     "applications": 1,
+     "firstChoice": 0,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSHOTM",
+     "name": "Otel Yöneticiliği",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 0,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    }
+   ]
+  },
+  {
+   "term": "2024-2025 Güz",
+   "termCode": "202410",
+   "path": "yandal",
+   "programs": [
+    {
+     "programId": "BABUS",
+     "name": "İşletme",
+     "applications": 21,
+     "firstChoice": 17,
+     "accepted": 11,
+     "conditional": 0,
+     "rejected": 10,
+     "other": 0
+    },
+    {
+     "programId": "BSCS",
+     "name": "Bilgisayar Mühendisliği",
+     "applications": 20,
+     "firstChoice": 19,
+     "accepted": 14,
+     "conditional": 0,
+     "rejected": 6,
+     "other": 0
+    },
+    {
+     "programId": "BSCOD",
+     "name": "İletişim Tasarımı",
+     "applications": 17,
+     "firstChoice": 14,
+     "accepted": 13,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BAECON",
+     "name": "Ekonomi",
+     "applications": 17,
+     "firstChoice": 13,
+     "accepted": 12,
+     "conditional": 0,
+     "rejected": 5,
+     "other": 0
+    },
+    {
+     "programId": "BAMIS",
+     "name": "Yönetim Bilişim Sistemleri",
+     "applications": 14,
+     "firstChoice": 13,
+     "accepted": 10,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BAPSYC",
+     "name": "Psikoloji",
+     "applications": 13,
+     "firstChoice": 10,
+     "accepted": 11,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BAIBUS",
+     "name": "Uluslararası Ticaret ve İşletmecilik",
+     "applications": 9,
+     "firstChoice": 4,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BABAF",
+     "name": "Uluslararası Finans",
+     "applications": 9,
+     "firstChoice": 7,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BAANTH",
+     "name": "Antropoloji",
+     "applications": 9,
+     "firstChoice": 9,
+     "accepted": 9,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSINTAR",
+     "name": "İç Mimarlık ve Çevre Tasarımı",
+     "applications": 8,
+     "firstChoice": 8,
+     "accepted": 5,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BSIE",
+     "name": "Endüstri Mühendisliği",
+     "applications": 8,
+     "firstChoice": 6,
+     "accepted": 6,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BAENT",
+     "name": "Girişimcilik",
+     "applications": 6,
+     "firstChoice": 3,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BLAW",
+     "name": "Hukuk",
+     "applications": 5,
+     "firstChoice": 4,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 4,
+     "other": 0
+    },
+    {
+     "programId": "BSHOTM",
+     "name": "Otel Yöneticiliği",
+     "applications": 5,
+     "firstChoice": 4,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 3,
+     "other": 0
+    },
+    {
+     "programId": "BSEE",
+     "name": "Elektrik-Elektronik Mühendisliği",
+     "applications": 5,
+     "firstChoice": 5,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BAIR",
+     "name": "Uluslararası İlişkiler",
+     "applications": 4,
+     "firstChoice": 3,
+     "accepted": 3,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSAVM",
+     "name": "Havacılık Yönetimi",
+     "applications": 4,
+     "firstChoice": 4,
+     "accepted": 4,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSIPD",
+     "name": "Endüstriyel Tasarım",
+     "applications": 3,
+     "firstChoice": 3,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 2,
+     "other": 0
+    },
+    {
+     "programId": "BSCE",
+     "name": "İnşaat Mühendisliği",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 2,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSGARM",
+     "name": "Gastronomi ve Mutfak Sanatları",
+     "applications": 2,
+     "firstChoice": 2,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 1,
+     "other": 0
+    },
+    {
+     "programId": "BSARCH (ENG)",
+     "name": "Mimarlık (İngilizce)",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    },
+    {
+     "programId": "BSME",
+     "name": "Makina Mühendisliği",
+     "applications": 1,
+     "firstChoice": 1,
+     "accepted": 1,
+     "conditional": 0,
+     "rejected": 0,
+     "other": 0
+    }
+   ]
+  }
+ ]
+}

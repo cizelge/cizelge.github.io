@@ -284,6 +284,47 @@ export function evaluateCap(target: TransferProgram, profile: StudentProfile, da
   return result("cap", checks, null, null);
 }
 
+/** Yandal başvurusu (Yandal Öğrenimi sayfası): GNO en az 2,50, 2–5 dönem okumuş olmak, kalan ders olmaması. */
+export function evaluateYandal(target: TransferProgram, profile: StudentProfile, data: TransferData): PathResult {
+  const min = data.rules.yandalMinGpa;
+  // Yandal sayfasındaki dönem şartı kurum içi geçişle aynı (en az 2, en fazla 5 dönem).
+  const { min: semMin, max: semMax } = data.rules.internalSemesters;
+  const checks: Check[] = [];
+
+  if (target.programId !== null && target.programId === profile.programId) {
+    checks.push({ id: "self", status: "fail", text: "Bu zaten kendi bölümün." });
+  }
+  if (profile.gpa === null) {
+    checks.push({ id: "gpa", status: "unknown", text: `Ortalamanı gir. En az ${fmtGpa(min)} gerekiyor.` });
+  } else {
+    checks.push({
+      id: "gpa",
+      status: profile.gpa >= min ? "ok" : "fail",
+      text: `Ortalaman ${fmtGpa(profile.gpa)}; en az ${fmtGpa(min)} gerekiyor.`,
+    });
+  }
+  const s = profile.completedSemesters;
+  if (s === null) {
+    checks.push({ id: "semesters", status: "unknown", text: "Tamamladığın dönem sayısını gir (hazırlık ve yaz hariç)." });
+  } else {
+    checks.push({
+      id: "semesters",
+      status: s >= semMin && s <= semMax ? "ok" : "fail",
+      text: `${s} dönem tamamladın; ${semMin} ile ${semMax} arası olmalı.`,
+    });
+  }
+  if (profile.hasFailedCourse === null) {
+    checks.push({ id: "failed", status: "unknown", text: "Kaldığın (F) ders olup olmadığını işaretle." });
+  } else {
+    checks.push(
+      profile.hasFailedCourse
+        ? { id: "failed", status: "fail", text: "Kaldığın bir ders var; yandal için kaldığın ders olmamalı." }
+        : { id: "failed", status: "ok", text: "Kaldığın ders yok." },
+    );
+  }
+  return result("yandal", checks, null, null);
+}
+
 const collator = new Intl.Collator("tr");
 const statusRank = (a: PathResult, b: PathResult) =>
   a.status === "ok" || b.status === "ok" ? 0 : a.status === "unknown" || b.status === "unknown" ? 1 : 2;
@@ -292,7 +333,7 @@ const statusRank = (a: PathResult, b: PathResult) =>
 export function evaluateAll(
   profile: StudentProfile,
   data: TransferData,
-): { program: TransferProgram; internal: PathResult; central: PathResult; cap: PathResult }[] {
+): { program: TransferProgram; internal: PathResult; central: PathResult; cap: PathResult; yandal: PathResult }[] {
   return data.programs
     .filter((p) => p.programId === null || p.programId !== profile.programId)
     .map((program) => ({
@@ -300,6 +341,7 @@ export function evaluateAll(
       internal: evaluateInternal(program, profile, data),
       central: evaluateCentral(program, profile, data),
       cap: evaluateCap(program, profile, data),
+      yandal: evaluateYandal(program, profile, data),
     }))
     .sort((a, b) => statusRank(a.cap, a.internal) - statusRank(b.cap, b.internal) || collator.compare(a.program.name, b.program.name));
 }
