@@ -2040,7 +2040,7 @@ a.pc-pill:hover { border-color: var(--ink); background: var(--paper-2); }
     padding: 0.35rem max(0.75rem, env(safe-area-inset-right)) 0.35rem max(1rem, env(safe-area-inset-left));
   }
   .topbar-nav { display: flex; order: 0; flex-basis: auto; margin: 0; gap: 0; }
-  .topbar-nav > a:not([href="/hakkinda"]) { display: none; }
+  .topbar-nav > a:not(.nav-about) { display: none; }
   .topbar-nav .btn-small { min-height: 44px; padding-inline: 0.6rem; }
   .topbar .icon-btn { width: 44px; height: 44px; }
 
@@ -2131,5 +2131,20 @@ a.pc-pill:hover { border-color: var(--ink); background: var(--paper-2); }
 @media (max-width: 860px) and (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .bottom-nav-item[aria-current="page"] .bottom-nav-label {
     background: linear-gradient(transparent 55%, color-mix(in oklab, var(--hl-0) 45%, var(--paper)) 55%, color-mix(in oklab, var(--hl-0) 45%, var(--paper)) 92%, transparent 92%);
+  }
+}
+
+/* Üst menüde etkin sayfa: alt çubuktaki gibi fosforlu kalem çizgisi. */
+.topbar-nav a[aria-current="page"] { color: var(--ink); }
+.topbar-nav a[aria-current="page"] .nav-label {
+  background: linear-gradient(transparent 58%, var(--hl-0) 58%, var(--hl-0) 92%, transparent 92%);
+  padding: 0 0.1em;
+}
+:root[data-theme="dark"] .topbar-nav a[aria-current="page"] .nav-label {
+  background: linear-gradient(transparent 58%, color-mix(in oklab, var(--hl-0) 45%, var(--paper)) 58%, color-mix(in oklab, var(--hl-0) 45%, var(--paper)) 92%, transparent 92%);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .topbar-nav a[aria-current="page"] .nav-label {
+    background: linear-gradient(transparent 58%, color-mix(in oklab, var(--hl-0) 45%, var(--paper)) 58%, color-mix(in oklab, var(--hl-0) 45%, var(--paper)) 92%, transparent 92%);
   }
 }

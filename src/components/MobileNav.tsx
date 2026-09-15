@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 // Telefonda alt gezinme çubuğu. Etkin sayfanın adının altında logodaki fosforlu kalem çizgisi.
-const ITEMS: { href: string; label: string; match: (p: string) => boolean; icon: React.ReactNode }[] = [
+export const NAV_ITEMS: { href: string; label: string; match: (p: string) => boolean; icon: React.ReactNode }[] = [
   {
     href: "/ozyegin",
     label: "Program",
@@ -58,10 +58,11 @@ const ITEMS: { href: string; label: string; match: (p: string) => boolean; icon:
 const TOOL_PATHS = ["/ozyegin/yol-haritasi", "/ozyegin/on-sart-diyagrami", "/ozyegin/gecis", "/ozyegin/erasmus"];
 
 export function MobileNav() {
-  const pathname = usePathname() ?? "/";
+  // Statik yayında adresler "/" ile bitiyor (trailingSlash); eşleştirmeden önce atılır.
+  const pathname = (usePathname() ?? "/").replace(/\/$/, "") || "/";
   return (
     <nav className="bottom-nav" aria-label="Araçlar">
-      {ITEMS.map((item) => {
+      {NAV_ITEMS.map((item) => {
         const active = item.match(pathname);
         return (
           <Link key={item.href} href={item.href} className="bottom-nav-item" aria-current={active ? "page" : undefined}>
