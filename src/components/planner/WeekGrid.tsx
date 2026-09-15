@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Day } from "@/lib/engine";
 import { parseTime } from "@/lib/engine";
 import { DAY_NAMES, DAY_SHORT } from "@/lib/days";
@@ -16,9 +17,11 @@ interface Props {
   compact?: boolean;
   /** Şube harfinin yerine konacak öğe (planlayıcıda şube değiştirme menüsü); null dönerse düz harf yazılır. */
   renderSection?: (m: PlacedMeeting) => React.ReactNode;
+  /** Ders kutusunun bağlanacağı sayfa (ders sayfası); null ya da verilmezse kutu bağlantı değildir. */
+  hrefOf?: (m: PlacedMeeting) => string | null;
 }
 
-export function WeekGrid({ meetings, freeDays, range, days, empty, compact = false, renderSection }: Props) {
+export function WeekGrid({ meetings, freeDays, range, days, empty, compact = false, renderSection, hrefOf }: Props) {
   const startHour = Math.floor(range.start / 60);
   const endHour = Math.ceil(range.end / 60);
   const hours = Array.from({ length: endHour - startHour }, (_, i) => startHour + i);
@@ -69,6 +72,17 @@ export function WeekGrid({ meetings, freeDays, range, days, empty, compact = fal
                     }
                     title={`${m.courseCode} ${m.sectionId}, ${m.start}–${m.end}${m.room ? `, ${m.room}` : ""}${m.instructor ? `, ${personName(m.instructor)}` : ""}`}
                   >
+                    {(() => {
+                      const href = hrefOf?.(m);
+                      // Bütün kutuyu kaplayan bağlantı; şube menüsü düğmesi üstte kalır (iç içe etkileşimli öğe olmasın diye kardeş).
+                      return href ? (
+                        <Link
+                          href={href}
+                          className="block-link"
+                          aria-label={`${m.courseCode} ders sayfası: şubeler, hocalar, ön şartlar`}
+                        />
+                      ) : null;
+                    })()}
                     <span className="block-code">
                       {m.courseCode}{" "}
                       {renderSection?.(m) ?? (m.sectionId && <span className="block-section">{m.sectionId}</span>)}
