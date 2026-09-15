@@ -16,6 +16,7 @@ import type { Completion, Minor, PlanOptions, RoadmapProgram } from "@/lib/roadm
 import { ErasmusPlanner } from "./ErasmusPlanner";
 import { GpaPanel } from "./GpaPanel";
 import { PassedCourses } from "./PassedCourses";
+import { PrereqMap } from "./PrereqMap";
 import { PrereqWarnings } from "./PrereqWarnings";
 import { StartPanel } from "./StartPanel";
 import { Summary } from "./Summary";
@@ -111,7 +112,9 @@ export function Roadmap({ programs, minors, terms, current }: Props) {
   const loadLimit = maxLoad(gpa, { cap: !!cap, passedEcts: passedEcts(roadmap, completion) });
   // Hedef hesabı için kalan AKTS: planda yer alan derslerin toplamı (yerleşemeyenler hariç, tahmin).
   const remainingCredits = plan ? plan.terms.reduce((n, t) => n + t.credits, 0) : 0;
-  const critical = useMemo(() => criticalCourses(roadmap, completion).slice(0, 5), [roadmap, completion]);
+  const allCritical = useMemo(() => criticalCourses(roadmap, completion), [roadmap, completion]);
+  const critical = useMemo(() => allCritical.slice(0, 5), [allCritical]);
+  const criticalCodes = useMemo(() => allCritical.map((c) => c.code), [allCritical]);
   const unreadable = useMemo(() => unreadablePrerequisites(roadmap, completion), [roadmap, completion]);
 
   const update = (patch: Partial<RoadmapState>) => setState((s) => ({ ...s, ...patch }));
@@ -220,6 +223,16 @@ export function Roadmap({ programs, minors, terms, current }: Props) {
               anadalId={anadal?.id ?? null}
             />
             <PrereqWarnings critical={critical} unreadable={unreadable} />
+            {anadal && (
+              <PrereqMap
+                anadal={anadal}
+                cap={cap}
+                terms={terms}
+                passed={passed}
+                criticalCodes={criticalCodes}
+                current={current}
+              />
+            )}
           </>
         )}
       </main>

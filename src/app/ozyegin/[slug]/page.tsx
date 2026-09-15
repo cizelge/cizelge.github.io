@@ -5,11 +5,20 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { WeekGrid } from "@/components/planner/WeekGrid";
 import type { PlacedMeeting } from "@/components/planner/placed";
 import { tightRange } from "@/components/planner/placed";
-import { findCourse, loadTerm } from "@/lib/data";
+import { PrereqChain } from "@/components/course/PrereqChain";
+import { findCourse, loadPrograms, loadTerm, loadTerms } from "@/lib/data";
 import { DAY_NAMES as DAY, visibleDays } from "@/lib/days";
 import { personName } from "@/lib/format";
+import type { Program } from "@/lib/types";
 
 export const dynamicParams = false;
+
+// loadPrograms dosyayı her çağrıda okur; derlemede bütün ders sayfaları aynı listeyi paylaşır.
+let programsCache: Program[] | null = null;
+function allPrograms(): Program[] {
+  programsCache ??= loadPrograms("ozyegin")?.programs ?? [];
+  return programsCache;
+}
 
 export function generateStaticParams() {
   return loadTerm("ozyegin").courses.map((c) => ({ slug: c.slug }));
@@ -100,6 +109,13 @@ export default async function CoursePage(props: PageProps<"/ozyegin/[slug]">) {
             <span className="field-label">Ön koşul</span> {course.prerequisites}
           </p>
         )}
+
+        <PrereqChain
+          code={course.code}
+          programs={allPrograms()}
+          terms={loadTerms("ozyegin")}
+          currentTerm={term}
+        />
 
         <p style={{ marginBottom: "2.5rem" }}>
           <Link href={`/ozyegin?d=${planQuery}`} className="btn btn-pen">
