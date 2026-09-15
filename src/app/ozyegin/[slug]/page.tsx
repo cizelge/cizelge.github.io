@@ -110,13 +110,6 @@ export default async function CoursePage(props: PageProps<"/ozyegin/[slug]">) {
           </p>
         )}
 
-        <PrereqChain
-          code={course.code}
-          programs={allPrograms()}
-          terms={loadTerms("ozyegin")}
-          currentTerm={term}
-        />
-
         <p style={{ marginBottom: "2.5rem" }}>
           <Link href={`/ozyegin?d=${planQuery}`} className="btn btn-pen">
             Programıma ekle
@@ -169,6 +162,10 @@ export default async function CoursePage(props: PageProps<"/ozyegin/[slug]">) {
           range={tightRange(meetings)}
           days={visibleDays(meetings)}
         />
+
+        <div style={{ marginTop: "2.5rem" }}>
+          <PrereqChain code={course.code} programs={allPrograms()} terms={loadTerms("ozyegin")} currentTerm={term} />
+        </div>
       </main>
       <footer className="site-footer">
         <span>Resmi bir Özyeğin hizmeti değildir. Kaydından önce bilgileri SIS üzerinden kontrol et.</span>

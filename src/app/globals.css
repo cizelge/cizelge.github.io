@@ -2021,3 +2021,115 @@ a.pc-pill:hover { border-color: var(--ink); background: var(--paper-2); }
   cursor: pointer;
 }
 @media (max-width: 860px) { .cart-clear { width: 44px; height: 44px; } }
+
+/* ======================================================================
+   Telefon düzeni (≤ 860px). Tek satır başlık, altta araç çubuğu.
+   Etkin aracın adının altında logodaki fosforlu kalem çizgisi.
+   ====================================================================== */
+.bottom-nav { display: none; }
+
+@media (max-width: 860px) {
+  :root { --bottom-nav-h: 60px; }
+  body { padding-bottom: calc(var(--bottom-nav-h) + env(safe-area-inset-bottom)); }
+
+  /* Başlık: logo, Hakkında, tema. Araç bağlantıları alt çubukta. */
+  .topbar {
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+    min-height: 52px;
+    padding: 0.35rem max(0.75rem, env(safe-area-inset-right)) 0.35rem max(1rem, env(safe-area-inset-left));
+  }
+  .topbar-nav { display: flex; order: 0; flex-basis: auto; margin: 0; gap: 0; }
+  .topbar-nav > a:not([href="/hakkinda"]) { display: none; }
+  .topbar-nav .btn-small { min-height: 44px; padding-inline: 0.6rem; }
+  .topbar .icon-btn { width: 44px; height: 44px; }
+
+  .bottom-nav {
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 40;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    height: calc(var(--bottom-nav-h) + env(safe-area-inset-bottom));
+    padding: 0 env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    background: color-mix(in oklab, var(--paper) 94%, transparent);
+    border-top: 1px solid var(--rule);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+  .bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    min-width: 0;
+    color: var(--ink-2);
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .bottom-nav-label {
+    max-width: 100%;
+    padding: 0 0.15em;
+    font-size: 0.7rem;
+    font-weight: 600;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .bottom-nav-item[aria-current="page"] { color: var(--ink); }
+  .bottom-nav-item[aria-current="page"] .bottom-nav-label {
+    background: linear-gradient(transparent 55%, var(--hl-0) 55%, var(--hl-0) 92%, transparent 92%);
+  }
+  .bottom-nav-item:active .bottom-nav-icon { transform: scale(0.92); }
+  .bottom-nav-item:focus-visible { outline-offset: -4px; }
+
+  /* Sayfa sekmeleri (Dersler / Program vb.) başlığın altında sabit, tek yükseklik. */
+  .planner { align-content: start; min-height: 0; }
+  .tabs { top: 0; }
+  .tab { min-height: 48px; }
+
+  /* Sayfa gövdesi: kenar boşlukları eşit, alt çubuğa yapışmasın. */
+  .rail,
+  .board { padding: 1rem 1rem 1.5rem; }
+  .site-footer { padding-bottom: 1.5rem; }
+  .tab-jump { width: 100%; margin-top: 0.5rem; }
+
+  /* Başlıklar telefonda bir kademe küçük. */
+  .board-title { font-size: 1.5rem; line-height: 1.2; }
+
+  /* Çizelge kutuları: kod kesilmek yerine iki satıra bölünür. */
+  .block { padding: 0.2rem 0.2rem 0.2rem 0.3rem; }
+  .block-code { white-space: normal; overflow-wrap: anywhere; line-height: 1.15; }
+  .is-compact .block-code { white-space: normal; overflow: visible; text-overflow: clip; font-size: 0.68rem; }
+  .block .switch-btn { padding: 0 0.2rem; margin-top: 0.1rem; }
+
+  /* Ön koşul zinciri: seçenekler alt alta, "ya da" küçük ayraç. */
+  .pc-either-list { flex-direction: column; align-items: stretch; }
+  .pc-either-row { display: flex; flex-wrap: wrap; }
+  .pc-items { flex-direction: column; align-items: stretch; }
+  .pc-items > li > a,
+  .pc-items > li > span { max-width: 100%; }
+
+  /* Seçenek çipleri parmakla rahat. */
+  .chip { min-height: 40px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .bottom-nav-icon { transition: transform 120ms ease; }
+}
+@media print {
+  .bottom-nav { display: none !important; }
+}
+/* Koyu temada alt çubuk işareti logodaki gibi kısık sarı (açık yazıyla okunur kalsın). */
+@media (max-width: 860px) {
+  :root[data-theme="dark"] .bottom-nav-item[aria-current="page"] .bottom-nav-label {
+    background: linear-gradient(transparent 55%, color-mix(in oklab, var(--hl-0) 45%, var(--paper)) 55%, color-mix(in oklab, var(--hl-0) 45%, var(--paper)) 92%, transparent 92%);
+  }
+}
+@media (max-width: 860px) and (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .bottom-nav-item[aria-current="page"] .bottom-nav-label {
+    background: linear-gradient(transparent 55%, color-mix(in oklab, var(--hl-0) 45%, var(--paper)) 55%, color-mix(in oklab, var(--hl-0) 45%, var(--paper)) 92%, transparent 92%);
+  }
+}

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Onest } from "next/font/google";
 import { THEME_SCRIPT } from "@/components/theme-script";
 import { USING_SAMPLE_DATA } from "@/lib/data";
@@ -20,6 +20,17 @@ export const metadata: Metadata = {
   description:
     "Derslerini seç, çakışmayan bütün programları gör. Kampüse az gün gelmek ya da sabah dersinden kaçmak gibi önceliklerine göre sıralar.",
   openGraph: { type: "website", locale: "tr_TR", siteName: "Çizelge" },
+};
+
+// Telefonda alt gezinme çubuğu ekranın alt kenarına (çentikli cihazlarda güvenli alana) yerleşir.
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fbfbf8" },
+    { media: "(prefers-color-scheme: dark)", color: "#141922" },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

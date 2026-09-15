@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MobileNav } from "./MobileNav";
 import { ThemeToggle } from "./ThemeToggle";
 
 export function SiteHeader({ term }: { term?: string }) {
@@ -28,6 +29,7 @@ export function SiteHeader({ term }: { term?: string }) {
         </Link>
       </nav>
       <ThemeToggle />
+      <MobileNav />
     </header>
   );
 }
