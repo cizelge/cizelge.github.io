@@ -8,6 +8,8 @@
     {
       "binding": "DB",
       "database_name": "cizelge-oy",
+      // Yerel denemede herhangi bir metin yeter; yayına almadan önce
+      // `npx wrangler d1 create cizelge-oy` çıktısındaki kimlikle değiştir.
       "database_id": "yerel-deneme"
     }
   ],
