@@ -12,7 +12,8 @@
     "typecheck": "next typegen && tsc --noEmit",
     "import:ozyegin": "tsx scrapers/ozyegin/cli.ts",
     "import:programs": "tsx scrapers/ozyegin/programs-cli.ts",
-    "import:details": "tsx scrapers/ozyegin/details-cli.ts"
+    "import:details": "tsx scrapers/ozyegin/details-cli.ts",
+    "update:offerings": "tsx scrapers/ozyegin/update-cli.ts"
   },
   "dependencies": {
     "next": "16.3.5",

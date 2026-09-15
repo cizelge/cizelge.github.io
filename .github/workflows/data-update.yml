@@ -1,0 +1,77 @@
+# Her gün Özyeğin'in herkese açık "Açılan Dersler" sayfasından ders, şube, hoca ve saatleri günceller.
+# Veri değiştiyse master'a commit atar ve siteyi yeniden yayınlatır.
+#
+# Yayın tetikleme: GITHUB_TOKEN ile yapılan push başka iş akışlarını (pages.yml'deki `on: push`) tetiklemez.
+# GitHub'ın bu kuralının istisnası workflow_dispatch'tir, bu yüzden push'tan sonra
+# `gh workflow run pages.yml --ref master` çalıştırılır. Böylece pages.yml değişmeden master'ın en son
+# hâlini (az önce atılan veri commit'i dahil) derler. (workflow_call ile çağırmak, çağıranın eski SHA'sını
+# checkout edeceği için ek ref girdisi gerektirirdi.)
+#
+# Güvenlik: update:offerings sayfa bozuk görünürse (kapsam içi şubelerin %50'sinden azı bulunursa) ya da
+# doğrulama geçmezse sıfırdan farklı kodla çıkar; iş başarısız olur ve hiçbir şey commit edilmez.
+name: Ders verisi güncelleme
+
+on:
+  schedule:
+    - cron: "17 4 * * *" # her gün 04:17 UTC (07:17 TSİ)
+  workflow_dispatch:
+
+permissions:
+  contents: write # veri commit'ini master'a göndermek için
+  actions: write # pages.yml'i workflow_dispatch ile tetiklemek için
+
+concurrency:
+  group: data-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Açılan dersleri getir ve birleştir
+        id: offerings
+        run: npm run update:offerings
+
+      - run: npm test
+
+      - name: Değişiklik varsa commit ve push
+        id: commit
+        env:
+          COUNTS: ${{ steps.offerings.outputs.counts }}
+        run: |
+          if [ -z "$(git status --porcelain data/)" ]; then
+            echo "Veri değişmedi."
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898699+github-actions[bot]@users.noreply.github.com"
+          msg="chore(data): açılan dersler güncellendi"
+          if [ -n "$COUNTS" ]; then msg="$msg ($COUNTS)"; fi
+          git add data/
+          git commit -m "$msg"
+          # Bu arada master'a başka commit geldiyse üstüne al; veri dosyalarını yalnızca bu iş değiştirir.
+          for attempt in 1 2 3; do
+            if git push origin HEAD:master; then break; fi
+            if [ "$attempt" = 3 ]; then exit 1; fi
+            git pull --rebase origin master
+          done
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Siteyi yeniden yayınla
+        if: steps.commit.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run pages.yml --ref master
