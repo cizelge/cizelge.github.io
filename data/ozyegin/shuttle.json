@@ -1,0 +1,233 @@
+{
+  "schoolId": "ozyegin",
+  "fetchedAt": "2026-09-15T17:25:27Z",
+  "validFrom": "2026-08-29",
+  "periodLabel": "Yaz dönemi",
+  "contactPhones": [
+    "0 (549) 827 74 15",
+    "0 (549) 827 74 16"
+  ],
+  "sources": [
+    {
+      "label": "Özyeğin Üniversitesi, Servis saatleri",
+      "url": "https://www.ozyegin.edu.tr/tr/iletisim/servis-saatleri"
+    },
+    {
+      "label": "Hat listesi (servis saatleri uygulamasının verisi)",
+      "url": "https://my.ozyegin.edu.tr/backend-api/shuttle/list"
+    }
+  ],
+  "campuses": [
+    {
+      "id": "cekmekoy",
+      "name": "Çekmeköy kampüsü"
+    }
+  ],
+  "routes": [
+    {
+      "id": "cekmekoy-metro",
+      "name": "Çekmeköy Metro",
+      "campusId": "cekmekoy",
+      "sourceUrl": "https://www.ozyegin.edu.tr/shuttle/detail.php?lang=tr&iframe=true&route_id=26",
+      "sourceRouteIds": [
+        26,
+        27
+      ],
+      "toCampusStops": [
+        "Necip Fazıl Metro Garden Açık Otopark Çıkış Yönü",
+        "Madenler İğdaş Binası önü (Yeşil Çekmeköy cafe önü)",
+        "Vatan Caddesi İETT Durağı",
+        "Emlak Konut İETT Durağı (BİNİLİR)",
+        "KAMPÜS"
+      ],
+      "fromCampusStops": [
+        "KAMPÜS",
+        "Emlak Konut İETT Durağı (İNİLİR)",
+        "Taşdelen Vatan Caddesi İETT Durağı",
+        "Madenler İETT Durağı",
+        "Necip Fazıl Metro Garden Açık Otopark Çıkış Yönü"
+      ],
+      "fares": [
+        "Kredi ve Banka Kartı 100 TL",
+        "Kart 70 TL"
+      ],
+      "services": [
+        {
+          "id": "hafta-ici",
+          "label": "Hafta içi",
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "toCampus": [
+            {
+              "departure": "07:50",
+              "stop": "Necip Fazıl Metro Garden Açık Otopark Çıkış Yönü"
+            },
+            {
+              "departure": "10:00",
+              "stop": "Necip Fazıl Metro Garden Açık Otopark Çıkış Yönü"
+            },
+            {
+              "departure": "12:00",
+              "stop": "Necip Fazıl Metro Garden Açık Otopark Çıkış Yönü"
+            },
+            {
+              "departure": "14:00",
+              "stop": "Necip Fazıl Metro Garden Açık Otopark Çıkış Yönü"
+            },
+            {
+              "departure": "16:00",
+              "stop": "Necip Fazıl Metro Garden Açık Otopark Çıkış Yönü"
+            },
+            {
+              "departure": "18:00",
+              "stop": "Necip Fazıl Metro Garden Açık Otopark Çıkış Yönü"
+            },
+            {
+              "departure": "20:00",
+              "stop": "Necip Fazıl Metro Garden Açık Otopark Çıkış Yönü"
+            },
+            {
+              "departure": "22:00",
+              "stop": "Necip Fazıl Metro Garden Açık Otopark Çıkış Yönü"
+            }
+          ],
+          "fromCampus": [
+            {
+              "departure": "09:00",
+              "stop": "KAMPÜS"
+            },
+            {
+              "departure": "11:00",
+              "stop": "KAMPÜS"
+            },
+            {
+              "departure": "13:00",
+              "stop": "KAMPÜS"
+            },
+            {
+              "departure": "15:00",
+              "stop": "KAMPÜS"
+            },
+            {
+              "departure": "16:50",
+              "stop": "KAMPÜS"
+            },
+            {
+              "departure": "19:00",
+              "stop": "KAMPÜS"
+            },
+            {
+              "departure": "21:00",
+              "stop": "KAMPÜS"
+            },
+            {
+              "departure": "22:40",
+              "stop": "KAMPÜS"
+            }
+          ]
+        },
+        {
+          "id": "hafta-sonu",
+          "label": "Hafta sonu",
+          "days": [
+            6,
+            7
+          ],
+          "toCampus": [
+            {
+              "departure": "10:00",
+              "stop": "Necip Fazıl Metro Garden Açık Otopark Çıkış Yönü"
+            },
+            {
+              "departure": "14:00",
+              "stop": "Necip Fazıl Metro Garden Açık Otopark Çıkış Yönü"
+            },
+            {
+              "departure": "18:00",
+              "stop": "Necip Fazıl Metro Garden Açık Otopark Çıkış Yönü"
+            },
+            {
+              "departure": "22:00",
+              "stop": "Necip Fazıl Metro Garden Açık Otopark Çıkış Yönü"
+            }
+          ],
+          "fromCampus": [
+            {
+              "departure": "09:00",
+              "stop": "KAMPÜS"
+            },
+            {
+              "departure": "13:00",
+              "stop": "KAMPÜS"
+            },
+            {
+              "departure": "17:00",
+              "stop": "KAMPÜS"
+            },
+            {
+              "departure": "21:00",
+              "stop": "KAMPÜS"
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Kaynak dönem adını \"Yaz dönemi\" olarak veriyor; 29 Ağustos 2026 tarihinden itibaren geçerli.",
+        "Varış saatleri ve yolculuk süresi yayımlanmıyor; yalnızca ilk duraktan kalkış saatleri var."
+      ]
+    },
+    {
+      "id": "tasdelen",
+      "name": "Taşdelen",
+      "campusId": "cekmekoy",
+      "sourceUrl": "https://www.ozyegin.edu.tr/shuttle/detail.php?lang=tr&iframe=true&route_id=7",
+      "sourceRouteIds": [
+        7
+      ],
+      "toCampusStops": [
+        "Taşdelen Sarıyer Börekçisi Yanı",
+        "Ekşioğlu Mahellesi İETT Durağı Karşısı (Eski Anotalia Tekel Önü)",
+        "Turgut Özal Caddesi İETT Durağı",
+        "Alemdağ Merkez",
+        "Çatalmeşe İETT DURAĞI",
+        "Kampüs"
+      ],
+      "fromCampusStops": [],
+      "fares": [
+        "Kredi ve Banka Kartı 80 TL",
+        "Kart 54 TL"
+      ],
+      "services": [
+        {
+          "id": "hafta-ici",
+          "label": "Hafta içi",
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "toCampus": [
+            {
+              "departure": "08:10",
+              "stop": "Taşdelen Sarıyer Börekçisi Yanı"
+            }
+          ],
+          "fromCampus": []
+        }
+      ],
+      "notes": [
+        "Kaynak dönem adını \"Yaz dönemi\" olarak veriyor; 29 Ağustos 2026 tarihinden itibaren geçerli.",
+        "Varış saatleri ve yolculuk süresi yayımlanmıyor; yalnızca ilk duraktan kalkış saatleri var.",
+        "Yalnızca kampüse gidiş seferi yayımlanıyor; kampüsten dönüş seferi yok.",
+        "Hafta sonu seferi yayımlanmıyor."
+      ]
+    }
+  ]
+}
