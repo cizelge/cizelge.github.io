@@ -118,37 +118,52 @@
 .form { display: grid; gap: 1rem; }
 .field { border: 0; padding: 0; margin: 0; display: grid; gap: 0.3rem; min-width: 0; }
 .legend { padding: 0; font-weight: 600; font-size: 0.95rem; }
-/* İki seçenek eşit genişlikte; seçili olan yıldız sarısıyla işaretlenir. */
-.choices { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; max-width: 24rem; }
-.choice {
-  min-height: 46px;
-  padding: 0 0.9rem;
-  border: 1px solid var(--rule-strong);
+/* "Alırdım / Almazdım": eşit genişlikte iki kutu, seçili olan yıldız sarısıyla işaretlenir. */
+.choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 0.6rem; max-width: 26rem; }
+
+.thumb {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 56px;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--rule);
   border-radius: var(--radius-m);
   background: var(--paper);
   color: var(--ink);
   font: inherit;
-  font-weight: 600;
+  text-align: left;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.35rem;
+  transition: border-color 0.12s ease, background 0.12s ease;
 }
-.choice:hover { background: var(--paper-2); }
-.choice[aria-pressed="true"] {
-  background: color-mix(in oklab, var(--star) 35%, var(--paper));
+.thumb:hover { border-color: var(--rule-strong); background: var(--paper-2); }
+.thumb:focus-visible { outline: 2px solid var(--pen); outline-offset: 2px; }
+
+.thumbIcon {
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: var(--paper-2);
+  color: var(--ink-2);
+  line-height: 0;
+}
+.thumbText { display: grid; gap: 0.05rem; min-width: 0; }
+.thumbLabel { font-weight: 600; }
+.thumbNote { color: var(--ink-2); font-size: 0.8rem; }
+
+.thumb[data-picked="true"] {
   border-color: var(--star);
   box-shadow: inset 0 0 0 1px var(--star);
+  background: color-mix(in oklab, var(--star) 14%, var(--paper));
 }
-.choice[aria-pressed="true"]::before {
-  content: "";
-  width: 0.55rem;
-  height: 0.3rem;
-  border-left: 2px solid var(--ink);
-  border-bottom: 2px solid var(--ink);
-  transform: rotate(-45deg) translateY(-0.1em);
+.thumb[data-picked="true"] .thumbIcon {
+  background: color-mix(in oklab, var(--star) 60%, var(--paper));
+  color: var(--ink);
 }
-.choice:focus-visible { outline: 2px solid var(--pen); outline-offset: 2px; }
+.thumb[data-picked="true"] .thumbNote { color: var(--ink); }
+
 .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .actions :global(.btn) { min-height: 44px; }

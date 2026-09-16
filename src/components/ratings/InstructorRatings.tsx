@@ -137,13 +137,9 @@ export function InstructorRatings({ school, slug, name, courseCount }: Props) {
 
               <fieldset className={styles.field}>
                 <legend className={styles.legend}>Baştan seçsen yine bu hocadan alır mıydın?</legend>
-                <div className={styles.choices}>
-                  <button type="button" className={styles.choice} aria-pressed={again === true} onClick={() => setAgain(true)}>
-                    Alırdım
-                  </button>
-                  <button type="button" className={styles.choice} aria-pressed={again === false} onClick={() => setAgain(false)}>
-                    Almazdım
-                  </button>
+                <div className={styles.choices} role="radiogroup" aria-label="Yine alır mıydın">
+                  <ThumbChoice picked={again === true} up onClick={() => setAgain(true)} label="Alırdım" note="yine seçerdim" />
+                  <ThumbChoice picked={again === false} onClick={() => setAgain(false)} label="Almazdım" note="uzak dururdum" />
                 </div>
               </fieldset>
 
@@ -191,5 +187,41 @@ function CriteriaBars({ criteria }: { criteria: Criteria }) {
         );
       })}
     </ul>
+  );
+}
+
+/** "Alırdım / Almazdım": başparmak simgeli iki eşit kutu. */
+function ThumbChoice({
+  picked,
+  up = false,
+  label,
+  note,
+  onClick,
+}: {
+  picked: boolean;
+  up?: boolean;
+  label: string;
+  note: string;
+  onClick: () => void;
+}) {
+  return (
+    <button type="button" role="radio" aria-checked={picked} className={styles.thumb} data-picked={picked} onClick={onClick}>
+      <span className={styles.thumbIcon} aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" style={up ? undefined : { transform: "rotate(180deg)" }}>
+          <path
+            d="M8.5 10.5L12 3.8c1.4 0 2.4 1.1 2.4 2.5v2.6h4c1.2 0 2.1 1.1 1.8 2.3l-1.4 6c-.2.9-1 1.5-1.9 1.5H8.5z"
+            fill={picked ? "currentColor" : "none"}
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinejoin="round"
+          />
+          <rect x="3.4" y="10.5" width="3.6" height="8.2" rx="1.1" fill={picked ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.6" />
+        </svg>
+      </span>
+      <span className={styles.thumbText}>
+        <span className={styles.thumbLabel}>{label}</span>
+        <span className={styles.thumbNote}>{note}</span>
+      </span>
+    </button>
   );
 }
