@@ -74,6 +74,8 @@ export interface VoteBody {
   slug: string;
   again: boolean;
   criteria: Criteria;
+  /** İsteğe bağlı isimsiz yorum. */
+  comment?: string | null;
   turnstile?: string;
 }
 
@@ -106,6 +108,22 @@ export async function sendVote(body: VoteBody): Promise<VoteResult> {
 export interface MyVote {
   again: boolean;
   criteria: Criteria;
+  comment?: string | null;
+}
+
+/** Yorumu bildir; eşiğe gelince yorum herkesten gizlenir. */
+export async function reportComment(school: string, slug: string, id: string): Promise<boolean> {
+  if (!RATINGS_API) return false;
+  try {
+    const res = await fetch(`${RATINGS_API}/report`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ school, slug, id, device: deviceId() }),
+    });
+    return res.ok;
+  } catch {
+    return false;
+  }
 }
 
 /** Kendi oyların (yalnızca bu tarayıcıda), hoca adresine göre. */

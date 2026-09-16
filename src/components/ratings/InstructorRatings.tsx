@@ -1,10 +1,27 @@
 "use client";
-// Hoca sayfasının puan bölümü: özet sayılar, kriter çubukları ve yıldızlı puanlama formu.
+// Hoca sayfasının puan bölümü: özet sayılar, kriter çubukları, isimsiz yorumlar ve yıldızlı puanlama paneli.
 
 import { useEffect, useState } from "react";
 import { personName } from "@/lib/format";
-import { RATINGS_API, readMyVotes, saveMyVote, sendVote, TURNSTILE_SITE_KEY, type MyVote } from "@/lib/ratings/client";
-import { CRITERION_INFO, INSTRUCTOR_CRITERIA, oneDecimal, type Criteria, type InstructorSummary } from "@/lib/ratings/types";
+import {
+  RATINGS_API,
+  readMyVotes,
+  reportComment,
+  saveMyVote,
+  sendVote,
+  TURNSTILE_SITE_KEY,
+  type MyVote,
+} from "@/lib/ratings/client";
+import {
+  CRITERION_INFO,
+  INSTRUCTOR_CRITERIA,
+  MAX_COMMENT,
+  oneDecimal,
+  sinceLabel,
+  type Comment,
+  type Criteria,
+  type InstructorSummary,
+} from "@/lib/ratings/types";
 import { clearRatingsCache, useRatings } from "@/lib/ratings/useRatings";
 import { StarInput, Stars } from "./Stars";
 import { Turnstile } from "./Turnstile";
@@ -15,17 +32,20 @@ interface Props {
   slug: string;
   /** Hoca adı, kaynakta yazıldığı gibi. */
   name: string;
-  /** Bu dönem verdiği ders sayısı. */
-  courseCount: number;
+  /** Sol sütunda gösterilecek "Hoca hakkında" kartı. */
+  about: React.ReactNode;
+  /** Sol sütunda gösterilecek ders listesi. */
+  courses: React.ReactNode;
 }
 
-export function InstructorRatings({ school, slug, name, courseCount }: Props) {
+export function InstructorRatings({ school, slug, name, about, courses }: Props) {
   const { summaries, ready } = useRatings(school);
   const [mine, setMine] = useState<MyVote | null>(null);
   const [fresh, setFresh] = useState<InstructorSummary | null>(null);
   const [open, setOpen] = useState(false);
   const [again, setAgain] = useState<boolean | null>(null);
   const [criteria, setCriteria] = useState<Criteria>({});
+  const [comment, setComment] = useState("");
   const [token, setToken] = useState("");
   const [status, setStatus] = useState<"" | "sending" | "done" | string>("");
 
@@ -36,9 +56,8 @@ export function InstructorRatings({ school, slug, name, courseCount }: Props) {
     setMine(saved);
     setAgain(saved.again);
     setCriteria(saved.criteria ?? {});
+    setComment(saved.comment ?? "");
   }, [slug]);
-
-  if (!RATINGS_API) return null;
 
   const summary = fresh ?? summaries?.instructors.find((i) => i.slug === slug);
   const answered = INSTRUCTOR_CRITERIA.filter((c) => criteria[c]).length;
@@ -49,12 +68,20 @@ export function InstructorRatings({ school, slug, name, courseCount }: Props) {
   async function submit() {
     if (!complete) return;
     setStatus("sending");
-    const result = await sendVote({ school, slug, instructor: name, again: again === true, criteria, turnstile: token || undefined });
+    const result = await sendVote({
+      school,
+      slug,
+      instructor: name,
+      again: again === true,
+      criteria,
+      comment: comment.trim() || null,
+      turnstile: token || undefined,
+    });
     if (!result.ok) {
       setStatus(result.error);
       return;
     }
-    const vote: MyVote = { again: again === true, criteria };
+    const vote: MyVote = { again: again === true, criteria, comment: comment.trim() || null };
     saveMyVote(slug, vote);
     clearRatingsCache(school);
     setMine(vote);
@@ -62,6 +89,88 @@ export function InstructorRatings({ school, slug, name, courseCount }: Props) {
     setOpen(false);
     setStatus("done");
   }
+
+  const panel = !RATINGS_API ? null : (
+    <section className={`${styles.card} ${styles.panel}`} aria-labelledby="hoca-puanla">
+      <h2 id="hoca-puanla" className={styles.cardTitle}>
+        {display} hocayı puanla
+      </h2>
+
+      {mine && !open && (
+        <p className={styles.note}>
+          Oyun kaydedildi: {mine.again ? "yine alırdın" : "yine almazdın"}
+          {myAnswers.length > 0 &&
+            `, ${myAnswers.map((c) => `${CRITERION_INFO[c].label.toLocaleLowerCase("tr")} ${mine.criteria[c]}/5`).join(", ")}`}
+          .
+        </p>
+      )}
+
+      {!open ? (
+        <button type="button" className="btn btn-pen" onClick={() => setOpen(true)}>
+          {mine ? "Oyumu değiştir" : "Puanla"}
+        </button>
+      ) : (
+        <div className={styles.form}>
+          {INSTRUCTOR_CRITERIA.map((key) => (
+            <fieldset key={key} className={styles.field}>
+              <legend className={styles.legend}>{CRITERION_INFO[key].question}</legend>
+              <StarInput
+                value={criteria[key] ?? 0}
+                onChange={(v) => setCriteria((c) => ({ ...c, [key]: v || undefined }))}
+                label={CRITERION_INFO[key].label}
+                scale={CRITERION_INFO[key].scale}
+              />
+            </fieldset>
+          ))}
+
+          <fieldset className={styles.field}>
+            <legend className={styles.legend}>Baştan seçsen yine bu hocadan alır mıydın?</legend>
+            <div className={styles.choices} role="radiogroup" aria-label="Yine alır mıydın">
+              <ThumbChoice picked={again === true} up onClick={() => setAgain(true)} label="Alırdım" note="yine seçerdim" />
+              <ThumbChoice picked={again === false} onClick={() => setAgain(false)} label="Almazdım" note="uzak dururdum" />
+            </div>
+          </fieldset>
+
+          <label className={styles.field}>
+            <span className={styles.legend}>
+              Yorumun <span className={styles.optional}>isteğe bağlı, isimsiz</span>
+            </span>
+            <textarea
+              className={styles.textarea}
+              value={comment}
+              maxLength={MAX_COMMENT}
+              rows={3}
+              placeholder="Dersi alacak birine ne söylerdin?"
+              onChange={(e) => setComment(e.target.value)}
+            />
+            <span className={styles.counter}>
+              <span className="num">{comment.trim().length}</span>/{MAX_COMMENT}
+              {comment.trim().length > 0 && comment.trim().length < 10 ? " · en az 10 karakter" : ""}
+            </span>
+          </label>
+
+          {TURNSTILE_SITE_KEY && <Turnstile siteKey={TURNSTILE_SITE_KEY} onToken={setToken} />}
+
+          <div className={styles.actions}>
+            <button type="button" className="btn btn-pen" disabled={!complete || status === "sending"} onClick={submit}>
+              {status === "sending" ? "Gönderiliyor" : mine ? "Oyumu güncelle" : "Oyumu gönder"}
+            </button>
+            <button type="button" className="btn btn-quiet" onClick={() => setOpen(false)}>
+              Vazgeç
+            </button>
+          </div>
+          <p className={styles.note}>
+            En az bir yıldız ve &ldquo;yine alır mıydın&rdquo; gerekli. Adın, numaran ya da notun sorulmaz. Yorumun
+            isimsiz yayımlanır; hakaret içeren yorumlar kabul edilmez.
+          </p>
+        </div>
+      )}
+
+      <p className={styles.status} role="status" aria-live="polite">
+        {status === "done" ? "Oyun kaydedildi, teşekkürler." : status && status !== "sending" ? status : ""}
+      </p>
+    </section>
+  );
 
   return (
     <>
@@ -81,112 +190,89 @@ export function InstructorRatings({ school, slug, name, courseCount }: Props) {
           <span className={styles.statLabel}>Yine alırdım</span>
         </div>
         <div className={styles.stat}>
-          <span className={`${styles.statValue} num`}>{courseCount}</span>
-          <span className={styles.statLabel}>Bu dönem dersi</span>
+          <span className={`${styles.statValue} num`}>{summary?.comments.length ?? 0}</span>
+          <span className={styles.statLabel}>Yorum</span>
         </div>
       </section>
 
       <div className={styles.grid}>
-        <section className={styles.card} aria-labelledby="hoca-kriter">
-          <h2 id="hoca-kriter" className={styles.cardTitle}>
-            Değerlendirme kırılımı
-          </h2>
-          {summary && Object.keys(summary.criteria).length > 0 ? (
-            <>
-              <CriteriaBars criteria={summary.criteria} />
-              <p className={styles.note}>
-                <span className="num">{summary.n}</span> kişi puanladı.
+        <div className={styles.left}>
+          {about}
+
+          <section className={styles.card} aria-labelledby="hoca-kriter">
+            <h2 id="hoca-kriter" className={styles.cardTitle}>
+              Değerlendirme kırılımı
+            </h2>
+            {summary && Object.keys(summary.criteria).length > 0 ? (
+              <>
+                <CriteriaBars criteria={summary.criteria} />
+                <p className={styles.note}>
+                  <span className="num">{summary.n}</span> kişi puanladı.
+                </p>
+              </>
+            ) : (
+              <p className={styles.empty}>
+                {!RATINGS_API
+                  ? "Puanlama kapalı."
+                  : !ready
+                    ? "Puanlar yükleniyor."
+                    : `${display} için henüz puan yok. İlk puanı sen ver.`}
               </p>
-            </>
-          ) : (
-            <p className={styles.empty}>{!ready ? "Puanlar yükleniyor." : `${display} için henüz puan yok. İlk puanı sen ver.`}</p>
-          )}
-        </section>
+            )}
+          </section>
 
-        <section className={styles.card} aria-labelledby="hoca-puanla">
-          <h2 id="hoca-puanla" className={styles.cardTitle}>
-            {display} hocayı puanla
-          </h2>
+          {courses}
 
-          {mine && !open && (
-            <p className={styles.note}>
-              Oyun kaydedildi: {mine.again ? "yine alırdın" : "yine almazdın"}
-              {myAnswers.length > 0 &&
-                `, ${myAnswers.map((c) => `${CRITERION_INFO[c].label.toLocaleLowerCase("tr")} ${mine.criteria[c]}/5`).join(", ")}`}
-              .
-            </p>
-          )}
+          {RATINGS_API && <Comments school={school} slug={slug} comments={summary?.comments ?? []} ready={ready} />}
+        </div>
 
-          {!open ? (
-            <button type="button" className="btn btn-pen" onClick={() => setOpen(true)}>
-              {mine ? "Oyumu değiştir" : "Puanla"}
-            </button>
-          ) : (
-            <div className={styles.form}>
-              {INSTRUCTOR_CRITERIA.map((key) => (
-                <fieldset key={key} className={styles.field}>
-                  <legend className={styles.legend}>{CRITERION_INFO[key].question}</legend>
-                  <StarInput
-                    value={criteria[key] ?? 0}
-                    onChange={(v) => setCriteria((c) => ({ ...c, [key]: v || undefined }))}
-                    label={CRITERION_INFO[key].label}
-                    scale={CRITERION_INFO[key].scale}
-                  />
-                </fieldset>
-              ))}
-
-              <fieldset className={styles.field}>
-                <legend className={styles.legend}>Baştan seçsen yine bu hocadan alır mıydın?</legend>
-                <div className={styles.choices} role="radiogroup" aria-label="Yine alır mıydın">
-                  <ThumbChoice picked={again === true} up onClick={() => setAgain(true)} label="Alırdım" note="yine seçerdim" />
-                  <ThumbChoice picked={again === false} onClick={() => setAgain(false)} label="Almazdım" note="uzak dururdum" />
-                </div>
-              </fieldset>
-
-              {TURNSTILE_SITE_KEY && <Turnstile siteKey={TURNSTILE_SITE_KEY} onToken={setToken} />}
-
-              <div className={styles.actions}>
-                <button type="button" className="btn btn-pen" disabled={!complete || status === "sending"} onClick={submit}>
-                  {status === "sending" ? "Gönderiliyor" : mine ? "Oyumu güncelle" : "Oyumu gönder"}
-                </button>
-                <button type="button" className="btn btn-quiet" onClick={() => setOpen(false)}>
-                  Vazgeç
-                </button>
-              </div>
-              <p className={styles.note}>
-                En az bir yıldız ve son soru gerekli. Adın, numaran ya da notun sorulmaz; yazılı yorum alınmaz. Oyunu
-                sonra değiştirebilirsin.
-              </p>
-            </div>
-          )}
-
-          <p className={styles.status} role="status" aria-live="polite">
-            {status === "done" ? "Oyun kaydedildi, teşekkürler." : status && status !== "sending" ? status : ""}
-          </p>
-        </section>
+        <div className={styles.right}>{panel}</div>
       </div>
     </>
   );
 }
 
-/** Kriterler: etiket, puan ve çubuk. Cevaplanmayan kriter listede görünmez. */
-function CriteriaBars({ criteria }: { criteria: Criteria }) {
+/** İsimsiz yorumlar; her yorumun yanında bildirme bağlantısı. */
+function Comments({ school, slug, comments, ready }: { school: string; slug: string; comments: Comment[]; ready: boolean }) {
+  const [reported, setReported] = useState<Record<string, boolean>>({});
+
   return (
-    <ul className={styles.bars}>
-      {INSTRUCTOR_CRITERIA.filter((name) => typeof criteria[name] === "number").map((name) => {
-        const value = criteria[name]!;
-        return (
-          <li key={name} className={styles.bar}>
-            <span className={styles.barLabel}>{CRITERION_INFO[name].label}</span>
-            <span className={`${styles.barValue} num`}>{oneDecimal(value)}</span>
-            <span className={styles.track} aria-hidden="true">
-              <span className={styles.fill} style={{ width: `${(value / 5) * 100}%` }} />
-            </span>
-            <span className={styles.barNote}>{CRITERION_INFO[name].scale[Math.round(value) - 1]}</span>
-          </li>
-        );
-      })}
-    </ul>
+    <section className={styles.card} aria-labelledby="hoca-yorumlar">
+      <h2 id="hoca-yorumlar" className={styles.cardTitle}>
+        Yorumlar {comments.length > 0 && <span className={`${styles.count} num`}>{comments.length}</span>}
+      </h2>
+      {comments.length === 0 ? (
+        <p className={styles.empty}>{ready ? "Henüz yorum yok. İlk yazan sen ol." : "Yorumlar yükleniyor."}</p>
+      ) : (
+        <ul className={styles.comments}>
+          {comments.map((c) => (
+            <li key={c.id} className={styles.comment}>
+              <div className={styles.commentHead}>
+                <Stars score={c.score} size="s" showValue={false} />
+                <span className={styles.commentTag}>{c.again ? "yine alırdı" : "yine almazdı"}</span>
+                <span className={styles.commentWhen}>{sinceLabel(c.at)}</span>
+              </div>
+              <p className={styles.commentText}>{c.text}</p>
+              <button
+                type="button"
+                className={styles.report}
+                disabled={reported[c.id]}
+                onClick={async () => {
+                  const ok = await reportComment(school, slug, c.id);
+                  if (ok) setReported((r) => ({ ...r, [c.id]: true }));
+                }}
+              >
+                {reported[c.id] ? "Bildirildi" : "Bildir"}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+      <p className={styles.note}>
+        Yorumlar isimsizdir ve öğrencilerden gelir. Hakaret içeren bir yorum görürsen bildir; yeterince bildirim alan
+        yorum kendiliğinden gizlenir.
+      </p>
+    </section>
   );
 }
 
@@ -223,5 +309,26 @@ function ThumbChoice({
         <span className={styles.thumbNote}>{note}</span>
       </span>
     </button>
+  );
+}
+
+/** Kriterler: etiket, puan ve çubuk. Cevaplanmayan kriter listede görünmez. */
+function CriteriaBars({ criteria }: { criteria: Criteria }) {
+  return (
+    <ul className={styles.bars}>
+      {INSTRUCTOR_CRITERIA.filter((name) => typeof criteria[name] === "number").map((name) => {
+        const value = criteria[name]!;
+        return (
+          <li key={name} className={styles.bar}>
+            <span className={styles.barLabel}>{CRITERION_INFO[name].label}</span>
+            <span className={`${styles.barValue} num`}>{oneDecimal(value)}</span>
+            <span className={styles.track} aria-hidden="true">
+              <span className={styles.fill} style={{ width: `${(value / 5) * 100}%` }} />
+            </span>
+            <span className={styles.barNote}>{CRITERION_INFO[name].scale[Math.round(value) - 1]}</span>
+          </li>
+        );
+      })}
+    </ul>
   );
 }

@@ -53,9 +53,15 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 1rem;
+  align-items: start;
 }
-@media (min-width: 52rem) {
-  .grid { grid-template-columns: minmax(0, 20rem) minmax(0, 1fr); align-items: start; }
+.left { display: grid; gap: 1rem; align-content: start; min-width: 0; }
+.right { min-width: 0; }
+
+@media (min-width: 60rem) {
+  /* Geniş ekranda puanlama paneli sağda sabit kalır. */
+  .grid { grid-template-columns: minmax(0, 1fr) minmax(0, 22rem); }
+  .panel { position: sticky; top: 1rem; }
 }
 
 .card {
@@ -167,3 +173,62 @@
 
 .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .actions :global(.btn) { min-height: 44px; }
+
+/* Yorum yazma */
+.optional { font-weight: 400; color: var(--ink-2); font-size: 0.85rem; }
+.textarea {
+  width: 100%;
+  min-height: 5.5rem;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-m);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  resize: vertical;
+}
+.textarea:focus-visible { outline: 2px solid var(--pen); outline-offset: 1px; border-color: var(--pen); }
+.counter { color: var(--ink-2); font-size: 0.8rem; font-variant-numeric: tabular-nums; }
+
+/* Yorum listesi */
+.count { color: var(--ink-2); font-weight: 400; }
+.comments { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.9rem; }
+.comment {
+  display: grid;
+  gap: 0.3rem;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-m);
+  background: var(--paper-2);
+  min-width: 0;
+}
+.commentHead { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.6rem; }
+.commentTag {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--rule-strong);
+  color: var(--ink-2);
+}
+.commentWhen { color: var(--ink-2); font-size: 0.8rem; margin-left: auto; }
+.commentText { margin: 0; line-height: 1.5; overflow-wrap: anywhere; white-space: pre-line; }
+.report {
+  justify-self: start;
+  border: 0;
+  background: none;
+  padding: 0.2rem 0;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 0.8rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.report:disabled { text-decoration: none; cursor: default; }
+.report:focus-visible { outline: 2px solid var(--pen); outline-offset: 2px; }
+
+/* Hoca hakkında */
+.facts { margin: 0; display: grid; gap: 0.6rem; }
+.fact { display: grid; gap: 0.1rem; }
+.factLabel { color: var(--ink-2); font-size: 0.82rem; }
+.factValue { font-weight: 600; overflow-wrap: anywhere; }

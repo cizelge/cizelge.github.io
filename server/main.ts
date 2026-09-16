@@ -6,12 +6,15 @@
 //
 // Not: Cloudflare workers.dev adresleri Türkiye'den açılmadığı için servis Deno Deploy'da duruyor.
 import {
+  HIDE_AFTER_REPORTS,
   INSTRUCTOR_CRITERIA,
   MAX_PER_DEVICE,
   MAX_PER_IP_PER_DAY,
   MAX_PER_IP_PER_INSTRUCTOR,
+  overallScore,
   parseVote,
   summarize,
+  type Comment,
   type Criteria,
   type Criterion,
   type InstructorSummary,
@@ -28,7 +31,16 @@ interface StoredVote {
   name: string;
   again: boolean;
   criteria: Criteria;
+  /** İsteğe bağlı isimsiz yorum. */
+  comment?: string | null;
   at: string;
+}
+
+/** Cihaz kimliğinden geri çevrilemez kısa kimlik: yorumu bildirmek ve güncellemek için. */
+async function commentId(device: string, slug: string): Promise<string> {
+  const data = new TextEncoder().encode(`${slug}|${device}|${env("IP_SALT") ?? ""}`);
+  const digest = await crypto.subtle.digest("SHA-256", data);
+  return [...new Uint8Array(digest).slice(0, 6)].map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
 const kv = await Deno.openKv();
@@ -88,6 +100,7 @@ interface Acc {
   n: number;
   again: number;
   criteria: Partial<Record<Criterion, { sum: number; n: number }>>;
+  comments: Comment[];
 }
 
 function add(acc: Acc, v: StoredVote) {
@@ -110,7 +123,7 @@ function toRow(slug: string, acc: Acc): Row {
     const cell = acc.criteria[name];
     if (cell?.n) criteria[name] = { avg: cell.sum / cell.n, n: cell.n };
   }
-  return { slug, name: acc.name, n: acc.n, again: acc.again / acc.n, criteria };
+  return { slug, name: acc.name, n: acc.n, again: acc.again / acc.n, criteria, comments: acc.comments };
 }
 
 interface Cached {
@@ -124,11 +137,23 @@ async function getSummaries(school: string, fresh = false): Promise<Cached> {
   const hit = cache.get(school);
   if (hit && !fresh && Date.now() - hit.at < CACHE_MS) return hit;
 
+  // Çok bildirilen yorumlar gizlenir.
+  const hidden = new Set<string>();
+  for await (const entry of kv.list({ prefix: ["reported", school] })) hidden.add(`${String(entry.key[2])}|${String(entry.key[3])}`);
+
   const bySlug = new Map<string, Acc>();
   for await (const entry of kv.list<StoredVote>({ prefix: ["vote", school] })) {
     const slug = String(entry.key[2]);
-    const acc = bySlug.get(slug) ?? { name: "", n: 0, again: 0, criteria: {} };
+    const device = String(entry.key[3]);
+    const acc = bySlug.get(slug) ?? { name: "", n: 0, again: 0, criteria: {}, comments: [] };
     add(acc, entry.value);
+    const text = entry.value.comment;
+    if (text) {
+      const id = await commentId(device, slug);
+      if (!hidden.has(`${slug}|${id}`)) {
+        acc.comments.push({ id, text, at: entry.value.at, again: entry.value.again, score: overallScore(entry.value.criteria ?? {}) });
+      }
+    }
     bySlug.set(slug, acc);
   }
 
@@ -175,7 +200,13 @@ async function postVote(request: Request, headers: Record<string, string>): Prom
     }
   }
 
-  const stored: StoredVote = { name: vote.instructor, again: vote.again, criteria: vote.criteria, at: new Date().toISOString() };
+  const stored: StoredVote = {
+    name: vote.instructor,
+    again: vote.again,
+    criteria: vote.criteria,
+    comment: vote.comment,
+    at: new Date().toISOString(),
+  };
   await kv.set(voteKey, stored);
   if (!existing.value) {
     // İşaretler yalnızca yeni oyda yazılır; kendi oyunu değiştirmek sınıra girmez.
@@ -189,6 +220,32 @@ async function postVote(request: Request, headers: Record<string, string>): Prom
 
   const summaries = await getSummaries(vote.school, true);
   return json({ ok: true, updated: !!existing.value, summary: summaries.instructors.find((i) => i.slug === vote.slug) ?? null }, { headers });
+}
+
+/** Yorumu bildir: aynı cihaz bir yorumu bir kez bildirir, eşiğe gelince yorum gizlenir. */
+async function reportComment(request: Request, headers: Record<string, string>): Promise<Response> {
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return json({ error: "Gövde okunamadı" }, { status: 400, headers });
+  }
+  const b = (body ?? {}) as Record<string, unknown>;
+  const school = typeof b.school === "string" ? b.school : "";
+  const slug = typeof b.slug === "string" ? b.slug : "";
+  const id = typeof b.id === "string" ? b.id : "";
+  const device = typeof b.device === "string" ? b.device : "";
+  if (!SCHOOL_RE.test(school) || !/^[a-z0-9-]{1,80}$/.test(slug) || !/^[0-9a-f]{12}$/.test(id) || device.length < 16) {
+    return json({ error: "Bildirim geçersiz" }, { status: 400, headers });
+  }
+  await kv.set(["report", school, slug, id, device], 1, { expireIn: 365 * DAY_MS });
+  let reports = 0;
+  for await (const _ of kv.list({ prefix: ["report", school, slug, id] })) reports++;
+  if (reports >= HIDE_AFTER_REPORTS) {
+    await kv.set(["reported", school, slug, id], 1);
+    cache.delete(school);
+  }
+  return json({ ok: true, reports, hidden: reports >= HIDE_AFTER_REPORTS }, { headers });
 }
 
 /** Bakım: kötüye kullanılan ya da deneme amaçlı oyları siler. ADMIN_KEY verilmemişse kapalıdır. */
@@ -217,6 +274,10 @@ export async function handler(request: Request): Promise<Response> {
 
   if (request.method === "OPTIONS") return new Response(null, { status: 204, headers });
   if (url.pathname === "/") return json({ ok: true, service: "cizelge-oy" }, { headers });
+  if (url.pathname === "/report" && request.method === "POST") {
+    if (!headers["Access-Control-Allow-Origin"]) return json({ error: "Bu adresten bildirim kabul edilmiyor" }, { status: 403, headers });
+    return await reportComment(request, headers);
+  }
   if (url.pathname !== "/ratings") return json({ error: "Bulunamadı" }, { status: 404, headers });
 
   if (request.method === "GET") {

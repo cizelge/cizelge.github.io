@@ -1,14 +1,16 @@
-// Hoca sayfası: bu dönem verdiği dersler (veriden) ve öğrenci oyları (tarayıcıda okunur).
+// Hoca sayfası: bu dönem verdiği dersler (veriden), bölüm bilgisi ve öğrenci puanları (tarayıcıda okunur).
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/SiteHeader";
 import { InstructorRatings } from "@/components/ratings/InstructorRatings";
 import styles from "@/components/ratings/hoca.module.css";
-import { loadTerm } from "@/lib/data";
+import { loadPrograms, loadTerm } from "@/lib/data";
 import { DAY_SHORT } from "@/lib/days";
+import { normalizeCode } from "@/lib/engine";
 import { personName } from "@/lib/format";
 import { instructorSlug } from "@/lib/ratings/instructors";
+import type { Program } from "@/lib/types";
 
 export const dynamicParams = false;
 
@@ -20,6 +22,28 @@ interface Taught {
   slug: string;
   /** "A: Çar 16:40" gibi kısa saat özeti. */
   when: string;
+  /** Kaç şubesini veriyor. */
+  sections: number;
+}
+
+// loadPrograms dosyayı her çağrıda okur; derlemede bütün hoca sayfaları aynı listeyi paylaşır.
+let programsCache: Program[] | null = null;
+function allPrograms(): Program[] {
+  programsCache ??= loadPrograms(SCHOOL)?.programs ?? [];
+  return programsCache;
+}
+
+/** Ders kodu hangi bölümlerin müfredatında geçiyorsa o fakülteler. */
+function facultiesFor(codes: readonly string[]): string[] {
+  const wanted = new Set(codes.map(normalizeCode));
+  const faculties = new Set<string>();
+  for (const program of allPrograms()) {
+    const inProgram = program.semesters.some((s) =>
+      s.items.some((item) => (item.kind === "course" ? wanted.has(normalizeCode(item.code)) : false)),
+    );
+    if (inProgram && program.faculty) faculties.add(program.faculty);
+  }
+  return [...faculties].sort((a, b) => a.localeCompare(b, "tr"));
 }
 
 /** Adı bu adrese denk gelen hocanın bu dönemki dersleri. */
@@ -35,6 +59,7 @@ function taughtBy(slug: string): { name: string; courses: Taught[] } | null {
       code: course.code,
       title: course.title,
       slug: course.slug,
+      sections: sections.length,
       when: sections
         .map((s) => `${s.id}: ${s.meetings.map((m) => `${DAY_SHORT[m.day]} ${m.start}`).join(", ") || "saatsiz"}`)
         .join(" · "),
@@ -63,7 +88,7 @@ export async function generateMetadata(props: PageProps<"/ozyegin/hoca/[slug]">)
   const name = personName(found.name);
   return {
     title: `${name}, Özyeğin`,
-    description: `${name} hangi dersleri veriyor? Öğrencilerin ders anlatımı, notlandırma, yardımseverlik ve yoklama puanları.`,
+    description: `${name} hangi dersleri veriyor? Öğrencilerin ders anlatımı, notlandırma, yardımseverlik ve yoklama puanları, isimsiz yorumlar.`,
     alternates: { canonical: `/${SCHOOL}/hoca/${slug}` },
   };
 }
@@ -74,6 +99,62 @@ export default async function InstructorPage(props: PageProps<"/ozyegin/hoca/[sl
   if (!found) notFound();
   const term = loadTerm(SCHOOL);
   const name = personName(found.name);
+  const faculties = facultiesFor(found.courses.map((c) => c.code));
+  const sectionCount = found.courses.reduce((n, c) => n + c.sections, 0);
+
+  const about = (
+    <section className={styles.card} aria-labelledby="hoca-hakkinda">
+      <h2 id="hoca-hakkinda" className={styles.cardTitle}>
+        Hoca hakkında
+      </h2>
+      <dl className={styles.facts}>
+        <div className={styles.fact}>
+          <dt className={styles.factLabel}>Fakülte</dt>
+          <dd className={styles.factValue}>{faculties.length > 0 ? faculties.join(", ") : "Veride yok"}</dd>
+        </div>
+        <div className={styles.fact}>
+          <dt className={styles.factLabel}>Verdiği ders sayısı</dt>
+          <dd className={`${styles.factValue} num`}>{found.courses.length}</dd>
+        </div>
+        <div className={styles.fact}>
+          <dt className={styles.factLabel}>Şube sayısı</dt>
+          <dd className={`${styles.factValue} num`}>{sectionCount}</dd>
+        </div>
+        <div className={styles.fact}>
+          <dt className={styles.factLabel}>Dönem</dt>
+          <dd className={styles.factValue}>{term.termLabel}</dd>
+        </div>
+      </dl>
+      <p className={styles.note}>
+        Fakülte, verdiği derslerin geçtiği bölüm müfredatlarından çıkarıldı. Ünvan bilgisi açık veride yok.
+      </p>
+    </section>
+  );
+
+  const courses = (
+    <section className={styles.card} aria-labelledby="hoca-dersler">
+      <h2 id="hoca-dersler" className={styles.cardTitle}>
+        Bu dönem verdiği dersler
+      </h2>
+      {found.courses.length === 0 ? (
+        <p className={styles.empty}>Bu dönem dersi görünmüyor.</p>
+      ) : (
+        <ul className={styles.courses}>
+          {found.courses.map((course) => (
+            <li key={course.code} className={styles.course}>
+              <div className={styles.courseHead}>
+                <Link href={`/ozyegin/${course.slug}`} className={`${styles.code} num`}>
+                  {course.code}
+                </Link>
+                <span className={styles.courseTitle}>{course.title}</span>
+              </div>
+              <p className={styles.courseMeta}>{course.when}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  );
 
   return (
     <>
@@ -88,35 +169,14 @@ export default async function InstructorPage(props: PageProps<"/ozyegin/hoca/[sl
         <header className={styles.hero}>
           <h1 className={styles.heroName}>{name}</h1>
           <p className={styles.heroMeta}>
-            {term.termLabel} döneminde {found.courses.length} ders veriyor
-            {found.courses.length > 0 && `: ${found.courses.map((c) => c.code).join(", ")}`}
+            {faculties.length > 0 ? `${faculties.join(", ")} · ` : ""}
+            {term.termLabel} döneminde {found.courses.length} ders
           </p>
         </header>
 
-        <InstructorRatings school={SCHOOL} slug={slug} name={found.name} courseCount={found.courses.length} />
+        <InstructorRatings school={SCHOOL} slug={slug} name={found.name} about={about} courses={courses} />
 
-        <section className={styles.card}>
-          <h2 className={styles.cardTitle}>Bu dönem verdiği dersler</h2>
-          {found.courses.length === 0 ? (
-            <p className={styles.empty}>Bu dönem dersi görünmüyor.</p>
-          ) : (
-            <ul className={styles.courses}>
-              {found.courses.map((course) => (
-                <li key={course.code} className={styles.course}>
-                  <div className={styles.courseHead}>
-                    <Link href={`/ozyegin/${course.slug}`} className={`${styles.code} num`}>
-                      {course.code}
-                    </Link>
-                    <span className={styles.courseTitle}>{course.title}</span>
-                  </div>
-                  <p className={styles.courseMeta}>{course.when}</p>
-                </li>
-              ))}
-            </ul>
-          )}
-        </section>
-
-        <p className={styles.note}>Oylar öğrencilerden gelir ve isimsizdir. Resmi bir değerlendirme değildir.</p>
+        <p className={styles.note}>Puanlar ve yorumlar öğrencilerden gelir, isimsizdir. Resmi bir değerlendirme değildir.</p>
       </main>
     </>
   );
