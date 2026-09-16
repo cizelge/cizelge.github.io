@@ -31,7 +31,7 @@ jobs:
         env:
           SITE_URL: https://cizelge.github.io
           # Oy servisi (Deno Deploy). Depo ayarlarındaki "RATINGS_API" değişkeni varsa o kullanılır.
-          NEXT_PUBLIC_RATINGS_API: ${{ vars.RATINGS_API || 'https://cizelge-oy.deno.dev' }}
+          NEXT_PUBLIC_RATINGS_API: ${{ vars.RATINGS_API || 'https://oylar.cizelge-oy.deno.net' }}
           NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
       - uses: actions/upload-pages-artifact@v3
         with:
