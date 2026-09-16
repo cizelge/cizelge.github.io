@@ -1,8 +1,8 @@
 // Ders oyları: özetleri okur ve oy gönderir. Servis adresi verilmezse (NEXT_PUBLIC_RATINGS_API boş)
 // oylama arayüzü hiç görünmez, site eskisi gibi çalışır.
-import { WORKLOAD_LABELS, type CourseSummary } from "./types";
+import { WORKLOAD_LABELS, type CourseSummary, type InstructorSummary } from "./types";
 
-export type { CourseSummary };
+export type { CourseSummary, InstructorSummary };
 export { WORKLOAD_LABELS };
 
 export const RATINGS_API = process.env.NEXT_PUBLIC_RATINGS_API ?? "";
@@ -15,6 +15,8 @@ const DEVICE_KEY = "oy-cihaz";
 export interface Summaries {
   updatedAt: string;
   courses: Record<string, CourseSummary>;
+  /** Hoca sayfaları için bütün hocaların toplamı. */
+  instructors?: InstructorSummary[];
 }
 
 /** Bu tarayıcıya özel rastgele kimlik; aynı dersi ikinci kez oylamayı engellemek için. Kişiye bağlı değildir. */
@@ -74,6 +76,9 @@ export interface VoteBody {
   difficulty: number;
   workload: number;
   again: boolean;
+  /** Hoca seçildiyse: anlatım ve notlandırma (1-5), boş bırakılabilir. */
+  clarity?: number | null;
+  fairness?: number | null;
   turnstile?: string;
 }
 
@@ -110,6 +115,8 @@ export interface MyVote {
   workload: number;
   again: boolean;
   instructor: string | null;
+  clarity?: number | null;
+  fairness?: number | null;
 }
 
 /** Kendi oyların (yalnızca bu tarayıcıda): formu tekrar açınca dolu gelir. */

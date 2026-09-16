@@ -7,6 +7,8 @@ CREATE TABLE IF NOT EXISTS votes (
   difficulty INTEGER NOT NULL CHECK (difficulty BETWEEN 1 AND 5),
   workload INTEGER NOT NULL CHECK (workload BETWEEN 1 AND 5),
   again INTEGER NOT NULL CHECK (again IN (0, 1)),
+  clarity INTEGER CHECK (clarity IS NULL OR clarity BETWEEN 1 AND 5),
+  fairness INTEGER CHECK (fairness IS NULL OR fairness BETWEEN 1 AND 5),
   device TEXT NOT NULL,
   ip_hash TEXT NOT NULL,
   created_at TEXT NOT NULL,

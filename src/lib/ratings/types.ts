@@ -13,11 +13,25 @@ export const WORKLOAD_SHORT = ["2 saatten az", "2–5 saat", "5–8 saat", "8–
 
 export const DIFFICULTY_LABELS = ["çok kolay", "kolay", "orta", "zor", "çok zor"] as const;
 
-export interface InstructorSummary {
+/** Hocaya sorulan iki soru; yalnızca hoca seçildiyse sorulur. */
+export const CLARITY_LABELS = ["hiç anlaşılmıyordu", "zor anlaşılıyordu", "idare eder", "anlaşılırdı", "çok anlaşılırdı"] as const;
+export const FAIRNESS_LABELS = ["hiç adil değildi", "pek adil değildi", "idare eder", "adildi", "çok adildi"] as const;
+
+/** Bir dersin içindeki hoca kırılımı. */
+export interface InstructorInCourse {
   name: string;
   n: number;
   difficulty: number;
   again: number;
+  /** Anlatım ortalaması (1-5); yeterli cevap yoksa null. */
+  clarity: number | null;
+  /** Notlandırma ortalaması (1-5); yeterli cevap yoksa null. */
+  fairness: number | null;
+}
+
+/** Hoca sayfası: bütün derslerinin toplamı. */
+export interface InstructorSummary extends InstructorInCourse {
+  courses: { code: string; n: number; difficulty: number; again: number }[];
 }
 
 export interface CourseSummary {
@@ -25,7 +39,7 @@ export interface CourseSummary {
   difficulty: number;
   workload: number;
   again: number;
-  instructors?: InstructorSummary[];
+  instructors?: InstructorInCourse[];
 }
 
 /** Özetin tek satırlık okunuşu. */

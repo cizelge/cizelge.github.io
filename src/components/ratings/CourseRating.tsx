@@ -1,7 +1,10 @@
 "use client";
 // Bir dersin oy özeti: zorluk çubuğu, iş yükü ve "tekrar alır" oranı. Yeterli oy yoksa hiç görünmez.
 
+import Link from "next/link";
+import { instructorSlug } from "@/lib/ratings/instructors";
 import { DIFFICULTY_LABELS, WORKLOAD_LABELS, type CourseSummary } from "@/lib/ratings/types";
+import { personName } from "@/lib/format";
 import styles from "./ratings.module.css";
 
 export function CourseRating({ summary, compact = false }: { summary: CourseSummary | undefined; compact?: boolean }) {
@@ -48,9 +51,21 @@ export function CourseRating({ summary, compact = false }: { summary: CourseSumm
         <ul className={styles.instructors}>
           {summary.instructors.map((i) => (
             <li key={i.name}>
-              <span className={styles.who}>{i.name}</span>{" "}
+              <Link href={`/ozyegin/hoca/${instructorSlug(i.name)}`} className={styles.who}>
+                {personName(i.name)}
+              </Link>{" "}
               <span className="num">{i.difficulty.toLocaleString("tr-TR", { minimumFractionDigits: 1 })}/5</span> zorluk, %
               <span className="num">{i.again}</span> tekrar alır
+              {i.clarity !== null && (
+                <>
+                  , anlatım <span className="num">{i.clarity.toLocaleString("tr-TR", { minimumFractionDigits: 1 })}/5</span>
+                </>
+              )}
+              {i.fairness !== null && (
+                <>
+                  , notlandırma <span className="num">{i.fairness.toLocaleString("tr-TR", { minimumFractionDigits: 1 })}/5</span>
+                </>
+              )}
               <span className={styles.count}> ({i.n} oy)</span>
             </li>
           ))}

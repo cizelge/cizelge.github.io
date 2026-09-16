@@ -10,6 +10,7 @@ import { RateCourse } from "@/components/ratings/RateCourse";
 import { findCourse, loadPrograms, loadTerm, loadTerms } from "@/lib/data";
 import { DAY_NAMES as DAY, visibleDays } from "@/lib/days";
 import { personName } from "@/lib/format";
+import { instructorSlug } from "@/lib/ratings/instructors";
 import type { Program } from "@/lib/types";
 
 export const dynamicParams = false;
@@ -138,7 +139,18 @@ export default async function CoursePage(props: PageProps<"/ozyegin/[slug]">) {
                   <td>
                     <span className={`section-tag hl-${i % 6}`}>{s.id}</span>
                   </td>
-                  <td>{s.instructors.map(personName).join(", ") || "Belirtilmemiş"}</td>
+                  <td>
+                    {s.instructors.length === 0
+                      ? "Belirtilmemiş"
+                      : s.instructors.map((name, k) => (
+                          <span key={name}>
+                            {k > 0 && ", "}
+                            <Link href={`/ozyegin/hoca/${instructorSlug(name)}`} className="link">
+                              {personName(name)}
+                            </Link>
+                          </span>
+                        ))}
+                  </td>
                   <td className="num">
                     {s.meetings.length === 0
                       ? "Saat yok"

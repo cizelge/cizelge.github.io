@@ -8,6 +8,7 @@ import {
   MAX_PER_IP_PER_DAY,
   parseVote,
   summarize,
+  summarizeInstructors,
   type Row,
 } from "./logic";
 
@@ -72,12 +73,14 @@ async function getSummaries(env: Env, school: string) {
     .bind(school)
     .all<Row>();
   const instructors = await env.DB.prepare(
-    `SELECT code, instructor, COUNT(*) AS n, AVG(difficulty) AS difficulty, AVG(workload) AS workload, AVG(again) AS again
+    `SELECT code, instructor, COUNT(*) AS n, AVG(difficulty) AS difficulty, AVG(workload) AS workload, AVG(again) AS again,
+            AVG(clarity) AS clarity, COUNT(clarity) AS clarityN, AVG(fairness) AS fairness, COUNT(fairness) AS fairnessN
        FROM votes WHERE school = ? AND instructor IS NOT NULL GROUP BY code, instructor`,
   )
     .bind(school)
     .all<Row>();
-  return summarize(courses.results ?? [], instructors.results ?? []);
+  const rows = instructors.results ?? [];
+  return { courses: summarize(courses.results ?? [], rows), instructors: summarizeInstructors(rows) };
 }
 
 async function postVote(request: Request, env: Env, headers: Record<string, string>) {
@@ -117,13 +120,26 @@ async function postVote(request: Request, env: Env, headers: Record<string, stri
   }
 
   await env.DB.prepare(
-    `INSERT INTO votes (school, code, instructor, difficulty, workload, again, device, ip_hash, created_at)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `INSERT INTO votes (school, code, instructor, difficulty, workload, again, clarity, fairness, device, ip_hash, created_at)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
      ON CONFLICT(school, code, device) DO UPDATE SET
        instructor = excluded.instructor, difficulty = excluded.difficulty, workload = excluded.workload,
-       again = excluded.again, ip_hash = excluded.ip_hash, created_at = excluded.created_at`,
+       again = excluded.again, clarity = excluded.clarity, fairness = excluded.fairness,
+       ip_hash = excluded.ip_hash, created_at = excluded.created_at`,
   )
-    .bind(vote.school, vote.code, vote.instructor, vote.difficulty, vote.workload, vote.again ? 1 : 0, vote.device, ipHash, now)
+    .bind(
+      vote.school,
+      vote.code,
+      vote.instructor,
+      vote.difficulty,
+      vote.workload,
+      vote.again ? 1 : 0,
+      vote.clarity,
+      vote.fairness,
+      vote.device,
+      ipHash,
+      now,
+    )
     .run();
 
   const row = await env.DB.prepare(
@@ -146,9 +162,9 @@ const worker = {
     if (request.method === "GET") {
       const school = url.searchParams.get("school") ?? "";
       if (!/^[a-z][a-z0-9-]{1,30}$/.test(school)) return json({ error: "Okul geçersiz" }, { status: 400, headers });
-      const summaries = await getSummaries(env, school);
+      const { courses, instructors } = await getSummaries(env, school);
       return json(
-        { school, updatedAt: new Date().toISOString(), courses: summaries },
+        { school, updatedAt: new Date().toISOString(), courses, instructors },
         { headers: { ...headers, "Cache-Control": "public, max-age=300" } },
       );
     }

@@ -5,7 +5,7 @@
 import { useEffect, useState } from "react";
 import { personName } from "@/lib/format";
 import { RATINGS_API, readMyVotes, saveMyVote, sendVote, TURNSTILE_SITE_KEY, type MyVote } from "@/lib/ratings/client";
-import { DIFFICULTY_LABELS, WORKLOAD_SHORT, type CourseSummary } from "@/lib/ratings/types";
+import { CLARITY_LABELS, DIFFICULTY_LABELS, FAIRNESS_LABELS, WORKLOAD_SHORT, type CourseSummary } from "@/lib/ratings/types";
 import { clearRatingsCache, useRatings } from "@/lib/ratings/useRatings";
 import { CourseRating } from "./CourseRating";
 import { Turnstile } from "./Turnstile";
@@ -26,6 +26,8 @@ export function RateCourse({ school, code, instructors }: Props) {
   const [workload, setWorkload] = useState(0);
   const [again, setAgain] = useState<boolean | null>(null);
   const [instructor, setInstructor] = useState("");
+  const [clarity, setClarity] = useState(0);
+  const [fairness, setFairness] = useState(0);
   const [token, setToken] = useState("");
   const [status, setStatus] = useState<"" | "sending" | "done" | string>("");
   const [fresh, setFresh] = useState<CourseSummary | null>(null);
@@ -39,6 +41,8 @@ export function RateCourse({ school, code, instructors }: Props) {
     setWorkload(vote.workload);
     setAgain(vote.again);
     setInstructor(vote.instructor ?? "");
+    setClarity(vote.clarity ?? 0);
+    setFairness(vote.fairness ?? 0);
   }, [code]);
 
   if (!RATINGS_API) return null;
@@ -56,13 +60,22 @@ export function RateCourse({ school, code, instructors }: Props) {
       difficulty,
       workload,
       again: again === true,
+      clarity: instructor && clarity ? clarity : null,
+      fairness: instructor && fairness ? fairness : null,
       turnstile: token || undefined,
     });
     if (!result.ok) {
       setStatus(result.error);
       return;
     }
-    const vote: MyVote = { difficulty, workload, again: again === true, instructor: instructor || null };
+    const vote: MyVote = {
+      difficulty,
+      workload,
+      again: again === true,
+      instructor: instructor || null,
+      clarity: instructor && clarity ? clarity : null,
+      fairness: instructor && fairness ? fairness : null,
+    };
     saveMyVote(code, vote);
     setMine(vote);
     setFresh(result.summary);
@@ -157,6 +170,36 @@ export function RateCourse({ school, code, instructors }: Props) {
             </label>
           )}
 
+          {instructor && (
+            <>
+              <fieldset className={styles.field}>
+                <legend className={styles.legend}>
+                  Anlatımı anlaşılır mıydı? <span className={styles.optional}>isteğe bağlı</span>
+                </legend>
+                <div className={styles.choices}>
+                  {CLARITY_LABELS.map((label, i) => (
+                    <button key={label} type="button" className={styles.choice} aria-pressed={clarity === i + 1} onClick={() => setClarity(clarity === i + 1 ? 0 : i + 1)}>
+                      <span className="num">{i + 1}</span> {label}
+                    </button>
+                  ))}
+                </div>
+              </fieldset>
+
+              <fieldset className={styles.field}>
+                <legend className={styles.legend}>
+                  Notlandırması adil miydi? <span className={styles.optional}>isteğe bağlı</span>
+                </legend>
+                <div className={styles.choices}>
+                  {FAIRNESS_LABELS.map((label, i) => (
+                    <button key={label} type="button" className={styles.choice} aria-pressed={fairness === i + 1} onClick={() => setFairness(fairness === i + 1 ? 0 : i + 1)}>
+                      <span className="num">{i + 1}</span> {label}
+                    </button>
+                  ))}
+                </div>
+              </fieldset>
+            </>
+          )}
+
           {TURNSTILE_SITE_KEY && <Turnstile siteKey={TURNSTILE_SITE_KEY} onToken={setToken} />}
 
           <div className={styles.actions}>
@@ -168,7 +211,7 @@ export function RateCourse({ school, code, instructors }: Props) {
             </button>
           </div>
           <p className={styles.note}>
-            Yalnızca bu üç cevap gönderilir. Adın, numaran ya da notun sorulmaz; yazılı yorum alınmaz. Oyunu sonra
+            Yalnızca bu cevaplar gönderilir. Adın, numaran ya da notun sorulmaz; yazılı yorum alınmaz. Oyunu sonra
             değiştirebilirsin.
           </p>
         </div>
