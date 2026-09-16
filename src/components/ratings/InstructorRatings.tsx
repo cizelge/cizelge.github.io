@@ -3,6 +3,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { personName } from "@/lib/format";
 import { RATINGS_API, readMyVotes, type MyVote } from "@/lib/ratings/client";
 import { instructorScore, oneDecimal, type CourseSummary, type InstructorSummary } from "@/lib/ratings/types";
 import { instructorSlug } from "@/lib/ratings/instructors";
@@ -82,7 +83,7 @@ export function InstructorRatings({ school, slug, name, courses }: Props) {
             </>
           ) : (
             <p className={styles.empty}>
-              {!ready ? "Oylar yükleniyor." : `${name} için henüz yeterli oy yok. Puanlar 5 oydan sonra görünür.`}
+              {!ready ? "Oylar yükleniyor." : `${personName(name)} için henüz yeterli oy yok. Puanlar 5 oydan sonra görünür.`}
             </p>
           )}
         </section>
