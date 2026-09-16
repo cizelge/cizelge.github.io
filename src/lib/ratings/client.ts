@@ -111,6 +111,29 @@ export interface MyVote {
   comment?: string | null;
 }
 
+/** Kendi oyunu kaldırır; sunucudan ve bu tarayıcıdan siler. */
+export async function removeVote(school: string, slug: string): Promise<{ ok: boolean; summary: InstructorSummary | null }> {
+  if (!RATINGS_API) return { ok: false, summary: null };
+  try {
+    const res = await fetch(`${RATINGS_API}/unvote`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ school, slug, device: deviceId() }),
+    });
+    const data = (await res.json()) as { ok?: boolean; summary?: InstructorSummary | null };
+    if (!res.ok || !data.ok) return { ok: false, summary: null };
+    forgetMyVote(slug);
+    try {
+      window.sessionStorage.removeItem(CACHE_KEY + school);
+    } catch {
+      /* depo kapalı */
+    }
+    return { ok: true, summary: data.summary ?? null };
+  } catch {
+    return { ok: false, summary: null };
+  }
+}
+
 /** Yorumu bildir; eşiğe gelince yorum herkesten gizlenir. */
 export async function reportComment(school: string, slug: string, id: string): Promise<boolean> {
   if (!RATINGS_API) return false;
@@ -133,6 +156,16 @@ export function readMyVotes(): Record<string, MyVote> {
     return typeof raw === "object" && raw !== null ? (raw as Record<string, MyVote>) : {};
   } catch {
     return {};
+  }
+}
+
+export function forgetMyVote(slug: string) {
+  try {
+    const all = readMyVotes();
+    delete all[slug];
+    window.localStorage.setItem(MY_VOTES_KEY, JSON.stringify(all));
+  } catch {
+    /* depo kapalı */
   }
 }
 

@@ -6,6 +6,7 @@ import { personName } from "@/lib/format";
 import {
   RATINGS_API,
   readMyVotes,
+  removeVote,
   reportComment,
   saveMyVote,
   sendVote,
@@ -48,7 +49,7 @@ export function InstructorRatings({ school, slug, name, heading, about, courses 
   const [criteria, setCriteria] = useState<Criteria>({});
   const [comment, setComment] = useState("");
   const [token, setToken] = useState("");
-  const [status, setStatus] = useState<"" | "sending" | "done" | string>("");
+  const [status, setStatus] = useState<"" | "sending" | "removing" | "done" | "removed" | string>("");
 
   useEffect(() => {
     const saved = readMyVotes()[slug];
@@ -97,11 +98,35 @@ export function InstructorRatings({ school, slug, name, heading, about, courses 
       </h2>
 
       {mine && (
-        <p className={styles.note}>
-          Oyun kaydedildi: {mine.again ? "yine alırdın" : "yine almazdın"}
-          {myAnswers.length > 0 &&
-            `, ${myAnswers.map((c) => `${CRITERION_INFO[c].label.toLocaleLowerCase("tr")} ${mine.criteria[c]}/5`).join(", ")}`}
-          . Yıldızları değiştirip yeniden gönderebilirsin.
+        <p className={styles.mineLine}>
+          <span>
+            Oyun kaydedildi: {mine.again ? "yine alırdın" : "yine almazdın"}
+            {myAnswers.length > 0 &&
+              `, ${myAnswers.map((c) => `${CRITERION_INFO[c].label.toLocaleLowerCase("tr")} ${mine.criteria[c]}/5`).join(", ")}`}
+            .
+          </span>
+          <button
+            type="button"
+            className={styles.remove}
+            disabled={status === "removing"}
+            onClick={async () => {
+              setStatus("removing");
+              const result = await removeVote(school, slug);
+              if (!result.ok) {
+                setStatus("Oy kaldırılamadı, sonra dene");
+                return;
+              }
+              setMine(null);
+              setFresh(result.summary);
+              setAgain(null);
+              setCriteria({});
+              setComment("");
+              clearRatingsCache(school);
+              setStatus("removed");
+            }}
+          >
+            {status === "removing" ? "Kaldırılıyor" : "Oyumu kaldır"}
+          </button>
         </p>
       )}
 
@@ -158,7 +183,13 @@ export function InstructorRatings({ school, slug, name, heading, about, courses 
       </div>
 
       <p className={styles.status} role="status" aria-live="polite">
-        {status === "done" ? "Oyun kaydedildi, teşekkürler." : status && status !== "sending" ? status : ""}
+        {status === "done"
+          ? "Oyun kaydedildi, teşekkürler."
+          : status === "removed"
+            ? "Oyun kaldırıldı."
+            : status && status !== "sending" && status !== "removing"
+              ? status
+              : ""}
       </p>
     </section>
   );

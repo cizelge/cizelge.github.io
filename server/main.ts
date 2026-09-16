@@ -222,6 +222,29 @@ async function postVote(request: Request, headers: Record<string, string>): Prom
   return json({ ok: true, updated: !!existing.value, summary: summaries.instructors.find((i) => i.slug === vote.slug) ?? null }, { headers });
 }
 
+/** Kendi oyunu kaldır: cihaz kimliği eşleşen kayıt silinir. */
+async function removeVote(request: Request, headers: Record<string, string>): Promise<Response> {
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return json({ error: "Gövde okunamadı" }, { status: 400, headers });
+  }
+  const b = (body ?? {}) as Record<string, unknown>;
+  const school = typeof b.school === "string" ? b.school : "";
+  const slug = typeof b.slug === "string" ? b.slug : "";
+  const device = typeof b.device === "string" ? b.device : "";
+  if (!SCHOOL_RE.test(school) || !/^[a-z0-9-]{1,80}$/.test(slug) || device.length < 16) {
+    return json({ error: "İstek geçersiz" }, { status: 400, headers });
+  }
+  const key = ["vote", school, slug, device];
+  const existing = await kv.get<StoredVote>(key);
+  if (!existing.value) return json({ ok: true, removed: 0, summary: null }, { headers });
+  await kv.delete(key);
+  const summaries = await getSummaries(school, true);
+  return json({ ok: true, removed: 1, summary: summaries.instructors.find((i) => i.slug === slug) ?? null }, { headers });
+}
+
 /** Yorumu bildir: aynı cihaz bir yorumu bir kez bildirir, eşiğe gelince yorum gizlenir. */
 async function reportComment(request: Request, headers: Record<string, string>): Promise<Response> {
   let body: unknown;
@@ -287,6 +310,10 @@ export async function handler(request: Request): Promise<Response> {
 
   if (request.method === "OPTIONS") return new Response(null, { status: 204, headers });
   if (url.pathname === "/") return json({ ok: true, service: "cizelge-oy" }, { headers });
+  if (url.pathname === "/unvote" && request.method === "POST") {
+    if (!headers["Access-Control-Allow-Origin"]) return json({ error: "Bu adresten istek kabul edilmiyor" }, { status: 403, headers });
+    return await removeVote(request, headers);
+  }
   if (url.pathname === "/report" && request.method === "POST") {
     if (!headers["Access-Control-Allow-Origin"]) return json({ error: "Bu adresten bildirim kabul edilmiyor" }, { status: 403, headers });
     return await reportComment(request, headers);

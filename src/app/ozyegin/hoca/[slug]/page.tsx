@@ -170,7 +170,12 @@ export default async function InstructorPage(props: PageProps<"/ozyegin/hoca/[sl
         </Link>
       </p>
       <h1 className={styles.heroName}>{name}</h1>
-      {faculties.length > 0 && <p className={styles.heroFaculty}>{faculties.join(", ")}</p>}
+      {faculties.length > 0 && (
+        <p className={styles.heroFaculty} title={faculties.join(", ")}>
+          {faculties.slice(0, 2).join(", ")}
+          {faculties.length > 2 ? ` +${faculties.length - 2} fakülte` : ""}
+        </p>
+      )}
       <p className={styles.heroMeta}>
         {term.termLabel} döneminde {found.courses.length} ders
       </p>
