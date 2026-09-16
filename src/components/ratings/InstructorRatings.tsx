@@ -5,10 +5,18 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { personName } from "@/lib/format";
 import { RATINGS_API, readMyVotes, type MyVote } from "@/lib/ratings/client";
-import { instructorScore, oneDecimal, type CourseSummary, type InstructorSummary } from "@/lib/ratings/types";
+import {
+  CRITERION_INFO,
+  INSTRUCTOR_CRITERIA,
+  instructorScore,
+  oneDecimal,
+  type Criteria,
+  type CourseSummary,
+  type InstructorSummary,
+} from "@/lib/ratings/types";
 import { instructorSlug } from "@/lib/ratings/instructors";
 import { useRatings } from "@/lib/ratings/useRatings";
-import { CriteriaBars, ScoreBadge } from "./ScoreBits";
+import { Stars } from "./Stars";
 import { VoteForm } from "./VoteForm";
 import styles from "./hoca.module.css";
 
@@ -50,7 +58,7 @@ export function InstructorRatings({ school, slug, name, courses }: Props) {
       <section className={styles.stats} aria-label="Puan özeti">
         <div className={styles.stat}>
           <span className={styles.statValue}>
-            <ScoreBadge score={score} size="l" />
+            <Stars score={score} size="m" />
           </span>
           <span className={styles.statLabel}>Genel puan</span>
         </div>
@@ -63,8 +71,8 @@ export function InstructorRatings({ school, slug, name, courses }: Props) {
           <span className={styles.statLabel}>Bu dönem dersi</span>
         </div>
         <div className={styles.stat}>
-          <span className={`${styles.statValue} num`}>{summary ? oneDecimal(summary.difficulty) : "—"}</span>
-          <span className={styles.statLabel}>Ders zorluğu</span>
+          <span className={`${styles.statValue} num`}>{voted}</span>
+          <span className={styles.statLabel}>Senin oyun</span>
         </div>
       </section>
 
@@ -77,13 +85,12 @@ export function InstructorRatings({ school, slug, name, courses }: Props) {
             <>
               <CriteriaBars criteria={summary.criteria} />
               <p className={styles.note}>
-                %<span className="num">{summary.again}</span> &ldquo;bu dersi yine alırdım&rdquo; dedi.{" "}
                 <span className="num">{summary.n}</span> oy, bütün dersleri birlikte.
               </p>
             </>
           ) : (
             <p className={styles.empty}>
-              {!ready ? "Oylar yükleniyor." : `${personName(name)} için henüz yeterli oy yok. Puanlar 5 oydan sonra görünür.`}
+              {!ready ? "Oylar yükleniyor." : `${personName(name)} için henüz puan yok. Aldığın dersi seçip ilk puanı sen ver.`}
             </p>
           )}
         </section>
@@ -117,9 +124,8 @@ export function InstructorRatings({ school, slug, name, courses }: Props) {
                       </button>
                     </div>
                     <p className={styles.courseMeta}>
-                      {courseSummary
-                        ? `Zorluk ${oneDecimal(courseSummary.difficulty)}/5, %${courseSummary.again} tekrar alır (${courseSummary.n} oy)`
-                        : "henüz yeterli oy yok"}
+                      {courseSummary ? `${courseSummary.n} kişi bu dersi puanladı` : "henüz puan yok"}
+                      {mine ? ", senin oyun var" : ""}
                     </p>
                     {isOpen && (
                       <VoteForm
@@ -152,5 +158,28 @@ export function InstructorRatings({ school, slug, name, courses }: Props) {
         {thanks}
       </p>
     </>
+  );
+}
+
+/** Kriterler: etiket, puan ve çubuk. Cevaplanmayan kriter listede görünmez. */
+function CriteriaBars({ criteria }: { criteria: Criteria }) {
+  const shown = INSTRUCTOR_CRITERIA.filter((name) => typeof criteria[name] === "number");
+  if (shown.length === 0) return <p className={styles.empty}>Bu sorulara henüz cevap gelmedi.</p>;
+  return (
+    <ul className={styles.bars}>
+      {shown.map((name) => {
+        const value = criteria[name]!;
+        return (
+          <li key={name} className={styles.bar}>
+            <span className={styles.barLabel}>{CRITERION_INFO[name].label}</span>
+            <span className={`${styles.barValue} num`}>{oneDecimal(value)}</span>
+            <span className={styles.track} aria-hidden="true">
+              <span className={styles.fill} style={{ width: `${(value / 5) * 100}%` }} />
+            </span>
+            <span className={styles.barNote}>{CRITERION_INFO[name].scale[Math.round(value) - 1]}</span>
+          </li>
+        );
+      })}
+    </ul>
   );
 }

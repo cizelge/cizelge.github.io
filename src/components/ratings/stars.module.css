@@ -1,0 +1,43 @@
+.row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+.row[data-size="s"] { font-size: 0.85rem; }
+.row[data-size="m"] { font-size: 1rem; }
+.row[data-size="l"] { font-size: 1.35rem; }
+
+.stars { display: inline-flex; gap: 0.08em; line-height: 1; }
+
+.star { position: relative; display: inline-block; width: 1em; height: 1em; line-height: 1; }
+.empty { color: var(--rule-strong); display: block; }
+.fillWrap { position: absolute; inset: 0; overflow: hidden; display: block; }
+.full { color: var(--star); display: block; }
+
+.value { font-weight: 700; font-variant-numeric: tabular-nums; }
+.row[data-empty="true"] .value { color: var(--ink-2); font-weight: 600; }
+.count { color: var(--ink-2); font-size: 0.85em; }
+
+/* ---------- Seçim ---------- */
+
+.input { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; }
+.buttons { display: inline-flex; gap: 0.15rem; font-size: 1.9rem; line-height: 1; }
+
+.pick {
+  border: 0;
+  background: none;
+  padding: 0.1rem;
+  color: var(--rule-strong);
+  cursor: pointer;
+  line-height: 1;
+  min-width: 44px;
+  min-height: 44px;
+  display: grid;
+  place-items: center;
+}
+.pick[data-on="true"] { color: var(--star); }
+.pick:hover { color: color-mix(in oklab, var(--star) 70%, var(--ink)); }
+.pick:focus-visible { outline: 2px solid var(--pen); outline-offset: 2px; border-radius: var(--radius-s); }
+
+.hint { color: var(--ink-2); font-size: 0.9rem; }

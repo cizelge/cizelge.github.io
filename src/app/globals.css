@@ -21,6 +21,8 @@
   --hl-4: #ffb86b;
   --hl-5: #c9b3ff;
   --hl-mix: 62%;
+  /* Puan yıldızları (hoca değerlendirmeleri). */
+  --star: #e8b400;
   --hl-text: #1d2433;
 
   --font: var(--font-onest), ui-sans-serif, system-ui, sans-serif;
@@ -38,6 +40,7 @@
     --ink-2: #a3a3a8;
     --rule: #262628;
     --rule-strong: #3b3b3f;
+    --star: #ffd43b;
     --pen: #8d9dff;
     --pen-ink: #0c0c0d;
     --danger: #ff7b93;
@@ -48,6 +51,7 @@
 }
 
 :root[data-theme="dark"] {
+  --star: #ffd43b;
   --paper: #0c0c0d;
   --paper-2: #161617;
   --ink: #ededed;

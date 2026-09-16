@@ -1,0 +1,119 @@
+.root { color: var(--ink); }
+
+/* ---------- Başlık bandı ---------- */
+
+.hero {
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  text-align: center;
+  padding: 2.2rem max(1rem, env(safe-area-inset-left)) 2rem max(1rem, env(safe-area-inset-right));
+  background: var(--paper-2);
+  border-bottom: 1px solid var(--rule);
+}
+.heroMark { color: var(--star); line-height: 0; }
+.heroTitle { margin: 0; font-size: clamp(1.7rem, 7vw, 2.4rem); font-weight: 800; letter-spacing: -0.02em; }
+.heroLede { margin: 0; color: var(--ink-2); max-width: 32rem; }
+.heroNote { margin: 0.2rem 0 0; color: var(--ink-2); font-size: 0.85rem; }
+
+.search {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  width: 100%;
+  max-width: 34rem;
+  margin-top: 0.4rem;
+}
+.searchField { position: relative; flex: 1 1 15rem; min-width: 0; display: block; }
+.searchIcon {
+  position: absolute;
+  left: 0.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ink-2);
+  pointer-events: none;
+}
+.input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 0.8rem 0 2.2rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-m);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+}
+.input:focus-visible { outline: 2px solid var(--pen); outline-offset: 1px; border-color: var(--pen); }
+
+.sort { flex: 0 1 12rem; min-width: 0; }
+.select {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 0.6rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-m);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+}
+.select:focus-visible { outline: 2px solid var(--pen); outline-offset: 1px; }
+
+/* ---------- Kartlar ---------- */
+
+.body {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 1.25rem max(1rem, env(safe-area-inset-left)) 2.5rem max(1rem, env(safe-area-inset-right));
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+}
+
+.grid {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 0.75rem;
+}
+
+.card {
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-m);
+  background: var(--paper);
+  min-width: 0;
+}
+.card:hover { border-color: var(--rule-strong); }
+
+.cardLink {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.9rem 1rem 1rem;
+  color: var(--ink);
+  text-decoration: none;
+  min-width: 0;
+  height: 100%;
+  align-content: start;
+}
+.cardLink:focus-visible { outline: 2px solid var(--pen); outline-offset: 2px; border-radius: var(--radius-m); }
+
+.cardHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem 0.6rem;
+}
+.cardName { font-weight: 700; font-size: 1.02rem; overflow-wrap: anywhere; }
+
+.cardStats { display: flex; flex-wrap: wrap; gap: 0.3rem 0.75rem; color: var(--ink-2); font-size: 0.87rem; }
+.stat { white-space: nowrap; }
+.statMine { color: var(--pen); font-weight: 600; }
+
+.cardCourses { color: var(--ink-2); font-size: 0.85rem; overflow-wrap: anywhere; }
+
+.empty { margin: 0; color: var(--ink-2); }
+.more { min-height: 44px; }

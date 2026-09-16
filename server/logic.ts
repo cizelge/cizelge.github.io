@@ -12,10 +12,9 @@ export const WORKLOAD_LABELS = [
 export const INSTRUCTOR_CRITERIA = ["clarity", "fairness", "helpful", "attendance"] as const;
 export type Criterion = (typeof INSTRUCTOR_CRITERIA)[number];
 
-/** Bir dersin özeti gösterilmeye başlanan en az oy sayısı. */
-export const MIN_VOTES = 3;
-/** Hoca kırılımı için en az oy sayısı (tek kişi tanınmasın diye daha yüksek). */
-export const MIN_VOTES_INSTRUCTOR = 5;
+/** Özetler ilk oydan itibaren gösterilir; oy sayısı her zaman yanında yazar. */
+export const MIN_VOTES = 1;
+export const MIN_VOTES_INSTRUCTOR = 1;
 /** Bir cihazın oy verebileceği en fazla ders (kötüye kullanım sınırı). */
 export const MAX_PER_DEVICE = 60;
 /** Aynı ağdan (IP) bir ders için en fazla oy. */

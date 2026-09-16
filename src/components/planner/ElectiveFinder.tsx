@@ -4,9 +4,6 @@ import { useMemo, useState } from "react";
 import { DAY_NAMES, DAY_SHORT } from "@/lib/days";
 import { fittingElectives, meetsOn, type FittingCourse } from "@/lib/planner/electives";
 import type { Course, Meeting, Program } from "@/lib/types";
-import type { CourseSummary } from "@/lib/ratings/types";
-import { CourseRating } from "@/components/ratings/CourseRating";
-import { useRatings } from "@/lib/ratings/useRatings";
 import styles from "./ElectiveFinder.module.css";
 
 type Day = Meeting["day"];
@@ -28,7 +25,6 @@ const SHOWN = 8;
 /** Bölümün seçmeli havuzlarından seçili programın boş saatlerine sığan dersler. */
 export function ElectiveFinder({ programs, programId, courses, meetings, cart, freeDays, days, onAdd }: Props) {
   const program = programs.find((p) => p.id === programId) ?? null;
-  const { summaries } = useRatings("ozyegin");
   const [day, setDay] = useState<Day | null>(null);
   const result = useMemo(
     () => (program ? fittingElectives(program, courses, meetings, cart, freeDays) : null),
@@ -85,7 +81,6 @@ export function ElectiveFinder({ programs, programId, courses, meetings, cart, f
                 }
                 dayName={day === null ? null : DAY_NAMES[day]}
                 onAdd={onAdd}
-                ratings={summaries?.courses}
               />
             ))}
 
@@ -111,14 +106,12 @@ function Group({
   fits,
   dayName,
   onAdd,
-  ratings,
 }: {
   label: string;
   offered: number;
   fits: FittingCourse[];
   dayName: string | null;
   onAdd: (code: string) => void;
-  ratings?: Record<string, CourseSummary>;
 }) {
   const [all, setAll] = useState(false);
   const shown = all ? fits : fits.slice(0, SHOWN);
@@ -153,11 +146,6 @@ function Group({
                   </li>
                 ))}
               </ul>
-              {ratings?.[f.code] && (
-                <span className={styles.rating}>
-                  <CourseRating summary={ratings[f.code]} compact />
-                </span>
-              )}
               {(f.corequisites.length > 0 || f.prerequisites) && (
                 <p className={styles.meta}>
                   {f.corequisites.length > 0 && `${f.corequisites.join(", ")} ile birlikte alınır. `}

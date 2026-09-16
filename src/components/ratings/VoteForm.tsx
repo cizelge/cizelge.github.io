@@ -15,6 +15,7 @@ import {
   type CourseSummary,
 } from "@/lib/ratings/types";
 import { clearRatingsCache } from "@/lib/ratings/useRatings";
+import { StarInput } from "./Stars";
 import { Turnstile } from "./Turnstile";
 import styles from "./ratings.module.css";
 
@@ -54,8 +55,7 @@ export function VoteForm({ school, code, instructors, presetInstructor, initial,
   }, [code, initial, presetInstructor]);
 
   const complete = difficulty > 0 && workload > 0 && again !== null && (!TURNSTILE_SITE_KEY || token);
-  const pick = (name: Criterion, value: number) =>
-    setCriteria((c) => ({ ...c, [name]: c[name] === value ? undefined : value }));
+  const pick = (name: Criterion, value: number) => setCriteria((c) => ({ ...c, [name]: value || undefined }));
 
   async function submit() {
     if (!complete) return;
@@ -86,13 +86,7 @@ export function VoteForm({ school, code, instructors, presetInstructor, initial,
     <div className={styles.form}>
       <fieldset className={styles.field}>
         <legend className={styles.legend}>{code} ne kadar zordu?</legend>
-        <div className={styles.choices}>
-          {DIFFICULTY_LABELS.map((label, i) => (
-            <button key={label} type="button" className={styles.choice} aria-pressed={difficulty === i + 1} onClick={() => setDifficulty(i + 1)}>
-              <span className="num">{i + 1}</span> {label}
-            </button>
-          ))}
-        </div>
+        <StarInput value={difficulty} onChange={setDifficulty} label={`${code} zorluğu`} scale={DIFFICULTY_LABELS} />
       </fieldset>
 
       <fieldset className={styles.field}>
@@ -140,19 +134,12 @@ export function VoteForm({ school, code, instructors, presetInstructor, initial,
             <legend className={styles.legend}>
               {CRITERION_INFO[name].question} <span className={styles.optional}>isteğe bağlı</span>
             </legend>
-            <div className={styles.choices}>
-              {CRITERION_INFO[name].scale.map((label, i) => (
-                <button
-                  key={label}
-                  type="button"
-                  className={styles.choice}
-                  aria-pressed={criteria[name] === i + 1}
-                  onClick={() => pick(name, i + 1)}
-                >
-                  <span className="num">{i + 1}</span> {label}
-                </button>
-              ))}
-            </div>
+            <StarInput
+              value={criteria[name] ?? 0}
+              onChange={(v) => pick(name, v)}
+              label={CRITERION_INFO[name].label}
+              scale={CRITERION_INFO[name].scale}
+            />
           </fieldset>
         ))}
 

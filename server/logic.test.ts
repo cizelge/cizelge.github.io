@@ -63,20 +63,21 @@ test("summarize", () => {
     { code: "CS 202", instructor: "Ahmet Yılmaz", n: 9, difficulty: 3, workload: 3, again: 1, criteria: { clarity: { avg: 3.4, n: 5 } } },
   ];
 
-  it("eşiğin altındaki dersi, hocayı ve kriteri gizler", () => {
+  it("ilk oydan itibaren gösterir, cevaplanmayan kriteri atlar", () => {
     const s = summarize(rows, instructors);
-    expect(Object.keys(s)).toEqual(["CS 201"]);
-    // Anlatımı 8 kişi cevaplamış: görünür. Notlandırmayı 3 kişi cevaplamış: gizli.
-    expect(s["CS 201"].instructors).toEqual([{ name: "Ahmet Yılmaz", n: 12, difficulty: 3.2, again: 83, criteria: { clarity: 4.2 } }]);
+    expect(Object.keys(s)).toEqual(["CS 201", "CS 202"]);
+    expect(s["CS 201"].instructors).toEqual([
+      { name: "Ahmet Yılmaz", n: 12, difficulty: 3.2, again: 83, criteria: { clarity: 4.2, fairness: 3.5 } },
+      { name: "Ayşe Kaya", n: 4, difficulty: 4.5, again: 50, criteria: {} },
+    ]);
   });
 
   it("hocayı bütün derslerinde toplar", () => {
-    const [ahmet, ...rest] = summarizeInstructors(instructors);
-    // Ayşe Kaya 4 oyla eşiğin altında.
-    expect(rest).toEqual([]);
+    const [ahmet, ayse] = summarizeInstructors(instructors);
     expect(ahmet).toMatchObject({ name: "Ahmet Yılmaz", n: 21, difficulty: 3.1, again: 90 });
-    expect(ahmet.criteria).toEqual({ clarity: 3.9 });
+    expect(ahmet.criteria).toEqual({ clarity: 3.9, fairness: 3.5 });
     expect(ahmet.courses.map((c) => c.code)).toEqual(["CS 201", "CS 202"]);
+    expect(ayse).toMatchObject({ name: "Ayşe Kaya", n: 4 });
   });
 
   it("cümleye çevirir", () => {

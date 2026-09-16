@@ -78,7 +78,7 @@ export default async function InstructorPage(props: PageProps<"/ozyegin/hoca/[sl
       <SiteHeader term={`Özyeğin, ${term.termLabel}`} />
       <main id="icerik" className={`page ${styles.root}`}>
         <p className={`hint ${styles.back}`}>
-          <Link href="/ozyegin/oylar" className="link">
+          <Link href="/ozyegin/hocalar" className="link">
             ← Bütün hocalar
           </Link>
         </p>

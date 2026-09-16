@@ -97,3 +97,19 @@
   .courseHead { grid-template-columns: minmax(0, 1fr) auto; }
   .courseTitle { grid-column: 1 / -1; grid-row: 2; font-size: 0.93rem; }
 }
+
+/* Kriter çubukları */
+.bars { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.7rem; }
+.bar { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.15rem 0.6rem; align-items: baseline; }
+.barLabel { font-weight: 600; font-size: 0.93rem; }
+.barValue { font-weight: 700; font-variant-numeric: tabular-nums; }
+.track {
+  grid-column: 1 / -1;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  overflow: hidden;
+}
+.fill { display: block; height: 100%; background: var(--star); border-radius: 999px; }
+.barNote { grid-column: 1 / -1; color: var(--ink-2); font-size: 0.82rem; }
