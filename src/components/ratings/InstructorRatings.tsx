@@ -1,64 +1,74 @@
 "use client";
-// Hoca sayfasının oy bölümü: özet sayılar, kriter çubukları, ders kırılımı ve puanlama paneli.
+// Hoca sayfasının puan bölümü: özet sayılar, kriter çubukları ve yıldızlı puanlama formu.
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { personName } from "@/lib/format";
-import { RATINGS_API, readMyVotes, type MyVote } from "@/lib/ratings/client";
-import {
-  CRITERION_INFO,
-  INSTRUCTOR_CRITERIA,
-  instructorScore,
-  oneDecimal,
-  type Criteria,
-  type CourseSummary,
-  type InstructorSummary,
-} from "@/lib/ratings/types";
-import { instructorSlug } from "@/lib/ratings/instructors";
-import { useRatings } from "@/lib/ratings/useRatings";
-import { Stars } from "./Stars";
-import { VoteForm } from "./VoteForm";
+import { RATINGS_API, readMyVotes, saveMyVote, sendVote, TURNSTILE_SITE_KEY, type MyVote } from "@/lib/ratings/client";
+import { CRITERION_INFO, INSTRUCTOR_CRITERIA, oneDecimal, type Criteria, type InstructorSummary } from "@/lib/ratings/types";
+import { clearRatingsCache, useRatings } from "@/lib/ratings/useRatings";
+import { StarInput, Stars } from "./Stars";
+import { Turnstile } from "./Turnstile";
 import styles from "./hoca.module.css";
-
-export interface TaughtCourse {
-  code: string;
-  title: string;
-  slug: string;
-  instructors: string[];
-}
 
 interface Props {
   school: string;
   slug: string;
+  /** Hoca adı, kaynakta yazıldığı gibi. */
   name: string;
-  /** Hocanın bu dönemki dersleri. */
-  courses: TaughtCourse[];
+  /** Bu dönem verdiği ders sayısı. */
+  courseCount: number;
 }
 
-export function InstructorRatings({ school, slug, name, courses }: Props) {
+export function InstructorRatings({ school, slug, name, courseCount }: Props) {
   const { summaries, ready } = useRatings(school);
-  const [myVotes, setMyVotes] = useState<Record<string, MyVote>>({});
-  const [open, setOpen] = useState<string | null>(null);
-  const [fresh, setFresh] = useState<Record<string, CourseSummary | null>>({});
-  const [thanks, setThanks] = useState("");
+  const [mine, setMine] = useState<MyVote | null>(null);
+  const [fresh, setFresh] = useState<InstructorSummary | null>(null);
+  const [open, setOpen] = useState(false);
+  const [again, setAgain] = useState<boolean | null>(null);
+  const [criteria, setCriteria] = useState<Criteria>({});
+  const [token, setToken] = useState("");
+  const [status, setStatus] = useState<"" | "sending" | "done" | string>("");
 
   useEffect(() => {
+    const saved = readMyVotes()[slug];
+    if (!saved) return;
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMyVotes(readMyVotes());
-  }, []);
+    setMine(saved);
+    setAgain(saved.again);
+    setCriteria(saved.criteria ?? {});
+  }, [slug]);
 
   if (!RATINGS_API) return null;
 
-  const summary: InstructorSummary | undefined = summaries?.instructors?.find((i) => instructorSlug(i.name) === slug);
-  const score = summary ? instructorScore(summary.criteria) : null;
-  const voted = courses.filter((c) => myVotes[c.code]).length;
+  const summary = fresh ?? summaries?.instructors.find((i) => i.slug === slug);
+  const answered = INSTRUCTOR_CRITERIA.filter((c) => criteria[c]).length;
+  const complete = again !== null && answered > 0 && (!TURNSTILE_SITE_KEY || token);
+  const display = personName(name);
+  const myAnswers = mine ? INSTRUCTOR_CRITERIA.filter((c) => mine.criteria[c]) : [];
+
+  async function submit() {
+    if (!complete) return;
+    setStatus("sending");
+    const result = await sendVote({ school, slug, instructor: name, again: again === true, criteria, turnstile: token || undefined });
+    if (!result.ok) {
+      setStatus(result.error);
+      return;
+    }
+    const vote: MyVote = { again: again === true, criteria };
+    saveMyVote(slug, vote);
+    clearRatingsCache(school);
+    setMine(vote);
+    setFresh(result.summary);
+    setOpen(false);
+    setStatus("done");
+  }
 
   return (
     <>
       <section className={styles.stats} aria-label="Puan özeti">
         <div className={styles.stat}>
           <span className={styles.statValue}>
-            <Stars score={score} size="m" />
+            <Stars score={summary?.score ?? null} size="m" />
           </span>
           <span className={styles.statLabel}>Genel puan</span>
         </div>
@@ -67,12 +77,12 @@ export function InstructorRatings({ school, slug, name, courses }: Props) {
           <span className={styles.statLabel}>Değerlendirme</span>
         </div>
         <div className={styles.stat}>
-          <span className={`${styles.statValue} num`}>{courses.length}</span>
-          <span className={styles.statLabel}>Bu dönem dersi</span>
+          <span className={`${styles.statValue} num`}>{summary ? `%${summary.again}` : "—"}</span>
+          <span className={styles.statLabel}>Yine alırdım</span>
         </div>
         <div className={styles.stat}>
-          <span className={`${styles.statValue} num`}>{voted}</span>
-          <span className={styles.statLabel}>Senin oyun</span>
+          <span className={`${styles.statValue} num`}>{courseCount}</span>
+          <span className={styles.statLabel}>Bu dönem dersi</span>
         </div>
       </section>
 
@@ -81,93 +91,93 @@ export function InstructorRatings({ school, slug, name, courses }: Props) {
           <h2 id="hoca-kriter" className={styles.cardTitle}>
             Değerlendirme kırılımı
           </h2>
-          {summary ? (
+          {summary && Object.keys(summary.criteria).length > 0 ? (
             <>
               <CriteriaBars criteria={summary.criteria} />
               <p className={styles.note}>
-                <span className="num">{summary.n}</span> oy, bütün dersleri birlikte.
+                <span className="num">{summary.n}</span> kişi puanladı.
               </p>
             </>
           ) : (
-            <p className={styles.empty}>
-              {!ready ? "Oylar yükleniyor." : `${personName(name)} için henüz puan yok. Aldığın dersi seçip ilk puanı sen ver.`}
-            </p>
+            <p className={styles.empty}>{!ready ? "Puanlar yükleniyor." : `${display} için henüz puan yok. İlk puanı sen ver.`}</p>
           )}
         </section>
 
-        <section className={styles.card} aria-labelledby="hoca-dersler">
-          <h2 id="hoca-dersler" className={styles.cardTitle}>
-            Bu dönem verdiği dersler
+        <section className={styles.card} aria-labelledby="hoca-puanla">
+          <h2 id="hoca-puanla" className={styles.cardTitle}>
+            {display} hocayı puanla
           </h2>
-          {courses.length === 0 ? (
-            <p className={styles.empty}>Bu dönem dersi görünmüyor.</p>
-          ) : (
-            <ul className={styles.courses}>
-              {courses.map((course) => {
-                const courseSummary = fresh[course.code] ?? summaries?.courses[course.code];
-                const mine = myVotes[course.code];
-                const isOpen = open === course.code;
-                return (
-                  <li key={course.code} className={styles.course}>
-                    <div className={styles.courseHead}>
-                      <Link href={`/ozyegin/${course.slug}`} className={`${styles.code} num`}>
-                        {course.code}
-                      </Link>
-                      <span className={styles.courseTitle}>{course.title}</span>
-                      <button
-                        type="button"
-                        className={`btn btn-small ${mine ? "btn-quiet" : "btn-pen"} ${styles.action}`}
-                        aria-expanded={isOpen}
-                        onClick={() => setOpen(isOpen ? null : course.code)}
-                      >
-                        {isOpen ? "Kapat" : mine ? "Oyumu değiştir" : "Puanla"}
-                      </button>
-                    </div>
-                    <p className={styles.courseMeta}>
-                      {courseSummary ? `${courseSummary.n} kişi bu dersi puanladı` : "henüz puan yok"}
-                      {mine ? ", senin oyun var" : ""}
-                    </p>
-                    {isOpen && (
-                      <VoteForm
-                        school={school}
-                        code={course.code}
-                        instructors={course.instructors}
-                        presetInstructor={name}
-                        initial={mine ?? null}
-                        onCancel={() => setOpen(null)}
-                        onDone={(vote, summaryAfter) => {
-                          setMyVotes((v) => ({ ...v, [course.code]: vote }));
-                          setFresh((f) => ({ ...f, [course.code]: summaryAfter }));
-                          setOpen(null);
-                          setThanks(`${course.code} oyun kaydedildi, teşekkürler.`);
-                        }}
-                      />
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
+
+          {mine && !open && (
+            <p className={styles.note}>
+              Oyun kaydedildi: {mine.again ? "yine alırdın" : "yine almazdın"}
+              {myAnswers.length > 0 &&
+                `, ${myAnswers.map((c) => `${CRITERION_INFO[c].label.toLocaleLowerCase("tr")} ${mine.criteria[c]}/5`).join(", ")}`}
+              .
+            </p>
           )}
-          <p className={styles.note}>
-            {voted > 0 ? `Bu hocadan ${voted} dersi oyladın.` : "Aldığın dersi seçip puanla; oylar isimsizdir."}
+
+          {!open ? (
+            <button type="button" className="btn btn-pen" onClick={() => setOpen(true)}>
+              {mine ? "Oyumu değiştir" : "Puanla"}
+            </button>
+          ) : (
+            <div className={styles.form}>
+              {INSTRUCTOR_CRITERIA.map((key) => (
+                <fieldset key={key} className={styles.field}>
+                  <legend className={styles.legend}>{CRITERION_INFO[key].question}</legend>
+                  <StarInput
+                    value={criteria[key] ?? 0}
+                    onChange={(v) => setCriteria((c) => ({ ...c, [key]: v || undefined }))}
+                    label={CRITERION_INFO[key].label}
+                    scale={CRITERION_INFO[key].scale}
+                  />
+                </fieldset>
+              ))}
+
+              <fieldset className={styles.field}>
+                <legend className={styles.legend}>Baştan seçsen yine bu hocadan alır mıydın?</legend>
+                <div className={styles.choices}>
+                  <button type="button" className={styles.choice} aria-pressed={again === true} onClick={() => setAgain(true)}>
+                    Alırdım
+                  </button>
+                  <button type="button" className={styles.choice} aria-pressed={again === false} onClick={() => setAgain(false)}>
+                    Almazdım
+                  </button>
+                </div>
+              </fieldset>
+
+              {TURNSTILE_SITE_KEY && <Turnstile siteKey={TURNSTILE_SITE_KEY} onToken={setToken} />}
+
+              <div className={styles.actions}>
+                <button type="button" className="btn btn-pen" disabled={!complete || status === "sending"} onClick={submit}>
+                  {status === "sending" ? "Gönderiliyor" : mine ? "Oyumu güncelle" : "Oyumu gönder"}
+                </button>
+                <button type="button" className="btn btn-quiet" onClick={() => setOpen(false)}>
+                  Vazgeç
+                </button>
+              </div>
+              <p className={styles.note}>
+                En az bir yıldız ve son soru gerekli. Adın, numaran ya da notun sorulmaz; yazılı yorum alınmaz. Oyunu
+                sonra değiştirebilirsin.
+              </p>
+            </div>
+          )}
+
+          <p className={styles.status} role="status" aria-live="polite">
+            {status === "done" ? "Oyun kaydedildi, teşekkürler." : status && status !== "sending" ? status : ""}
           </p>
         </section>
       </div>
-
-      <p className={styles.status} role="status" aria-live="polite">
-        {thanks}
-      </p>
     </>
   );
 }
 
 /** Kriterler: etiket, puan ve çubuk. Cevaplanmayan kriter listede görünmez. */
 function CriteriaBars({ criteria }: { criteria: Criteria }) {
-  const shown = INSTRUCTOR_CRITERIA.filter((name) => typeof criteria[name] === "number");
-  if (shown.length === 0) return <p className={styles.empty}>Bu sorulara henüz cevap gelmedi.</p>;
   return (
     <ul className={styles.bars}>
-      {shown.map((name) => {
+      {INSTRUCTOR_CRITERIA.filter((name) => typeof criteria[name] === "number").map((name) => {
         const value = criteria[name]!;
         return (
           <li key={name} className={styles.bar}>

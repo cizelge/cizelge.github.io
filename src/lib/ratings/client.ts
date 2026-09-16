@@ -1,25 +1,23 @@
-// Ders oyları: özetleri okur ve oy gönderir. Servis adresi verilmezse (NEXT_PUBLIC_RATINGS_API boş)
-// oylama arayüzü hiç görünmez, site eskisi gibi çalışır.
-import { WORKLOAD_LABELS, type Criteria, type CourseSummary, type InstructorSummary } from "./types";
+// Hoca puanları: özetleri okur ve oy gönderir. Servis adresi verilmezse (NEXT_PUBLIC_RATINGS_API boş)
+// puanlama arayüzü hiç görünmez, site eskisi gibi çalışır.
+import type { Criteria, InstructorSummary } from "./types";
 
-export type { CourseSummary, InstructorSummary };
-export { WORKLOAD_LABELS };
+export type { InstructorSummary };
 
 export const RATINGS_API = process.env.NEXT_PUBLIC_RATINGS_API ?? "";
 export const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "";
 
-const CACHE_KEY = "oylar:";
+const CACHE_KEY = "puanlar:";
 const CACHE_MS = 10 * 60 * 1000;
 const DEVICE_KEY = "oy-cihaz";
+const MY_VOTES_KEY = "oylarim-hoca";
 
 export interface Summaries {
   updatedAt: string;
-  courses: Record<string, CourseSummary>;
-  /** Hoca sayfaları için bütün hocaların toplamı. */
-  instructors?: InstructorSummary[];
+  instructors: InstructorSummary[];
 }
 
-/** Bu tarayıcıya özel rastgele kimlik; aynı dersi ikinci kez oylamayı engellemek için. Kişiye bağlı değildir. */
+/** Bu tarayıcıya özel rastgele kimlik; aynı hocayı ikinci kez oylamayı engellemek için. Kişiye bağlı değildir. */
 export function deviceId(): string {
   try {
     const saved = window.localStorage.getItem(DEVICE_KEY);
@@ -52,7 +50,7 @@ function writeCache(school: string, data: Summaries) {
   }
 }
 
-/** Bütün derslerin özeti; servis kapalıysa ya da ulaşılamazsa null. */
+/** Bütün hocaların puanı; servis kapalıysa ya da ulaşılamazsa null. */
 export async function fetchSummaries(school: string): Promise<Summaries | null> {
   if (!RATINGS_API) return null;
   const cached = readCache(school);
@@ -61,7 +59,7 @@ export async function fetchSummaries(school: string): Promise<Summaries | null> 
     const res = await fetch(`${RATINGS_API}/ratings?school=${encodeURIComponent(school)}`);
     if (!res.ok) return null;
     const data = (await res.json()) as Summaries;
-    if (!data || typeof data.courses !== "object") return null;
+    if (!data || !Array.isArray(data.instructors)) return null;
     writeCache(school, data);
     return data;
   } catch {
@@ -71,20 +69,18 @@ export async function fetchSummaries(school: string): Promise<Summaries | null> 
 
 export interface VoteBody {
   school: string;
-  code: string;
-  instructor: string | null;
-  difficulty: number;
-  workload: number;
+  /** Hocanın adı, kaynakta yazıldığı gibi. */
+  instructor: string;
+  slug: string;
   again: boolean;
-  /** Hoca seçildiyse hocaya ait cevaplar (1-5); hepsi isteğe bağlı. */
-  criteria?: Criteria;
+  criteria: Criteria;
   turnstile?: string;
 }
 
-export type VoteResult = { ok: true; updated: boolean; summary: CourseSummary | null } | { ok: false; error: string };
+export type VoteResult = { ok: true; updated: boolean; summary: InstructorSummary | null } | { ok: false; error: string };
 
 export async function sendVote(body: VoteBody): Promise<VoteResult> {
-  if (!RATINGS_API) return { ok: false, error: "Oylama kapalı" };
+  if (!RATINGS_API) return { ok: false, error: "Puanlama kapalı" };
   const device = deviceId();
   if (!device) return { ok: false, error: "Tarayıcın depolamaya izin vermiyor" };
   try {
@@ -93,7 +89,7 @@ export async function sendVote(body: VoteBody): Promise<VoteResult> {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...body, device }),
     });
-    const data = (await res.json()) as { ok?: boolean; error?: string; updated?: boolean; summary?: CourseSummary | null };
+    const data = (await res.json()) as { ok?: boolean; error?: string; updated?: boolean; summary?: InstructorSummary | null };
     if (!res.ok || !data.ok) return { ok: false, error: data.error ?? "Oy gönderilemedi" };
     // Yeni özet görünsün diye önbellek atılır.
     try {
@@ -107,17 +103,12 @@ export async function sendVote(body: VoteBody): Promise<VoteResult> {
   }
 }
 
-const MY_VOTES_KEY = "oylarim";
-
 export interface MyVote {
-  difficulty: number;
-  workload: number;
   again: boolean;
-  instructor: string | null;
-  criteria?: Criteria;
+  criteria: Criteria;
 }
 
-/** Kendi oyların (yalnızca bu tarayıcıda): formu tekrar açınca dolu gelir. */
+/** Kendi oyların (yalnızca bu tarayıcıda), hoca adresine göre. */
 export function readMyVotes(): Record<string, MyVote> {
   try {
     const raw: unknown = JSON.parse(window.localStorage.getItem(MY_VOTES_KEY) ?? "{}");
@@ -127,9 +118,9 @@ export function readMyVotes(): Record<string, MyVote> {
   }
 }
 
-export function saveMyVote(code: string, vote: MyVote) {
+export function saveMyVote(slug: string, vote: MyVote) {
   try {
-    window.localStorage.setItem(MY_VOTES_KEY, JSON.stringify({ ...readMyVotes(), [code]: vote }));
+    window.localStorage.setItem(MY_VOTES_KEY, JSON.stringify({ ...readMyVotes(), [slug]: vote }));
   } catch {
     /* depo kapalı */
   }

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/SiteHeader";
-import { InstructorRatings, type TaughtCourse } from "@/components/ratings/InstructorRatings";
+import { InstructorRatings } from "@/components/ratings/InstructorRatings";
 import styles from "@/components/ratings/hoca.module.css";
 import { loadTerm } from "@/lib/data";
 import { DAY_SHORT } from "@/lib/days";
@@ -14,7 +14,10 @@ export const dynamicParams = false;
 
 const SCHOOL = "ozyegin";
 
-interface Taught extends TaughtCourse {
+interface Taught {
+  code: string;
+  title: string;
+  slug: string;
   /** "A: Çar 16:40" gibi kısa saat özeti. */
   when: string;
 }
@@ -32,7 +35,6 @@ function taughtBy(slug: string): { name: string; courses: Taught[] } | null {
       code: course.code,
       title: course.title,
       slug: course.slug,
-      instructors: [...new Set(course.sections.flatMap((s) => s.instructors))],
       when: sections
         .map((s) => `${s.id}: ${s.meetings.map((m) => `${DAY_SHORT[m.day]} ${m.start}`).join(", ") || "saatsiz"}`)
         .join(" · "),
@@ -91,11 +93,29 @@ export default async function InstructorPage(props: PageProps<"/ozyegin/hoca/[sl
           </p>
         </header>
 
-        <InstructorRatings school={SCHOOL} slug={slug} name={found.name} courses={found.courses} />
+        <InstructorRatings school={SCHOOL} slug={slug} name={found.name} courseCount={found.courses.length} />
 
-        <p className={styles.note}>
-          Saatler: {found.courses.map((c) => `${c.code} ${c.when}`).join(" | ") || "bu dönem ders yok"}
-        </p>
+        <section className={styles.card}>
+          <h2 className={styles.cardTitle}>Bu dönem verdiği dersler</h2>
+          {found.courses.length === 0 ? (
+            <p className={styles.empty}>Bu dönem dersi görünmüyor.</p>
+          ) : (
+            <ul className={styles.courses}>
+              {found.courses.map((course) => (
+                <li key={course.code} className={styles.course}>
+                  <div className={styles.courseHead}>
+                    <Link href={`/ozyegin/${course.slug}`} className={`${styles.code} num`}>
+                      {course.code}
+                    </Link>
+                    <span className={styles.courseTitle}>{course.title}</span>
+                  </div>
+                  <p className={styles.courseMeta}>{course.when}</p>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+
         <p className={styles.note}>Oylar öğrencilerden gelir ve isimsizdir. Resmi bir değerlendirme değildir.</p>
       </main>
     </>

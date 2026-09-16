@@ -1,20 +1,19 @@
-// Çizelge oy servisi (Deno Deploy + Deno KV).
-//   GET  /ratings?school=ozyegin  -> ders ve hoca özetleri
-//   POST /ratings                 -> oy ver / oyunu değiştir
+// Çizelge hoca puanlama servisi (Deno Deploy + Deno KV).
+//   GET    /ratings?school=ozyegin  -> hoca puanları
+//   POST   /ratings                 -> oy ver / oyunu değiştir
+//   DELETE /ratings?school=...      -> bakım (ADMIN_KEY ile)
 // Kişisel veri saklanmaz: IP adresi yerine gizli anahtarla karılmış özeti tutulur, ad ve numara istenmez.
 //
 // Not: Cloudflare workers.dev adresleri Türkiye'den açılmadığı için servis Deno Deploy'da duruyor.
 import {
   INSTRUCTOR_CRITERIA,
   MAX_PER_DEVICE,
-  MAX_PER_IP_PER_COURSE,
   MAX_PER_IP_PER_DAY,
+  MAX_PER_IP_PER_INSTRUCTOR,
   parseVote,
   summarize,
-  summarizeInstructors,
   type Criteria,
   type Criterion,
-  type CourseSummary,
   type InstructorSummary,
   type Row,
 } from "./logic.ts";
@@ -23,25 +22,13 @@ const DEFAULT_ORIGINS = ["https://cizelge.github.io", "http://localhost:3000"];
 const SCHOOL_RE = /^[a-z][a-z0-9-]{1,30}$/;
 /** Özetler bu kadar süre bellekte tutulur. */
 const CACHE_MS = 60_000;
+const DAY_MS = 86_400_000;
 
 interface StoredVote {
-  instructor: string | null;
-  difficulty: number;
-  workload: number;
+  name: string;
   again: boolean;
-  /** Hocaya ait cevaplar (1-5); eski kayitlarda clarity/fairness ayri alanlardaydi. */
-  criteria?: Criteria;
-  clarity?: number | null;
-  fairness?: number | null;
+  criteria: Criteria;
   at: string;
-}
-
-/** Eski ve yeni kayitlari ayni bicimde okur. */
-function criteriaOf(v: StoredVote): Criteria {
-  const out: Criteria = { ...v.criteria };
-  if (!out.clarity && v.clarity) out.clarity = v.clarity;
-  if (!out.fairness && v.fairness) out.fairness = v.fairness;
-  return out;
 }
 
 const kv = await Deno.openKv();
@@ -95,25 +82,20 @@ async function turnstileOk(token: unknown, ip: string): Promise<boolean> {
   return data.success === true;
 }
 
-/** Ortalama biriktirici: (ders) ve (ders, hoca) satırları KV'deki oylardan hesaplanır. */
+/** Ortalama biriktirici: hoca satırları KV'deki oylardan hesaplanır. */
 interface Acc {
+  name: string;
   n: number;
-  difficulty: number;
-  workload: number;
   again: number;
   criteria: Partial<Record<Criterion, { sum: number; n: number }>>;
 }
 
-const empty = (): Acc => ({ n: 0, difficulty: 0, workload: 0, again: 0, criteria: {} });
-
 function add(acc: Acc, v: StoredVote) {
   acc.n++;
-  acc.difficulty += v.difficulty;
-  acc.workload += v.workload;
   acc.again += v.again ? 1 : 0;
-  const criteria = criteriaOf(v);
+  acc.name = v.name || acc.name;
   for (const name of INSTRUCTOR_CRITERIA) {
-    const value = criteria[name];
+    const value = v.criteria?.[name];
     if (!value) continue;
     const cell = acc.criteria[name] ?? { sum: 0, n: 0 };
     cell.sum += value;
@@ -122,26 +104,17 @@ function add(acc: Acc, v: StoredVote) {
   }
 }
 
-function toRow(code: string, acc: Acc, instructor?: string): Row {
+function toRow(slug: string, acc: Acc): Row {
   const criteria: Row["criteria"] = {};
   for (const name of INSTRUCTOR_CRITERIA) {
     const cell = acc.criteria[name];
     if (cell?.n) criteria[name] = { avg: cell.sum / cell.n, n: cell.n };
   }
-  return {
-    code,
-    instructor,
-    n: acc.n,
-    difficulty: acc.difficulty / acc.n,
-    workload: acc.workload / acc.n,
-    again: acc.again / acc.n,
-    criteria,
-  };
+  return { slug, name: acc.name, n: acc.n, again: acc.again / acc.n, criteria };
 }
 
 interface Cached {
   at: number;
-  courses: Record<string, CourseSummary>;
   instructors: InstructorSummary[];
 }
 
@@ -151,39 +124,18 @@ async function getSummaries(school: string, fresh = false): Promise<Cached> {
   const hit = cache.get(school);
   if (hit && !fresh && Date.now() - hit.at < CACHE_MS) return hit;
 
-  const byCourse = new Map<string, Acc>();
-  const byInstructor = new Map<string, Acc>();
+  const bySlug = new Map<string, Acc>();
   for await (const entry of kv.list<StoredVote>({ prefix: ["vote", school] })) {
-    const code = String(entry.key[2]);
-    const vote = entry.value;
-    const course = byCourse.get(code) ?? empty();
-    add(course, vote);
-    byCourse.set(code, course);
-    if (vote.instructor) {
-      const key = `${code}|${vote.instructor}`;
-      const acc = byInstructor.get(key) ?? empty();
-      add(acc, vote);
-      byInstructor.set(key, acc);
-    }
+    const slug = String(entry.key[2]);
+    const acc = bySlug.get(slug) ?? { name: "", n: 0, again: 0, criteria: {} };
+    add(acc, entry.value);
+    bySlug.set(slug, acc);
   }
 
-  const courseRows = [...byCourse].map(([code, acc]) => toRow(code, acc));
-  const instructorRows = [...byInstructor].map(([key, acc]) => {
-    const cut = key.indexOf("|");
-    const [code, instructor] = [key.slice(0, cut), key.slice(cut + 1)];
-    return toRow(code, acc, instructor);
-  });
-
-  const value: Cached = {
-    at: Date.now(),
-    courses: summarize(courseRows, instructorRows),
-    instructors: summarizeInstructors(instructorRows),
-  };
+  const value: Cached = { at: Date.now(), instructors: summarize([...bySlug].map(([slug, acc]) => toRow(slug, acc))) };
   cache.set(school, value);
   return value;
 }
-
-const DAY_MS = 86_400_000;
 
 /** Süresi dolan işaret kayıtlarını sayar (sayaç yerine işaret: kendiliğinden temizlenir). */
 async function countMarks(prefix: Deno.KvKey): Promise<number> {
@@ -209,42 +161,34 @@ async function postVote(request: Request, headers: Record<string, string>): Prom
   }
   const ipHash = await hashIp(ip);
   const today = new Date().toISOString().slice(0, 10);
-  const voteKey = ["vote", vote.school, vote.code, vote.device];
+  const voteKey = ["vote", vote.school, vote.slug, vote.device];
   const existing = await kv.get<StoredVote>(voteKey);
 
   if (!existing.value) {
-    const [device, perCourse, perDay] = await Promise.all([
+    const [device, perInstructor, perDay] = await Promise.all([
       countMarks(["device", vote.device]),
-      countMarks(["ipcourse", ipHash, vote.school, vote.code]),
+      countMarks(["ipteacher", ipHash, vote.school, vote.slug]),
       countMarks(["ipday", ipHash, today]),
     ]);
-    if (device >= MAX_PER_DEVICE || perCourse >= MAX_PER_IP_PER_COURSE || perDay >= MAX_PER_IP_PER_DAY) {
+    if (device >= MAX_PER_DEVICE || perInstructor >= MAX_PER_IP_PER_INSTRUCTOR || perDay >= MAX_PER_IP_PER_DAY) {
       return json({ error: "Çok fazla oy gönderildi, daha sonra dene" }, { status: 429, headers });
     }
   }
 
-  const stored: StoredVote = {
-    instructor: vote.instructor,
-    difficulty: vote.difficulty,
-    workload: vote.workload,
-    again: vote.again,
-    criteria: vote.criteria,
-    at: new Date().toISOString(),
-  };
-
+  const stored: StoredVote = { name: vote.instructor, again: vote.again, criteria: vote.criteria, at: new Date().toISOString() };
   await kv.set(voteKey, stored);
   if (!existing.value) {
     // İşaretler yalnızca yeni oyda yazılır; kendi oyunu değiştirmek sınıra girmez.
-    // Süreleri dolunca kendiliğinden silinirler: gün işareti 2 gün, ders işareti 120 gün, cihaz işareti 2 yıl.
+    // Süreleri dolunca kendiliğinden silinirler: gün işareti 2 gün, hoca işareti 120 gün, cihaz işareti 2 yıl.
     await Promise.all([
       kv.set(["ipday", ipHash, today, vote.device], 1, { expireIn: 2 * DAY_MS }),
-      kv.set(["ipcourse", ipHash, vote.school, vote.code, vote.device], 1, { expireIn: 120 * DAY_MS }),
-      kv.set(["device", vote.device, vote.school, vote.code], 1, { expireIn: 730 * DAY_MS }),
+      kv.set(["ipteacher", ipHash, vote.school, vote.slug, vote.device], 1, { expireIn: 120 * DAY_MS }),
+      kv.set(["device", vote.device, vote.school, vote.slug], 1, { expireIn: 730 * DAY_MS }),
     ]);
   }
 
   const summaries = await getSummaries(vote.school, true);
-  return json({ ok: true, updated: !!existing.value, summary: summaries.courses[vote.code] ?? null }, { headers });
+  return json({ ok: true, updated: !!existing.value, summary: summaries.instructors.find((i) => i.slug === vote.slug) ?? null }, { headers });
 }
 
 /** Bakım: kötüye kullanılan ya da deneme amaçlı oyları siler. ADMIN_KEY verilmemişse kapalıdır. */
@@ -254,9 +198,9 @@ async function deleteVotes(request: Request, url: URL, headers: Record<string, s
   if (request.headers.get("x-admin-key") !== adminKey) return json({ error: "Yetki yok" }, { status: 403, headers });
   const school = url.searchParams.get("school") ?? "";
   if (!SCHOOL_RE.test(school)) return json({ error: "Okul geçersiz" }, { status: 400, headers });
-  const code = url.searchParams.get("code");
+  const slug = url.searchParams.get("slug");
   const device = url.searchParams.get("device");
-  const prefix = code ? ["vote", school, code] : ["vote", school];
+  const prefix = slug ? ["vote", school, slug] : ["vote", school];
   let removed = 0;
   for await (const entry of kv.list({ prefix })) {
     if (device && entry.key[3] !== device) continue;
@@ -272,22 +216,22 @@ export async function handler(request: Request): Promise<Response> {
   const headers = cors(request);
 
   if (request.method === "OPTIONS") return new Response(null, { status: 204, headers });
-  if (url.pathname === "/" ) return json({ ok: true, service: "cizelge-oy" }, { headers });
+  if (url.pathname === "/") return json({ ok: true, service: "cizelge-oy" }, { headers });
   if (url.pathname !== "/ratings") return json({ error: "Bulunamadı" }, { status: 404, headers });
 
   if (request.method === "GET") {
     const school = url.searchParams.get("school") ?? "";
     if (!SCHOOL_RE.test(school)) return json({ error: "Okul geçersiz" }, { status: 400, headers });
-    const { courses, instructors } = await getSummaries(school);
+    const { instructors } = await getSummaries(school);
     return json(
-      { school, updatedAt: new Date().toISOString(), courses, instructors },
+      { school, updatedAt: new Date().toISOString(), instructors },
       // Cevap adrese göre değişir; ortak ara bellekte tutulmasın.
       { headers: { ...headers, "Cache-Control": "private, max-age=60" } },
     );
   }
 
   if (request.method === "POST") {
-    if (Object.keys(headers).length === 0) return json({ error: "Bu adresten oy kabul edilmiyor" }, { status: 403 });
+    if (!headers["Access-Control-Allow-Origin"]) return json({ error: "Bu adresten oy kabul edilmiyor" }, { status: 403, headers });
     return await postVote(request, headers);
   }
 

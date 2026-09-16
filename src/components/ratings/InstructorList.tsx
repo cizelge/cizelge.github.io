@@ -5,8 +5,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { personName } from "@/lib/format";
 import { RATINGS_API, readMyVotes, type MyVote } from "@/lib/ratings/client";
-import { instructorSlug } from "@/lib/ratings/instructors";
-import { instructorScore, type InstructorSummary } from "@/lib/ratings/types";
+import type { InstructorSummary } from "@/lib/ratings/types";
 import { useRatings } from "@/lib/ratings/useRatings";
 import { Stars } from "./Stars";
 import styles from "./list.module.css";
@@ -49,7 +48,7 @@ export function InstructorList({ school, instructors }: { school: string; instru
 
   const summaryOf = useMemo(() => {
     const map = new Map<string, InstructorSummary>();
-    for (const i of summaries?.instructors ?? []) map.set(instructorSlug(i.name), i);
+    for (const i of summaries?.instructors ?? []) map.set(i.slug, i);
     return map;
   }, [summaries]);
 
@@ -58,7 +57,7 @@ export function InstructorList({ school, instructors }: { school: string; instru
     const list = instructors.filter(
       (i) => !q || norm(personName(i.name)).includes(q) || i.courses.some((c) => norm(c.code).includes(q) || norm(c.title).includes(q)),
     );
-    const score = (i: ListInstructor) => instructorScore(summaryOf.get(i.slug)?.criteria ?? {}) ?? -1;
+    const score = (i: ListInstructor) => summaryOf.get(i.slug)?.score ?? -1;
     const votes = (i: ListInstructor) => summaryOf.get(i.slug)?.n ?? 0;
     return [...list].sort((a, b) => {
       if (sort === "ad") return personName(a.name).localeCompare(personName(b.name), "tr");
@@ -130,13 +129,13 @@ export function InstructorList({ school, instructors }: { school: string; instru
             <ul className={styles.grid}>
               {shown.slice(0, limit).map((teacher) => {
                 const summary = summaryOf.get(teacher.slug);
-                const mine = teacher.courses.filter((c) => myVotes[c.code]).length;
+                const mine = !!myVotes[teacher.slug];
                 return (
                   <li key={teacher.slug} className={styles.card}>
                     <Link href={`/ozyegin/hoca/${teacher.slug}`} className={styles.cardLink}>
                       <span className={styles.cardHead}>
                         <span className={styles.cardName}>{personName(teacher.name)}</span>
-                        <Stars score={summary ? instructorScore(summary.criteria) : null} size="s" />
+                        <Stars score={summary?.score ?? null} size="s" />
                       </span>
                       <span className={styles.cardStats}>
                         <span className={styles.stat}>
@@ -145,7 +144,7 @@ export function InstructorList({ school, instructors }: { school: string; instru
                         <span className={styles.stat}>
                           <span className="num">{summary?.n ?? 0}</span> değerlendirme
                         </span>
-                        {mine > 0 && <span className={styles.statMine}>oyun var</span>}
+                        {mine && <span className={styles.statMine}>oyun var</span>}
                       </span>
                       <span className={styles.cardCourses}>
                         {teacher.courses

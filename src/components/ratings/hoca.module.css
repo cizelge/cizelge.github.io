@@ -113,3 +113,24 @@
 }
 .fill { display: block; height: 100%; background: var(--star); border-radius: 999px; }
 .barNote { grid-column: 1 / -1; color: var(--ink-2); font-size: 0.82rem; }
+
+/* Puanlama formu */
+.form { display: grid; gap: 1rem; }
+.field { border: 0; padding: 0; margin: 0; display: grid; gap: 0.3rem; min-width: 0; }
+.legend { padding: 0; font-weight: 600; font-size: 0.95rem; }
+.choices { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.choice {
+  min-height: 44px;
+  padding: 0 1rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+.choice:hover { background: var(--paper-2); }
+.choice[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.choice:focus-visible { outline: 2px solid var(--pen); outline-offset: 2px; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.actions :global(.btn) { min-height: 44px; }
