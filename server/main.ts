@@ -57,7 +57,8 @@ function allowedOrigins(): string[] {
 
 function cors(request: Request): Record<string, string> {
   const origin = request.headers.get("Origin") ?? "";
-  if (!allowedOrigins().includes(origin)) return {};
+  // Vary her zaman gider: ara bellekler CORS başlıksız bir cevabı başka adrese vermesin.
+  if (!allowedOrigins().includes(origin)) return { Vary: "Origin" };
   return {
     "Access-Control-Allow-Origin": origin,
     "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
