@@ -44,7 +44,8 @@ interface Props {
 export function InstructorRatings({ school, slug, name, heading, about, courses }: Props) {
   const { summaries, ready } = useRatings(school);
   const [mine, setMine] = useState<MyVote | null>(null);
-  const [fresh, setFresh] = useState<InstructorSummary | null>(null);
+  // undefined: sunucudan gelen listeyi kullan. null: bu hocanın hiç oyu kalmadı (oy kaldırıldı).
+  const [fresh, setFresh] = useState<InstructorSummary | null | undefined>(undefined);
   const [again, setAgain] = useState<boolean | null>(null);
   const [criteria, setCriteria] = useState<Criteria>({});
   const [comment, setComment] = useState("");
@@ -61,7 +62,7 @@ export function InstructorRatings({ school, slug, name, heading, about, courses 
     setComment(saved.comment ?? "");
   }, [slug]);
 
-  const summary = fresh ?? summaries?.instructors.find((i) => i.slug === slug);
+  const summary = fresh !== undefined ? (fresh ?? undefined) : summaries?.instructors.find((i) => i.slug === slug);
   const answered = INSTRUCTOR_CRITERIA.filter((c) => criteria[c]).length;
   const complete = again !== null && answered > 0 && (!TURNSTILE_SITE_KEY || token);
   const display = personName(name);

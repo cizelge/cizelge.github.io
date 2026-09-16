@@ -225,7 +225,9 @@
 .report:focus-visible { outline: 2px solid var(--pen); outline-offset: 2px; }
 
 /* Hoca hakkında */
-.facts { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 0.8rem 1.2rem; }
+.facts { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 0.9rem 1.4rem; }
+/* Fakülte satırı uzun olabiliyor: tek başına tam genişlik alır, ötekiler altında hizalanır. */
+.facts > .fact:first-child { grid-column: 1 / -1; }
 .fact {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
