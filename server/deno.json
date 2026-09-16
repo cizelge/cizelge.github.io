@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "dev": "deno run --allow-net --allow-env --unstable-kv main.ts",
+    "check": "deno check main.ts"
+  },
+  "unstable": ["kv"],
+  "fmt": { "lineWidth": 130 },
+  "exclude": ["node_modules", "logic.test.ts"]
+}

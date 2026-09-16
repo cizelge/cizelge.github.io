@@ -1,5 +1,5 @@
 import { describe as test, expect, it } from "vitest";
-import { cleanInstructor, describe, parseVote, summarize, summarizeInstructors } from "./logic";
+import { cleanInstructor, describe, parseVote, summarize, summarizeInstructors } from "./logic.ts";
 
 const valid = { school: "ozyegin", code: "CS 201", instructor: "Ahmet Yılmaz", difficulty: 4, workload: 3, again: true, device: "a".repeat(20) };
 

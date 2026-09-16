@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Wrangler/miniflare yerel durumu ve ham dışa aktarımlar
+worker/
+scrapers/ozyegin/exports/

@@ -14,6 +14,8 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Wrangler'in ürettiği geçici paketler.
     "worker/.wrangler/**",
+    // Deno sunucusu ayrı ayarlarla derlenir (deno check).
+    "server/**",
   ]),
 ]);
 
