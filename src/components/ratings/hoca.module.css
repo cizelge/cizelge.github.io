@@ -59,9 +59,10 @@
 .right { min-width: 0; }
 
 @media (min-width: 60rem) {
-  /* Geniş ekranda puanlama paneli sağda sabit kalır. */
+  /* Geniş ekranda puanlama paneli sağda sabit kalır: sütun boyunca uzar, panel yapışır. */
   .grid { grid-template-columns: minmax(0, 1fr) minmax(0, 22rem); }
-  .panel { position: sticky; top: 1rem; }
+  .right { align-self: stretch; }
+  .panel { position: sticky; top: 1rem; max-height: calc(100vh - 2rem); overflow-y: auto; }
 }
 
 .card {
