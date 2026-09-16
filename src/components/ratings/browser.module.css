@@ -1,0 +1,108 @@
+.root {
+  max-width: 44rem;
+  color: var(--ink);
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.head { display: grid; gap: 0.35rem; }
+.lede { margin: 0; color: var(--ink-2); max-width: 36rem; line-height: 1.5; }
+
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+.tab {
+  min-height: 44px;
+  padding: 0 0.9rem;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+.tab:hover { color: var(--ink); }
+.tab:focus-visible { outline: 2px solid var(--pen); outline-offset: -2px; }
+
+.controls { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.search { flex: 1 1 14rem; min-width: 0; }
+.input {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 0.7rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-m);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+}
+.input:focus-visible { outline: 2px solid var(--pen); outline-offset: 1px; border-color: var(--pen); }
+
+.chip {
+  min-height: 44px;
+  padding: 0 0.9rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.93rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.chip:focus-visible { outline: 2px solid var(--pen); outline-offset: 2px; }
+
+.status { margin: 0; min-height: 1.2em; color: var(--pen); font-size: 0.9rem; }
+.empty { margin: 0; color: var(--ink-2); }
+
+.list { margin: 0; padding: 0; list-style: none; display: grid; }
+
+.row {
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  gap: 0.5rem;
+  min-width: 0;
+}
+.row:first-child { border-top: 0; }
+
+.rowHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.5rem 0.75rem;
+  align-items: start;
+}
+.rowMain { display: grid; gap: 0.15rem; min-width: 0; }
+
+.code { font-weight: 700; color: var(--ink); text-decoration: none; }
+.code:hover { text-decoration: underline; }
+.name { overflow-wrap: anywhere; }
+.teacher { font-weight: 700; color: var(--ink); text-decoration: none; font-size: 1.02rem; }
+.teacher:hover { text-decoration: underline; }
+
+.none { color: var(--ink-2); font-size: 0.85rem; }
+.count { color: var(--ink-2); }
+.mine { margin: 0; color: var(--ink-2); font-size: 0.85rem; }
+
+.action { min-height: 40px; white-space: nowrap; }
+
+/* Hocanın dersleri */
+.sub { margin: 0; padding: 0 0 0 0.75rem; list-style: none; display: grid; border-left: 2px solid var(--rule); }
+.subRow { padding: 0.4rem 0; display: grid; gap: 0.3rem; min-width: 0; }
+.subHead {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+@media (max-width: 480px) {
+  .subHead { grid-template-columns: minmax(0, 1fr) auto; }
+  .subHead .name { grid-column: 1 / -1; grid-row: 2; font-size: 0.93rem; }
+}

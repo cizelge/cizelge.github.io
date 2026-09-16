@@ -6,6 +6,28 @@ import { usePathname } from "next/navigation";
 // Telefonda alt gezinme çubuğu. Etkin sayfanın adının altında logodaki fosforlu kalem çizgisi.
 export const NAV_ITEMS: { href: string; label: string; match: (p: string) => boolean; icon: React.ReactNode }[] = [
   {
+    href: "/ozyegin",
+    label: "Program",
+    // Planlayıcı, dönem sayfaları ve ders sayfaları (araç sayfaları hariç).
+    match: (p) => p === "/ozyegin" || p.startsWith("/ozyegin/donem") || (/^\/ozyegin\/[^/]+$/.test(p) && !TOOL_PATHS.includes(p)),
+    icon: (
+      <>
+        <rect x="3.5" y="4.5" width="17" height="15" rx="2.5" />
+        <path d="M3.5 9h17M9 9v10.5M15 9v10.5" />
+      </>
+    ),
+  },
+  {
+    href: "/ozyegin/oylar",
+    label: "Oylar",
+    match: (p) => p === "/ozyegin/oylar",
+    icon: (
+      <>
+        <path d="M12 3.8l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.6-4.8 2.6.9-5.4-3.9-3.8 5.4-.8z" />
+      </>
+    ),
+  },
+  {
     href: "/ozyegin/yol-haritasi",
     label: "Yol haritası",
     match: (p) => p === "/ozyegin/yol-haritasi",
@@ -43,7 +65,7 @@ export const NAV_ITEMS: { href: string; label: string; match: (p: string) => boo
   },
 ];
 
-const TOOL_PATHS = ["/ozyegin/yol-haritasi", "/ozyegin/on-sart-diyagrami", "/ozyegin/gecis", "/ozyegin/erasmus", "/ozyegin/takvim"];
+const TOOL_PATHS = ["/ozyegin/oylar", "/ozyegin/yol-haritasi", "/ozyegin/on-sart-diyagrami", "/ozyegin/gecis", "/ozyegin/erasmus", "/ozyegin/takvim"];
 
 export function MobileNav() {
   // Statik yayında adresler "/" ile bitiyor (trailingSlash); eşleştirmeden önce atılır.
