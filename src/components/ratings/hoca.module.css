@@ -235,3 +235,5 @@
 }
 .factLabel { color: var(--ink-2); font-size: 0.82rem; }
 .factValue { font-weight: 600; overflow-wrap: anywhere; }
+
+.send { width: 100%; justify-content: center; min-height: 46px; }

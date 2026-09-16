@@ -44,7 +44,6 @@ export function InstructorRatings({ school, slug, name, heading, about, courses 
   const { summaries, ready } = useRatings(school);
   const [mine, setMine] = useState<MyVote | null>(null);
   const [fresh, setFresh] = useState<InstructorSummary | null>(null);
-  const [open, setOpen] = useState(false);
   const [again, setAgain] = useState<boolean | null>(null);
   const [criteria, setCriteria] = useState<Criteria>({});
   const [comment, setComment] = useState("");
@@ -88,7 +87,6 @@ export function InstructorRatings({ school, slug, name, heading, about, courses 
     clearRatingsCache(school);
     setMine(vote);
     setFresh(result.summary);
-    setOpen(false);
     setStatus("done");
   }
 
@@ -98,75 +96,64 @@ export function InstructorRatings({ school, slug, name, heading, about, courses 
         {display} hocayı puanla
       </h2>
 
-      {mine && !open && (
+      {mine && (
         <p className={styles.note}>
           Oyun kaydedildi: {mine.again ? "yine alırdın" : "yine almazdın"}
           {myAnswers.length > 0 &&
             `, ${myAnswers.map((c) => `${CRITERION_INFO[c].label.toLocaleLowerCase("tr")} ${mine.criteria[c]}/5`).join(", ")}`}
-          .
+          . Yıldızları değiştirip yeniden gönderebilirsin.
         </p>
       )}
 
-      {!open ? (
-        <button type="button" className="btn btn-pen" onClick={() => setOpen(true)}>
-          {mine ? "Oyumu değiştir" : "Puanla"}
-        </button>
-      ) : (
-        <div className={styles.form}>
-          {INSTRUCTOR_CRITERIA.map((key) => (
-            <fieldset key={key} className={styles.field}>
-              <legend className={styles.legend}>{CRITERION_INFO[key].question}</legend>
-              <StarInput
-                value={criteria[key] ?? 0}
-                onChange={(v) => setCriteria((c) => ({ ...c, [key]: v || undefined }))}
-                label={CRITERION_INFO[key].label}
-                scale={CRITERION_INFO[key].scale}
-              />
-            </fieldset>
-          ))}
-
-          <fieldset className={styles.field}>
-            <legend className={styles.legend}>Baştan seçsen yine bu hocadan alır mıydın?</legend>
-            <div className={styles.choices} role="radiogroup" aria-label="Yine alır mıydın">
-              <ThumbChoice picked={again === true} up onClick={() => setAgain(true)} label="Alırdım" note="yine seçerdim" />
-              <ThumbChoice picked={again === false} onClick={() => setAgain(false)} label="Almazdım" note="uzak dururdum" />
-            </div>
-          </fieldset>
-
-          <label className={styles.field}>
-            <span className={styles.legend}>
-              Yorumun <span className={styles.optional}>isteğe bağlı, isimsiz</span>
-            </span>
-            <textarea
-              className={styles.textarea}
-              value={comment}
-              maxLength={MAX_COMMENT}
-              rows={3}
-              placeholder="Dersi alacak birine ne söylerdin?"
-              onChange={(e) => setComment(e.target.value)}
+      <div className={styles.form}>
+        {INSTRUCTOR_CRITERIA.map((key) => (
+          <fieldset key={key} className={styles.field}>
+            <legend className={styles.legend}>{CRITERION_INFO[key].question}</legend>
+            <StarInput
+              value={criteria[key] ?? 0}
+              onChange={(v) => setCriteria((c) => ({ ...c, [key]: v || undefined }))}
+              label={CRITERION_INFO[key].label}
+              scale={CRITERION_INFO[key].scale}
             />
-            <span className={styles.counter}>
-              <span className="num">{comment.trim().length}</span>/{MAX_COMMENT}
-              {comment.trim().length > 0 && comment.trim().length < 10 ? " · en az 10 karakter" : ""}
-            </span>
-          </label>
+          </fieldset>
+        ))}
 
-          {TURNSTILE_SITE_KEY && <Turnstile siteKey={TURNSTILE_SITE_KEY} onToken={setToken} />}
-
-          <div className={styles.actions}>
-            <button type="button" className="btn btn-pen" disabled={!complete || status === "sending"} onClick={submit}>
-              {status === "sending" ? "Gönderiliyor" : mine ? "Oyumu güncelle" : "Oyumu gönder"}
-            </button>
-            <button type="button" className="btn btn-quiet" onClick={() => setOpen(false)}>
-              Vazgeç
-            </button>
+        <fieldset className={styles.field}>
+          <legend className={styles.legend}>Baştan seçsen yine bu hocadan alır mıydın?</legend>
+          <div className={styles.choices} role="radiogroup" aria-label="Yine alır mıydın">
+            <ThumbChoice picked={again === true} up onClick={() => setAgain(true)} label="Alırdım" note="yine seçerdim" />
+            <ThumbChoice picked={again === false} onClick={() => setAgain(false)} label="Almazdım" note="uzak dururdum" />
           </div>
-          <p className={styles.note}>
-            En az bir yıldız ve &ldquo;yine alır mıydın&rdquo; gerekli. Adın, numaran ya da notun sorulmaz. Yorumun
-            isimsiz yayımlanır; hakaret içeren yorumlar kabul edilmez.
-          </p>
-        </div>
-      )}
+        </fieldset>
+
+        <label className={styles.field}>
+          <span className={styles.legend}>
+            Yorumun <span className={styles.optional}>isteğe bağlı, isimsiz</span>
+          </span>
+          <textarea
+            className={styles.textarea}
+            value={comment}
+            maxLength={MAX_COMMENT}
+            rows={3}
+            placeholder="Dersi alacak birine ne söylerdin?"
+            onChange={(e) => setComment(e.target.value)}
+          />
+          <span className={styles.counter}>
+            <span className="num">{comment.trim().length}</span>/{MAX_COMMENT}
+            {comment.trim().length > 0 && comment.trim().length < 10 ? " · en az 10 karakter" : ""}
+          </span>
+        </label>
+
+        {TURNSTILE_SITE_KEY && <Turnstile siteKey={TURNSTILE_SITE_KEY} onToken={setToken} />}
+
+        <button type="button" className={`btn btn-pen ${styles.send}`} disabled={!complete || status === "sending"} onClick={submit}>
+          {status === "sending" ? "Gönderiliyor" : mine ? "Oyumu güncelle" : "Oyumu gönder"}
+        </button>
+        <p className={styles.note}>
+          En az bir yıldız ve &ldquo;yine alır mıydın&rdquo; gerekli. Adın, numaran ya da notun sorulmaz. Yorumun isimsiz
+          yayımlanır; hakaret içeren yorumlar kabul edilmez.
+        </p>
+      </div>
 
       <p className={styles.status} role="status" aria-live="polite">
         {status === "done" ? "Oyun kaydedildi, teşekkürler." : status && status !== "sending" ? status : ""}
