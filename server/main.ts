@@ -281,7 +281,8 @@ export async function handler(request: Request): Promise<Response> {
     const { courses, instructors } = await getSummaries(school);
     return json(
       { school, updatedAt: new Date().toISOString(), courses, instructors },
-      { headers: { ...headers, "Cache-Control": "public, max-age=300" } },
+      // Cevap adrese göre değişir; ortak ara bellekte tutulmasın.
+      { headers: { ...headers, "Cache-Control": "private, max-age=60" } },
     );
   }
 
