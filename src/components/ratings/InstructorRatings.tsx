@@ -108,7 +108,9 @@ export function InstructorRatings({ school, slug, name, heading, about, courses 
       <div className={styles.form}>
         {INSTRUCTOR_CRITERIA.map((key) => (
           <fieldset key={key} className={styles.field}>
-            <legend className={styles.legend}>{CRITERION_INFO[key].question}</legend>
+            <legend className={styles.legend}>
+              {CRITERION_INFO[key].label} <span className={styles.optional}>{CRITERION_INFO[key].hint}</span>
+            </legend>
             <StarInput
               value={criteria[key] ?? 0}
               onChange={(v) => setCriteria((c) => ({ ...c, [key]: v || undefined }))}

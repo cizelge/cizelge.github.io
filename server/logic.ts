@@ -2,7 +2,7 @@
 // Cloudflare'a bağımlı değil, testleri logic.test.ts içinde.
 
 /** Hocaya sorulan, hepsi 1-5 ve hepsi isteğe bağlı kriterler. */
-export const INSTRUCTOR_CRITERIA = ["clarity", "fairness", "helpful", "attendance"] as const;
+export const INSTRUCTOR_CRITERIA = ["clarity", "fairness", "helpful", "homework", "attendance"] as const;
 export type Criterion = (typeof INSTRUCTOR_CRITERIA)[number];
 export type Criteria = Partial<Record<Criterion, number>>;
 
