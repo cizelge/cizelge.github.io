@@ -2,7 +2,7 @@
   "schoolId": "ozyegin",
   "termId": "2026-2027-guz",
   "termLabel": "2026 - 2027 Güz",
-  "fetchedAt": "2026-09-13T15:32:17.038Z",
+  "fetchedAt": "2026-09-16T09:17:29.925Z",
   "courses": [
     {
       "code": "ACCT 201",
@@ -3953,7 +3953,9 @@
         },
         {
           "id": "C",
-          "instructors": [],
+          "instructors": [
+            "KEMAL BERKAY TÜZÜN"
+          ],
           "capacity": 55,
           "restrictions": null,
           "meetings": [
@@ -10184,33 +10186,6 @@
       ]
     },
     {
-      "code": "EEC 398",
-      "slug": "eec-398",
-      "title": "Sürdürülebilir Elektronik ve Döngüsel Ekonomi",
-      "ects": 4,
-      "localCredits": null,
-      "prerequisites": "SEC 201",
-      "corequisites": [],
-      "sections": [
-        {
-          "id": "A",
-          "instructors": [
-            "İSMAİL AKTÜRK"
-          ],
-          "capacity": null,
-          "restrictions": null,
-          "meetings": [
-            {
-              "day": 1,
-              "start": "12:40",
-              "end": "15:30",
-              "room": null
-            }
-          ]
-        }
-      ]
-    },
-    {
       "code": "ENG 101",
       "slug": "eng-101",
       "title": "İngilizce I",
@@ -10748,28 +10723,6 @@
           ]
         },
         {
-          "id": "AX",
-          "instructors": [
-            "SHİVA ERDEM"
-          ],
-          "capacity": 24,
-          "restrictions": null,
-          "meetings": [
-            {
-              "day": 1,
-              "start": "09:40",
-              "end": "11:30",
-              "room": "LF_AB3.330"
-            },
-            {
-              "day": 5,
-              "start": "10:40",
-              "end": "12:30",
-              "room": "LF_AB3.348"
-            }
-          ]
-        },
-        {
           "id": "B",
           "instructors": [
             "ALI NEZAMI"
@@ -10970,7 +10923,7 @@
         {
           "id": "K",
           "instructors": [
-            "AYŞE NESLİHAN SABUNCU"
+            "SHİVA ERDEM"
           ],
           "capacity": null,
           "restrictions": null,
@@ -15928,6 +15881,60 @@
       ]
     },
     {
+      "code": "HUK 300",
+      "slug": "huk-300",
+      "title": "Staj",
+      "ects": null,
+      "localCredits": null,
+      "prerequisites": "",
+      "corequisites": [],
+      "sections": [
+        {
+          "id": "A",
+          "instructors": [],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": []
+        }
+      ]
+    },
+    {
+      "code": "HUK 300-11",
+      "slug": "huk-300-11",
+      "title": "Staj",
+      "ects": null,
+      "localCredits": null,
+      "prerequisites": "",
+      "corequisites": [],
+      "sections": [
+        {
+          "id": "A",
+          "instructors": [],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": []
+        }
+      ]
+    },
+    {
+      "code": "HUK 300-12",
+      "slug": "huk-300-12",
+      "title": "Staj",
+      "ects": null,
+      "localCredits": null,
+      "prerequisites": "",
+      "corequisites": [],
+      "sections": [
+        {
+          "id": "A",
+          "instructors": [],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": []
+        }
+      ]
+    },
+    {
       "code": "HUK 306",
       "slug": "huk-306",
       "title": "Ticaret Hukuku II",
@@ -16719,6 +16726,33 @@
               "start": "15:40",
               "end": "18:30",
               "room": "LF_AB3.238"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "HUK 419",
+      "slug": "huk-419",
+      "title": "Alternatif Uyuşmazlık Çözüm Yolları",
+      "ects": null,
+      "localCredits": null,
+      "prerequisites": "",
+      "corequisites": [],
+      "sections": [
+        {
+          "id": "A",
+          "instructors": [
+            "FERHAT YILDIRIM"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 3,
+              "start": "08:40",
+              "end": "11:30",
+              "room": null
             }
           ]
         }
@@ -18466,7 +18500,7 @@
         {
           "id": "C",
           "instructors": [
-            "GÖKÇE ELİF BAYKAL"
+            "BORA FER"
           ],
           "capacity": 25,
           "restrictions": null,
@@ -26891,7 +26925,7 @@
           "restrictions": null,
           "meetings": [
             {
-              "day": 3,
+              "day": 2,
               "start": "08:40",
               "end": "11:30",
               "room": null
