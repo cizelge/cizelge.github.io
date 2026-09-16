@@ -37,7 +37,8 @@
   place-items: center;
 }
 .pick[data-on="true"] { color: var(--star); }
-.pick:hover { color: color-mix(in oklab, var(--star) 70%, var(--ink)); }
+/* Fareyle gezerken dolan yıldızlar biraz soluk: seçimle karışmasın. */
+.pick[data-on="true"][data-preview="true"] { color: color-mix(in oklab, var(--star) 70%, var(--paper)); }
 .pick:focus-visible { outline: 2px solid var(--pen); outline-offset: 2px; border-radius: var(--radius-s); }
 
 .hint { color: var(--ink-2); font-size: 0.9rem; }

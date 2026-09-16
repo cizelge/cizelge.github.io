@@ -1,6 +1,7 @@
 "use client";
 // Yıldızlı puan: gösterim (Stars) ve seçim (StarInput).
 
+import { useState } from "react";
 import { oneDecimal } from "@/lib/ratings/types";
 import styles from "./stars.module.css";
 
@@ -36,11 +37,13 @@ export function Stars({ score, size = "m", showValue = true, count }: { score: n
   );
 }
 
-/** Tıklanabilir yıldızlar. Aynı yıldıza ikinci kez basınca seçim kalkar. */
+/** Tıklanabilir yıldızlar. Fareyle gezerken o noktaya kadarı dolu görünür; aynı yıldıza ikinci kez basınca seçim kalkar. */
 export function StarInput({ value, onChange, label, scale }: { value: number; onChange: (v: number) => void; label: string; scale?: readonly string[] }) {
+  const [hover, setHover] = useState(0);
+  const shown = hover || value;
   return (
     <div className={styles.input} role="radiogroup" aria-label={label}>
-      <span className={styles.buttons}>
+      <span className={styles.buttons} onMouseLeave={() => setHover(0)}>
         {[1, 2, 3, 4, 5].map((n) => (
           <button
             key={n}
@@ -49,7 +52,11 @@ export function StarInput({ value, onChange, label, scale }: { value: number; on
             aria-checked={value === n}
             aria-label={scale ? `${n}: ${scale[n - 1]}` : `${n} yıldız`}
             className={styles.pick}
-            data-on={n <= value}
+            data-on={n <= shown}
+            data-preview={hover > 0 && value !== shown}
+            onMouseEnter={() => setHover(n)}
+            onFocus={() => setHover(n)}
+            onBlur={() => setHover(0)}
             onClick={() => onChange(value === n ? 0 : n)}
           >
             <svg viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true">
@@ -58,7 +65,7 @@ export function StarInput({ value, onChange, label, scale }: { value: number; on
           </button>
         ))}
       </span>
-      <span className={styles.hint}>{value === 0 ? "seçilmedi" : scale ? scale[value - 1] : `${value}/5`}</span>
+      <span className={styles.hint}>{shown === 0 ? "seçilmedi" : scale ? scale[shown - 1] : `${shown}/5`}</span>
     </div>
   );
 }
