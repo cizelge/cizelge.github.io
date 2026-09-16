@@ -25,7 +25,6 @@ import { WeekGrid } from "./WeekGrid";
 import { RegistrationPlan } from "./RegistrationPlan";
 import { ShuttlePanel } from "./ShuttlePanel";
 import { ElectiveFinder } from "./ElectiveFinder";
-import { scheduleKey, type SavedMeeting } from "@/lib/today/today";
 import type { ShuttleData } from "@/lib/shuttle/types";
 
 const STORAGE_KEY = "planlayici:";
@@ -156,39 +155,6 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
   );
   const placed = current ? placeMeetings(current.sections, courses, colorOf) : [];
   const range = timeRange(placed);
-
-  // "Bugün" ekranı için seçili programın oturumları bu tarayıcıya yazılır (dönem başına bir kayıt).
-  const todayMeetings: SavedMeeting[] | null = current
-    ? placed.map((m) => ({
-        code: m.courseCode,
-        title: courses.get(m.courseCode)?.title ?? "",
-        section: m.sectionId,
-        day: m.day,
-        start: m.start,
-        end: m.end,
-        room: m.room ?? null,
-        instructor: m.instructor,
-      }))
-    : null;
-  const todayJson = todayMeetings ? JSON.stringify(todayMeetings) : null;
-  const cartEmpty = state.cart.length === 0;
-  useEffect(() => {
-    if (!ready || !hasTimes) return;
-    const key = scheduleKey(term.schoolId, term.termId);
-    if (cartEmpty) {
-      try {
-        window.localStorage.removeItem(key);
-      } catch {
-        /* sessizce geç */
-      }
-      return;
-    }
-    if (!todayJson) return;
-    writeStorage(
-      key,
-      JSON.stringify({ v: 1, schoolId: term.schoolId, termId: term.termId, termLabel: term.termLabel, savedAt: new Date().toISOString(), meetings: JSON.parse(todayJson) }),
-    );
-  }, [ready, hasTimes, cartEmpty, todayJson, term.schoolId, term.termId, term.termLabel]);
 
   function addCourse(code: string) {
     setCleared(null);

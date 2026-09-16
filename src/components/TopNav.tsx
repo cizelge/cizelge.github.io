@@ -29,13 +29,6 @@ export function TopNav() {
       >
         <span className="nav-label">Takvim</span>
       </Link>
-      <Link
-        href="/ozyegin/final-hesabi"
-        className="btn btn-small btn-quiet nav-about"
-        aria-current={pathname === "/ozyegin/final-hesabi" ? "page" : undefined}
-      >
-        <span className="nav-label">Not hesabı</span>
-      </Link>
       <Link href="/hakkinda" className="btn btn-small btn-quiet nav-about" aria-current={aboutActive ? "page" : undefined}>
         <span className="nav-label">Hakkında</span>
       </Link>

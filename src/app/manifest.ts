@@ -3,14 +3,14 @@ import type { MetadataRoute } from "next";
 // Statik dışa aktarımda dosya olarak yazılsın.
 export const dynamic = "force-static";
 
-// Ana ekrana eklenen uygulama "Bugün" ekranıyla açılır.
+// Ana ekrana eklenen uygulama planlayıcıyla açılır.
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Çizelge",
     short_name: "Çizelge",
-    description: "Bugünkü derslerin, dersliğin ve servisin; çakışmasız ders programı.",
-    id: "/ozyegin/bugun/",
-    start_url: "/ozyegin/bugun/",
+    description: "Çakışmasız ders programı: dersleri seç, en uygun haftanı gör.",
+    id: "/ozyegin/",
+    start_url: "/ozyegin/",
     scope: "/",
     display: "standalone",
     lang: "tr",
@@ -22,7 +22,6 @@ export default function manifest(): MetadataRoute.Manifest {
       { src: "/icons/maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
     ],
     shortcuts: [
-      { name: "Program", url: "/ozyegin/" },
       { name: "Akademik takvim", url: "/ozyegin/takvim/" },
     ],
   };

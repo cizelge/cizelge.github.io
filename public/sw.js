@@ -4,7 +4,7 @@
 const VERSION = "v1";
 const PAGES = `cizelge-sayfa-${VERSION}`;
 const STATIC = `cizelge-statik-${VERSION}`;
-const START = "/ozyegin/bugun/";
+const START = "/ozyegin/";
 const MAX_STATIC = 300;
 
 self.addEventListener("install", (event) => {

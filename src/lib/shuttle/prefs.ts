@@ -1,4 +1,4 @@
-// Seçilen servis hattı ve durak-kampüs süresi bu tarayıcıda saklanır; planlayıcı ve Bugün ekranı ortak kullanır.
+// Seçilen servis hattı ve durak-kampüs süresi bu tarayıcıda saklanır; planlayıcıda kullanılır.
 
 export const SHUTTLE_PREFS_KEY = "servis:ozyegin";
 
