@@ -102,28 +102,34 @@ export default async function InstructorPage(props: PageProps<"/ozyegin/hoca/[sl
   const faculties = facultiesFor(found.courses.map((c) => c.code));
   const sectionCount = found.courses.reduce((n, c) => n + c.sections, 0);
 
+  const facts: { label: string; value: string; icon: React.ReactNode }[] = [
+    {
+      label: "Fakülte",
+      value: faculties.length > 0 ? faculties.join(", ") : "Veride yok",
+      icon: <path d="M4 20V7l8-3 8 3v13M9 20v-5h6v5M4 20h16" />,
+    },
+    { label: "Verdiği ders sayısı", value: String(found.courses.length), icon: <path d="M5 4.5h11a2 2 0 0 1 2 2V20H7a2 2 0 0 1-2-2zM7 4.5V18h11" /> },
+    { label: "Şube sayısı", value: String(sectionCount), icon: <path d="M4 6h16M4 12h16M4 18h10" /> },
+    { label: "Dönem", value: term.termLabel, icon: <path d="M4.5 6.5h15v13h-15zM8 4v4M16 4v4M4.5 11h15" /> },
+  ];
+
   const about = (
     <section className={styles.card} aria-labelledby="hoca-hakkinda">
       <h2 id="hoca-hakkinda" className={styles.cardTitle}>
         Hoca hakkında
       </h2>
       <dl className={styles.facts}>
-        <div className={styles.fact}>
-          <dt className={styles.factLabel}>Fakülte</dt>
-          <dd className={styles.factValue}>{faculties.length > 0 ? faculties.join(", ") : "Veride yok"}</dd>
-        </div>
-        <div className={styles.fact}>
-          <dt className={styles.factLabel}>Verdiği ders sayısı</dt>
-          <dd className={`${styles.factValue} num`}>{found.courses.length}</dd>
-        </div>
-        <div className={styles.fact}>
-          <dt className={styles.factLabel}>Şube sayısı</dt>
-          <dd className={`${styles.factValue} num`}>{sectionCount}</dd>
-        </div>
-        <div className={styles.fact}>
-          <dt className={styles.factLabel}>Dönem</dt>
-          <dd className={styles.factValue}>{term.termLabel}</dd>
-        </div>
+        {facts.map((fact) => (
+          <div key={fact.label} className={styles.fact}>
+            <span className={styles.factIcon} aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                {fact.icon}
+              </svg>
+            </span>
+            <dt className={styles.factLabel}>{fact.label}</dt>
+            <dd className={styles.factValue}>{fact.value}</dd>
+          </div>
+        ))}
       </dl>
       <p className={styles.note}>
         Fakülte, verdiği derslerin geçtiği bölüm müfredatlarından çıkarıldı. Ünvan bilgisi açık veride yok.
@@ -156,27 +162,26 @@ export default async function InstructorPage(props: PageProps<"/ozyegin/hoca/[sl
     </section>
   );
 
+  const heading = (
+    <>
+      <p className={`hint ${styles.back}`}>
+        <Link href="/ozyegin/hocalar" className="link">
+          ← Bütün hocalar
+        </Link>
+      </p>
+      <h1 className={styles.heroName}>{name}</h1>
+      {faculties.length > 0 && <p className={styles.heroFaculty}>{faculties.join(", ")}</p>}
+      <p className={styles.heroMeta}>
+        {term.termLabel} döneminde {found.courses.length} ders
+      </p>
+    </>
+  );
+
   return (
     <>
       <SiteHeader term={`Özyeğin, ${term.termLabel}`} />
-      <main id="icerik" className={`page ${styles.root}`}>
-        <p className={`hint ${styles.back}`}>
-          <Link href="/ozyegin/hocalar" className="link">
-            ← Bütün hocalar
-          </Link>
-        </p>
-
-        <header className={styles.hero}>
-          <h1 className={styles.heroName}>{name}</h1>
-          <p className={styles.heroMeta}>
-            {faculties.length > 0 ? `${faculties.join(", ")} · ` : ""}
-            {term.termLabel} döneminde {found.courses.length} ders
-          </p>
-        </header>
-
-        <InstructorRatings school={SCHOOL} slug={slug} name={found.name} about={about} courses={courses} />
-
-        <p className={styles.note}>Puanlar ve yorumlar öğrencilerden gelir, isimsizdir. Resmi bir değerlendirme değildir.</p>
+      <main id="icerik" className={styles.root}>
+        <InstructorRatings school={SCHOOL} slug={slug} name={found.name} heading={heading} about={about} courses={courses} />
       </main>
     </>
   );

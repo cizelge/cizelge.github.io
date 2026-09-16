@@ -32,13 +32,15 @@ interface Props {
   slug: string;
   /** Hoca adı, kaynakta yazıldığı gibi. */
   name: string;
+  /** Başlık bandının içeriği: geri bağlantısı, ad ve alt satırlar. */
+  heading: React.ReactNode;
   /** Sol sütunda gösterilecek "Hoca hakkında" kartı. */
   about: React.ReactNode;
   /** Sol sütunda gösterilecek ders listesi. */
   courses: React.ReactNode;
 }
 
-export function InstructorRatings({ school, slug, name, about, courses }: Props) {
+export function InstructorRatings({ school, slug, name, heading, about, courses }: Props) {
   const { summaries, ready } = useRatings(school);
   const [mine, setMine] = useState<MyVote | null>(null);
   const [fresh, setFresh] = useState<InstructorSummary | null>(null);
@@ -91,7 +93,7 @@ export function InstructorRatings({ school, slug, name, about, courses }: Props)
   }
 
   const panel = !RATINGS_API ? null : (
-    <section className={`${styles.card} ${styles.panel}`} aria-labelledby="hoca-puanla">
+    <section className={styles.card} aria-labelledby="hoca-puanla">
       <h2 id="hoca-puanla" className={styles.cardTitle}>
         {display} hocayı puanla
       </h2>
@@ -174,59 +176,68 @@ export function InstructorRatings({ school, slug, name, about, courses }: Props)
 
   return (
     <>
-      <section className={styles.stats} aria-label="Puan özeti">
-        <div className={styles.stat}>
-          <span className={styles.statValue}>
-            <Stars score={summary?.score ?? null} size="m" />
-          </span>
-          <span className={styles.statLabel}>Genel puan</span>
-        </div>
+      <div className={styles.band}>
+        <div className={styles.bandInner}>
+          {heading}
+          <section className={styles.stats} aria-label="Puan özeti">
         <div className={styles.stat}>
           <span className={`${styles.statValue} num`}>{summary?.n ?? 0}</span>
           <span className={styles.statLabel}>Değerlendirme</span>
+        </div>
+        <div className={styles.stat}>
+          <span className={`${styles.statValue} num`}>{summary?.comments.length ?? 0}</span>
+          <span className={styles.statLabel}>Yorum</span>
         </div>
         <div className={styles.stat}>
           <span className={`${styles.statValue} num`}>{summary ? `%${summary.again}` : "—"}</span>
           <span className={styles.statLabel}>Yine alırdım</span>
         </div>
         <div className={styles.stat}>
-          <span className={`${styles.statValue} num`}>{summary?.comments.length ?? 0}</span>
-          <span className={styles.statLabel}>Yorum</span>
+          <span className={styles.statValue}>
+            <Stars score={summary?.score ?? null} size="m" />
+          </span>
+            <span className={styles.statLabel}>Ortalama puan</span>
+          </div>
+          </section>
         </div>
-      </section>
+      </div>
 
+      <div className={styles.body}>
       <div className={styles.grid}>
         <div className={styles.left}>
           {about}
-
-          <section className={styles.card} aria-labelledby="hoca-kriter">
-            <h2 id="hoca-kriter" className={styles.cardTitle}>
-              Değerlendirme kırılımı
-            </h2>
-            {summary && Object.keys(summary.criteria).length > 0 ? (
-              <>
-                <CriteriaBars criteria={summary.criteria} />
-                <p className={styles.note}>
-                  <span className="num">{summary.n}</span> kişi puanladı.
-                </p>
-              </>
-            ) : (
-              <p className={styles.empty}>
-                {!RATINGS_API
-                  ? "Puanlama kapalı."
-                  : !ready
-                    ? "Puanlar yükleniyor."
-                    : `${display} için henüz puan yok. İlk puanı sen ver.`}
-              </p>
-            )}
-          </section>
-
           {courses}
-
           {RATINGS_API && <Comments school={school} slug={slug} comments={summary?.comments ?? []} ready={ready} />}
         </div>
 
-        <div className={styles.right}>{panel}</div>
+        <div className={styles.right}>
+          <div className={styles.sticky}>
+            <section className={styles.card} aria-labelledby="hoca-kriter">
+              <h2 id="hoca-kriter" className={styles.cardTitle}>
+                Değerlendirme kırılımı
+              </h2>
+              {summary && Object.keys(summary.criteria).length > 0 ? (
+                <>
+                  <CriteriaBars criteria={summary.criteria} />
+                  <p className={styles.note}>
+                    <span className="num">{summary.n}</span> kişi puanladı.
+                  </p>
+                </>
+              ) : (
+                <p className={styles.empty}>
+                  {!RATINGS_API
+                    ? "Puanlama kapalı."
+                    : !ready
+                      ? "Puanlar yükleniyor."
+                      : `${display} için henüz puan yok. İlk puanı sen ver.`}
+                </p>
+              )}
+            </section>
+            {panel}
+          </div>
+        </div>
+      </div>
+      <p className={styles.note}>Puanlar ve yorumlar öğrencilerden gelir, isimsizdir. Resmi bir değerlendirme değildir.</p>
       </div>
     </>
   );
