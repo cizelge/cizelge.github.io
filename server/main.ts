@@ -257,8 +257,21 @@ async function deleteVotes(request: Request, url: URL, headers: Record<string, s
   if (!SCHOOL_RE.test(school)) return json({ error: "Okul geçersiz" }, { status: 400, headers });
   const slug = url.searchParams.get("slug");
   const device = url.searchParams.get("device");
-  const prefix = slug ? ["vote", school, slug] : ["vote", school];
   let removed = 0;
+
+  // all=1: oylar, yorumlar, bildirimler ve sınır işaretleri dahil her şey silinir (sıfırdan başlamak için).
+  if (url.searchParams.get("all") === "1") {
+    for (const prefix of [["vote"], ["report"], ["reported"], ["ipteacher"], ["ipday"], ["device"]]) {
+      for await (const entry of kv.list({ prefix })) {
+        await kv.delete(entry.key);
+        removed++;
+      }
+    }
+    cache.clear();
+    return json({ ok: true, removed, wiped: true }, { headers });
+  }
+
+  const prefix = slug ? ["vote", school, slug] : ["vote", school];
   for await (const entry of kv.list({ prefix })) {
     if (device && entry.key[3] !== device) continue;
     await kv.delete(entry.key);
