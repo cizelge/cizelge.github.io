@@ -6,9 +6,10 @@ import { useEffect, useMemo, useState } from "react";
 import { personName } from "@/lib/format";
 import { RATINGS_API, readMyVotes, type MyVote } from "@/lib/ratings/client";
 import { instructorSlug } from "@/lib/ratings/instructors";
-import { WORKLOAD_SHORT, type CourseSummary } from "@/lib/ratings/types";
+import { instructorScore, oneDecimal, WORKLOAD_SHORT, type CourseSummary, type InstructorSummary } from "@/lib/ratings/types";
 import { useRatings } from "@/lib/ratings/useRatings";
 import { CourseRating } from "./CourseRating";
+import { ScoreBadge } from "./ScoreBits";
 import { VoteForm } from "./VoteForm";
 import styles from "./browser.module.css";
 
@@ -143,7 +144,7 @@ export function RatingsBrowser({ school, courses }: Props) {
         </p>
       ) : (
         <>
-          <ul className={styles.list}>
+          <ul className={styles.list} data-cards={tab === "hocalar"}>
             {tab === "dersler"
               ? visibleCourses.slice(0, limit).map((course) => (
                   <CourseRow
@@ -159,16 +160,12 @@ export function RatingsBrowser({ school, courses }: Props) {
                   />
                 ))
               : visibleInstructors.slice(0, limit).map((teacher) => (
-                  <InstructorRow
+                  <InstructorCard
                     key={teacher.name}
-                    school={school}
                     name={teacher.name}
                     courses={teacher.courses}
                     summary={summaries?.instructors?.find((i) => i.name === teacher.name)}
-                    myVotes={myVotes}
-                    openKey={open}
-                    setOpen={setOpen}
-                    onDone={finishVote}
+                    votedCount={teacher.courses.filter((c) => myVotes[c.code]).length}
                   />
                 ))}
           </ul>
@@ -238,85 +235,40 @@ function CourseRow({
   );
 }
 
-function InstructorRow({
-  school,
+function InstructorCard({
   name,
   courses,
   summary,
-  myVotes,
-  openKey,
-  setOpen,
-  onDone,
+  votedCount,
 }: {
-  school: string;
   name: string;
   courses: BrowserCourse[];
-  summary: { n: number; difficulty: number; again: number; clarity: number | null; fairness: number | null } | undefined;
-  myVotes: Record<string, MyVote>;
-  openKey: string | null;
-  setOpen: (key: string | null) => void;
-  onDone: (code: string) => (vote: MyVote, summary: CourseSummary | null) => void;
+  summary: InstructorSummary | undefined;
+  votedCount: number;
 }) {
-  const num = (n: number) => n.toLocaleString("tr-TR", { minimumFractionDigits: 1 });
   return (
-    <li className={styles.row}>
-      <div className={styles.rowHead}>
-        <div className={styles.rowMain}>
-          <Link href={`/ozyegin/hoca/${instructorSlug(name)}`} className={styles.teacher}>
-            {personName(name)}
-          </Link>
+    <li className={styles.card}>
+      <Link href={`/ozyegin/hoca/${instructorSlug(name)}`} className={styles.cardLink}>
+        <span className={styles.cardHead}>
+          <span className={styles.cardName}>{personName(name)}</span>
+          <ScoreBadge score={summary ? instructorScore(summary.criteria) : null} size="s" />
+        </span>
+        <span className={styles.cardMeta}>
           {summary ? (
-            <span className={styles.none}>
-              <span className="num">{num(summary.difficulty)}/5</span> zorluk, %<span className="num">{summary.again}</span> tekrar alır
-              {summary.clarity !== null && (
-                <>
-                  , anlatım <span className="num">{num(summary.clarity)}/5</span>
-                </>
-              )}
-              <span className={styles.count}> ({summary.n} oy)</span>
-            </span>
+            <>
+              <span className="num">{summary.n}</span> değerlendirme, ders zorluğu{" "}
+              <span className="num">{oneDecimal(summary.difficulty)}/5</span>, %<span className="num">{summary.again}</span> tekrar alır
+            </>
           ) : (
-            <span className={styles.none}>henüz yeterli oy yok</span>
+            "henüz yeterli oy yok"
           )}
-        </div>
-      </div>
-      <ul className={styles.sub}>
-        {courses.map((course) => {
-          const key = `${name}|${course.code}`;
-          const mine = myVotes[course.code];
-          const open = openKey === key;
-          return (
-            <li key={course.code} className={styles.subRow}>
-              <div className={styles.subHead}>
-                <Link href={`/ozyegin/${course.slug}`} className={`${styles.code} num`}>
-                  {course.code}
-                </Link>
-                <span className={styles.name}>{course.title}</span>
-                <button
-                  type="button"
-                  className={`btn btn-small ${mine ? "btn-quiet" : ""} ${styles.action}`}
-                  aria-expanded={open}
-                  onClick={() => setOpen(open ? null : key)}
-                >
-                  {open ? "Kapat" : mine ? "Değiştir" : "Oyla"}
-                </button>
-              </div>
-              {mine && !open && <MyVoteLine mine={mine} />}
-              {open && (
-                <VoteForm
-                  school={school}
-                  code={course.code}
-                  instructors={course.instructors}
-                  presetInstructor={name}
-                  initial={mine ?? null}
-                  onCancel={() => setOpen(null)}
-                  onDone={onDone(course.code)}
-                />
-              )}
-            </li>
-          );
-        })}
-      </ul>
+        </span>
+        <span className={styles.cardCourses}>
+          {courses.length} ders: {courses.slice(0, 4).map((c) => c.code).join(", ")}
+          {courses.length > 4 ? "…" : ""}
+        </span>
+        <span className={styles.cardAction}>{votedCount > 0 ? `${votedCount} dersini oyladın, aç` : "Puanla"} →</span>
+      </Link>
     </li>
   );
 }

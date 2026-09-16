@@ -1,11 +1,19 @@
 "use client";
-// Oylama formu: zorluk, haftalık iş yükü, "tekrar alır mıydın" ve hoca seçilirse iki soru daha.
-// Ders sayfasında ve Oylar sayfasında aynı form kullanılır.
+// Oylama formu: ders için zorluk, iş yükü ve "tekrar alır mıydın"; hoca seçilirse dört soru daha.
+// Ders sayfasında, Oylar sayfasında ve hoca sayfasında aynı form kullanılır.
 
 import { useEffect, useState } from "react";
 import { personName } from "@/lib/format";
 import { readMyVotes, saveMyVote, sendVote, TURNSTILE_SITE_KEY, type MyVote } from "@/lib/ratings/client";
-import { CLARITY_LABELS, DIFFICULTY_LABELS, FAIRNESS_LABELS, WORKLOAD_SHORT, type CourseSummary } from "@/lib/ratings/types";
+import {
+  CRITERION_INFO,
+  DIFFICULTY_LABELS,
+  INSTRUCTOR_CRITERIA,
+  WORKLOAD_SHORT,
+  type Criteria,
+  type Criterion,
+  type CourseSummary,
+} from "@/lib/ratings/types";
 import { clearRatingsCache } from "@/lib/ratings/useRatings";
 import { Turnstile } from "./Turnstile";
 import styles from "./ratings.module.css";
@@ -28,8 +36,7 @@ export function VoteForm({ school, code, instructors, presetInstructor, initial,
   const [workload, setWorkload] = useState(initial?.workload ?? 0);
   const [again, setAgain] = useState<boolean | null>(initial ? initial.again : null);
   const [instructor, setInstructor] = useState(initial?.instructor ?? presetInstructor ?? "");
-  const [clarity, setClarity] = useState(initial?.clarity ?? 0);
-  const [fairness, setFairness] = useState(initial?.fairness ?? 0);
+  const [criteria, setCriteria] = useState<Criteria>(initial?.criteria ?? {});
   const [token, setToken] = useState("");
   const [status, setStatus] = useState<"" | "sending" | string>("");
 
@@ -43,15 +50,17 @@ export function VoteForm({ school, code, instructors, presetInstructor, initial,
     setWorkload(saved.workload);
     setAgain(saved.again);
     setInstructor(saved.instructor ?? presetInstructor ?? "");
-    setClarity(saved.clarity ?? 0);
-    setFairness(saved.fairness ?? 0);
+    setCriteria(saved.criteria ?? {});
   }, [code, initial, presetInstructor]);
 
   const complete = difficulty > 0 && workload > 0 && again !== null && (!TURNSTILE_SITE_KEY || token);
+  const pick = (name: Criterion, value: number) =>
+    setCriteria((c) => ({ ...c, [name]: c[name] === value ? undefined : value }));
 
   async function submit() {
     if (!complete) return;
     setStatus("sending");
+    const answers = instructor ? criteria : {};
     const result = await sendVote({
       school,
       code,
@@ -59,22 +68,14 @@ export function VoteForm({ school, code, instructors, presetInstructor, initial,
       difficulty,
       workload,
       again: again === true,
-      clarity: instructor && clarity ? clarity : null,
-      fairness: instructor && fairness ? fairness : null,
+      criteria: answers,
       turnstile: token || undefined,
     });
     if (!result.ok) {
       setStatus(result.error);
       return;
     }
-    const vote: MyVote = {
-      difficulty,
-      workload,
-      again: again === true,
-      instructor: instructor || null,
-      clarity: instructor && clarity ? clarity : null,
-      fairness: instructor && fairness ? fairness : null,
-    };
+    const vote: MyVote = { difficulty, workload, again: again === true, instructor: instructor || null, criteria: answers };
     saveMyVote(code, vote);
     clearRatingsCache(school);
     setStatus("");
@@ -133,47 +134,27 @@ export function VoteForm({ school, code, instructors, presetInstructor, initial,
         </label>
       )}
 
-      {instructor && (
-        <>
-          <fieldset className={styles.field}>
+      {instructor &&
+        INSTRUCTOR_CRITERIA.map((name) => (
+          <fieldset key={name} className={styles.field}>
             <legend className={styles.legend}>
-              {personName(instructor)} anlaşılır anlatıyor muydu? <span className={styles.optional}>isteğe bağlı</span>
+              {CRITERION_INFO[name].question} <span className={styles.optional}>isteğe bağlı</span>
             </legend>
             <div className={styles.choices}>
-              {CLARITY_LABELS.map((label, i) => (
+              {CRITERION_INFO[name].scale.map((label, i) => (
                 <button
                   key={label}
                   type="button"
                   className={styles.choice}
-                  aria-pressed={clarity === i + 1}
-                  onClick={() => setClarity(clarity === i + 1 ? 0 : i + 1)}
+                  aria-pressed={criteria[name] === i + 1}
+                  onClick={() => pick(name, i + 1)}
                 >
                   <span className="num">{i + 1}</span> {label}
                 </button>
               ))}
             </div>
           </fieldset>
-
-          <fieldset className={styles.field}>
-            <legend className={styles.legend}>
-              Notlandırması adil miydi? <span className={styles.optional}>isteğe bağlı</span>
-            </legend>
-            <div className={styles.choices}>
-              {FAIRNESS_LABELS.map((label, i) => (
-                <button
-                  key={label}
-                  type="button"
-                  className={styles.choice}
-                  aria-pressed={fairness === i + 1}
-                  onClick={() => setFairness(fairness === i + 1 ? 0 : i + 1)}
-                >
-                  <span className="num">{i + 1}</span> {label}
-                </button>
-              ))}
-            </div>
-          </fieldset>
-        </>
-      )}
+        ))}
 
       {TURNSTILE_SITE_KEY && <Turnstile siteKey={TURNSTILE_SITE_KEY} onToken={setToken} />}
 

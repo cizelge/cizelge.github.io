@@ -1,22 +1,22 @@
-// Hoca sayfası: bu dönem verdiği dersler (veriden) ve öğrenci oylarının toplamı (tarayıcıda okunur).
+// Hoca sayfası: bu dönem verdiği dersler (veriden) ve öğrenci oyları (tarayıcıda okunur).
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/SiteHeader";
-import { InstructorRatings } from "@/components/ratings/InstructorRatings";
+import { InstructorRatings, type TaughtCourse } from "@/components/ratings/InstructorRatings";
+import styles from "@/components/ratings/hoca.module.css";
 import { loadTerm } from "@/lib/data";
 import { DAY_SHORT } from "@/lib/days";
 import { personName } from "@/lib/format";
 import { instructorSlug } from "@/lib/ratings/instructors";
-import type { Course, Section } from "@/lib/types";
 
 export const dynamicParams = false;
 
 const SCHOOL = "ozyegin";
 
-interface Taught {
-  course: Course;
-  sections: Section[];
+interface Taught extends TaughtCourse {
+  /** "A: Çar 16:40" gibi kısa saat özeti. */
+  when: string;
 }
 
 /** Adı bu adrese denk gelen hocanın bu dönemki dersleri. */
@@ -28,7 +28,15 @@ function taughtBy(slug: string): { name: string; courses: Taught[] } | null {
     const sections = course.sections.filter((s) => s.instructors.some((i) => instructorSlug(i) === slug));
     if (sections.length === 0) continue;
     name ||= sections[0].instructors.find((i) => instructorSlug(i) === slug) ?? "";
-    courses.push({ course, sections });
+    courses.push({
+      code: course.code,
+      title: course.title,
+      slug: course.slug,
+      instructors: [...new Set(course.sections.flatMap((s) => s.instructors))],
+      when: sections
+        .map((s) => `${s.id}: ${s.meetings.map((m) => `${DAY_SHORT[m.day]} ${m.start}`).join(", ") || "saatsiz"}`)
+        .join(" · "),
+    });
   }
   return name ? { name, courses } : null;
 }
@@ -53,7 +61,7 @@ export async function generateMetadata(props: PageProps<"/ozyegin/hoca/[slug]">)
   const name = personName(found.name);
   return {
     title: `${name}, Özyeğin`,
-    description: `${name} hangi dersleri veriyor, hangi saatlerde? Öğrencilerin zorluk, anlatım ve notlandırma oyları.`,
+    description: `${name} hangi dersleri veriyor? Öğrencilerin ders anlatımı, notlandırma, yardımseverlik ve yoklama puanları.`,
     alternates: { canonical: `/${SCHOOL}/hoca/${slug}` },
   };
 }
@@ -68,45 +76,27 @@ export default async function InstructorPage(props: PageProps<"/ozyegin/hoca/[sl
   return (
     <>
       <SiteHeader term={`Özyeğin, ${term.termLabel}`} />
-      <main id="icerik" className="page">
-        <p className="hint" style={{ marginBottom: "1rem" }}>
-          <Link href="/ozyegin" className="link">
-            Planlayıcı
+      <main id="icerik" className={`page ${styles.root}`}>
+        <p className={`hint ${styles.back}`}>
+          <Link href="/ozyegin/oylar" className="link">
+            ← Bütün hocalar
           </Link>
         </p>
-        <h1 className="course-title" style={{ fontSize: "2rem", fontWeight: 800 }}>
-          {name}
-        </h1>
-        <p className="hint">
-          {term.termLabel} döneminde {found.courses.length} ders veriyor.
+
+        <header className={styles.hero}>
+          <h1 className={styles.heroName}>{name}</h1>
+          <p className={styles.heroMeta}>
+            {term.termLabel} döneminde {found.courses.length} ders veriyor
+            {found.courses.length > 0 && `: ${found.courses.map((c) => c.code).join(", ")}`}
+          </p>
+        </header>
+
+        <InstructorRatings school={SCHOOL} slug={slug} name={found.name} courses={found.courses} />
+
+        <p className={styles.note}>
+          Saatler: {found.courses.map((c) => `${c.code} ${c.when}`).join(" | ") || "bu dönem ders yok"}
         </p>
-
-        <InstructorRatings school={SCHOOL} slug={slug} name={name} />
-
-        <h2 className="group-title" style={{ fontSize: "1.25rem" }}>
-          Bu dönem verdiği dersler
-        </h2>
-        <ul className="results" aria-label={`${name} dersleri`}>
-          {found.courses.map(({ course, sections }) => (
-            <li key={course.code} className="result">
-              <span className="result-code num">{course.code}</span>
-              <span className="result-title">
-                <Link href={`/ozyegin/${course.slug}`} className="link">
-                  {course.title}
-                </Link>
-              </span>
-              <span className="result-status num">
-                {sections
-                  .map((s) => `${s.id}: ${s.meetings.map((m) => `${DAY_SHORT[m.day]} ${m.start}`).join(", ") || "saatsiz"}`)
-                  .join(" · ")}
-              </span>
-            </li>
-          ))}
-        </ul>
-
-        <p className="hint" style={{ marginTop: "2rem" }}>
-          Oylar öğrencilerden gelir ve isimsizdir. Resmi bir değerlendirme değildir.
-        </p>
+        <p className={styles.note}>Oylar öğrencilerden gelir ve isimsizdir. Resmi bir değerlendirme değildir.</p>
       </main>
     </>
   );

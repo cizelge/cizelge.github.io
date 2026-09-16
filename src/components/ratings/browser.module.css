@@ -106,3 +106,31 @@
   .subHead { grid-template-columns: minmax(0, 1fr) auto; }
   .subHead .name { grid-column: 1 / -1; grid-row: 2; font-size: 0.93rem; }
 }
+
+/* Hoca kartları */
+.card {
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-m);
+  background: var(--paper);
+  margin-bottom: 0.6rem;
+  min-width: 0;
+}
+.cardLink {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.8rem 0.9rem 0.9rem;
+  color: var(--ink);
+  text-decoration: none;
+  min-width: 0;
+}
+.cardLink:hover { background: var(--paper-2); border-radius: var(--radius-m); }
+.cardLink:focus-visible { outline: 2px solid var(--pen); outline-offset: 2px; border-radius: var(--radius-m); }
+.cardHead { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.6rem; }
+.cardName { font-weight: 700; font-size: 1.05rem; overflow-wrap: anywhere; }
+.cardMeta { color: var(--ink-2); font-size: 0.88rem; }
+.cardCourses { color: var(--ink-2); font-size: 0.85rem; overflow-wrap: anywhere; }
+.cardAction { color: var(--pen); font-size: 0.88rem; font-weight: 600; margin-top: 0.15rem; }
+
+@media (min-width: 46rem) {
+  .list[data-cards="true"] { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 0.75rem; }
+}

@@ -8,6 +8,10 @@ export const WORKLOAD_LABELS = [
   "haftada 12 saatten fazla",
 ] as const;
 
+/** Hocaya sorulan, hepsi 1-5 ve hepsi isteğe bağlı kriterler. */
+export const INSTRUCTOR_CRITERIA = ["clarity", "fairness", "helpful", "attendance"] as const;
+export type Criterion = (typeof INSTRUCTOR_CRITERIA)[number];
+
 /** Bir dersin özeti gösterilmeye başlanan en az oy sayısı. */
 export const MIN_VOTES = 3;
 /** Hoca kırılımı için en az oy sayısı (tek kişi tanınmasın diye daha yüksek). */
@@ -19,6 +23,8 @@ export const MAX_PER_IP_PER_COURSE = 4;
 /** Aynı ağdan günde en fazla oy. */
 export const MAX_PER_IP_PER_DAY = 40;
 
+export type Criteria = Partial<Record<Criterion, number>>;
+
 export interface VoteInput {
   school: string;
   code: string;
@@ -26,9 +32,8 @@ export interface VoteInput {
   difficulty: number;
   workload: number;
   again: boolean;
-  /** Hocaya ait sorular; yalnızca hoca seçildiyse sorulur, boş bırakılabilir. */
-  clarity: number | null;
-  fairness: number | null;
+  /** Hocaya ait cevaplar; yalnızca hoca seçildiyse saklanır. */
+  criteria: Criteria;
   device: string;
 }
 
@@ -64,26 +69,26 @@ export function parseVote(body: unknown): Valid | Invalid {
   if (workload === null) return { ok: false, error: "İş yükü 1-5 olmalı" };
   if (typeof b.again !== "boolean") return { ok: false, error: "Tekrar alır mıydın eksik" };
   if (!DEVICE_RE.test(device)) return { ok: false, error: "Cihaz kimliği geçersiz" };
+
   const instructor = cleanInstructor(b.instructor);
-  const clarity = b.clarity === null || b.clarity === undefined ? null : intInRange(b.clarity, 1, 5);
-  const fairness = b.fairness === null || b.fairness === undefined ? null : intInRange(b.fairness, 1, 5);
-  if (clarity === null && b.clarity !== null && b.clarity !== undefined) return { ok: false, error: "Anlatım 1-5 olmalı" };
-  if (fairness === null && b.fairness !== null && b.fairness !== undefined) return { ok: false, error: "Notlandırma 1-5 olmalı" };
-  return {
-    ok: true,
+  const given = (typeof b.criteria === "object" && b.criteria !== null ? b.criteria : {}) as Record<string, unknown>;
+  const criteria: Criteria = {};
+  for (const name of INSTRUCTOR_CRITERIA) {
+    const raw = given[name];
+    if (raw === null || raw === undefined) continue;
+    const value = intInRange(raw, 1, 5);
+    if (value === null) return { ok: false, error: `${name} 1-5 olmalı` };
     // Hoca seçilmediyse hocaya ait cevaplar saklanmaz.
-    vote: {
-      school,
-      code,
-      instructor,
-      difficulty,
-      workload,
-      again: b.again,
-      clarity: instructor ? clarity : null,
-      fairness: instructor ? fairness : null,
-      device,
-    },
-  };
+    if (instructor) criteria[name] = value;
+  }
+
+  return { ok: true, vote: { school, code, instructor, difficulty, workload, again: b.again, criteria, device } };
+}
+
+/** Bir kriterin ortalaması ve kaç kişinin cevapladığı. */
+export interface Scored {
+  avg: number;
+  n: number;
 }
 
 export interface Row {
@@ -93,12 +98,8 @@ export interface Row {
   difficulty: number;
   workload: number;
   again: number;
-  /** Anlatım ve notlandırma ortalaması; cevaplayan yoksa null. */
-  clarity?: number | null;
-  fairness?: number | null;
-  /** Anlatım/notlandırma sorusunu cevaplayan oy sayısı. */
-  clarityN?: number;
-  fairnessN?: number;
+  /** Hoca satırlarında kriter ortalamaları. */
+  criteria?: Partial<Record<Criterion, Scored>>;
 }
 
 export interface CourseSummary {
@@ -118,22 +119,25 @@ export interface InstructorInCourse {
   n: number;
   difficulty: number;
   again: number;
-  /** Anlatım ortalaması (1-5); yeterli cevap yoksa null. */
-  clarity: number | null;
-  /** Notlandırma ortalaması (1-5); yeterli cevap yoksa null. */
-  fairness: number | null;
+  /** Yeterli kişi cevaplamayan kriter hiç dönmez. */
+  criteria: Criteria;
+}
+
+export interface InstructorSummary extends InstructorInCourse {
+  /** Bütün derslerin ortalaması (1-5); kriterlerin ortalaması değil, zorluk. */
+  courses: { code: string; n: number; difficulty: number; again: number }[];
 }
 
 const round1 = (n: number) => Math.round(n * 10) / 10;
 
-/** Soruyu yeterli kişi cevaplamadıysa ortalama gösterilmez. */
-function enough(value: number | null | undefined, count: number | undefined): number | null {
-  return typeof value === "number" && (count ?? 0) >= MIN_VOTES_INSTRUCTOR ? round1(value) : null;
-}
-
-/** Hoca sayfası için bir hocanın bütün dersleri. */
-export interface InstructorRow extends Row {
-  instructor: string;
+/** Yeterli cevap alan kriterleri tek ondalıkla verir. */
+function shownCriteria(criteria: Partial<Record<Criterion, Scored>> | undefined): Criteria {
+  const out: Criteria = {};
+  for (const name of INSTRUCTOR_CRITERIA) {
+    const value = criteria?.[name];
+    if (value && value.n >= MIN_VOTES_INSTRUCTOR) out[name] = round1(value.avg);
+  }
+  return out;
 }
 
 /** Ders ve hoca satırlarını istemcinin okuduğu biçime çevirir; eşiğin altındakiler atılır. */
@@ -151,56 +155,55 @@ export function summarize(courseRows: readonly Row[], instructorRows: readonly R
       n: r.n,
       difficulty: round1(r.difficulty),
       again: Math.round(r.again * 100),
-      clarity: enough(r.clarity, r.clarityN),
-      fairness: enough(r.fairness, r.fairnessN),
+      criteria: shownCriteria(r.criteria),
     });
   }
   for (const course of Object.values(out)) course.instructors?.sort((a, b) => b.n - a.n);
   return out;
 }
 
-export interface InstructorSummary {
-  name: string;
-  /** Bütün derslerindeki toplam oy. */
-  n: number;
-  difficulty: number;
-  again: number;
-  clarity: number | null;
-  fairness: number | null;
-  /** Yeterli oy alan dersleri, çoktan aza. */
-  courses: { code: string; n: number; difficulty: number; again: number }[];
-}
-
 /** Hoca sayfaları için: (ders, hoca) satırlarını hocaya göre toplar. */
 export function summarizeInstructors(rows: readonly Row[]): InstructorSummary[] {
-  const byName = new Map<string, { n: number; difficulty: number; again: number; clarity: number; clarityN: number; fairness: number; fairnessN: number; courses: InstructorSummary["courses"] }>();
+  interface Acc {
+    n: number;
+    difficulty: number;
+    again: number;
+    criteria: Partial<Record<Criterion, Scored>>;
+    courses: InstructorSummary["courses"];
+  }
+  const byName = new Map<string, Acc>();
   for (const r of rows) {
     if (!r.instructor) continue;
-    const agg = byName.get(r.instructor) ?? { n: 0, difficulty: 0, again: 0, clarity: 0, clarityN: 0, fairness: 0, fairnessN: 0, courses: [] };
+    const agg: Acc = byName.get(r.instructor) ?? { n: 0, difficulty: 0, again: 0, criteria: {}, courses: [] };
     agg.n += r.n;
     agg.difficulty += r.difficulty * r.n;
     agg.again += r.again * r.n;
-    if (typeof r.clarity === "number" && r.clarityN) {
-      agg.clarity += r.clarity * r.clarityN;
-      agg.clarityN += r.clarityN;
-    }
-    if (typeof r.fairness === "number" && r.fairnessN) {
-      agg.fairness += r.fairness * r.fairnessN;
-      agg.fairnessN += r.fairnessN;
+    for (const name of INSTRUCTOR_CRITERIA) {
+      const value = r.criteria?.[name];
+      if (!value?.n) continue;
+      const acc = agg.criteria[name] ?? { avg: 0, n: 0 };
+      acc.avg += value.avg * value.n;
+      acc.n += value.n;
+      agg.criteria[name] = acc;
     }
     if (r.n >= MIN_VOTES) agg.courses.push({ code: r.code, n: r.n, difficulty: round1(r.difficulty), again: Math.round(r.again * 100) });
     byName.set(r.instructor, agg);
   }
+
   const out: InstructorSummary[] = [];
   for (const [name, a] of byName) {
     if (a.n < MIN_VOTES_INSTRUCTOR) continue;
+    const criteria: Partial<Record<Criterion, Scored>> = {};
+    for (const key of INSTRUCTOR_CRITERIA) {
+      const value = a.criteria[key];
+      if (value?.n) criteria[key] = { avg: value.avg / value.n, n: value.n };
+    }
     out.push({
       name,
       n: a.n,
       difficulty: round1(a.difficulty / a.n),
       again: Math.round((a.again / a.n) * 100),
-      clarity: a.clarityN >= MIN_VOTES_INSTRUCTOR ? round1(a.clarity / a.clarityN) : null,
-      fairness: a.fairnessN >= MIN_VOTES_INSTRUCTOR ? round1(a.fairness / a.fairnessN) : null,
+      criteria: shownCriteria(criteria),
       courses: a.courses.sort((x, y) => y.n - x.n),
     });
   }

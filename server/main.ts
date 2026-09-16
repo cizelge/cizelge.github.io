@@ -5,12 +5,15 @@
 //
 // Not: Cloudflare workers.dev adresleri Türkiye'den açılmadığı için servis Deno Deploy'da duruyor.
 import {
+  INSTRUCTOR_CRITERIA,
   MAX_PER_DEVICE,
   MAX_PER_IP_PER_COURSE,
   MAX_PER_IP_PER_DAY,
   parseVote,
   summarize,
   summarizeInstructors,
+  type Criteria,
+  type Criterion,
   type CourseSummary,
   type InstructorSummary,
   type Row,
@@ -26,9 +29,19 @@ interface StoredVote {
   difficulty: number;
   workload: number;
   again: boolean;
-  clarity: number | null;
-  fairness: number | null;
+  /** Hocaya ait cevaplar (1-5); eski kayitlarda clarity/fairness ayri alanlardaydi. */
+  criteria?: Criteria;
+  clarity?: number | null;
+  fairness?: number | null;
   at: string;
+}
+
+/** Eski ve yeni kayitlari ayni bicimde okur. */
+function criteriaOf(v: StoredVote): Criteria {
+  const out: Criteria = { ...v.criteria };
+  if (!out.clarity && v.clarity) out.clarity = v.clarity;
+  if (!out.fairness && v.fairness) out.fairness = v.fairness;
+  return out;
 }
 
 const kv = await Deno.openKv();
@@ -87,30 +100,33 @@ interface Acc {
   difficulty: number;
   workload: number;
   again: number;
-  clarity: number;
-  clarityN: number;
-  fairness: number;
-  fairnessN: number;
+  criteria: Partial<Record<Criterion, { sum: number; n: number }>>;
 }
 
-const empty = (): Acc => ({ n: 0, difficulty: 0, workload: 0, again: 0, clarity: 0, clarityN: 0, fairness: 0, fairnessN: 0 });
+const empty = (): Acc => ({ n: 0, difficulty: 0, workload: 0, again: 0, criteria: {} });
 
 function add(acc: Acc, v: StoredVote) {
   acc.n++;
   acc.difficulty += v.difficulty;
   acc.workload += v.workload;
   acc.again += v.again ? 1 : 0;
-  if (v.clarity) {
-    acc.clarity += v.clarity;
-    acc.clarityN++;
-  }
-  if (v.fairness) {
-    acc.fairness += v.fairness;
-    acc.fairnessN++;
+  const criteria = criteriaOf(v);
+  for (const name of INSTRUCTOR_CRITERIA) {
+    const value = criteria[name];
+    if (!value) continue;
+    const cell = acc.criteria[name] ?? { sum: 0, n: 0 };
+    cell.sum += value;
+    cell.n++;
+    acc.criteria[name] = cell;
   }
 }
 
 function toRow(code: string, acc: Acc, instructor?: string): Row {
+  const criteria: Row["criteria"] = {};
+  for (const name of INSTRUCTOR_CRITERIA) {
+    const cell = acc.criteria[name];
+    if (cell?.n) criteria[name] = { avg: cell.sum / cell.n, n: cell.n };
+  }
   return {
     code,
     instructor,
@@ -118,10 +134,7 @@ function toRow(code: string, acc: Acc, instructor?: string): Row {
     difficulty: acc.difficulty / acc.n,
     workload: acc.workload / acc.n,
     again: acc.again / acc.n,
-    clarity: acc.clarityN ? acc.clarity / acc.clarityN : null,
-    clarityN: acc.clarityN,
-    fairness: acc.fairnessN ? acc.fairness / acc.fairnessN : null,
-    fairnessN: acc.fairnessN,
+    criteria,
   };
 }
 
@@ -214,8 +227,7 @@ async function postVote(request: Request, headers: Record<string, string>): Prom
     difficulty: vote.difficulty,
     workload: vote.workload,
     again: vote.again,
-    clarity: vote.clarity,
-    fairness: vote.fairness,
+    criteria: vote.criteria,
     at: new Date().toISOString(),
   };
 

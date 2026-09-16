@@ -1,6 +1,6 @@
 // Ders oyları: özetleri okur ve oy gönderir. Servis adresi verilmezse (NEXT_PUBLIC_RATINGS_API boş)
 // oylama arayüzü hiç görünmez, site eskisi gibi çalışır.
-import { WORKLOAD_LABELS, type CourseSummary, type InstructorSummary } from "./types";
+import { WORKLOAD_LABELS, type Criteria, type CourseSummary, type InstructorSummary } from "./types";
 
 export type { CourseSummary, InstructorSummary };
 export { WORKLOAD_LABELS };
@@ -76,9 +76,8 @@ export interface VoteBody {
   difficulty: number;
   workload: number;
   again: boolean;
-  /** Hoca seçildiyse: anlatım ve notlandırma (1-5), boş bırakılabilir. */
-  clarity?: number | null;
-  fairness?: number | null;
+  /** Hoca seçildiyse hocaya ait cevaplar (1-5); hepsi isteğe bağlı. */
+  criteria?: Criteria;
   turnstile?: string;
 }
 
@@ -115,8 +114,7 @@ export interface MyVote {
   workload: number;
   again: boolean;
   instructor: string | null;
-  clarity?: number | null;
-  fairness?: number | null;
+  criteria?: Criteria;
 }
 
 /** Kendi oyların (yalnızca bu tarayıcıda): formu tekrar açınca dolu gelir. */

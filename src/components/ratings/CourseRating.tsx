@@ -1,15 +1,23 @@
 "use client";
-// Bir dersin oy özeti: zorluk çubuğu, iş yükü ve "tekrar alır" oranı. Yeterli oy yoksa hiç görünmez.
+// Bir dersin oy özeti: zorluk, iş yükü, "tekrar alır" oranı ve hoca kırılımı. Yeterli oy yoksa hiç görünmez.
 
 import Link from "next/link";
-import { instructorSlug } from "@/lib/ratings/instructors";
-import { DIFFICULTY_LABELS, WORKLOAD_LABELS, type CourseSummary } from "@/lib/ratings/types";
 import { personName } from "@/lib/format";
+import { instructorSlug } from "@/lib/ratings/instructors";
+import {
+  CRITERION_INFO,
+  DIFFICULTY_LABELS,
+  INSTRUCTOR_CRITERIA,
+  oneDecimal,
+  instructorScore,
+  WORKLOAD_LABELS,
+  type CourseSummary,
+} from "@/lib/ratings/types";
+import { ScoreBadge } from "./ScoreBits";
 import styles from "./ratings.module.css";
 
 export function CourseRating({ summary, compact = false }: { summary: CourseSummary | undefined; compact?: boolean }) {
   if (!summary) return null;
-  const difficulty = summary.difficulty.toLocaleString("tr-TR", { minimumFractionDigits: 1 });
   const label = DIFFICULTY_LABELS[Math.min(4, Math.max(0, Math.round(summary.difficulty) - 1))];
 
   if (compact) {
@@ -18,7 +26,7 @@ export function CourseRating({ summary, compact = false }: { summary: CourseSumm
         <span className={styles.dots} aria-hidden="true">
           <span className={styles.dotsFill} style={{ width: `${(summary.difficulty / 5) * 100}%` }} />
         </span>
-        <span className="num">{difficulty}/5</span> {label}, {WORKLOAD_LABELS[Math.round(summary.workload) - 1]}, %
+        <span className="num">{oneDecimal(summary.difficulty)}/5</span> {label}, {WORKLOAD_LABELS[Math.round(summary.workload) - 1]}, %
         <span className="num">{summary.again}</span> tekrar alır
         <span className={styles.count}> ({summary.n} oy)</span>
       </p>
@@ -31,7 +39,7 @@ export function CourseRating({ summary, compact = false }: { summary: CourseSumm
         <div className={styles.cell}>
           <dt>Zorluk</dt>
           <dd>
-            <span className={`${styles.big} num`}>{difficulty}</span>
+            <span className={`${styles.big} num`}>{oneDecimal(summary.difficulty)}</span>
             <span className={styles.unit}>/5, {label}</span>
           </dd>
         </div>
@@ -50,23 +58,17 @@ export function CourseRating({ summary, compact = false }: { summary: CourseSumm
       {summary.instructors && summary.instructors.length > 0 && (
         <ul className={styles.instructors}>
           {summary.instructors.map((i) => (
-            <li key={i.name}>
+            <li key={i.name} className={styles.instructor}>
               <Link href={`/ozyegin/hoca/${instructorSlug(i.name)}`} className={styles.who}>
                 {personName(i.name)}
-              </Link>{" "}
-              <span className="num">{i.difficulty.toLocaleString("tr-TR", { minimumFractionDigits: 1 })}/5</span> zorluk, %
-              <span className="num">{i.again}</span> tekrar alır
-              {i.clarity !== null && (
-                <>
-                  , anlatım <span className="num">{i.clarity.toLocaleString("tr-TR", { minimumFractionDigits: 1 })}/5</span>
-                </>
-              )}
-              {i.fairness !== null && (
-                <>
-                  , notlandırma <span className="num">{i.fairness.toLocaleString("tr-TR", { minimumFractionDigits: 1 })}/5</span>
-                </>
-              )}
-              <span className={styles.count}> ({i.n} oy)</span>
+              </Link>
+              <ScoreBadge score={instructorScore(i.criteria)} size="s" />
+              <span className={styles.instructorMeta}>
+                {INSTRUCTOR_CRITERIA.filter((name) => typeof i.criteria[name] === "number")
+                  .map((name) => `${CRITERION_INFO[name].label.toLocaleLowerCase("tr")} ${oneDecimal(i.criteria[name]!)}`)
+                  .join(", ") || `zorluk ${oneDecimal(i.difficulty)}/5`}
+                <span className={styles.count}> ({i.n} oy)</span>
+              </span>
             </li>
           ))}
         </ul>

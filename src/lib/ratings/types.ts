@@ -1,4 +1,4 @@
-// Oy özetlerinin biçimi; worker/src/logic.ts ile aynı olmak zorunda.
+// Oy özetlerinin biçimi; server/logic.ts ile aynı olmak zorunda.
 
 export const WORKLOAD_LABELS = [
   "haftada 2 saatten az",
@@ -13,9 +13,33 @@ export const WORKLOAD_SHORT = ["2 saatten az", "2–5 saat", "5–8 saat", "8–
 
 export const DIFFICULTY_LABELS = ["çok kolay", "kolay", "orta", "zor", "çok zor"] as const;
 
-/** Hocaya sorulan iki soru; yalnızca hoca seçildiyse sorulur. */
-export const CLARITY_LABELS = ["hiç anlaşılmıyordu", "zor anlaşılıyordu", "idare eder", "anlaşılırdı", "çok anlaşılırdı"] as const;
-export const FAIRNESS_LABELS = ["hiç adil değildi", "pek adil değildi", "idare eder", "adildi", "çok adildi"] as const;
+export const INSTRUCTOR_CRITERIA = ["clarity", "fairness", "helpful", "attendance"] as const;
+export type Criterion = (typeof INSTRUCTOR_CRITERIA)[number];
+export type Criteria = Partial<Record<Criterion, number>>;
+
+/** Hocaya sorulan kriterler: başlık, soru ve 1-5 karşılıkları. */
+export const CRITERION_INFO: Record<Criterion, { label: string; question: string; scale: readonly string[] }> = {
+  clarity: {
+    label: "Ders anlatımı",
+    question: "Anlatımı anlaşılır mıydı?",
+    scale: ["hiç anlaşılmıyordu", "zor anlaşılıyordu", "idare eder", "anlaşılırdı", "çok anlaşılırdı"],
+  },
+  fairness: {
+    label: "Notlandırma",
+    question: "Notlandırması adil miydi?",
+    scale: ["hiç adil değildi", "pek adil değildi", "idare eder", "adildi", "çok adildi"],
+  },
+  helpful: {
+    label: "Yardımseverlik",
+    question: "Soru sorunca yardımcı olur muydu?",
+    scale: ["hiç olmazdı", "pek olmazdı", "idare eder", "olurdu", "her zaman olurdu"],
+  },
+  attendance: {
+    label: "Yoklama",
+    question: "Yoklama alır mıydı?",
+    scale: ["hiç almazdı", "nadiren", "bazen", "çoğu ders", "her ders"],
+  },
+};
 
 /** Bir dersin içindeki hoca kırılımı. */
 export interface InstructorInCourse {
@@ -23,10 +47,8 @@ export interface InstructorInCourse {
   n: number;
   difficulty: number;
   again: number;
-  /** Anlatım ortalaması (1-5); yeterli cevap yoksa null. */
-  clarity: number | null;
-  /** Notlandırma ortalaması (1-5); yeterli cevap yoksa null. */
-  fairness: number | null;
+  /** Yeterli cevap alan kriterler; ötekiler hiç gelmez. */
+  criteria: Criteria;
 }
 
 /** Hoca sayfası: bütün derslerinin toplamı. */
@@ -42,8 +64,16 @@ export interface CourseSummary {
   instructors?: InstructorInCourse[];
 }
 
+export const oneDecimal = (n: number) => n.toLocaleString("tr-TR", { minimumFractionDigits: 1 });
+
 /** Özetin tek satırlık okunuşu. */
 export function describeSummary(s: CourseSummary): string {
-  const difficulty = s.difficulty.toLocaleString("tr-TR", { minimumFractionDigits: 1 });
-  return `Zorluk ${difficulty}/5, ${WORKLOAD_LABELS[Math.round(s.workload) - 1]}, %${s.again} tekrar alır`;
+  return `Zorluk ${oneDecimal(s.difficulty)}/5, ${WORKLOAD_LABELS[Math.round(s.workload) - 1]}, %${s.again} tekrar alır`;
+}
+
+/** Hocanın genel puanı: anlatım, yardımseverlik ve notlandırmanın ortalaması; cevap yoksa null. */
+export function instructorScore(criteria: Criteria): number | null {
+  const parts = [criteria.clarity, criteria.fairness, criteria.helpful].filter((v): v is number => typeof v === "number");
+  if (parts.length === 0) return null;
+  return Math.round((parts.reduce((a, b) => a + b, 0) / parts.length) * 10) / 10;
 }

@@ -1,0 +1,99 @@
+.root {
+  max-width: 54rem;
+  color: var(--ink);
+  display: grid;
+  gap: 1.25rem;
+  align-content: start;
+}
+
+.back { margin: 0; font-size: 0.9rem; }
+
+/* ---------- Başlık ---------- */
+
+.hero {
+  display: grid;
+  gap: 0.2rem;
+  padding: 1.1rem 1.2rem 1.2rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-m);
+  background: var(--paper-2);
+}
+.heroName {
+  margin: 0;
+  font-size: clamp(1.6rem, 6vw, 2.1rem);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.heroMeta { margin: 0; color: var(--ink-2); }
+
+/* ---------- Sayılar ---------- */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+  gap: 0.75rem;
+}
+.stat {
+  display: grid;
+  gap: 0.15rem;
+  justify-items: start;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-m);
+  background: var(--paper);
+  min-width: 0;
+}
+.statValue { font-size: 1.5rem; font-weight: 800; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.statLabel { color: var(--ink-2); font-size: 0.85rem; }
+
+/* ---------- Kartlar ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+@media (min-width: 52rem) {
+  .grid { grid-template-columns: minmax(0, 20rem) minmax(0, 1fr); align-items: start; }
+}
+
+.card {
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-m);
+  background: var(--paper);
+  padding: 0.9rem 1rem 1rem;
+  display: grid;
+  gap: 0.75rem;
+  align-content: start;
+  min-width: 0;
+}
+.cardTitle { margin: 0; font-size: 1rem; font-weight: 700; }
+
+.note { margin: 0; color: var(--ink-2); font-size: 0.85rem; line-height: 1.45; }
+.empty { margin: 0; color: var(--ink-2); }
+
+/* ---------- Ders listesi ---------- */
+
+.courses { margin: 0; padding: 0; list-style: none; display: grid; }
+.course { padding: 0.6rem 0; border-top: 1px solid var(--rule); display: grid; gap: 0.25rem; min-width: 0; }
+.course:first-child { border-top: 0; padding-top: 0; }
+
+.courseHead {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+.code { font-weight: 700; color: var(--ink); text-decoration: none; white-space: nowrap; }
+.code:hover { text-decoration: underline; }
+.courseTitle { overflow-wrap: anywhere; }
+.courseMeta { margin: 0; color: var(--ink-2); font-size: 0.85rem; }
+.action { min-height: 40px; white-space: nowrap; }
+
+.status { margin: 0; min-height: 1.2em; color: var(--pen); font-size: 0.9rem; }
+
+@media (max-width: 480px) {
+  .courseHead { grid-template-columns: minmax(0, 1fr) auto; }
+  .courseTitle { grid-column: 1 / -1; grid-row: 2; font-size: 0.93rem; }
+}
