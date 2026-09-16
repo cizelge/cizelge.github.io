@@ -47,8 +47,8 @@ function cors(request: Request): Record<string, string> {
   if (!allowedOrigins().includes(origin)) return {};
   return {
     "Access-Control-Allow-Origin": origin,
-    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, x-admin-key",
     "Access-Control-Max-Age": "86400",
     Vary: "Origin",
   };
@@ -234,6 +234,26 @@ async function postVote(request: Request, headers: Record<string, string>): Prom
   return json({ ok: true, updated: !!existing.value, summary: summaries.courses[vote.code] ?? null }, { headers });
 }
 
+/** Bakım: kötüye kullanılan ya da deneme amaçlı oyları siler. ADMIN_KEY verilmemişse kapalıdır. */
+async function deleteVotes(request: Request, url: URL, headers: Record<string, string>): Promise<Response> {
+  const adminKey = env("ADMIN_KEY");
+  if (!adminKey) return json({ error: "Kapalı" }, { status: 404, headers });
+  if (request.headers.get("x-admin-key") !== adminKey) return json({ error: "Yetki yok" }, { status: 403, headers });
+  const school = url.searchParams.get("school") ?? "";
+  if (!SCHOOL_RE.test(school)) return json({ error: "Okul geçersiz" }, { status: 400, headers });
+  const code = url.searchParams.get("code");
+  const device = url.searchParams.get("device");
+  const prefix = code ? ["vote", school, code] : ["vote", school];
+  let removed = 0;
+  for await (const entry of kv.list({ prefix })) {
+    if (device && entry.key[3] !== device) continue;
+    await kv.delete(entry.key);
+    removed++;
+  }
+  cache.delete(school);
+  return json({ ok: true, removed }, { headers });
+}
+
 export async function handler(request: Request): Promise<Response> {
   const url = new URL(request.url);
   const headers = cors(request);
@@ -256,6 +276,8 @@ export async function handler(request: Request): Promise<Response> {
     if (Object.keys(headers).length === 0) return json({ error: "Bu adresten oy kabul edilmiyor" }, { status: 403 });
     return await postVote(request, headers);
   }
+
+  if (request.method === "DELETE") return await deleteVotes(request, url, headers);
 
   return json({ error: "Yöntem desteklenmiyor" }, { status: 405, headers });
 }
