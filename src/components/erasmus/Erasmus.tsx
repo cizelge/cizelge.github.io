@@ -1,10 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
-import { emptyDraft, loadDraft, saveDraft } from "@/lib/erasmus/agreement";
+import { useEffect, useState } from "react";
 import {
-  buildCodeCredits,
   EMPTY_ERASMUS_PROFILE,
   EMPTY_PREFILL,
   erasmusPrefill,
@@ -13,11 +11,9 @@ import {
   type ErasmusPrefill,
   type ErasmusProfile,
 } from "@/lib/erasmus/prefill";
-import type { AgreementDraft, ErasmusData } from "@/lib/erasmus/types";
+import type { ErasmusData } from "@/lib/erasmus/types";
 import { loadState } from "@/lib/roadmap/storage";
-import type { UniversityItem } from "@/lib/erasmus/universities";
 import type { Program } from "@/lib/types";
-import { Agreement } from "./Agreement";
 import { Grant } from "./Grant";
 import { InfoForm } from "./InfoForm";
 import { Eligibility, ScoreEstimate } from "./Results";
@@ -26,19 +22,16 @@ interface Props {
   data: ErasmusData;
   /** Hafifletilmiş müfredatlar (src/lib/erasmus/prefill.ts slimPrograms). */
   programs: Program[];
-  /** Özyeğin'in anlaşmalı olduğu okullar (karşı üniversite seçimi). */
-  partners: UniversityItem[];
 }
 
 type Prefillable = "gpa" | "ects";
 
-export function Erasmus({ data, programs, partners }: Props) {
+export function Erasmus({ data, programs }: Props) {
   // Kullanıcının kendi girdiği bilgiler kaydedilir; yol haritasından gelenler ayrı tutulur, kaydedilmez.
   const [own, setOwn] = useState<ErasmusProfile>(EMPTY_ERASMUS_PROFILE);
   const [prefill, setPrefill] = useState<ErasmusPrefill>(EMPTY_PREFILL);
   // Ön doldurulan alanı kullanıcı boşaltırsa bu oturumda yeniden doldurulmaz.
   const [dismissed, setDismissed] = useState<ReadonlySet<Prefillable>>(() => new Set());
-  const [draft, setDraft] = useState<AgreementDraft>(emptyDraft);
   const [ready, setReady] = useState(false);
   const [tab, setTab] = useState<"dersler" | "program">("dersler");
 
@@ -46,12 +39,10 @@ export function Erasmus({ data, programs, partners }: Props) {
   useEffect(() => {
     const saved = loadErasmusProfile();
     const fromRoadmap = erasmusPrefill(loadState(), programs);
-    const savedDraft = loadDraft();
     // eslint-disable-next-line react-hooks/set-state-in-effect -- kayıt yalnızca tarayıcıda bilinir
     setOwn(saved);
     setPrefill(fromRoadmap);
-    setDraft(savedDraft);
-    if (fromRoadmap.hasRoadmap || saved.ele !== null || savedDraft.rows.length > 0) setTab("program");
+    if (fromRoadmap.hasRoadmap || saved.ele !== null) setTab("program");
     setReady(true);
   }, [programs]);
 
@@ -59,11 +50,7 @@ export function Erasmus({ data, programs, partners }: Props) {
     if (ready) saveErasmusProfile(own);
   }, [own, ready]);
 
-  useEffect(() => {
-    if (ready) saveDraft(draft);
-  }, [draft, ready]);
 
-  const codeCredits = useMemo(() => buildCodeCredits(programs), [programs]);
 
   const pick = (key: Prefillable) => own[key] ?? (dismissed.has(key) ? null : prefill[key]);
   const gpa = pick("gpa");
@@ -107,7 +94,7 @@ export function Erasmus({ data, programs, partners }: Props) {
       <main className="board er-board" id="icerik">
         <header className="gc-head er-screen">
           <h1 className="board-title">Erasmus başvurusu</h1>
-          <p className="gc-lede">Başvuru şartlarını, tahmini Erasmus puanını ve hibeni gör; yurt dışında alacağın dersleri eşleştir.</p>
+          <p className="gc-lede">Başvuru şartlarını, tahmini Erasmus puanını ve alacağın hibeyi gör.</p>
           <p className="hint">Şartlar, puanlama ve hibe tutarları {data.callYear} çağrısına ait.</p>
         </header>
 
@@ -117,15 +104,6 @@ export function Erasmus({ data, programs, partners }: Props) {
           <Grant data={data} grant={own.grant} onGrant={(patch) => setOwn((o) => ({ ...o, grant: { ...o.grant, ...patch } }))} />
         </div>
 
-        <Agreement
-          draft={draft}
-          onDraft={setDraft}
-          remaining={prefill.remainingRequirements}
-          hasRoadmap={!ready || prefill.hasRoadmap}
-          programName={prefill.programName}
-          codeCredits={codeCredits}
-          partners={partners}
-        />
 
         <section className="gc-sources er-screen" aria-label="Kaynaklar">
           <h2 className="group-title er-h2">Kaynaklar</h2>

@@ -1,0 +1,45 @@
+.root { color: var(--ink); display: grid; align-content: start; }
+
+.band {
+  background: var(--paper-2);
+  border-bottom: 1px solid var(--rule);
+  padding: 1.4rem max(1rem, env(safe-area-inset-left)) 1.5rem max(1rem, env(safe-area-inset-right));
+}
+.bandInner { max-width: 68rem; margin: 0 auto; display: grid; gap: 0.25rem; }
+.title { margin: 0; font-size: clamp(1.7rem, 6vw, 2.2rem); font-weight: 800; letter-spacing: -0.02em; }
+.lede { margin: 0; color: var(--ink-2); max-width: 40rem; line-height: 1.5; }
+
+.body {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 1.25rem max(1rem, env(safe-area-inset-left)) 2.5rem max(1rem, env(safe-area-inset-right));
+  display: grid;
+  gap: 1rem;
+}
+
+.cards { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1rem; }
+
+.card {
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-m);
+  background: var(--paper);
+  min-width: 0;
+}
+.card:hover { border-color: var(--rule-strong); }
+.cardLink {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1.1rem 1.2rem 1.2rem;
+  height: 100%;
+  align-content: start;
+  color: var(--ink);
+  text-decoration: none;
+}
+.cardLink:hover { background: var(--paper-2); border-radius: var(--radius-m); }
+.cardLink:focus-visible { outline: 2px solid var(--pen); outline-offset: 2px; border-radius: var(--radius-m); }
+.cardTitle { font-size: 1.1rem; font-weight: 700; }
+.cardText { color: var(--ink-2); line-height: 1.5; }
+.cardList { margin: 0.2rem 0 0; padding-left: 1.1rem; color: var(--ink-2); font-size: 0.9rem; display: grid; gap: 0.15rem; }
+.cardGo { margin-top: 0.4rem; color: var(--pen); font-weight: 600; font-size: 0.9rem; }
+
+.note { margin: 0; color: var(--ink-2); font-size: 0.87rem; line-height: 1.5; }

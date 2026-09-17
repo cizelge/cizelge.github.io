@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { NAV_ITEMS } from "./MobileNav";
 
 // Geniş ekranda üst menü: alt çubukla aynı araçlar ve aynı etkin sayfa işareti.
-const LONG_LABEL: Record<string, string> = { "/ozyegin/gecis": "Geçiş ve ÇAP" };
+const LONG_LABEL: Record<string, string> = {};
 
 export function TopNav() {
   const pathname = (usePathname() ?? "/").replace(/\/$/, "") || "/";

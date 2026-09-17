@@ -34,6 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...otherTerms.map((t) => ({ url: `${siteUrl}/ozyegin/donem/${t.termId}`, lastModified: new Date(t.fetchedAt) })),
     { url: `${siteUrl}/ozyegin/yol-haritasi`, lastModified: updated },
     { url: `${siteUrl}/ozyegin/on-sart-diyagrami`, lastModified: updated },
+    { url: `${siteUrl}/ozyegin/basvurular`, lastModified: updated },
     { url: `${siteUrl}/ozyegin/gecis`, lastModified: transfer ? new Date(transfer.fetchedAt) : updated },
     { url: `${siteUrl}/ozyegin/hocalar`, lastModified: updated },
     { url: `${siteUrl}/ozyegin/takvim`, lastModified: updated },

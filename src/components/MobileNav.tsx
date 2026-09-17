@@ -47,25 +47,19 @@ export const NAV_ITEMS: { href: string; label: string; match: (p: string) => boo
     ),
   },
   {
-    href: "/ozyegin/gecis",
-    label: "Geçiş",
-    match: (p) => p === "/ozyegin/gecis",
-    icon: <path d="M4 8h13l-3.5-3.5M20 16H7l3.5 3.5" />,
-  },
-  {
-    href: "/ozyegin/erasmus",
-    label: "Erasmus",
-    match: (p) => p === "/ozyegin/erasmus",
+    href: "/ozyegin/basvurular",
+    label: "Başvurular",
+    match: (p) => p === "/ozyegin/basvurular" || p === "/ozyegin/gecis" || p === "/ozyegin/erasmus",
     icon: (
       <>
-        <circle cx="12" cy="12" r="8.5" />
-        <path d="M3.5 12h17M12 3.5c2.5 2.3 3.5 5.2 3.5 8.5s-1 6.2-3.5 8.5M12 3.5C9.5 5.8 8.5 8.7 8.5 12s1 6.2 3.5 8.5" />
+        <path d="M7 3.5h7l4 4V20a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z" />
+        <path d="M13.5 3.8V8h4.2M9 13h6M9 16.5h4" />
       </>
     ),
   },
 ];
 
-const TOOL_PATHS = ["/ozyegin/hocalar", "/ozyegin/yol-haritasi", "/ozyegin/on-sart-diyagrami", "/ozyegin/gecis", "/ozyegin/erasmus", "/ozyegin/takvim"];
+const TOOL_PATHS = ["/ozyegin/hocalar", "/ozyegin/basvurular", "/ozyegin/yol-haritasi", "/ozyegin/on-sart-diyagrami", "/ozyegin/gecis", "/ozyegin/erasmus", "/ozyegin/takvim"];
 
 export function MobileNav() {
   // Statik yayında adresler "/" ile bitiyor (trailingSlash); eşleştirmeden önce atılır.
