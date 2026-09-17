@@ -1,4 +1,6 @@
-// Tarayıcıda çalışır: buildScheduleSvg çıktısını tuvale çizip PNG olarak indirir.
+// Tarayıcıda çalışır: buildScheduleSvg çıktısını tuvale çizip PNG olarak kaydeder.
+// Telefonda indirme bağlantısı çoğu zaman galeriye düşmez; bu yüzden önce paylaşım penceresi denenir
+// ("Görseli Kaydet" oradan çıkar), olmazsa indirme, o da olmazsa yeni sekmede açma.
 import type { ScheduleImage } from "./image";
 
 function loadImage(src: string): Promise<HTMLImageElement> {
@@ -55,8 +57,10 @@ function onestFontCss(): Promise<string> {
   return embeddedFontCss;
 }
 
-/** `scale` 2: 1200 px genişliğindeki çizim 2400 px'lik PNG olur (telefonda net görünsün). */
-export async function downloadPng(image: ScheduleImage, fileName: string, scale = 2): Promise<void> {
+export type SaveResult = "share" | "download" | "tab";
+
+/** Görseli PNG'ye çevirir. `scale` 2: 1200 px genişliğindeki çizim 2400 px'lik PNG olur. */
+export async function renderPng(image: ScheduleImage, scale = 2): Promise<Blob> {
   await document.fonts.ready;
   const fontCss = await onestFontCss();
   const svg = fontCss ? image.svg.replace(/(<svg[^>]*>)/, `$1<defs><style>${fontCss}</style></defs>`) : image.svg;
@@ -74,9 +78,41 @@ export async function downloadPng(image: ScheduleImage, fileName: string, scale 
 
   const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/png"));
   if (!blob) throw new Error("PNG oluşturulamadı");
+  return blob;
+}
+
+/**
+ * Görseli kaydeder. Telefonda paylaşım penceresi açılır (oradan galeriye kaydedilir),
+ * masaüstünde dosya iner. Hangisinin olduğunu döner ki arayüz doğru cümleyi yazsın.
+ */
+export async function savePng(image: ScheduleImage, fileName: string, title: string, scale = 2): Promise<SaveResult> {
+  const blob = await renderPng(image, scale);
+  const file = new File([blob], fileName, { type: "image/png" });
+
+  // Dokunmatik cihazda paylaşım penceresi (galeriye kaydetmenin tek yolu), masaüstünde doğrudan indirme.
+  const touch = typeof window.matchMedia === "function" && window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+  if (touch && typeof navigator.canShare === "function" && navigator.canShare({ files: [file] })) {
+    try {
+      await navigator.share({ files: [file], title });
+      return "share";
+    } catch (error) {
+      // Kullanıcı vazgeçtiyse iş bitmiştir; başka hatada indirmeyi dene.
+      if (error instanceof DOMException && error.name === "AbortError") return "share";
+    }
+  }
+
+  const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = fileName;
-  a.click();
-  URL.revokeObjectURL(a.href);
+  if ("download" in a) {
+    a.href = url;
+    a.download = fileName;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 10_000);
+    return "download";
+  }
+
+  // İndirme desteklenmiyorsa (eski iOS Safari) görseli aç: kullanıcı uzun basıp kaydeder.
+  window.open(url, "_blank", "noopener");
+  setTimeout(() => URL.revokeObjectURL(url), 60_000);
+  return "tab";
 }

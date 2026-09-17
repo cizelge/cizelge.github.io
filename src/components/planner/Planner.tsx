@@ -6,7 +6,7 @@ import type { Course, ProgramsData, TermData } from "@/lib/types";
 import { expandCorequisites, type RelaxedConstraint, type SectionRef } from "@/lib/engine";
 import { visibleDays } from "@/lib/days";
 import { programYears } from "@/lib/planner/curriculum";
-import { downloadPng } from "@/lib/planner/download-image";
+import { savePng } from "@/lib/planner/download-image";
 import { OZYEGIN_CALENDAR } from "@/lib/calendar";
 import { buildIcs } from "@/lib/planner/ics";
 import { buildScheduleSvg, imageFileName } from "@/lib/planner/image";
@@ -227,6 +227,7 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
 
   async function downloadImage() {
     if (!current) return;
+    setNote("Görsel hazırlanıyor.");
     try {
       const image = buildScheduleSvg({
         meetings: placed,
@@ -236,8 +237,14 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
         title: `${groupRank}. program`,
         summary: current.summary,
       });
-      await downloadPng(image, imageFileName(term.termId));
-      setNote("Görsel indirildi.");
+      const how = await savePng(image, imageFileName(term.termId), `${term.termLabel} ders programım`);
+      setNote(
+        how === "share"
+          ? "Paylaşım penceresi açıldı. Oradan “Görseli Kaydet” dersen telefonun galerisine düşer."
+          : how === "download"
+            ? "Görsel indirildi."
+            : "Görsel yeni sekmede açıldı. Üzerine basılı tutup kaydedebilirsin.",
+      );
     } catch {
       setNote("Görsel oluşturulamadı.");
     }
@@ -424,7 +431,7 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
                 Takvime ekle
               </button>
               <button type="button" className="btn" onClick={downloadImage}>
-                Görsel olarak indir
+                Görsel kaydet
               </button>
             </div>
           </div>
