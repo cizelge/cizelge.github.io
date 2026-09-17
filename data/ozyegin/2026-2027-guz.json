@@ -2,7 +2,7 @@
   "schoolId": "ozyegin",
   "termId": "2026-2027-guz",
   "termLabel": "2026 - 2027 Güz",
-  "fetchedAt": "2026-09-16T09:17:29.925Z",
+  "fetchedAt": "2026-09-17T09:26:08.348Z",
   "courses": [
     {
       "code": "ACCT 201",
@@ -3409,7 +3409,9 @@
       "sections": [
         {
           "id": "A",
-          "instructors": [],
+          "instructors": [
+            "ÇAĞRI ÇAMLICA"
+          ],
           "capacity": 15,
           "restrictions": null,
           "meetings": [
@@ -3964,6 +3966,22 @@
               "start": "12:40",
               "end": "15:30",
               "room": "SCOLA.126"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "instructors": [
+            "KEMAL BERKAY TÜZÜN"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 4,
+              "start": "08:40",
+              "end": "11:30",
+              "room": null
             }
           ]
         }
@@ -11779,28 +11797,6 @@
           ]
         },
         {
-          "id": "C",
-          "instructors": [
-            "ELİF KANDEMİR"
-          ],
-          "capacity": 20,
-          "restrictions": null,
-          "meetings": [
-            {
-              "day": 2,
-              "start": "16:40",
-              "end": "18:30",
-              "room": "FEAS_AB2.G03"
-            },
-            {
-              "day": 5,
-              "start": "16:40",
-              "end": "18:30",
-              "room": "FEAS_AB2.G03"
-            }
-          ]
-        },
-        {
           "id": "D",
           "instructors": [
             "ELİF KANDEMİR"
@@ -11951,6 +11947,33 @@
               "start": "16:40",
               "end": "18:30",
               "room": "SCOLA.128"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ENG 115",
+      "slug": "eng-115",
+      "title": "Popüler Kültür",
+      "ects": null,
+      "localCredits": null,
+      "prerequisites": "",
+      "corequisites": [],
+      "sections": [
+        {
+          "id": "A",
+          "instructors": [
+            "AYŞE NESLİHAN SABUNCU"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 4,
+              "start": "13:40",
+              "end": "16:30",
+              "room": null
             }
           ]
         }
@@ -20406,6 +20429,26 @@
       ]
     },
     {
+      "code": "IE 490",
+      "slug": "ie-490",
+      "title": "Endüstri Mühendisliğinde Araştırmaya Giriş",
+      "ects": null,
+      "localCredits": null,
+      "prerequisites": "",
+      "corequisites": [],
+      "sections": [
+        {
+          "id": "A",
+          "instructors": [
+            "MILAD ELYASI"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": []
+        }
+      ]
+    },
+    {
       "code": "IE 501",
       "slug": "ie-501",
       "title": "Doğrusal Programlama ve Uzantıları",
@@ -25127,6 +25170,22 @@
               "room": "LF_AB3.133"
             }
           ]
+        },
+        {
+          "id": "C",
+          "instructors": [
+            "NERİMAN GÖKÇAY"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 1,
+              "start": "11:40",
+              "end": "14:30",
+              "room": null
+            }
+          ]
         }
       ]
     },
@@ -26709,7 +26768,7 @@
           "restrictions": null,
           "meetings": [
             {
-              "day": 2,
+              "day": 3,
               "start": "09:40",
               "end": "12:30",
               "room": null
@@ -27423,6 +27482,22 @@
               "start": "08:40",
               "end": "11:30",
               "room": "FEAS_AB2.G10"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "instructors": [
+            "BAHRİYE CESARET"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 1,
+              "start": "12:40",
+              "end": "15:30",
+              "room": null
             }
           ]
         }
@@ -29919,6 +29994,22 @@
               "room": null
             }
           ]
+        },
+        {
+          "id": "C",
+          "instructors": [
+            "MEHMET ONUR BALKAN"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 1,
+              "start": "13:40",
+              "end": "16:30",
+              "room": null
+            }
+          ]
         }
       ]
     },
@@ -29974,6 +30065,28 @@
               "room": "FEAS_AB2.126"
             }
           ]
+        },
+        {
+          "id": "C",
+          "instructors": [
+            "SHAYAN RAMEZANZADEH"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 2,
+              "start": "13:40",
+              "end": "16:30",
+              "room": null
+            },
+            {
+              "day": 3,
+              "start": "09:40",
+              "end": "12:30",
+              "room": null
+            }
+          ]
         }
       ]
     },
@@ -30015,6 +30128,22 @@
               "start": "13:40",
               "end": "16:30",
               "room": "FEAS_AB2.126"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "instructors": [
+            "MEHMET BÜLENT AKSUM"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 1,
+              "start": "09:40",
+              "end": "12:30",
+              "room": null
             }
           ]
         }
@@ -30060,6 +30189,22 @@
               "room": "FEAS_AB2.126"
             }
           ]
+        },
+        {
+          "id": "C",
+          "instructors": [
+            "GÖKHAN KAYA"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 3,
+              "start": "13:40",
+              "end": "15:30",
+              "room": null
+            }
+          ]
         }
       ]
     },
@@ -30101,6 +30246,22 @@
               "start": "08:40",
               "end": "12:30",
               "room": "FEAS_AB2.126"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "instructors": [
+            "TİLBE BAŞPINAR"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 5,
+              "start": "08:40",
+              "end": "12:30",
+              "room": null
             }
           ]
         }
@@ -30158,6 +30319,28 @@
               "room": "FEAS_AB2.126"
             }
           ]
+        },
+        {
+          "id": "C",
+          "instructors": [
+            "HANDE TEMUR"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 2,
+              "start": "09:40",
+              "end": "12:30",
+              "room": null
+            },
+            {
+              "day": 4,
+              "start": "09:40",
+              "end": "12:30",
+              "room": null
+            }
+          ]
         }
       ]
     },
@@ -30199,6 +30382,22 @@
               "start": "08:40",
               "end": "11:30",
               "room": "FEAS_AB2.126"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "instructors": [
+            "PETEK ŞİRİN"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 4,
+              "start": "13:40",
+              "end": "16:30",
+              "room": null
             }
           ]
         }
