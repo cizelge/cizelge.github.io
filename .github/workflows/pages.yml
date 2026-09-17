@@ -25,7 +25,13 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Tip kontrolü
+        run: npm run typecheck
       - run: npm test
+      - name: Sunucu tip kontrolü (Deno)
+        run: npx --yes deno@2.9.6 check server/main.ts
       - name: Statik site
         run: npm run build:pages
         env:
