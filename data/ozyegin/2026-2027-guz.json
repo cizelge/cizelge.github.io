@@ -2,7 +2,7 @@
   "schoolId": "ozyegin",
   "termId": "2026-2027-guz",
   "termLabel": "2026 - 2027 Güz",
-  "fetchedAt": "2026-09-17T09:26:08.348Z",
+  "fetchedAt": "2026-09-18T08:59:58.847Z",
   "courses": [
     {
       "code": "ACCT 201",
@@ -1293,22 +1293,6 @@
           ]
         },
         {
-          "id": "B",
-          "instructors": [
-            "BURCU KISMET CONK"
-          ],
-          "capacity": 35,
-          "restrictions": null,
-          "meetings": [
-            {
-              "day": 3,
-              "start": "08:40",
-              "end": "12:30",
-              "room": "AF_AB4.B230"
-            }
-          ]
-        },
-        {
           "id": "C",
           "instructors": [
             "GİZEM EFENDİOĞLU"
@@ -1724,6 +1708,24 @@
       ]
     },
     {
+      "code": "ARCH 300",
+      "slug": "arch-300",
+      "title": "Yaz Stajı II (Büro)",
+      "ects": null,
+      "localCredits": null,
+      "prerequisites": "",
+      "corequisites": [],
+      "sections": [
+        {
+          "id": "A",
+          "instructors": [],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": []
+        }
+      ]
+    },
+    {
       "code": "ARCH 301",
       "slug": "arch-301",
       "title": "Mimari Tasarım Stüdyosu IV",
@@ -2032,6 +2034,24 @@
               "room": "AF_AB4.227"
             }
           ]
+        }
+      ]
+    },
+    {
+      "code": "ARCH 400",
+      "slug": "arch-400",
+      "title": "Yaz Stajı III (Şantiye)",
+      "ects": null,
+      "localCredits": null,
+      "prerequisites": "",
+      "corequisites": [],
+      "sections": [
+        {
+          "id": "A",
+          "instructors": [],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": []
         }
       ]
     },
@@ -6349,22 +6369,6 @@
       "sections": [
         {
           "id": "A",
-          "instructors": [
-            "EMRE SEFER"
-          ],
-          "capacity": null,
-          "restrictions": null,
-          "meetings": [
-            {
-              "day": 3,
-              "start": "16:40",
-              "end": "18:30",
-              "room": null
-            }
-          ]
-        },
-        {
-          "id": "B",
           "instructors": [
             "HASAN SÖZER"
           ],
@@ -11256,9 +11260,9 @@
           "meetings": [
             {
               "day": 1,
-              "start": "08:40",
-              "end": "10:30",
-              "room": "FEAS_AB2.G12"
+              "start": "12:40",
+              "end": "14:30",
+              "room": null
             },
             {
               "day": 5,
@@ -11903,28 +11907,6 @@
               "start": "16:40",
               "end": "18:30",
               "room": "LF_AB3.330"
-            }
-          ]
-        },
-        {
-          "id": "B",
-          "instructors": [
-            "PETEK ŞİRİN"
-          ],
-          "capacity": 22,
-          "restrictions": null,
-          "meetings": [
-            {
-              "day": 2,
-              "start": "08:40",
-              "end": "10:30",
-              "room": "FEAS_AB2.G13"
-            },
-            {
-              "day": 5,
-              "start": "14:40",
-              "end": "16:30",
-              "room": "FEAS_AB2.G13"
             }
           ]
         },
@@ -13344,7 +13326,9 @@
       "sections": [
         {
           "id": "A",
-          "instructors": [],
+          "instructors": [
+            "DEFNE ERTAN TÜYSÜZOĞLU"
+          ],
           "capacity": 11,
           "restrictions": null,
           "meetings": [
@@ -13376,7 +13360,9 @@
         },
         {
           "id": "B",
-          "instructors": [],
+          "instructors": [
+            "DEFNE ERTAN TÜYSÜZOĞLU"
+          ],
           "capacity": 14,
           "restrictions": null,
           "meetings": [
@@ -13408,7 +13394,9 @@
         },
         {
           "id": "C",
-          "instructors": [],
+          "instructors": [
+            "DEFNE ERTAN TÜYSÜZOĞLU"
+          ],
           "capacity": 14,
           "restrictions": null,
           "meetings": [
@@ -13440,7 +13428,9 @@
         },
         {
           "id": "D",
-          "instructors": [],
+          "instructors": [
+            "ANTHONY BETTS"
+          ],
           "capacity": 14,
           "restrictions": null,
           "meetings": [
@@ -13485,7 +13475,9 @@
       "sections": [
         {
           "id": "A",
-          "instructors": [],
+          "instructors": [
+            "ASLI ZULUĞ"
+          ],
           "capacity": 14,
           "restrictions": null,
           "meetings": [
@@ -13581,7 +13573,7 @@
         {
           "id": "A",
           "instructors": [
-            "ERICH RUPPEN"
+            "SUZAN TİREKİ"
           ],
           "capacity": 14,
           "restrictions": null,
@@ -13627,7 +13619,7 @@
         {
           "id": "B",
           "instructors": [
-            "ERICH RUPPEN"
+            "SUZAN TİREKİ"
           ],
           "capacity": 14,
           "restrictions": null,
@@ -13673,7 +13665,7 @@
         {
           "id": "C",
           "instructors": [
-            "ERICH RUPPEN"
+            "ASLI ZULUĞ"
           ],
           "capacity": 14,
           "restrictions": null,
@@ -13719,7 +13711,7 @@
         {
           "id": "D",
           "instructors": [
-            "ERICH RUPPEN"
+            "ASLI ZULUĞ"
           ],
           "capacity": 14,
           "restrictions": null,
@@ -13776,7 +13768,7 @@
         {
           "id": "A",
           "instructors": [
-            "ERICH RUPPEN"
+            "ÖZGE SAMANCI"
           ],
           "capacity": 30,
           "restrictions": null,
@@ -14001,7 +13993,7 @@
         {
           "id": "A",
           "instructors": [
-            "ERICH RUPPEN"
+            "DEFNE ERTAN TÜYSÜZOĞLU"
           ],
           "capacity": 10,
           "restrictions": null,
@@ -14017,7 +14009,7 @@
         {
           "id": "B",
           "instructors": [
-            "ERICH RUPPEN"
+            "DEFNE ERTAN TÜYSÜZOĞLU"
           ],
           "capacity": 10,
           "restrictions": null,
@@ -14070,7 +14062,9 @@
       "sections": [
         {
           "id": "A",
-          "instructors": [],
+          "instructors": [
+            "MEHMET ATEŞ"
+          ],
           "capacity": 15,
           "restrictions": null,
           "meetings": [
@@ -18979,7 +18973,9 @@
       "sections": [
         {
           "id": "A",
-          "instructors": [],
+          "instructors": [
+            "ULAŞ TİGİN"
+          ],
           "capacity": 45,
           "restrictions": null,
           "meetings": [
@@ -25980,6 +25976,24 @@
       ]
     },
     {
+      "code": "MİM 200",
+      "slug": "mim-200",
+      "title": "Yaz Stajı I (Araştırma)",
+      "ects": null,
+      "localCredits": null,
+      "prerequisites": "",
+      "corequisites": [],
+      "sections": [
+        {
+          "id": "A",
+          "instructors": [],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": []
+        }
+      ]
+    },
+    {
       "code": "MİM 201",
       "slug": "mim-201",
       "title": "Mimari Tasarım Stüdyosu II",
@@ -26156,6 +26170,24 @@
               "room": "AF_AB4.B313A"
             }
           ]
+        }
+      ]
+    },
+    {
+      "code": "MİM 300",
+      "slug": "mim-300",
+      "title": "Yaz Stajı II (Büro)",
+      "ects": null,
+      "localCredits": null,
+      "prerequisites": "",
+      "corequisites": [],
+      "sections": [
+        {
+          "id": "A",
+          "instructors": [],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": []
         }
       ]
     },
@@ -26519,6 +26551,24 @@
       ]
     },
     {
+      "code": "MİM 400",
+      "slug": "mim-400",
+      "title": "Yaz Stajı III (Şantiye Stajı)",
+      "ects": null,
+      "localCredits": null,
+      "prerequisites": "",
+      "corequisites": [],
+      "sections": [
+        {
+          "id": "A",
+          "instructors": [],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": []
+        }
+      ]
+    },
+    {
       "code": "MİM 401",
       "slug": "mim-401",
       "title": "Mimari Tasarım Stüdyosu VI",
@@ -26660,9 +26710,9 @@
           "restrictions": null,
           "meetings": [
             {
-              "day": 2,
-              "start": "09:40",
-              "end": "12:30",
+              "day": 3,
+              "start": "13:40",
+              "end": "16:30",
               "room": null
             }
           ]
@@ -29468,6 +29518,22 @@
               "room": "FEAS_AB2.G28"
             }
           ]
+        },
+        {
+          "id": "C",
+          "instructors": [
+            "MEHMET ERTÜRK"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 1,
+              "start": "09:40",
+              "end": "10:30",
+              "room": null
+            }
+          ]
         }
       ]
     },
@@ -29529,6 +29595,22 @@
               "start": "09:40",
               "end": "11:30",
               "room": "FEAS_AB2.G28"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "instructors": [
+            "ÇAĞLAR ÜÇLER"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 4,
+              "start": "13:40",
+              "end": "15:30",
+              "room": null
             }
           ]
         }
@@ -29594,6 +29676,22 @@
               "room": "FEAS_AB2.G28"
             }
           ]
+        },
+        {
+          "id": "C",
+          "instructors": [
+            "CELAL ALPAY HAVLE"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 3,
+              "start": "13:40",
+              "end": "15:30",
+              "room": null
+            }
+          ]
         }
       ]
     },
@@ -29655,6 +29753,22 @@
               "start": "10:40",
               "end": "12:30",
               "room": "FEAS_AB2.G28"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "instructors": [
+            "PINAR GÖKALP"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 3,
+              "start": "10:40",
+              "end": "12:30",
+              "room": null
             }
           ]
         }
@@ -29732,6 +29846,28 @@
               "room": "FEAS_AB2.G28"
             }
           ]
+        },
+        {
+          "id": "C",
+          "instructors": [
+            "CELAL ALPAY HAVLE"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 2,
+              "start": "08:40",
+              "end": "10:30",
+              "room": null
+            },
+            {
+              "day": 2,
+              "start": "11:40",
+              "end": "12:30",
+              "room": null
+            }
+          ]
         }
       ]
     },
@@ -29795,6 +29931,22 @@
               "room": "FEAS_AB2.G28"
             }
           ]
+        },
+        {
+          "id": "C",
+          "instructors": [
+            "SEMİH SORAN"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 3,
+              "start": "15:40",
+              "end": "16:30",
+              "room": null
+            }
+          ]
         }
       ]
     },
@@ -29836,6 +29988,22 @@
               "start": "14:40",
               "end": "15:30",
               "room": "FEAS_AB2.G28"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "instructors": [
+            "PINAR GÖKALP"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 1,
+              "start": "13:40",
+              "end": "14:30",
+              "room": null
             }
           ]
         }
@@ -29881,6 +30049,22 @@
               "room": "FEAS_AB2.G28"
             }
           ]
+        },
+        {
+          "id": "C",
+          "instructors": [
+            "MEHMET BÜLENT AKSUM"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 2,
+              "start": "13:40",
+              "end": "15:30",
+              "room": null
+            }
+          ]
         }
       ]
     },
@@ -29922,6 +30106,22 @@
               "start": "12:40",
               "end": "13:30",
               "room": "FEAS_AB2.G28"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "instructors": [
+            "ÇAĞLAR ÜÇLER"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 4,
+              "start": "15:40",
+              "end": "16:30",
+              "room": null
             }
           ]
         }
