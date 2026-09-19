@@ -74,19 +74,22 @@ export function WeekGrid({ meetings, freeDays, range, days, empty, compact = fal
                     }
                     title={`${m.courseCode} ${m.sectionId}, ${m.start}–${m.end}${m.room ? `, ${m.room}` : ""}${m.instructor ? `, ${personName(m.instructor)}` : ""}`}
                   >
-                    {(() => {
-                      const href = hrefOf?.(m);
-                      // Bütün kutuyu kaplayan bağlantı; şube menüsü düğmesi üstte kalır (iç içe etkileşimli öğe olmasın diye kardeş).
-                      return href ? (
-                        <Link
-                          href={href}
-                          className="block-link"
-                          aria-label={`${m.courseCode} ders sayfası: şubeler, hocalar, ön şartlar`}
-                        />
-                      ) : null;
-                    })()}
                     <span className="block-code">
-                      {m.courseCode}{" "}
+                      {(() => {
+                        // Yalnızca ders kodu bağlantıdır; kutunun boşluğuna basmak sayfayı açmaz.
+                        const href = hrefOf?.(m);
+                        return href ? (
+                          <Link
+                            href={href}
+                            className="block-course"
+                            aria-label={`${m.courseCode} ders sayfası: şubeler, hocalar, ön şartlar`}
+                          >
+                            {m.courseCode}
+                          </Link>
+                        ) : (
+                          m.courseCode
+                        );
+                      })()}{" "}
                       {renderSection?.(m) ?? (m.sectionId && <span className="block-section">{m.sectionId}</span>)}
                     </span>
                     {!compact && (

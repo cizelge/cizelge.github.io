@@ -2012,10 +2012,10 @@ a.pc-pill:hover { border-color: var(--ink); background: var(--paper-2); }
 }
 
 /* ---------- Çizelge: ders kutusundan ders sayfasına ---------- */
-.block-link { position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
-.block:has(.block-link) { cursor: pointer; }
-.block:has(.block-link:hover) { box-shadow: inset 0 0 0 1.5px color-mix(in oklab, var(--hl-text) 45%, transparent); }
-.block-link:focus-visible { outline: 2px solid var(--pen); outline-offset: 1px; }
+/* Ders sayfası bağlantısı yalnızca kodun kendisidir; kutunun geri kalanı tıklanmaz. */
+.block-course { color: inherit; text-decoration: none; }
+.block-course:hover { text-decoration: underline; text-underline-offset: 2px; }
+.block-course:focus-visible { outline: 2px solid var(--pen); outline-offset: 1px; border-radius: var(--radius-s); }
 .block .switch-btn { position: relative; z-index: 2; }
 
 /* Ayrıntılı ayar paneli düğmesinin hemen altında açılır (geniş ekranda çubuğun en sağına kaymasın). */
