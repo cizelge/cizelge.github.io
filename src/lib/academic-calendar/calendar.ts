@@ -152,7 +152,7 @@ export function eventsIcs(events: CalendarEvent[], { calName, now = new Date() }
     const description = [e.time ? `Saat ${e.time}` : null, e.note ?? null].filter(Boolean).join("\n");
     lines.push(
       "BEGIN:VEVENT",
-      `UID:${e.id}@cizelge`,
+      `UID:${e.id}@ozuhelper`,
       `DTSTAMP:${stamp}`,
       `DTSTART;VALUE=DATE:${compact(e.start)}`,
       `DTEND;VALUE=DATE:${compact(addDays(lastDay(e), 1))}`,

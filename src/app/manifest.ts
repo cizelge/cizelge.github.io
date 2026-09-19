@@ -6,8 +6,8 @@ export const dynamic = "force-static";
 // Ana ekrana eklenen uygulama planlayıcıyla açılır.
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Çizelge",
-    short_name: "Çizelge",
+    name: "OzuHelper",
+    short_name: "OzuHelper",
     description: "Çakışmasız ders programı: dersleri seç, en uygun haftanı gör.",
     id: "/ozyegin/",
     start_url: "/ozyegin/",

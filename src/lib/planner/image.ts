@@ -193,11 +193,11 @@ export function buildScheduleSvg(input: ScheduleImageInput): ScheduleImage {
   // Başlık: kelime işareti, dönem, program adı ve özet.
   const markSize = 30;
   const markBase = 68;
-  const markW = estimateWidth("Çizelge", markSize, true) + 8;
+  const markW = estimateWidth("OzuHelper", markSize, true) + 8;
   out.push(
     rect({ x: L.pad - 4, y: markBase - markSize * 0.36, width: markW, height: markSize * 0.44, fill: p.highlighters[0] }),
   );
-  out.push(text("Çizelge", { x: L.pad, y: markBase, "font-size": markSize, "font-weight": 800, "letter-spacing": -0.6, fill: p.ink }));
+  out.push(text("OzuHelper", { x: L.pad, y: markBase, "font-size": markSize, "font-weight": 800, "letter-spacing": -0.6, fill: p.ink }));
   out.push(text(input.termLabel, { x: gridRight, y: markBase, "font-size": 18, "text-anchor": "end", fill: p.inkMuted }));
   out.push(text(input.title, { x: L.pad, y: 130, "font-size": 36, "font-weight": 800, "letter-spacing": -0.7, fill: p.ink }));
 

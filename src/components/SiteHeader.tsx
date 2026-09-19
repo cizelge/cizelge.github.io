@@ -7,7 +7,7 @@ export function SiteHeader({ term }: { term?: string }) {
   return (
     <header className="topbar">
       <Link href="/" className="wordmark">
-        <span className="wordmark-mark">Çizelge</span>
+        <span className="wordmark-mark">OzuHelper</span>
       </Link>
       {term && <span className="topbar-term">{term}</span>}
       <span className="topbar-spacer" />

@@ -51,7 +51,7 @@ describe("buildScheduleSvg", () => {
     expect(svg).not.toContain("Cumartesi");
     for (const h of ["08:00", "12:00", "17:00"]) expect(svg).toContain(`>${h}<`);
     expect(svg).not.toContain(">18:00<");
-    expect(svg).toContain(">Çizelge<");
+    expect(svg).toContain(">OzuHelper<");
     expect(svg).toContain(">2026 - 2027 Güz<");
     expect(svg).toContain(">1. program<");
     expect(svg).toContain(">2 gün<");

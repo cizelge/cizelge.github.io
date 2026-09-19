@@ -1,4 +1,4 @@
-// Çizelge hoca puanlama servisi (Deno Deploy + Deno KV).
+// OzuHelper hoca puanlama servisi (Deno Deploy + Deno KV).
 //   GET    /ratings?school=ozyegin  -> hoca puanları
 //   POST   /ratings                 -> oy ver / oyunu değiştir
 //   DELETE /ratings?school=...      -> bakım (ADMIN_KEY ile)
@@ -47,7 +47,7 @@ import {
   type NoteRow,
 } from "./notes.ts";
 
-const DEFAULT_ORIGINS = ["https://cizelge.github.io", "http://localhost:3000"];
+const DEFAULT_ORIGINS = ["https://ozuhelper.github.io", "https://cizelge.github.io", "http://localhost:3000"];
 const SCHOOL_RE = /^[a-z][a-z0-9-]{1,30}$/;
 /** Özetler bu kadar süre bellekte tutulur. */
 const CACHE_MS = 60_000;
@@ -551,7 +551,7 @@ export async function handler(request: Request): Promise<Response> {
   const headers = cors(request);
 
   if (request.method === "OPTIONS") return new Response(null, { status: 204, headers });
-  if (url.pathname === "/") return json({ ok: true, service: "cizelge-oy" }, { headers });
+  if (url.pathname === "/") return json({ ok: true, service: "ozuhelper-oy" }, { headers });
   if (url.pathname === "/unvote" && request.method === "POST") {
     if (!headers["Access-Control-Allow-Origin"]) return json({ error: "Bu adresten istek kabul edilmiyor" }, { status: 403, headers });
     return await removeVote(request, headers);

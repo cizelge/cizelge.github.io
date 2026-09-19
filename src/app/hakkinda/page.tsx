@@ -15,7 +15,7 @@ export default function About() {
           Hakkında
         </h1>
         <p>
-          Çizelge, öğrencilerin çakışmayan ders programlarını hızlıca bulması için yapılmış bağımsız bir araçtır.
+          OzuHelper, öğrencilerin çakışmayan ders programlarını hızlıca bulması için yapılmış bağımsız bir araçtır.
           Hiçbir üniversitenin resmi hizmeti değildir.
         </p>
         <h2 className="group-title">Veriler nereden geliyor?</h2>

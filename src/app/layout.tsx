@@ -18,13 +18,13 @@ const siteUrl = process.env.SITE_URL ?? "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Çizelge: çakışmasız ders programı",
-    template: "%s | Çizelge",
+    default: "OzuHelper: çakışmasız ders programı",
+    template: "%s | OzuHelper",
   },
   description:
     "Derslerini seç, çakışmayan bütün programları gör. Kampüse az gün gelmek ya da sabah dersinden kaçmak gibi önceliklerine göre sıralar.",
-  openGraph: { type: "website", locale: "tr_TR", siteName: "Çizelge" },
-  appleWebApp: { capable: true, title: "Çizelge", statusBarStyle: "default" },
+  openGraph: { type: "website", locale: "tr_TR", siteName: "OzuHelper" },
+  appleWebApp: { capable: true, title: "OzuHelper", statusBarStyle: "default" },
   icons: { apple: "/icons/apple-touch-icon.png" },
 };
 

@@ -138,7 +138,7 @@ describe("eventsIcs", () => {
   });
 
   it("stable UIDs from ids", () => {
-    expect(ics).toContain("UID:2026-09-14-guz-ders-kayitlari@cizelge\r\n");
+    expect(ics).toContain("UID:2026-09-14-guz-ders-kayitlari@ozuhelper\r\n");
     const again = eventsIcs(events, { calName: "x", now: new Date("2027-01-01T00:00:00Z") });
     expect(again.match(/UID:[^\r]+/g)).toEqual(ics.match(/UID:[^\r]+/g));
   });
