@@ -1,8 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Onest } from "next/font/google";
+import { DeadlineBanner } from "@/components/DeadlineBanner";
 import { ServiceWorker } from "@/components/ServiceWorker";
 import { THEME_SCRIPT } from "@/components/theme-script";
 import { USING_SAMPLE_DATA } from "@/lib/data";
+import { loadAcademicCalendar } from "@/lib/academic-calendar/load";
+import { isDeadline } from "@/lib/academic-calendar/deadline";
 import "./globals.css";
 
 const onest = Onest({
@@ -37,6 +40,9 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
+  // Bant yalnızca kayıt, ekleme-bırakma ve çekilme tarihlerini gösterir; küçük bir liste gider.
+  const deadlines = (loadAcademicCalendar("ozyegin")?.events ?? []).filter(isDeadline);
+
   return (
     <html lang="tr" className={onest.variable} suppressHydrationWarning>
       <head>
@@ -46,6 +52,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <a href="#icerik" className="skip-link">
           İçeriğe geç
         </a>
+        <DeadlineBanner events={deadlines} />
         {USING_SAMPLE_DATA && (
           <div className="sample-banner">Örnek veri gösteriliyor. Buradaki dersler gerçek değil.</div>
         )}
