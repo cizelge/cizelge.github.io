@@ -35,6 +35,7 @@ import { TeacherLink } from "./TeacherLink";
 import { WeekGrid } from "./WeekGrid";
 import { RegistrationPlan } from "./RegistrationPlan";
 import { ShuttlePanel } from "./ShuttlePanel";
+import { AttendancePanel } from "./AttendancePanel";
 import { ElectiveFinder } from "./ElectiveFinder";
 import type { ShuttleData } from "@/lib/shuttle/types";
 
@@ -611,6 +612,15 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
 
         <RegistrationPlan input={input} current={current} courses={courses} colorOf={colorOf} termLabel={term.termLabel} />
         {shuttle && current && <ShuttlePanel data={shuttle} meetings={placed} />}
+        {current && (
+          <AttendancePanel
+            sections={current.sections}
+            courses={courses}
+            colorOf={colorOf}
+            schoolId={term.schoolId}
+            termId={term.termId}
+          />
+        )}
         {programs && current && (
           <ElectiveFinder
             programs={programs.programs}
