@@ -438,6 +438,7 @@ a.term-option[aria-current="page"]:hover {
 .cart-item .cart-details > summary::-webkit-details-marker { display: none; }
 .cart-item .cart-details[open] .cart-caret { transform: translateY(0.12em) rotate(-135deg); }
 .cart-panel { display: grid; gap: 0.6rem; padding: 0.1rem 0.7rem 0.75rem; }
+.cart-swap { justify-self: start; }
 .cart-lock { display: grid !important; gap: 0.25rem; padding: 0 !important; }
 .cart-lock .select { width: 100%; min-height: 38px; }
 .cart-sections { margin: 0; padding: 0; border: 0; display: grid; gap: 0.05rem; }

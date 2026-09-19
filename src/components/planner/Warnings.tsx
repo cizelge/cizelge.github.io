@@ -10,6 +10,8 @@ import styles from "./Warnings.module.css";
 interface Props {
   changes: Change[];
   prereqs: PrereqWarning[];
+  /** AKTS sınırı aşıldıysa cümle; aşılmadıysa null. */
+  overload: string | null;
   /** Değişiklikleri okudum: bir daha gösterme. */
   onSeen: () => void;
 }
@@ -44,8 +46,8 @@ function changeText(change: Change): { head: string; detail: string } {
   }
 }
 
-export function Warnings({ changes, prereqs, onSeen }: Props) {
-  if (changes.length === 0 && prereqs.length === 0) return null;
+export function Warnings({ changes, prereqs, overload, onSeen }: Props) {
+  if (changes.length === 0 && prereqs.length === 0 && !overload) return null;
 
   return (
     <section className={styles.root} aria-labelledby="uyarilar-baslik">
@@ -70,6 +72,15 @@ export function Warnings({ changes, prereqs, onSeen }: Props) {
             Gördüm, bir daha gösterme
           </button>
         </div>
+      )}
+
+      {overload && (
+        <ul className={styles.list}>
+          <li className={styles.item} data-kind="akts">
+            <span className={styles.head}>Dönem AKTS sınırını aştın</span>
+            <span className={styles.detail}>{overload}</span>
+          </li>
+        </ul>
       )}
 
       {prereqs.length > 0 && (

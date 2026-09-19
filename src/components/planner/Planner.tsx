@@ -16,6 +16,9 @@ import { bestPicks, scheduleScore, scoreLookup } from "@/lib/planner/instructor-
 import { useRatings } from "@/lib/ratings/useRatings";
 import { SwapSuggest } from "./SwapSuggest";
 import { Warnings } from "./Warnings";
+import { SectionSwap } from "./SectionSwap";
+import { cartLoad, overloadText } from "@/lib/planner/load";
+import { computeGpa, gradeEntries, maxLoad } from "@/lib/roadmap/gpa";
 import { detectChanges, prereqWarnings, snapshotKey, snapshotOf, type SectionSnapshot } from "@/lib/planner/warnings";
 import { loadState } from "@/lib/roadmap/storage";
 import { programRequirements } from "@/lib/roadmap/requirements";
@@ -102,6 +105,9 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
   // Bir önceki ziyaretteki şube bilgileri ve yol haritasındaki geçilen dersler (yalnızca tarayıcıda).
   const [snapshot, setSnapshot] = useState<SectionSnapshot[] | null>(null);
   const [passed, setPassed] = useState<{ codes: Set<string>; ects: number }>({ codes: new Set(), ects: 0 });
+  // Yönetmelik sınırı ortalamaya bağlı; ortalama yol haritasındaki notlardan gelir.
+  const [ectsLimit, setEctsLimit] = useState<{ limit: number | null; gpa: number | null; cap: boolean }>({ limit: null, gpa: null, cap: false });
+  const [swapCourse, setSwapCourse] = useState<string | null>(null);
 
   // İlk yükleme: önce linkteki durum, yoksa bu tarayıcıda kalan son durum.
   useEffect(() => {
@@ -134,8 +140,13 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
         return program ? programRequirements(program, i === 0 ? "anadal" : "cap") : null;
       })
       .filter((p) => p !== null);
-     
-    setPassed({ codes: passedCodes(chosen, state.completion), ects: passedEcts(chosen, state.completion) });
+    const codes = passedCodes(chosen, state.completion);
+    const ects = passedEcts(chosen, state.completion);
+    setPassed({ codes, ects });
+    // Dönemlik AKTS sınırı ortalamaya bağlı: not girilmemişse sınır hesaplanmaz.
+    const entries = gradeEntries(chosen, state.completion, state.grades);
+    const gpa = entries.length > 0 ? computeGpa(entries).gpa : null;
+    setEctsLimit({ limit: gpa === null ? null : maxLoad(gpa, { cap: state.cap !== null, passedEcts: ects }), gpa, cap: state.cap !== null });
   }, [programs]);
 
   useEffect(() => {
@@ -240,6 +251,8 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
     );
   }, [tuneToTeachers, best, result, selectedLayout, courses, scoreOf]);
 
+  const load = cartLoad(state.cart, courses, ectsLimit.limit, ectsLimit.gpa, ectsLimit.cap);
+  const overload = overloadText(load);
   const changes = snapshot ? detectChanges(snapshot, courses, state.cart) : [];
   const prereqs = prereqWarnings(state.cart, courses, passed.codes, passed.ects);
 
@@ -427,6 +440,10 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
           excluded={state.excluded}
           chosen={Object.fromEntries((current?.sections ?? []).map((r) => [r.courseCode, r.sectionId]))}
           onRemove={removeCourse}
+          onSwap={(code) => {
+            setSwapCourse(code);
+            setTab("program");
+          }}
           onLock={(code, id) => {
             const { [code]: _, ...rest } = state.locked;
             void _;
@@ -573,7 +590,30 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
           </div>
         )}
 
-        <Warnings changes={changes} prereqs={prereqs} onSeen={forgetChanges} />
+        <Warnings changes={changes} prereqs={prereqs} overload={overload} onSeen={forgetChanges} />
+
+        {swapCourse && courses.get(swapCourse) && (
+          <SectionSwap
+            school={term.schoolId}
+            course={courses.get(swapCourse)!}
+            currentId={current?.sections.find((r) => r.courseCode === swapCourse)?.sectionId}
+            lockedId={state.locked[swapCourse] ?? null}
+            meetings={placed}
+            onPick={(sectionId) => {
+              update({ locked: { ...state.locked, [swapCourse]: sectionId } });
+              setNote(`${swapCourse} ${sectionId} şubesine geçildi.`);
+              setSwapCourse(null);
+            }}
+            onUnlock={() => {
+              const { [swapCourse]: _, ...rest } = state.locked;
+              void _;
+              update({ locked: rest });
+              setNote(`${swapCourse} için şube kilidi kaldırıldı.`);
+              setSwapCourse(null);
+            }}
+            onClose={() => setSwapCourse(null)}
+          />
+        )}
 
         {swapped && programs && (
           <SwapSuggest
