@@ -7,6 +7,7 @@ import type { PlacedMeeting } from "@/components/planner/placed";
 import { tightRange } from "@/components/planner/placed";
 import { PrereqChain } from "@/components/course/PrereqChain";
 import { CourseGrades } from "@/components/grades/CourseGrades";
+import { CourseNotes } from "@/components/notes/CourseNotes";
 import { findCourse, loadPrograms, loadTerm, loadTerms } from "@/lib/data";
 import { DAY_NAMES as DAY, visibleDays } from "@/lib/days";
 import { personName } from "@/lib/format";
@@ -167,6 +168,8 @@ export default async function CoursePage(props: PageProps<"/ozyegin/[slug]">) {
         </div>
 
         <CourseGrades school="ozyegin" code={course.code} instructors={[...new Set(course.sections.flatMap((s) => s.instructors))]} />
+
+        <CourseNotes school="ozyegin" code={course.code} instructors={[...new Set(course.sections.flatMap((s) => s.instructors))]} />
 
         <h2 className="group-title" style={{ fontSize: "1.25rem" }}>
           Bütün şubeler haftada

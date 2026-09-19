@@ -5,6 +5,10 @@
 //   GET    /grades?school=&course=  -> bir dersin not dağılımı
 //   POST   /grades                  -> kendi harf notunu bildir / değiştir
 //   POST   /ungrade                 -> kendi bildirimini kaldır
+//   GET    /notes?school=&course=   -> ders notu bağlantıları
+//   POST   /notes                   -> bağlantı paylaş
+//   POST   /unnote                  -> kendi bağlantını kaldır
+//   POST   /notereport              -> bağlantıyı bildir
 // Kişisel veri saklanmaz: IP adresi yerine gizli anahtarla karılmış özeti tutulur, ad ve numara istenmez.
 //
 // Not: Cloudflare workers.dev adresleri Türkiye'den açılmadığı için servis Deno Deploy'da duruyor.
@@ -33,6 +37,15 @@ import {
   type GradeRow,
   type Letter,
 } from "./grades.ts";
+import {
+  HIDE_AFTER_REPORTS as NOTE_HIDE_AFTER,
+  MAX_NOTES_PER_DEVICE_COURSE,
+  MAX_NOTES_PER_IP_PER_DAY,
+  parseNote,
+  sortNotes,
+  type NoteKind,
+  type NoteRow,
+} from "./notes.ts";
 
 const DEFAULT_ORIGINS = ["https://cizelge.github.io", "http://localhost:3000"];
 const SCHOOL_RE = /^[a-z][a-z0-9-]{1,30}$/;
@@ -53,6 +66,16 @@ interface StoredGrade {
   letter: Letter;
   instructor: string | null;
   term: string;
+  at: string;
+}
+
+interface StoredNote {
+  url: string;
+  title: string;
+  kind: NoteKind;
+  term: string | null;
+  instructor: string | null;
+  device: string;
   at: string;
 }
 
@@ -363,6 +386,129 @@ async function removeGrade(request: Request, headers: Record<string, string>): P
   return json({ ok: true, removed: existing.value ? 1 : 0, grades: await courseGrades(school, course) }, { headers });
 }
 
+/** Bir dersin bağlantıları; çok bildirilenler gizlenir. `device` verilirse kendi kayıtları işaretlenir. */
+async function courseNotes(school: string, course: string, device = ""): Promise<NoteRow[]> {
+  const hidden = new Set<string>();
+  for await (const entry of kv.list({ prefix: ["notehidden", school, course] })) hidden.add(String(entry.key[3]));
+
+  const rows: NoteRow[] = [];
+  for await (const entry of kv.list<StoredNote>({ prefix: ["note", school, course] })) {
+    const id = String(entry.key[3]);
+    const v = entry.value;
+    if (!v?.url || hidden.has(id)) continue;
+    rows.push({
+      id,
+      url: v.url,
+      title: v.title,
+      kind: v.kind,
+      term: v.term ?? null,
+      instructor: v.instructor ?? null,
+      at: v.at,
+      mine: device !== "" && v.device === device,
+    });
+  }
+  return sortNotes(rows);
+}
+
+/** Ders notu bağlantısı paylaş. */
+async function postNote(request: Request, headers: Record<string, string>): Promise<Response> {
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return json({ error: "Gövde okunamadı" }, { status: 400, headers });
+  }
+  const parsed = parseNote(body);
+  if (!parsed.ok) return json({ error: parsed.error }, { status: 400, headers });
+  const note = parsed.note;
+
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "0.0.0.0";
+  const ipHash = await hashIp(ip);
+  const today = new Date().toISOString().slice(0, 10);
+  const [mine, perDay] = await Promise.all([
+    countMarks(["ndevice", note.device, note.school, note.course]),
+    countMarks(["nipday", ipHash, today]),
+  ]);
+  if (mine >= MAX_NOTES_PER_DEVICE_COURSE) {
+    return json({ error: `Bu derse en fazla ${MAX_NOTES_PER_DEVICE_COURSE} bağlantı ekleyebilirsin` }, { status: 429, headers });
+  }
+  if (perDay >= MAX_NOTES_PER_IP_PER_DAY) {
+    return json({ error: "Bugünlük bağlantı sınırına geldin" }, { status: 429, headers });
+  }
+
+  // Aynı bağlantı ikinci kez eklenmesin.
+  for await (const entry of kv.list<StoredNote>({ prefix: ["note", note.school, note.course] })) {
+    if (entry.value?.url === note.url) return json({ error: "Bu bağlantı zaten paylaşılmış" }, { status: 409, headers });
+  }
+
+  const id = crypto.randomUUID().replace(/-/g, "").slice(0, 12);
+  const stored: StoredNote = {
+    url: note.url,
+    title: note.title,
+    kind: note.kind,
+    term: note.term,
+    instructor: note.instructor,
+    device: note.device,
+    at: new Date().toISOString(),
+  };
+  await kv.set(["note", note.school, note.course, id], stored);
+  await Promise.all([
+    kv.set(["ndevice", note.device, note.school, note.course, id], 1, { expireIn: 730 * DAY_MS }),
+    kv.set(["nipday", ipHash, today, id], 1, { expireIn: 2 * DAY_MS }),
+  ]);
+  return json({ ok: true, notes: await courseNotes(note.school, note.course, note.device) }, { headers });
+}
+
+/** Kendi bağlantını kaldır. */
+async function removeNote(request: Request, headers: Record<string, string>): Promise<Response> {
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return json({ error: "Gövde okunamadı" }, { status: 400, headers });
+  }
+  const b = (body ?? {}) as Record<string, unknown>;
+  const school = typeof b.school === "string" ? b.school : "";
+  const course = typeof b.course === "string" ? b.course.replace(/\s+/g, "").toUpperCase() : "";
+  const id = typeof b.id === "string" ? b.id : "";
+  const device = typeof b.device === "string" ? b.device : "";
+  if (!SCHOOL_RE.test(school) || !/^[A-Z0-9]{3,12}$/.test(course) || !/^[0-9a-f]{12}$/.test(id) || device.length < 16) {
+    return json({ error: "İstek geçersiz" }, { status: 400, headers });
+  }
+  const key = ["note", school, course, id];
+  const existing = await kv.get<StoredNote>(key);
+  // Yalnızca ekleyen cihaz kaldırabilir.
+  if (existing.value && existing.value.device === device) {
+    await kv.delete(key);
+    await kv.delete(["ndevice", device, school, course, id]);
+  }
+  return json({ ok: true, notes: await courseNotes(school, course, device) }, { headers });
+}
+
+/** Bağlantıyı bildir: yeterince bildirim alınca gizlenir. */
+async function reportNote(request: Request, headers: Record<string, string>): Promise<Response> {
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return json({ error: "Gövde okunamadı" }, { status: 400, headers });
+  }
+  const b = (body ?? {}) as Record<string, unknown>;
+  const school = typeof b.school === "string" ? b.school : "";
+  const course = typeof b.course === "string" ? b.course.replace(/\s+/g, "").toUpperCase() : "";
+  const id = typeof b.id === "string" ? b.id : "";
+  const device = typeof b.device === "string" ? b.device : "";
+  if (!SCHOOL_RE.test(school) || !/^[A-Z0-9]{3,12}$/.test(course) || !/^[0-9a-f]{12}$/.test(id) || device.length < 16) {
+    return json({ error: "Bildirim geçersiz" }, { status: 400, headers });
+  }
+  await kv.set(["notereport", school, course, id, device], 1, { expireIn: 365 * DAY_MS });
+  let reports = 0;
+  for await (const _ of kv.list({ prefix: ["notereport", school, course, id] })) reports++;
+  const hidden = reports >= NOTE_HIDE_AFTER;
+  if (hidden) await kv.set(["notehidden", school, course, id], 1);
+  return json({ ok: true, reports, hidden, notes: await courseNotes(school, course, device) }, { headers });
+}
+
 /** Bakım: kötüye kullanılan ya da deneme amaçlı oyları siler. ADMIN_KEY verilmemişse kapalıdır. */
 async function deleteVotes(request: Request, url: URL, headers: Record<string, string>): Promise<Response> {
   const adminKey = env("ADMIN_KEY");
@@ -376,7 +522,11 @@ async function deleteVotes(request: Request, url: URL, headers: Record<string, s
 
   // all=1: oylar, yorumlar, bildirimler ve sınır işaretleri dahil her şey silinir (sıfırdan başlamak için).
   if (url.searchParams.get("all") === "1") {
-    for (const prefix of [["vote"], ["report"], ["reported"], ["ipteacher"], ["ipday"], ["device"], ["grade"], ["gipcourse"], ["gipday"], ["gdevice"]]) {
+    for (const prefix of [
+      ["vote"], ["report"], ["reported"], ["ipteacher"], ["ipday"], ["device"],
+      ["grade"], ["gipcourse"], ["gipday"], ["gdevice"],
+      ["note"], ["notereport"], ["notehidden"], ["ndevice"], ["nipday"],
+    ]) {
       for await (const entry of kv.list({ prefix })) {
         await kv.delete(entry.key);
         removed++;
@@ -413,6 +563,32 @@ export async function handler(request: Request): Promise<Response> {
   if (url.pathname === "/ungrade" && request.method === "POST") {
     if (!headers["Access-Control-Allow-Origin"]) return json({ error: "Bu adresten istek kabul edilmiyor" }, { status: 403, headers });
     return await removeGrade(request, headers);
+  }
+  if (url.pathname === "/unnote" && request.method === "POST") {
+    if (!headers["Access-Control-Allow-Origin"]) return json({ error: "Bu adresten istek kabul edilmiyor" }, { status: 403, headers });
+    return await removeNote(request, headers);
+  }
+  if (url.pathname === "/notereport" && request.method === "POST") {
+    if (!headers["Access-Control-Allow-Origin"]) return json({ error: "Bu adresten bildirim kabul edilmiyor" }, { status: 403, headers });
+    return await reportNote(request, headers);
+  }
+  if (url.pathname === "/notes") {
+    if (request.method === "GET") {
+      const school = url.searchParams.get("school") ?? "";
+      const course = (url.searchParams.get("course") ?? "").replace(/\s+/g, "").toUpperCase();
+      const device = url.searchParams.get("device") ?? "";
+      if (!SCHOOL_RE.test(school)) return json({ error: "Okul geçersiz" }, { status: 400, headers });
+      if (!/^[A-Z0-9]{3,12}$/.test(course)) return json({ error: "Ders kodu geçersiz" }, { status: 400, headers });
+      return json(
+        { school, course, notes: await courseNotes(school, course, device) },
+        { headers: { ...headers, "Cache-Control": "private, max-age=60" } },
+      );
+    }
+    if (request.method === "POST") {
+      if (!headers["Access-Control-Allow-Origin"]) return json({ error: "Bu adresten paylaşım kabul edilmiyor" }, { status: 403, headers });
+      return await postNote(request, headers);
+    }
+    return json({ error: "Yöntem desteklenmiyor" }, { status: 405, headers });
   }
   if (url.pathname === "/grades") {
     if (request.method === "GET") {
