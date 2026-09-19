@@ -2,6 +2,9 @@
 //   GET    /ratings?school=ozyegin  -> hoca puanları
 //   POST   /ratings                 -> oy ver / oyunu değiştir
 //   DELETE /ratings?school=...      -> bakım (ADMIN_KEY ile)
+//   GET    /grades?school=&course=  -> bir dersin not dağılımı
+//   POST   /grades                  -> kendi harf notunu bildir / değiştir
+//   POST   /ungrade                 -> kendi bildirimini kaldır
 // Kişisel veri saklanmaz: IP adresi yerine gizli anahtarla karılmış özeti tutulur, ad ve numara istenmez.
 //
 // Not: Cloudflare workers.dev adresleri Türkiye'den açılmadığı için servis Deno Deploy'da duruyor.
@@ -20,6 +23,16 @@ import {
   type InstructorSummary,
   type Row,
 } from "./logic.ts";
+import {
+  MAX_GRADES_PER_DEVICE,
+  MAX_GRADES_PER_IP_PER_COURSE,
+  MAX_GRADES_PER_IP_PER_DAY,
+  parseGrade,
+  summarizeCourse,
+  type CourseGrades,
+  type GradeRow,
+  type Letter,
+} from "./grades.ts";
 
 const DEFAULT_ORIGINS = ["https://cizelge.github.io", "http://localhost:3000"];
 const SCHOOL_RE = /^[a-z][a-z0-9-]{1,30}$/;
@@ -33,6 +46,13 @@ interface StoredVote {
   criteria: Criteria;
   /** İsteğe bağlı isimsiz yorum. */
   comment?: string | null;
+  at: string;
+}
+
+interface StoredGrade {
+  letter: Letter;
+  instructor: string | null;
+  term: string;
   at: string;
 }
 
@@ -271,6 +291,78 @@ async function reportComment(request: Request, headers: Record<string, string>):
   return json({ ok: true, reports, hidden: reports >= HIDE_AFTER_REPORTS }, { headers });
 }
 
+/** Bir dersin bütün bildirimleri; özet KV'den her seferinde okunur (ders başına az kayıt olur). */
+async function courseGrades(school: string, course: string): Promise<CourseGrades> {
+  const rows: GradeRow[] = [];
+  for await (const entry of kv.list<StoredGrade>({ prefix: ["grade", school, course] })) {
+    const v = entry.value;
+    if (v?.letter && v.term) rows.push({ letter: v.letter, instructor: v.instructor ?? null, term: v.term });
+  }
+  return summarizeCourse(course, rows);
+}
+
+/** Kendi harf notunu bildir; aynı ders için ikinci bildirim eskisinin üstüne yazar. */
+async function postGrade(request: Request, headers: Record<string, string>): Promise<Response> {
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return json({ error: "Gövde okunamadı" }, { status: 400, headers });
+  }
+  const parsed = parseGrade(body);
+  if (!parsed.ok) return json({ error: parsed.error }, { status: 400, headers });
+  const grade = parsed.grade;
+
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "0.0.0.0";
+  const ipHash = await hashIp(ip);
+  const today = new Date().toISOString().slice(0, 10);
+  const key = ["grade", grade.school, grade.course, grade.device];
+  const existing = await kv.get<StoredGrade>(key);
+
+  if (!existing.value) {
+    const [device, perCourse, perDay] = await Promise.all([
+      countMarks(["gdevice", grade.device]),
+      countMarks(["gipcourse", ipHash, grade.school, grade.course]),
+      countMarks(["gipday", ipHash, today]),
+    ]);
+    if (device >= MAX_GRADES_PER_DEVICE || perCourse >= MAX_GRADES_PER_IP_PER_COURSE || perDay >= MAX_GRADES_PER_IP_PER_DAY) {
+      return json({ error: "Çok fazla bildirim gönderildi, daha sonra dene" }, { status: 429, headers });
+    }
+  }
+
+  const stored: StoredGrade = { letter: grade.letter, instructor: grade.instructor, term: grade.term, at: new Date().toISOString() };
+  await kv.set(key, stored);
+  if (!existing.value) {
+    await Promise.all([
+      kv.set(["gipday", ipHash, today, grade.course], 1, { expireIn: 2 * DAY_MS }),
+      kv.set(["gipcourse", ipHash, grade.school, grade.course, grade.device], 1, { expireIn: 120 * DAY_MS }),
+      kv.set(["gdevice", grade.device, grade.school, grade.course], 1, { expireIn: 730 * DAY_MS }),
+    ]);
+  }
+  return json({ ok: true, updated: !!existing.value, grades: await courseGrades(grade.school, grade.course) }, { headers });
+}
+
+/** Kendi not bildirimini kaldır. */
+async function removeGrade(request: Request, headers: Record<string, string>): Promise<Response> {
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return json({ error: "Gövde okunamadı" }, { status: 400, headers });
+  }
+  const b = (body ?? {}) as Record<string, unknown>;
+  const school = typeof b.school === "string" ? b.school : "";
+  const course = typeof b.course === "string" ? b.course.replace(/\s+/g, "").toUpperCase() : "";
+  const device = typeof b.device === "string" ? b.device : "";
+  if (!SCHOOL_RE.test(school) || !/^[A-Z0-9]{3,12}$/.test(course) || device.length < 16) {
+    return json({ error: "İstek geçersiz" }, { status: 400, headers });
+  }
+  const key = ["grade", school, course, device];
+  const existing = await kv.get<StoredGrade>(key);
+  if (existing.value) await kv.delete(key);
+  return json({ ok: true, removed: existing.value ? 1 : 0, grades: await courseGrades(school, course) }, { headers });
+}
+
 /** Bakım: kötüye kullanılan ya da deneme amaçlı oyları siler. ADMIN_KEY verilmemişse kapalıdır. */
 async function deleteVotes(request: Request, url: URL, headers: Record<string, string>): Promise<Response> {
   const adminKey = env("ADMIN_KEY");
@@ -284,7 +376,7 @@ async function deleteVotes(request: Request, url: URL, headers: Record<string, s
 
   // all=1: oylar, yorumlar, bildirimler ve sınır işaretleri dahil her şey silinir (sıfırdan başlamak için).
   if (url.searchParams.get("all") === "1") {
-    for (const prefix of [["vote"], ["report"], ["reported"], ["ipteacher"], ["ipday"], ["device"]]) {
+    for (const prefix of [["vote"], ["report"], ["reported"], ["ipteacher"], ["ipday"], ["device"], ["grade"], ["gipcourse"], ["gipday"], ["gdevice"]]) {
       for await (const entry of kv.list({ prefix })) {
         await kv.delete(entry.key);
         removed++;
@@ -317,6 +409,27 @@ export async function handler(request: Request): Promise<Response> {
   if (url.pathname === "/report" && request.method === "POST") {
     if (!headers["Access-Control-Allow-Origin"]) return json({ error: "Bu adresten bildirim kabul edilmiyor" }, { status: 403, headers });
     return await reportComment(request, headers);
+  }
+  if (url.pathname === "/ungrade" && request.method === "POST") {
+    if (!headers["Access-Control-Allow-Origin"]) return json({ error: "Bu adresten istek kabul edilmiyor" }, { status: 403, headers });
+    return await removeGrade(request, headers);
+  }
+  if (url.pathname === "/grades") {
+    if (request.method === "GET") {
+      const school = url.searchParams.get("school") ?? "";
+      const course = (url.searchParams.get("course") ?? "").replace(/\s+/g, "").toUpperCase();
+      if (!SCHOOL_RE.test(school)) return json({ error: "Okul geçersiz" }, { status: 400, headers });
+      if (!/^[A-Z0-9]{3,12}$/.test(course)) return json({ error: "Ders kodu geçersiz" }, { status: 400, headers });
+      return json(
+        { school, updatedAt: new Date().toISOString(), grades: await courseGrades(school, course) },
+        { headers: { ...headers, "Cache-Control": "private, max-age=60" } },
+      );
+    }
+    if (request.method === "POST") {
+      if (!headers["Access-Control-Allow-Origin"]) return json({ error: "Bu adresten bildirim kabul edilmiyor" }, { status: 403, headers });
+      return await postGrade(request, headers);
+    }
+    return json({ error: "Yöntem desteklenmiyor" }, { status: 405, headers });
   }
   if (url.pathname !== "/ratings") return json({ error: "Bulunamadı" }, { status: 404, headers });
 

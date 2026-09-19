@@ -34,6 +34,7 @@ export function PlannerPage({ term }: { term: TermData }) {
         term={term}
         programs={programs ? slimProgramsForClient(programs) : null}
         termOptions={termOptions(SCHOOL)}
+        coursePages={term.termId === loadTerm(SCHOOL).termId}
         teacherPages={term.termId === loadTerm(SCHOOL).termId}
         shuttle={loadShuttle(SCHOOL)}
       />
