@@ -15,6 +15,11 @@ import { useSchedules } from "@/lib/planner/useSchedules";
 import { bestPicks, scheduleScore, scoreLookup } from "@/lib/planner/instructor-score";
 import { useRatings } from "@/lib/ratings/useRatings";
 import { SwapSuggest } from "./SwapSuggest";
+import { Warnings } from "./Warnings";
+import { detectChanges, prereqWarnings, snapshotKey, snapshotOf, type SectionSnapshot } from "@/lib/planner/warnings";
+import { loadState } from "@/lib/roadmap/storage";
+import { programRequirements } from "@/lib/roadmap/requirements";
+import { passedCodes, passedEcts } from "@/lib/roadmap/progress";
 import { Cart } from "./Cart";
 import { CourseSearch } from "./CourseSearch";
 import { Curriculum } from "./Curriculum";
@@ -94,6 +99,9 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
   const [tuneToTeachers, setTuneToTeachers] = useState(false);
   // Sepetten çıkarılan son ders: boşalan saate ne sığdığını gösterir.
   const [swapped, setSwapped] = useState<string | null>(null);
+  // Bir önceki ziyaretteki şube bilgileri ve yol haritasındaki geçilen dersler (yalnızca tarayıcıda).
+  const [snapshot, setSnapshot] = useState<SectionSnapshot[] | null>(null);
+  const [passed, setPassed] = useState<{ codes: Set<string>; ects: number }>({ codes: new Set(), ects: 0 });
 
   // İlk yükleme: önce linkteki durum, yoksa bu tarayıcıda kalan son durum.
   useEffect(() => {
@@ -115,6 +123,34 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
     window.history.replaceState(null, "", query ? `?${query}` : window.location.pathname);
     writeStorage(STORAGE_KEY + term.schoolId + term.termId, query);
   }, [state, ready, term.schoolId, term.termId]);
+
+  // Yol haritasındaki işaretler ve önceki ziyaretin şube bilgileri: ikisi de yalnızca tarayıcıda.
+  useEffect(() => {
+    if (!programs) return;
+    const state = loadState();
+    const chosen = [state.anadal, state.cap]
+      .map((id, i) => {
+        const program = id ? programs.programs.find((p) => p.id === id) : null;
+        return program ? programRequirements(program, i === 0 ? "anadal" : "cap") : null;
+      })
+      .filter((p) => p !== null);
+     
+    setPassed({ codes: passedCodes(chosen, state.completion), ects: passedEcts(chosen, state.completion) });
+  }, [programs]);
+
+  useEffect(() => {
+    try {
+      const raw = window.localStorage.getItem(snapshotKey(term.schoolId, term.termId));
+      const parsed: unknown = raw ? JSON.parse(raw) : null;
+      const sections = parsed && typeof parsed === "object" && Array.isArray((parsed as { sections?: unknown }).sections)
+        ? ((parsed as { sections: SectionSnapshot[] }).sections)
+        : [];
+       
+      setSnapshot(sections);
+    } catch {
+      setSnapshot([]);
+    }
+  }, [term.schoolId, term.termId]);
 
   const { summaries } = useRatings(term.schoolId);
   const scoreOf = useMemo(() => scoreLookup(summaries?.instructors), [summaries]);
@@ -203,6 +239,37 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
         : `Hoca puanı en yüksek program seçildi: ${fmtScore(after.score)}/5 (${after.known} ders).`,
     );
   }, [tuneToTeachers, best, result, selectedLayout, courses, scoreOf]);
+
+  const changes = snapshot ? detectChanges(snapshot, courses, state.cart) : [];
+  const prereqs = prereqWarnings(state.cart, courses, passed.codes, passed.ects);
+
+  // Sepete yeni giren şubelerin bugünkü hâli ize eklenir; var olan kayıtlara dokunulmaz.
+  const currentSnapshot = current ? snapshotOf(current.sections, courses) : [];
+  const snapshotJson = JSON.stringify(currentSnapshot);
+  useEffect(() => {
+    if (snapshot === null || !ready || currentSnapshot.length === 0) return;
+    const known = new Set(snapshot.map((s) => `${s.code}.${s.sectionId}`));
+    const fresh = currentSnapshot.filter((s) => !known.has(`${s.code}.${s.sectionId}`));
+    if (fresh.length === 0) return;
+    const merged = [...snapshot, ...fresh];
+    setSnapshot(merged);
+    writeStorage(
+      snapshotKey(term.schoolId, term.termId),
+      JSON.stringify({ v: 1, termId: term.termId, savedAt: new Date().toISOString(), sections: merged }),
+    );
+    // currentSnapshot içeriği snapshotJson ile temsil ediliyor
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [snapshotJson, snapshot, ready, term.schoolId, term.termId]);
+
+  function forgetChanges() {
+    const merged = snapshotOf(current?.sections ?? [], courses);
+    setSnapshot(merged);
+    writeStorage(
+      snapshotKey(term.schoolId, term.termId),
+      JSON.stringify({ v: 1, termId: term.termId, savedAt: new Date().toISOString(), sections: merged }),
+    );
+    setNote("Değişiklikler okundu.");
+  }
 
   const placed = current ? placeMeetings(current.sections, courses, colorOf) : [];
   const range = timeRange(placed);
@@ -505,6 +572,8 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
             </div>
           </div>
         )}
+
+        <Warnings changes={changes} prereqs={prereqs} onSeen={forgetChanges} />
 
         {swapped && programs && (
           <SwapSuggest

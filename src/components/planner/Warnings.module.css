@@ -1,0 +1,35 @@
+.root {
+  border: 1px solid color-mix(in oklab, var(--danger) 35%, var(--rule));
+  border-left: 3px solid var(--danger);
+  border-radius: var(--radius-m);
+  background: color-mix(in oklab, var(--danger) 7%, var(--paper));
+  padding: 0.85rem 1rem 0.9rem;
+  display: grid;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+.title { margin: 0; font-size: 1rem; font-weight: 700; }
+
+.group { display: grid; gap: 0.5rem; justify-items: start; }
+
+.list { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.5rem; }
+
+.item { display: grid; gap: 0.1rem; min-width: 0; }
+.head { font-weight: 600; overflow-wrap: anywhere; }
+.detail { color: var(--ink-2); font-size: 0.88rem; line-height: 1.45; overflow-wrap: anywhere; }
+.item[data-kind="onsart"] .head { font-weight: 600; }
+
+.seen {
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-m);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.88rem;
+  min-height: 40px;
+  padding: 0 0.8rem;
+  cursor: pointer;
+}
+.seen:hover { background: var(--paper-2); }
+.seen:focus-visible { outline: 2px solid var(--pen); outline-offset: 2px; }
