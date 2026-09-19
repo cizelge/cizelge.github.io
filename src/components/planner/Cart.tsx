@@ -1,6 +1,7 @@
 import type { Course } from "@/lib/types";
 import type { SectionRef } from "@/lib/engine";
 import { DAY_SHORT } from "@/lib/days";
+import { personName } from "@/lib/format";
 
 interface Props {
   cart: readonly string[];
@@ -12,8 +13,6 @@ interface Props {
   chosen: Record<string, string>;
   onRemove: (code: string) => void;
   onLock: (code: string, sectionId: string | null) => void;
-  /** Şube listesini büyük panelde aç. */
-  onSwap: (code: string) => void;
   onToggleExclude: (ref: SectionRef) => void;
   /** Bütün dersleri sepetten çıkarır. */
   onClear: () => void;
@@ -21,7 +20,7 @@ interface Props {
   onUndoClear?: () => void;
 }
 
-export function Cart({ cart, courses, colorOf, locked, excluded, chosen, onRemove, onLock, onSwap, onToggleExclude, onClear, onUndoClear }: Props) {
+export function Cart({ cart, courses, colorOf, locked, excluded, chosen, onRemove, onLock, onToggleExclude, onClear, onUndoClear }: Props) {
   const ects = cart.reduce((sum, code) => sum + (courses.get(code)?.ects ?? 0), 0);
 
   return (
@@ -86,14 +85,19 @@ export function Cart({ cart, courses, colorOf, locked, excluded, chosen, onRemov
                   </summary>
                   {(
                     <div className="cart-panel">
-                      <button type="button" className="btn btn-small cart-swap" onClick={() => onSwap(code)}>
-                        Şubeleri gör ve değiştir
-                      </button>
-                      {lock && (
-                        <button type="button" className="btn btn-small cart-swap" onClick={() => onLock(code, null)}>
-                          Kilidi kaldır, en iyisini seç
-                        </button>
-                      )}
+                      <label className="cart-lock">
+                        <span>Şube</span>
+                        <select className="select" value={lock} onChange={(e) => onLock(code, e.target.value || null)}>
+                          <option value="">Farketmez, en iyisini seç</option>
+                          {course.sections.map((s) => (
+                            <option key={s.id} value={s.id}>
+                              {s.id}
+                              {s.instructors[0] ? `, ${personName(s.instructors[0])}` : ""}
+                              {s.capacity ? `, kota ${s.capacity}` : ""}
+                            </option>
+                          ))}
+                        </select>
+                      </label>
                       {!lock && (
                         <fieldset className="cart-sections">
                           <legend className="hint">Kullanılabilecek şubeler</legend>

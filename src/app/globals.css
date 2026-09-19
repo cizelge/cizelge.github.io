@@ -438,7 +438,6 @@ a.term-option[aria-current="page"]:hover {
 .cart-item .cart-details > summary::-webkit-details-marker { display: none; }
 .cart-item .cart-details[open] .cart-caret { transform: translateY(0.12em) rotate(-135deg); }
 .cart-panel { display: grid; gap: 0.6rem; padding: 0.1rem 0.7rem 0.75rem; }
-.cart-swap { justify-self: start; }
 .cart-lock { display: grid !important; gap: 0.25rem; padding: 0 !important; }
 .cart-lock .select { width: 100%; min-height: 38px; }
 .cart-sections { margin: 0; padding: 0; border: 0; display: grid; gap: 0.05rem; }
@@ -749,6 +748,31 @@ a.term-option[aria-current="page"]:hover {
 .is-compact .block { padding: 0.2rem 0.4rem; font-size: 0.76rem; }
 .is-compact .block-code { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .block-sub { display: block; opacity: 0.85; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* Hoca adı kutunun içinde bağlantıdır; ders bağlantısının üstünde kalsın diye z-index. */
+.block-teacher {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.28rem;
+  max-width: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+.block-teacher-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.block-teacher:hover .block-teacher-name { text-decoration: underline; }
+.block-teacher:focus-visible { outline: 2px solid var(--pen); outline-offset: 1px; border-radius: var(--radius-s); }
+.block-star {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.12rem;
+  flex: none;
+  color: var(--star);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+/* Puanı yoksa altın sarısı yerine metin rengi: "burada puan var" yanılgısı olmasın. */
+.block-star[data-empty="true"] { color: inherit; opacity: 0.6; }
 
 .week-empty {
   position: absolute;

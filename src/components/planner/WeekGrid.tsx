@@ -19,9 +19,11 @@ interface Props {
   renderSection?: (m: PlacedMeeting) => React.ReactNode;
   /** Ders kutusunun bağlanacağı sayfa (ders sayfası); null ya da verilmezse kutu bağlantı değildir. */
   hrefOf?: (m: PlacedMeeting) => string | null;
+  /** Hoca adının yerine konacak öğe (puanlı bağlantı); null dönerse düz ad yazılır. */
+  renderInstructor?: (m: PlacedMeeting) => React.ReactNode;
 }
 
-export function WeekGrid({ meetings, freeDays, range, days, empty, compact = false, renderSection, hrefOf }: Props) {
+export function WeekGrid({ meetings, freeDays, range, days, empty, compact = false, renderSection, renderInstructor, hrefOf }: Props) {
   const startHour = Math.floor(range.start / 60);
   const endHour = Math.ceil(range.end / 60);
   const hours = Array.from({ length: endHour - startHour }, (_, i) => startHour + i);
@@ -93,7 +95,9 @@ export function WeekGrid({ meetings, freeDays, range, days, empty, compact = fal
                           {m.start}–{m.end}
                         </span>
                         {m.room && <span className="block-sub block-room">{m.room}</span>}
-                        {m.instructor && <span className="block-sub">{personName(m.instructor)}</span>}
+                        {m.instructor && (
+                          <span className="block-sub">{renderInstructor?.(m) ?? personName(m.instructor)}</span>
+                        )}
                       </>
                     )}
                   </div>

@@ -16,7 +16,6 @@ import { bestPicks, scheduleScore, scoreLookup } from "@/lib/planner/instructor-
 import { useRatings } from "@/lib/ratings/useRatings";
 import { SwapSuggest } from "./SwapSuggest";
 import { Warnings } from "./Warnings";
-import { SectionSwap } from "./SectionSwap";
 import { cartLoad, overloadText } from "@/lib/planner/load";
 import { computeGpa, gradeEntries, maxLoad } from "@/lib/roadmap/gpa";
 import { detectChanges, prereqWarnings, snapshotKey, snapshotOf, type SectionSnapshot } from "@/lib/planner/warnings";
@@ -32,6 +31,7 @@ import { Tuning } from "./Preferences";
 import { formatGap, ScheduleStrip } from "./ScheduleStrip";
 import { TermSelect } from "./TermSelect";
 import { SectionSwitch } from "./SectionSwitch";
+import { TeacherLink } from "./TeacherLink";
 import { WeekGrid } from "./WeekGrid";
 import { RegistrationPlan } from "./RegistrationPlan";
 import { ShuttlePanel } from "./ShuttlePanel";
@@ -72,11 +72,13 @@ interface PlannerProps {
   termOptions?: readonly TermOption[];
   /** Çizelgedeki ders kutuları ders sayfasına bağlansın mı (sayfalar yalnızca varsayılan dönem için var). */
   coursePages?: boolean;
+  /** Hoca adları hoca sayfasına bağlansın mı (sayfalar yalnızca varsayılan dönem için var). */
+  teacherPages?: boolean;
   /** Kampüs servis saatleri; yoksa servis paneli gösterilmez. */
   shuttle?: ShuttleData | null;
 }
 
-export function Planner({ term, programs, termOptions = [], coursePages = false, shuttle = null }: PlannerProps) {
+export function Planner({ term, programs, termOptions = [], coursePages = false, teacherPages = false, shuttle = null }: PlannerProps) {
   const courses = useMemo(() => new Map<string, Course>(term.courses.map((c) => [c.code, c])), [term]);
   // Özyeğin bir dönemi önce yalnızca ders listesiyle yayınlar; saatler gelene kadar program oluşturulmaz.
   const hasTimes = useMemo(() => termHasTimes(term), [term]);
@@ -107,7 +109,6 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
   const [passed, setPassed] = useState<{ codes: Set<string>; ects: number }>({ codes: new Set(), ects: 0 });
   // Yönetmelik sınırı ortalamaya bağlı; ortalama yol haritasındaki notlardan gelir.
   const [ectsLimit, setEctsLimit] = useState<{ limit: number | null; gpa: number | null; cap: boolean }>({ limit: null, gpa: null, cap: false });
-  const [swapCourse, setSwapCourse] = useState<string | null>(null);
 
   // İlk yükleme: önce linkteki durum, yoksa bu tarayıcıda kalan son durum.
   useEffect(() => {
@@ -440,10 +441,6 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
           excluded={state.excluded}
           chosen={Object.fromEntries((current?.sections ?? []).map((r) => [r.courseCode, r.sectionId]))}
           onRemove={removeCourse}
-          onSwap={(code) => {
-            setSwapCourse(code);
-            setTab("program");
-          }}
           onLock={(code, id) => {
             const { [code]: _, ...rest } = state.locked;
             void _;
@@ -592,28 +589,6 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
 
         <Warnings changes={changes} prereqs={prereqs} overload={overload} onSeen={forgetChanges} />
 
-        {swapCourse && courses.get(swapCourse) && (
-          <SectionSwap
-            school={term.schoolId}
-            course={courses.get(swapCourse)!}
-            currentId={current?.sections.find((r) => r.courseCode === swapCourse)?.sectionId}
-            lockedId={state.locked[swapCourse] ?? null}
-            meetings={placed}
-            onPick={(sectionId) => {
-              update({ locked: { ...state.locked, [swapCourse]: sectionId } });
-              setNote(`${swapCourse} ${sectionId} şubesine geçildi.`);
-              setSwapCourse(null);
-            }}
-            onUnlock={() => {
-              const { [swapCourse]: _, ...rest } = state.locked;
-              void _;
-              update({ locked: rest });
-              setNote(`${swapCourse} için şube kilidi kaldırıldı.`);
-              setSwapCourse(null);
-            }}
-            onClose={() => setSwapCourse(null)}
-          />
-        )}
 
         {swapped && programs && (
           <SwapSuggest
@@ -656,6 +631,11 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
                   const slug = courses.get(m.courseCode)?.slug;
                   return slug ? `/ozyegin/${slug}` : null;
                 }
+              : undefined
+          }
+          renderInstructor={
+            teacherPages
+              ? (m) => (m.instructor ? <TeacherLink name={m.instructor} score={scoreOf(m.instructor)} /> : null)
               : undefined
           }
           renderSection={(m) => {
