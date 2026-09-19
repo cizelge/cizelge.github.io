@@ -36,7 +36,7 @@ export function ElectiveFinder({ programs, programId, courses, meetings, cart, f
     <details className={styles.panel}>
       <summary className={styles.summary}>
         <span className={styles.title}>Programına sığan seçmeliler</span>
-        <span className={styles.hint}>Boş saatlerine uyan ve bölümünde seçmeli sayılan dersler.</span>
+        <span className={styles.hint}>Boş saatine uyan seçmeliler.</span>
       </summary>
 
       <div className={styles.body}>

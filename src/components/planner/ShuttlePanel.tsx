@@ -133,7 +133,7 @@ export function ShuttlePanel({ data, meetings }: Props) {
     <details className={styles.panel}>
       <summary className={styles.summary}>
         <span className={styles.title}>Servis saatleri</span>
-        <span className={styles.hint}>Derslerine göre gidiş ve dönüş seferleri.</span>
+        <span className={styles.hint}>Dersine göre gidiş-dönüş.</span>
       </summary>
 
       <div className={styles.body}>

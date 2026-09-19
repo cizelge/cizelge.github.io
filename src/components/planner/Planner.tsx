@@ -6,13 +6,13 @@ import type { Course, ProgramsData, TermData } from "@/lib/types";
 import { expandCorequisites, type RelaxedConstraint, type SectionRef } from "@/lib/engine";
 import { visibleDays } from "@/lib/days";
 import { programYears } from "@/lib/planner/curriculum";
-import { savePng } from "@/lib/planner/download-image";
+import { isDarkTheme, savePng } from "@/lib/planner/download-image";
 import { OZYEGIN_CALENDAR } from "@/lib/calendar";
 import { buildIcs } from "@/lib/planner/ics";
-import { buildScheduleSvg, imageFileName } from "@/lib/planner/image";
+import { buildScheduleSvg, DARK_PALETTE, imageFileName, LIGHT_PALETTE } from "@/lib/planner/image";
 import { decodeState, EMPTY_STATE, encodeState, missingNotice, termSwitchQuery, type PlannerState } from "@/lib/planner/state";
 import { useSchedules } from "@/lib/planner/useSchedules";
-import { bestPicks, scheduleScore, scoreLookup } from "@/lib/planner/instructor-score";
+import { scheduleScore, scoreLookup } from "@/lib/planner/instructor-score";
 import { useRatings } from "@/lib/ratings/useRatings";
 import { SwapSuggest } from "./SwapSuggest";
 import { Warnings } from "./Warnings";
@@ -101,8 +101,6 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
   // Sepeti boşaltmadan önceki hâl; "Geri al" için. Yeni ders eklenince unutulur.
   const [cleared, setCleared] = useState<Pick<PlannerState, "cart" | "locked" | "excluded" | "picks"> | null>(null);
   const [layoutLimit, setLayoutLimit] = useState(LAYOUT_PAGE);
-  // Hoca puanına göre seçim iki adımda olur: önce düzen değişir, seçenekler gelince şubeler ayarlanır.
-  const [tuneToTeachers, setTuneToTeachers] = useState(false);
   // Sepetten çıkarılan son ders: boşalan saate ne sığdığını gösterir.
   const [swapped, setSwapped] = useState<string | null>(null);
   // Bir önceki ziyaretteki şube bilgileri ve yol haritasındaki geçilen dersler (yalnızca tarayıcıda).
@@ -215,44 +213,6 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
     ),
   );
   const teacherScore = current ? scheduleScore(current.sections, courses, scoreOf) : { score: null, known: 0 };
-  // Puanı bilinen en az bir hoca varsa düğme çalışır.
-  const canTune = layouts.some((l) => scheduleScore(l.best.sections, courses, scoreOf).score !== null);
-
-  function tuneTeachers() {
-    if (!canTune) return;
-    let bestIndex = selectedLayout;
-    let best = -1;
-    layouts.forEach((layout, i) => {
-      const { score } = scheduleScore(layout.best.sections, courses, scoreOf);
-      if (score !== null && score > best) {
-        best = score;
-        bestIndex = i;
-      }
-    });
-    const before = teacherScore.score;
-    setTuneToTeachers(true);
-    setState((s) => ({ ...s, selected: bestIndex, picks: {} }));
-    setNote(before === null ? "Hoca puanı en yüksek program seçiliyor." : `Hoca puanı ${fmtScore(before)} idi, en iyisi aranıyor.`);
-  }
-
-  // Yeni düzenin şube seçenekleri gelince en iyi hocaları seç.
-  useEffect(() => {
-    if (!tuneToTeachers || !best || !result || result.layout !== selectedLayout) return;
-    const picks = bestPicks(best.sections, result.alternatives, courses, scoreOf);
-    const after = scheduleScore(
-      best.sections.map((r) => (picks[r.courseCode] ? { ...r, sectionId: picks[r.courseCode] } : r)),
-      courses,
-      scoreOf,
-    );
-    setTuneToTeachers(false);
-    setState((s) => ({ ...s, picks }));
-    setNote(
-      after.score === null
-        ? "Bu derslerin hocaları için henüz puan yok."
-        : `Hoca puanı en yüksek program seçildi: ${fmtScore(after.score)}/5 (${after.known} ders).`,
-    );
-  }, [tuneToTeachers, best, result, selectedLayout, courses, scoreOf]);
-
   const load = cartLoad(state.cart, courses, ectsLimit.limit, ectsLimit.gpa, ectsLimit.cap);
   const overload = overloadText(load);
   const changes = snapshot ? detectChanges(snapshot, courses, state.cart) : [];
@@ -376,6 +336,8 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
         termLabel: term.termLabel,
         title: `${groupRank}. program`,
         summary: current.summary,
+        // Görsel, sayfanın o anki temasıyla aynı çıksın.
+        palette: isDarkTheme() ? DARK_PALETTE : LIGHT_PALETTE,
       });
       const how = await savePng(image, imageFileName(term.termId), `${term.termLabel} ders programım`);
       setNote(
@@ -442,6 +404,7 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
           excluded={state.excluded}
           chosen={Object.fromEntries((current?.sections ?? []).map((r) => [r.courseCode, r.sectionId]))}
           onRemove={removeCourse}
+          scoreOf={scoreOf}
           onLock={(code, id) => {
             const { [code]: _, ...rest } = state.locked;
             void _;
@@ -570,11 +533,6 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
               )}
             </dl>
             <div className="actions">
-              {canTune && (
-                <button type="button" className="btn btn-pen" onClick={tuneTeachers}>
-                  Hoca puanına göre seç
-                </button>
-              )}
               <button type="button" className="btn" onClick={copyLink}>
                 Linki kopyala
               </button>
@@ -610,29 +568,32 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
           />
         )}
 
-        <RegistrationPlan input={input} current={current} courses={courses} colorOf={colorOf} termLabel={term.termLabel} />
-        {shuttle && current && <ShuttlePanel data={shuttle} meetings={placed} />}
-        {current && (
-          <AttendancePanel
-            sections={current.sections}
-            courses={courses}
-            colorOf={colorOf}
-            schoolId={term.schoolId}
-            termId={term.termId}
-          />
-        )}
-        {programs && current && (
-          <ElectiveFinder
-            programs={programs.programs}
-            programId={state.program}
-            courses={term.courses}
-            meetings={placed}
-            cart={state.cart}
-            freeDays={state.freeDays}
-            days={days}
-            onAdd={addCourse}
-          />
-        )}
+        {/* Yardımcı paneller: kapalıyken iki sütun, açılan panel satırı kaplar. */}
+        <div className="tool-grid">
+          <RegistrationPlan input={input} current={current} courses={courses} colorOf={colorOf} termLabel={term.termLabel} />
+          {shuttle && current && <ShuttlePanel data={shuttle} meetings={placed} />}
+          {current && (
+            <AttendancePanel
+              sections={current.sections}
+              courses={courses}
+              colorOf={colorOf}
+              schoolId={term.schoolId}
+              termId={term.termId}
+            />
+          )}
+          {programs && current && (
+            <ElectiveFinder
+              programs={programs.programs}
+              programId={state.program}
+              courses={term.courses}
+              meetings={placed}
+              cart={state.cart}
+              freeDays={state.freeDays}
+              days={days}
+              onAdd={addCourse}
+            />
+          )}
+        </div>
 
         <WeekGrid
           hrefOf={

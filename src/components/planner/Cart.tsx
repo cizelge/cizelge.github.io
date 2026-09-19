@@ -13,6 +13,8 @@ interface Props {
   chosen: Record<string, string>;
   onRemove: (code: string) => void;
   onLock: (code: string, sectionId: string | null) => void;
+  /** Hocanın 5 üzerinden puanı; yoksa null. Şube listesinde yıldız olarak görünür. */
+  scoreOf: (name: string) => number | null;
   onToggleExclude: (ref: SectionRef) => void;
   /** Bütün dersleri sepetten çıkarır. */
   onClear: () => void;
@@ -20,7 +22,25 @@ interface Props {
   onUndoClear?: () => void;
 }
 
-export function Cart({ cart, courses, colorOf, locked, excluded, chosen, onRemove, onLock, onToggleExclude, onClear, onUndoClear }: Props) {
+/** "A, Hasan Sözer ★4,3, kota 40" gibi tek satırlık şube özeti (açılır listede yıldız çizilemez, yazıyla verilir). */
+function sectionLabel(
+  section: { id: string; instructors: readonly string[]; capacity: number | null },
+  scoreOf: (name: string) => number | null,
+): string {
+  const who = section.instructors[0];
+  const scores = section.instructors.map(scoreOf).filter((s): s is number => s !== null);
+  const best = scores.length ? Math.max(...scores) : null;
+  return [
+    section.id,
+    who ? personName(who) : null,
+    best === null ? null : `★ ${best.toLocaleString("tr-TR", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}`,
+    section.capacity ? `kota ${section.capacity}` : null,
+  ]
+    .filter(Boolean)
+    .join(", ");
+}
+
+export function Cart({ cart, courses, colorOf, locked, excluded, chosen, onRemove, onLock, scoreOf, onToggleExclude, onClear, onUndoClear }: Props) {
   const ects = cart.reduce((sum, code) => sum + (courses.get(code)?.ects ?? 0), 0);
 
   return (
@@ -91,9 +111,7 @@ export function Cart({ cart, courses, colorOf, locked, excluded, chosen, onRemov
                           <option value="">Farketmez, en iyisini seç</option>
                           {course.sections.map((s) => (
                             <option key={s.id} value={s.id}>
-                              {s.id}
-                              {s.instructors[0] ? `, ${personName(s.instructors[0])}` : ""}
-                              {s.capacity ? `, kota ${s.capacity}` : ""}
+                              {sectionLabel(s, scoreOf)}
                             </option>
                           ))}
                         </select>

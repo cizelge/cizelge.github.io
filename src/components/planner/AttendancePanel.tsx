@@ -95,7 +95,7 @@ export function AttendancePanel({ sections, courses, colorOf, schoolId, termId }
       ? `${over} derste sınırı aştın.`
       : warn > 0
         ? `${warn} derste hakkın bitmek üzere.`
-        : "Kaçırdığın dersleri say, hakkın ne kadar kaldı gör.";
+        : "Kalan devamsızlık hakkın.";
 
   return (
     <details className={styles.panel}>

@@ -2012,6 +2012,13 @@ a.pc-pill:hover { border-color: var(--ink); background: var(--paper-2); }
 }
 
 /* ---------- Çizelge: ders kutusundan ders sayfasına ---------- */
+/* Yardımcı paneller: kapalıyken yan yana iki sütun, açılan panel satırın tamamını kaplar. */
+.tool-grid { display: grid; gap: 0.6rem; min-width: 0; }
+@media (min-width: 900px) {
+  .tool-grid { grid-template-columns: 1fr 1fr; align-items: start; }
+  .tool-grid > details[open] { grid-column: 1 / -1; }
+}
+
 /* Ders sayfası bağlantısı yalnızca kodun kendisidir; kutunun geri kalanı tıklanmaz. */
 .block-course { color: inherit; text-decoration: none; }
 .block-course:hover { text-decoration: underline; text-underline-offset: 2px; }

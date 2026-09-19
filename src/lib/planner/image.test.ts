@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { PlacedMeeting } from "@/components/planner/placed";
 import type { ScheduleSummary } from "../engine";
-import { IMAGE_LAYOUT as L, LIGHT_PALETTE, buildScheduleSvg, imageFileName, mixOklab } from "./image";
+import { DARK_PALETTE, IMAGE_LAYOUT as L, LIGHT_PALETTE, buildScheduleSvg, imageFileName, mixOklab } from "./image";
 
 const meeting = (over: Partial<PlacedMeeting>): PlacedMeeting => ({
   courseCode: "CS 101",
@@ -173,5 +173,19 @@ describe("mixOklab", () => {
 describe("imageFileName", () => {
   it("names the file after the term", () => {
     expect(imageFileName("2026-2027-guz")).toBe("program-2026-2027-guz.png");
+  });
+});
+
+describe("koyu tema", () => {
+  it("verilen palet zemini ve yazıyı belirler", () => {
+    const { svg } = build([meeting({})], { palette: DARK_PALETTE });
+    expect(svg).toContain(`fill="${DARK_PALETTE.paper}"`);
+    expect(svg).toContain(`fill="${DARK_PALETTE.ink}"`);
+    expect(svg).not.toContain(LIGHT_PALETTE.paper);
+  });
+
+  it("palet verilmezse açık tema kullanılır", () => {
+    const { svg } = build([meeting({})]);
+    expect(svg).toContain(`fill="${LIGHT_PALETTE.paper}"`);
   });
 });

@@ -3,6 +3,18 @@
 // ("Görseli Kaydet" oradan çıkar), olmazsa indirme, o da olmazsa yeni sekmede açma.
 import type { ScheduleImage } from "./image";
 
+/** Sayfa şu an koyu temada mı: seçim varsa o, yoksa işletim sisteminin tercihi. */
+export function isDarkTheme(): boolean {
+  try {
+    const chosen = document.documentElement.getAttribute("data-theme");
+    if (chosen === "dark") return true;
+    if (chosen === "light") return false;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  } catch {
+    return false;
+  }
+}
+
 function loadImage(src: string): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
     const img = new Image();

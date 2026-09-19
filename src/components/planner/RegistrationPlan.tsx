@@ -44,7 +44,7 @@ export function RegistrationPlan({ input, current, courses, colorOf, termLabel }
     <details className={styles.plan}>
       <summary className={styles.summary}>
         <span className={styles.title}>Kayıt günü planı</span>
-        <span className={styles.hint}>Bir şube dolarsa programın bozulmadan geçebileceğin yedekler.</span>
+        <span className={styles.hint}>Şube dolarsa yedeklerin.</span>
       </summary>
 
       <div className={styles.body}>

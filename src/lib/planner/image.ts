@@ -1,6 +1,6 @@
 // Seçili haftalık programı paylaşılabilir bir görsele (SVG metni) çevirir. Saf fonksiyon: DOM yok.
-// Görünüm sitedeki "defter çizelgesinde fosforlu kalem" düzeninin açık renkli hâlidir; tema ne olursa olsun
-// görsel açık renklerle çıkar. PNG'ye çevirme tarayıcıda yapılır (bkz. download-image.ts).
+// Görünüm sitedeki "defter çizelgesinde fosforlu kalem" düzenidir; sayfa hangi temadaysa görsel de o temada
+// çıkar (bkz. DARK_PALETTE). PNG'ye çevirme tarayıcıda yapılır (bkz. download-image.ts).
 import { assignLanes, timeRange, type PlacedMeeting } from "@/components/planner/placed";
 import { DAY_NAMES } from "../days";
 import { parseTime, type Day, type ScheduleSummary } from "../engine";
@@ -28,6 +28,18 @@ export const LIGHT_PALETTE: ImagePalette = {
   ruleStrong: "#b9c4d3",
   highlighters: ["#ffe14d", "#8ee59b", "#ff9fcb", "#8ed4ff", "#ffb86b", "#c9b3ff"],
   mix: 0.62,
+};
+
+/** Koyu tema: renkler globals.css'teki `[data-theme="dark"]` değerleriyle aynı. */
+export const DARK_PALETTE: ImagePalette = {
+  paper: "#0c0c0d",
+  paperMuted: "#161617",
+  ink: "#ededed",
+  inkMuted: "#a3a3a8",
+  rule: "#262628",
+  ruleStrong: "#3b3b3f",
+  highlighters: LIGHT_PALETTE.highlighters,
+  mix: 0.34,
 };
 
 /** CSS pikseli; PNG bunun iki katı çözünürlükte çizilir. */
