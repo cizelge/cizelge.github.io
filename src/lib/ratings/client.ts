@@ -50,13 +50,17 @@ function writeCache(school: string, data: Summaries) {
   }
 }
 
+/** Önbellekteki özetler (sekme başına, 10 dakika); yoksa null. Yeni oylar görünsün diye ekranı bekletmeden gösterilir, arkadan tazelenir. */
+export function cachedSummaries(school: string): Summaries | null {
+  return readCache(school);
+}
+
 /** Bütün hocaların puanı; servis kapalıysa ya da ulaşılamazsa null. */
 export async function fetchSummaries(school: string): Promise<Summaries | null> {
   if (!RATINGS_API) return null;
-  const cached = readCache(school);
-  if (cached) return cached;
   try {
-    const res = await fetch(`${RATINGS_API}/ratings?school=${encodeURIComponent(school)}`);
+    // no-cache: tarayıcının 60 saniyelik kopyası yerine sunucudaki son hâl gelsin.
+    const res = await fetch(`${RATINGS_API}/ratings?school=${encodeURIComponent(school)}`, { cache: "no-cache" });
     if (!res.ok) return null;
     const data = (await res.json()) as Summaries;
     if (!data || !Array.isArray(data.instructors)) return null;

@@ -2,7 +2,7 @@
 // Oy özetleri sayfa başına bir kez istenir; aynı anda birden çok bileşen isterse tek istek yapılır.
 
 import { useEffect, useState } from "react";
-import { fetchSummaries, RATINGS_API, type Summaries } from "./client";
+import { cachedSummaries, fetchSummaries, RATINGS_API, type Summaries } from "./client";
 
 const pending = new Map<string, Promise<Summaries | null>>();
 const loaded = new Map<string, Summaries | null>();
@@ -20,17 +20,22 @@ export function useRatings(school: string): { summaries: Summaries | null; ready
       setState({ summaries: loaded.get(school) ?? null, ready: true });
       return;
     }
+    // Sekmedeki kopya hemen gösterilir; doğrusu sunucudan gelince yerine geçer.
+    // Oy başka bir sekmede verilmiş olabilir, o yüzden kopyayla yetinilmez.
+    const cached = cachedSummaries(school);
+    if (cached) setState({ summaries: cached, ready: true });
     let promise = pending.get(school);
     if (!promise) {
       promise = fetchSummaries(school).then((data) => {
-        loaded.set(school, data);
+        loaded.set(school, data ?? cached);
         pending.delete(school);
         return data;
       });
       pending.set(school, promise);
     }
     promise.then((data) => {
-      if (alive) setState({ summaries: data, ready: true });
+      // Servise ulaşılamadıysa elimizdeki kopya kalsın.
+      if (alive && (data || !cached)) setState({ summaries: data, ready: true });
     });
     return () => {
       alive = false;
