@@ -12,6 +12,9 @@ import { buildIcs } from "@/lib/planner/ics";
 import { buildScheduleSvg, imageFileName } from "@/lib/planner/image";
 import { decodeState, EMPTY_STATE, encodeState, missingNotice, termSwitchQuery, type PlannerState } from "@/lib/planner/state";
 import { useSchedules } from "@/lib/planner/useSchedules";
+import { bestPicks, scheduleScore, scoreLookup } from "@/lib/planner/instructor-score";
+import { useRatings } from "@/lib/ratings/useRatings";
+import { SwapSuggest } from "./SwapSuggest";
 import { Cart } from "./Cart";
 import { CourseSearch } from "./CourseSearch";
 import { Curriculum } from "./Curriculum";
@@ -45,6 +48,8 @@ function writeStorage(key: string, value: string) {
     /* gizli pencere vb.: sessizce geç */
   }
 }
+
+const fmtScore = (n: number) => n.toLocaleString("tr-TR", { minimumFractionDigits: 1 });
 
 function nextMonday(from = new Date()) {
   const d = new Date(from.getFullYear(), from.getMonth(), from.getDate());
@@ -85,6 +90,10 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
   // Sepeti boşaltmadan önceki hâl; "Geri al" için. Yeni ders eklenince unutulur.
   const [cleared, setCleared] = useState<Pick<PlannerState, "cart" | "locked" | "excluded" | "picks"> | null>(null);
   const [layoutLimit, setLayoutLimit] = useState(LAYOUT_PAGE);
+  // Hoca puanına göre seçim iki adımda olur: önce düzen değişir, seçenekler gelince şubeler ayarlanır.
+  const [tuneToTeachers, setTuneToTeachers] = useState(false);
+  // Sepetten çıkarılan son ders: boşalan saate ne sığdığını gösterir.
+  const [swapped, setSwapped] = useState<string | null>(null);
 
   // İlk yükleme: önce linkteki durum, yoksa bu tarayıcıda kalan son durum.
   useEffect(() => {
@@ -106,6 +115,9 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
     window.history.replaceState(null, "", query ? `?${query}` : window.location.pathname);
     writeStorage(STORAGE_KEY + term.schoolId + term.termId, query);
   }, [state, ready, term.schoolId, term.termId]);
+
+  const { summaries } = useRatings(term.schoolId);
+  const scoreOf = useMemo(() => scoreLookup(summaries?.instructors), [summaries]);
 
   const colorOf = (code: string) => Math.max(0, state.cart.indexOf(code)) % HIGHLIGHTERS;
   const update = (patch: Partial<PlannerState>) => {
@@ -153,11 +165,51 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
       (r) => courses.get(r.courseCode)?.sections.find((s) => s.id === r.sectionId)?.meetings ?? [],
     ),
   );
+  const teacherScore = current ? scheduleScore(current.sections, courses, scoreOf) : { score: null, known: 0 };
+  // Puanı bilinen en az bir hoca varsa düğme çalışır.
+  const canTune = layouts.some((l) => scheduleScore(l.best.sections, courses, scoreOf).score !== null);
+
+  function tuneTeachers() {
+    if (!canTune) return;
+    let bestIndex = selectedLayout;
+    let best = -1;
+    layouts.forEach((layout, i) => {
+      const { score } = scheduleScore(layout.best.sections, courses, scoreOf);
+      if (score !== null && score > best) {
+        best = score;
+        bestIndex = i;
+      }
+    });
+    const before = teacherScore.score;
+    setTuneToTeachers(true);
+    setState((s) => ({ ...s, selected: bestIndex, picks: {} }));
+    setNote(before === null ? "Hoca puanı en yüksek program seçiliyor." : `Hoca puanı ${fmtScore(before)} idi, en iyisi aranıyor.`);
+  }
+
+  // Yeni düzenin şube seçenekleri gelince en iyi hocaları seç.
+  useEffect(() => {
+    if (!tuneToTeachers || !best || !result || result.layout !== selectedLayout) return;
+    const picks = bestPicks(best.sections, result.alternatives, courses, scoreOf);
+    const after = scheduleScore(
+      best.sections.map((r) => (picks[r.courseCode] ? { ...r, sectionId: picks[r.courseCode] } : r)),
+      courses,
+      scoreOf,
+    );
+    setTuneToTeachers(false);
+    setState((s) => ({ ...s, picks }));
+    setNote(
+      after.score === null
+        ? "Bu derslerin hocaları için henüz puan yok."
+        : `Hoca puanı en yüksek program seçildi: ${fmtScore(after.score)}/5 (${after.known} ders).`,
+    );
+  }, [tuneToTeachers, best, result, selectedLayout, courses, scoreOf]);
+
   const placed = current ? placeMeetings(current.sections, courses, colorOf) : [];
   const range = timeRange(placed);
 
   function addCourse(code: string) {
     setCleared(null);
+    setSwapped(null);
     const course = courses.get(code);
     if (!course || state.cart.includes(code)) return;
     const withCoreqs = expandCorequisites([course], term.courses).map((c) => c.code);
@@ -174,14 +226,20 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
 
   function removeCourse(code: string) {
     setCleared(null);
-    const { [code]: _, ...locked } = state.locked;
-    void _;
+    setSwapped(code);
+    // Yan koşullu dersler birlikte alınır; biri çıkarılınca öteki de sepetten çıkar.
+    const course = courses.get(code);
+    const linked = course ? expandCorequisites([course], term.courses).map((c) => c.code) : [code];
+    const gone = state.cart.filter((c) => linked.includes(c));
+    const locked = { ...state.locked };
+    for (const c of gone) delete locked[c];
     update({
-      cart: state.cart.filter((c) => c !== code),
+      cart: state.cart.filter((c) => !gone.includes(c)),
       locked,
-      excluded: state.excluded.filter((e) => e.courseCode !== code),
+      excluded: state.excluded.filter((e) => !gone.includes(e.courseCode)),
     });
-    setNote(`${code} çıkarıldı.`);
+    const extra = gone.filter((c) => c !== code);
+    setNote(extra.length ? `${code} ve birlikte alınan ${extra.join(", ")} çıkarıldı.` : `${code} çıkarıldı.`);
   }
 
   /** Öneri bir ya da iki ayarı birlikte gevşetir; hepsi tek durum güncellemesinde uygulanır. */
@@ -422,8 +480,19 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
                   <dd className="num">{current.summary.latestEnd}</dd>
                 </div>
               )}
+              {teacherScore.score !== null && (
+                <div className="fact">
+                  <dt>Hoca puanı</dt>
+                  <dd className="num">{fmtScore(teacherScore.score)}/5</dd>
+                </div>
+              )}
             </dl>
             <div className="actions">
+              {canTune && (
+                <button type="button" className="btn btn-pen" onClick={tuneTeachers}>
+                  Hoca puanına göre seç
+                </button>
+              )}
               <button type="button" className="btn" onClick={copyLink}>
                 Linki kopyala
               </button>
@@ -435,6 +504,25 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
               </button>
             </div>
           </div>
+        )}
+
+        {swapped && programs && (
+          <SwapSuggest
+            school={term.schoolId}
+            removed={swapped}
+            programs={programs.programs}
+            programId={state.program}
+            courses={term.courses}
+            meetings={placed}
+            cart={state.cart}
+            freeDays={state.freeDays}
+            onAdd={addCourse}
+            onUndo={() => {
+              addCourse(swapped);
+              setSwapped(null);
+            }}
+            onClose={() => setSwapped(null)}
+          />
         )}
 
         <RegistrationPlan input={input} current={current} courses={courses} colorOf={colorOf} termLabel={term.termLabel} />
