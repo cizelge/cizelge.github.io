@@ -1,0 +1,118 @@
+.root {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding-block: clamp(1.5rem, 5vw, 3rem);
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+  display: grid;
+  gap: 0.9rem;
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.lede {
+  margin: 0;
+  max-width: 62ch;
+  color: var(--ink-2);
+  line-height: 1.55;
+}
+
+.empty {
+  display: grid;
+  gap: 0.6rem;
+  justify-items: start;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-m);
+  padding: 1rem 1.1rem 1.2rem;
+}
+.empty p { margin: 0; }
+
+.people {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+.person {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  padding: 0.25rem 0.35rem 0.25rem 0.7rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.person[data-own="true"] { background: color-mix(in oklab, var(--hl-0) 30%, transparent); border-color: transparent; }
+.drop {
+  border: 0;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 1.05rem;
+  line-height: 1;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.drop:hover { background: var(--paper-2); color: var(--ink); }
+.drop:focus-visible { outline: 2px solid var(--pen); outline-offset: 1px; }
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+.field {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--ink-2);
+}
+.field .select { min-height: 40px; }
+.note { color: var(--ink-2); font-size: 0.9rem; max-width: 40ch; }
+
+.summary { margin: 0.2rem 0 0; font-size: 1.05rem; }
+.none { margin: 0.4rem 0; color: var(--ink-2); max-width: 60ch; }
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+.dayRow {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr);
+  gap: 0.5rem;
+  align-items: baseline;
+  padding: 0.5rem 0.2rem;
+  border-top: 1px solid var(--rule);
+}
+.dayRow:first-child { border-top: 0; }
+.dayName { font-weight: 700; }
+.slots { display: flex; flex-wrap: wrap; gap: 0.35rem 0.6rem; }
+.slot {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  background: color-mix(in oklab, var(--hl-1) 26%, transparent);
+  border-radius: var(--radius-s);
+  padding: 0.15rem 0.5rem;
+  font-variant-numeric: tabular-nums;
+}
+.slotLen { color: var(--ink-2); font-size: 0.82rem; }
+
+.gridTitle { margin: 1rem 0 0; font-size: 1.05rem; font-weight: 700; }
+
+@media (max-width: 520px) {
+  .dayRow { grid-template-columns: minmax(0, 1fr); gap: 0.2rem; }
+}
