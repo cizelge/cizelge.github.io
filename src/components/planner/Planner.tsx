@@ -7,6 +7,7 @@ import { expandCorequisites, type RelaxedConstraint, type SectionRef } from "@/l
 import { visibleDays } from "@/lib/days";
 import { programYears } from "@/lib/planner/curriculum";
 import { isDarkTheme, savePng } from "@/lib/planner/download-image";
+import { SHARE_TEXT, shareOrWhatsapp } from "@/lib/planner/share-links";
 import { OZYEGIN_CALENDAR } from "@/lib/calendar";
 import { buildIcs } from "@/lib/planner/ics";
 import { buildScheduleSvg, DARK_PALETTE, imageFileName, LIGHT_PALETTE } from "@/lib/planner/image";
@@ -16,6 +17,7 @@ import { scheduleScore, scoreLookup } from "@/lib/planner/instructor-score";
 import { useRatings } from "@/lib/ratings/useRatings";
 import { SwapSuggest } from "./SwapSuggest";
 import { Warnings } from "./Warnings";
+import { SharedWelcome } from "./SharedWelcome";
 import { cartLoad, overloadText } from "@/lib/planner/load";
 import { computeGpa, gradeEntries, maxLoad } from "@/lib/roadmap/gpa";
 import { detectChanges, prereqWarnings, snapshotKey, snapshotOf, type SectionSnapshot } from "@/lib/planner/warnings";
@@ -41,6 +43,8 @@ import { ElectiveFinder } from "./ElectiveFinder";
 import type { ShuttleData } from "@/lib/shuttle/types";
 
 const STORAGE_KEY = "planlayici:";
+/** Karşılama şeridi kapatıldı mı. */
+const WELCOME_KEY = "paylasim-karsilama";
 const HIGHLIGHTERS = 6;
 const LAYOUT_PAGE = 50;
 
@@ -109,11 +113,17 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
   const [passed, setPassed] = useState<{ codes: Set<string>; ects: number }>({ codes: new Set(), ects: 0 });
   // Yönetmelik sınırı ortalamaya bağlı; ortalama yol haritasındaki notlardan gelir.
   const [ectsLimit, setEctsLimit] = useState<{ limit: number | null; gpa: number | null; cap: boolean }>({ limit: null, gpa: null, cap: false });
+  // Arkadaşının linkiyle gelindiyse karşılama şeridi gösterilir (bir kez kapatılır).
+  const [shared, setShared] = useState(false);
 
   // İlk yükleme: önce linkteki durum, yoksa bu tarayıcıda kalan son durum.
   useEffect(() => {
-    const query = window.location.search.slice(1) || readStorage(STORAGE_KEY + term.schoolId + term.termId) || "";
+    const linkQuery = window.location.search.slice(1);
+    const savedQuery = readStorage(STORAGE_KEY + term.schoolId + term.termId) || "";
+    const query = linkQuery || savedQuery;
     const decoded = decodeState(query, sectionIds, yearsByProgram);
+    // Başkasının linki: adresten geldi ve bu tarayıcının kendi kaydıyla aynı değil.
+    const fromFriend = linkQuery !== "" && linkQuery !== savedQuery && readStorage(WELCOME_KEY) !== "1";
     // Elle yazılmış linklerde de yan koşullu dersler eksik kalmasın.
     const cartCourses = decoded.state.cart.map((c) => courses.get(c)).filter((c): c is Course => !!c);
     const withCoreqs = expandCorequisites(cartCourses, term.courses).map((c) => c.code);
@@ -121,6 +131,7 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
     setState(decoded.state);
     setMissing(window.location.search ? decoded.missing : []);
     if (decoded.state.cart.length > 0) setTab("program");
+    setShared(fromFriend && decoded.state.cart.length > 0);
     setReady(true);
   }, [courses, sectionIds, yearsByProgram, term]);
 
@@ -306,6 +317,11 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
     } catch {
       setNote("Link kopyalanamadı. Adres çubuğundaki linki paylaşabilirsin.");
     }
+  }
+
+  async function shareProgram() {
+    const how = await shareOrWhatsapp(SHARE_TEXT.program, window.location.href);
+    setNote(how === "share" ? "Paylaşım penceresi açıldı." : "WhatsApp açıldı, sohbeti seç.");
   }
 
   function downloadIcs() {
@@ -534,6 +550,9 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
               )}
             </dl>
             <div className="actions">
+              <button type="button" className="btn btn-pen" onClick={shareProgram}>
+                Arkadaşına gönder
+              </button>
               <button type="button" className="btn" onClick={copyLink}>
                 Linki kopyala
               </button>
@@ -545,6 +564,24 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
               </button>
             </div>
           </div>
+        )}
+
+        {shared && (
+          <SharedWelcome
+            count={state.cart.length}
+            onKeep={() => {
+              writeStorage(WELCOME_KEY, "1");
+              setShared(false);
+            }}
+            onReset={() => {
+              writeStorage(WELCOME_KEY, "1");
+              setCleared({ cart: state.cart, locked: state.locked, excluded: state.excluded, picks: state.picks });
+              update({ cart: [], locked: {}, excluded: [], picks: {} });
+              setShared(false);
+              setTab("dersler");
+              setNote("Sepet boşaltıldı. Kendi derslerini ekleyebilirsin.");
+            }}
+          />
         )}
 
         <Warnings changes={changes} prereqs={prereqs} overload={overload} onSeen={forgetChanges} />

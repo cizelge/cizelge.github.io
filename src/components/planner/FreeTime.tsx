@@ -7,6 +7,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { Day } from "@/lib/engine";
 import { DAY_NAMES } from "@/lib/days";
 import { combine, decodeMask, freeBlocks, spanLabel } from "@/lib/planner/free-time";
+import { SHARE_TEXT, shareOrWhatsapp } from "@/lib/planner/share-links";
 import { WeekGrid } from "./WeekGrid";
 import type { PlacedMeeting } from "./placed";
 import styles from "./FreeTime.module.css";
@@ -155,7 +156,17 @@ export function FreeTime({ schoolId, termId, termLabel }: Props) {
                 ))}
               </select>
             </label>
-            <button type="button" className="btn btn-pen" onClick={copy}>
+            <button
+              type="button"
+              className="btn btn-pen"
+              onClick={async () => {
+                const how = await shareOrWhatsapp(SHARE_TEXT.freeTime, shareLink());
+                setNote(how === "share" ? "Paylaşım penceresi açıldı." : "WhatsApp açıldı, sohbeti seç.");
+              }}
+            >
+              Arkadaşına gönder
+            </button>
+            <button type="button" className="btn" onClick={copy}>
               Linki kopyala
             </button>
             {note && (
