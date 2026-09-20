@@ -1,7 +1,7 @@
 // OzuHelper service worker: çevrimdışı açılış için.
 // Sayfalar önce ağdan istenir (yeni yayın hemen görünsün), ağ yoksa son kopya verilir.
 // /_next/static dosyaları adında sürüm taşıdığı için önbellekten verilir.
-const VERSION = "v2";
+const VERSION = "v3";
 const PAGES = `ozuhelper-sayfa-${VERSION}`;
 const STATIC = `ozuhelper-statik-${VERSION}`;
 const START = "/ozyegin/";
@@ -34,7 +34,9 @@ async function trim(cache) {
 async function networkFirst(request) {
   const cache = await caches.open(PAGES);
   try {
-    const response = await fetch(request);
+    // no-cache: tarayıcının kendi kopyasını değil sunucudaki hâli sorar (ETag ile, 304 dönerse bedava).
+    // GitHub Pages sayfaları 10 dakika önbelleğe aldırıyor; bu olmadan yeni yayın geç görünüyordu.
+    const response = await fetch(request, { cache: "no-cache" });
     if (response.ok) cache.put(request, response.clone());
     return response;
   } catch {
