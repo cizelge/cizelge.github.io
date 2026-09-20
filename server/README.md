@@ -40,3 +40,16 @@ Her oy için: okul, ders kodu, hoca adı (öğrencinin seçtiği), üç ile beş
 (tarayıcıda üretilen rastgele metin) ve zaman. Ayrıca sınırları uygulamak için IP adresinin gizli
 anahtarla karılmış özetinden türeyen, süresi dolunca silinen işaretler. Ad, öğrenci numarası ve
 yazılı yorum alınmaz; IP adresinin kendisi saklanmaz.
+
+## Geri bildirim e-postası (isteğe bağlı)
+
+Geri bildirimler her hâlükârda veritabanına yazılır. Üstüne e-posta almak istersen
+Deno Deploy panelinde iki değişken tanımla:
+
+- `RESEND_KEY` — resend.com hesabından alınan API anahtarı
+- `FEEDBACK_TO` — mesajların düşeceği adres (kendi e-postan)
+- `FEEDBACK_FROM` — isteğe bağlı; kendi alan adını doğruladıysan "OzuHelper <mail@alanadin>" yazabilirsin.
+  Tanımlanmazsa Resend'in `onboarding@resend.dev` adresi kullanılır; bu adresle yalnızca
+  Resend hesabının kendi e-postasına gönderilebilir, başka adrese gitmez.
+
+İkisi tanımlı değilse e-posta gönderimi kapalıdır, servis normal çalışır.

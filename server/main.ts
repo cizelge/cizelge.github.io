@@ -68,6 +68,7 @@ import {
 } from "./courses.ts";
 import {
   FEEDBACK_DAYS,
+  KIND_LABEL,
   MAX_FEEDBACK_PER_IP_PER_DAY,
   parseFeedback,
   type FeedbackKind,
@@ -715,6 +716,40 @@ interface StoredFeedback {
   at: string;
 }
 
+/**
+ * Geri bildirimi e-postayla iletir. RESEND_KEY ve FEEDBACK_TO tanımlı değilse hiçbir şey yapmaz;
+ * mesaj her hâlükârda veritabanına yazılır, e-posta yalnızca haber vermek içindir.
+ */
+async function mailFeedback(school: string, stored: StoredFeedback): Promise<void> {
+  const key = env("RESEND_KEY");
+  const to = env("FEEDBACK_TO");
+  if (!key || !to) return;
+  const from = env("FEEDBACK_FROM") ?? "OzuHelper <onboarding@resend.dev>";
+  const lines = [
+    `Konu: ${KIND_LABEL[stored.kind]}`,
+    `Okul: ${school}`,
+    stored.page ? `Sayfa: ${stored.page}` : null,
+    stored.contact ? `İletişim: ${stored.contact}` : "İletişim bırakılmamış",
+    "",
+    stored.message,
+  ].filter((l) => l !== null);
+  try {
+    await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        from,
+        to: [to],
+        subject: `[OzuHelper] ${KIND_LABEL[stored.kind]}: ${stored.message.slice(0, 60)}`,
+        text: lines.join("\n"),
+        ...(stored.contact ? { reply_to: stored.contact } : {}),
+      }),
+    });
+  } catch {
+    // E-posta gitmezse mesaj yine de kayıtlı; sessizce geçilir.
+  }
+}
+
 /** Geri bildirim gönder. Kimlik istenmez; iletişim bilgisi yazan kişi isterse eklenir. */
 async function postFeedback(request: Request, headers: Record<string, string>): Promise<Response> {
   let body: unknown;
@@ -746,6 +781,8 @@ async function postFeedback(request: Request, headers: Record<string, string>): 
   // Anahtarda zaman var: yeniden eskiye okumak için.
   await kv.set(["feedback", feedback.school, at, id], stored, { expireIn: FEEDBACK_DAYS * DAY_MS });
   await kv.set(["fipday", ipHash, today, id], 1, { expireIn: 2 * DAY_MS });
+  // Kayıt tamam; e-posta sadece haber verir, gitmezse istek yine başarılıdır.
+  await mailFeedback(feedback.school, stored);
   return json({ ok: true }, { headers });
 }
 
