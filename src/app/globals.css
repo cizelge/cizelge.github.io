@@ -814,6 +814,8 @@ a.term-option[aria-current="page"]:hover {
   padding-block: clamp(2rem, 6vw, 4.5rem);
   padding-inline: clamp(1rem, 4vw, 2.5rem);
 }
+/* Ders sayfası gibi iki sütunlu sayfalar daha geniş bir alan kullanır. */
+.page-wide { max-width: 88rem; }
 .prose { max-width: 38rem; }
 .prose p { margin: 0 0 1rem; }
 

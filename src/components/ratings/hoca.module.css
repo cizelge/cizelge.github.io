@@ -43,7 +43,7 @@
 
 /* Gövde: solda bilgi, dersler ve yorumlar; sağda istatistik ve puanlama. */
 .body {
-  max-width: 68rem;
+  max-width: 82rem;
   margin: 0 auto;
   padding: 1.25rem max(1rem, env(safe-area-inset-left)) 2.5rem max(1rem, env(safe-area-inset-right));
   display: grid;
@@ -276,5 +276,16 @@
 .remove:focus-visible { outline: 2px solid var(--pen); outline-offset: 2px; }
 
 /* Ders sayfasındaki puanlama bölümü: kendi bandı yok, sayfanın akışına girer. */
-.courseBlock { margin-bottom: 2.5rem; min-width: 0; }
-.courseBlock .stats { margin-top: 0; margin-bottom: 1rem; }
+.courseBlock { margin-bottom: 2.5rem; min-width: 0; display: grid; gap: 1rem; }
+.courseBlock .stats { margin-top: 0; margin-bottom: 0; }
+
+/* Üst sıra: solda kırılım, sağda puanlama. Yorumlar altta tam genişlikte durur,
+   böylece kısa yorum listesinin yanında boş sütun kalmaz. */
+.courseTop { display: grid; gap: 1rem; align-items: start; min-width: 0; }
+.stickyTop { display: grid; gap: 1rem; align-content: start; }
+
+@media (min-width: 62rem) {
+  .courseTop { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
+  /* Geniş ekranda yorumlar iki sütuna yayılır. */
+  .courseBlock .comments { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

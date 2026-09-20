@@ -122,6 +122,8 @@ export function CourseGrades({ school, code, instructors }: Props) {
         Not dağılımı
       </h2>
 
+      <div className={styles.cols}>
+        <div className={styles.chart}>
       {!ready ? (
         <p className="hint">Yükleniyor…</p>
       ) : hidden ? (
@@ -193,6 +195,8 @@ export function CourseGrades({ school, code, instructors }: Props) {
         </>
       )}
 
+        </div>
+
       <form className={styles.form} onSubmit={submit}>
         <h3 className={styles.formTitle}>{mine ? "Bildirdiğin not" : "Bu dersi aldıysan notunu ekle"}</h3>
         <p className="hint">İsimsizdir, kimliğin saklanmaz. Sonradan değiştirebilir ya da kaldırabilirsin.</p>
@@ -247,6 +251,7 @@ export function CourseGrades({ school, code, instructors }: Props) {
           )}
         </div>
       </form>
+      </div>
     </section>
   );
 }

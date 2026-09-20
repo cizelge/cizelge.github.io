@@ -109,6 +109,8 @@ export function CourseNotes({ school, code, instructors }: Props) {
         Ders notları
       </h2>
 
+      <div className={styles.cols}>
+        <div className={styles.listCol}>
       {!ready ? (
         <p className="hint">Yükleniyor…</p>
       ) : notes.length === 0 ? (
@@ -143,6 +145,8 @@ export function CourseNotes({ school, code, instructors }: Props) {
           ))}
         </ul>
       )}
+
+        </div>
 
       {!open ? (
         <div className={styles.actions}>
@@ -243,6 +247,7 @@ export function CourseNotes({ school, code, instructors }: Props) {
           </div>
         </form>
       )}
+      </div>
     </section>
   );
 }

@@ -3,6 +3,14 @@
   min-width: 0;
 }
 
+/* Geniş ekranda solda dağılım, sağda bildirim formu; dar ekranda alt alta. */
+.cols { display: grid; gap: 1rem; align-items: start; min-width: 0; }
+.chart { min-width: 0; }
+@media (min-width: 62rem) {
+  .cols { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+  .form { margin: 0; }
+}
+
 .empty {
   margin: 0 0 1rem;
   color: var(--ink-2);
@@ -100,6 +108,7 @@
 
 /* Bildirim formu */
 .form {
+  align-self: start;
   border: 1px solid var(--rule-strong);
   border-left: 3px solid var(--ink);
   border-radius: var(--radius-m);

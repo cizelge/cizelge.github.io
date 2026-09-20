@@ -3,6 +3,15 @@
   min-width: 0;
 }
 
+/* Geniş ekranda solda bağlantılar, sağda paylaşım formu. */
+.cols { display: grid; gap: 1rem; align-items: start; min-width: 0; }
+.listCol { min-width: 0; display: grid; gap: 0.85rem; align-content: start; }
+@media (min-width: 62rem) {
+  .cols { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+  .list { max-width: none; }
+  .form { margin: 0; align-self: start; }
+}
+
 .empty {
   margin: 0 0 0.85rem;
   color: var(--ink-2);

@@ -64,7 +64,7 @@ export default async function CoursePage(props: PageProps<"/ozyegin/[slug]">) {
   return (
     <>
       <SiteHeader term={`Özyeğin, ${term.termLabel}`} />
-      <main id="icerik" className="page">
+      <main id="icerik" className="page page-wide">
         <p className="hint" style={{ marginBottom: "1rem" }}>
           <Link href="/ozyegin" className="link">
             Planlayıcı

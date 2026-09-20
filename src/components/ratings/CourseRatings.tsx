@@ -129,7 +129,7 @@ export function CourseRatings({ school, code, title }: Props) {
         </div>
       </section>
 
-      <div className={styles.grid}>
+      <div className={styles.courseTop}>
         <div className={styles.left}>
           <section className={styles.card} aria-labelledby="ders-kriter">
             <h3 id="ders-kriter" className={styles.cardTitle}>
@@ -164,11 +164,10 @@ export function CourseRatings({ school, code, title }: Props) {
             )}
           </section>
 
-          <CourseComments school={school} code={code} comments={summary?.comments ?? []} ready={ready} />
         </div>
 
         <div className={styles.right}>
-          <div className={styles.sticky}>
+          <div className={styles.stickyTop}>
             <section className={styles.card} aria-labelledby="ders-puanla">
               <h3 id="ders-puanla" className={styles.cardTitle}>
                 Bu dersi puanla
@@ -260,6 +259,8 @@ export function CourseRatings({ school, code, title }: Props) {
           </div>
         </div>
       </div>
+
+      <CourseComments school={school} code={code} comments={summary?.comments ?? []} ready={ready} />
     </section>
   );
 }
