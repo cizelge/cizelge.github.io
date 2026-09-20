@@ -7,6 +7,7 @@ import { expandCorequisites, type RelaxedConstraint, type SectionRef } from "@/l
 import { visibleDays } from "@/lib/days";
 import { programYears } from "@/lib/planner/curriculum";
 import { isDarkTheme, savePng } from "@/lib/planner/download-image";
+import { createCode, readCode } from "@/lib/planner/share-code";
 import { OZYEGIN_CALENDAR } from "@/lib/calendar";
 import { buildIcs } from "@/lib/planner/ics";
 import { buildScheduleSvg, DARK_PALETTE, imageFileName, LIGHT_PALETTE } from "@/lib/planner/image";
@@ -109,9 +110,27 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
   const [passed, setPassed] = useState<{ codes: Set<string>; ects: number }>({ codes: new Set(), ects: 0 });
   // Yönetmelik sınırı ortalamaya bağlı; ortalama yol haritasındaki notlardan gelir.
   const [ectsLimit, setEctsLimit] = useState<{ limit: number | null; gpa: number | null; cap: boolean }>({ limit: null, gpa: null, cap: false });
+  // Paylaşım kodu: uzun link yerine altı hane.
+  const [shareCode, setShareCode] = useState("");
+  const [codeBusy, setCodeBusy] = useState(false);
 
   // İlk yükleme: önce linkteki durum, yoksa bu tarayıcıda kalan son durum.
+  // Adreste "?kod=K7M4PQ" varsa içerik sunucudan çözülür.
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("kod");
+    if (code) {
+      readCode(code).then((found) => {
+        if (found?.kind === "program") {
+          window.history.replaceState(null, "", `?${found.data}`);
+          window.location.reload();
+        } else {
+          setNote("Kod bulunamadı ya da süresi dolmuş.");
+          setReady(true);
+        }
+      });
+      return;
+    }
     const query = window.location.search.slice(1) || readStorage(STORAGE_KEY + term.schoolId + term.termId) || "";
     const decoded = decodeState(query, sectionIds, yearsByProgram);
     // Elle yazılmış linklerde de yan koşullu dersler eksik kalmasın.
@@ -305,6 +324,26 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
       setNote("Link kopyalandı. Açan kişi aynı programı görür.");
     } catch {
       setNote("Link kopyalanamadı. Adres çubuğundaki linki paylaşabilirsin.");
+    }
+  }
+
+  async function copyCode() {
+    if (codeBusy) return;
+    setCodeBusy(true);
+    setNote("");
+    const query = encodeState(state);
+    const result = await createCode("program", query);
+    setCodeBusy(false);
+    if (!result.ok) {
+      setNote(result.error);
+      return;
+    }
+    setShareCode(result.code);
+    try {
+      await navigator.clipboard.writeText(`${window.location.origin}/ozyegin/?kod=${result.code}`);
+      setNote(`Kodun ${result.code}. Link panoya kopyalandı.`);
+    } catch {
+      setNote(`Kodun ${result.code}. Arkadaşın ozuhelper.github.io adresine girip bu kodu yazabilir.`);
     }
   }
 
@@ -536,6 +575,9 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
             <div className="actions">
               <button type="button" className="btn" onClick={copyLink}>
                 Linki kopyala
+              </button>
+              <button type="button" className="btn" onClick={copyCode} disabled={codeBusy}>
+                {codeBusy ? "Kod alınıyor" : shareCode ? `Kod: ${shareCode}` : "Kısa kod al"}
               </button>
               <button type="button" className="btn" onClick={downloadIcs}>
                 Takvime ekle

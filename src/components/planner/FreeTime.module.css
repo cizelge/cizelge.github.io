@@ -63,6 +63,28 @@
 .drop:hover { background: var(--paper-2); color: var(--ink); }
 .drop:focus-visible { outline: 2px solid var(--pen); outline-offset: 1px; }
 
+.codeRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 0.5rem;
+}
+.codeRow .field { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
+.code {
+  width: 8.5rem;
+  min-height: 40px;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-s);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.code:focus-visible { outline: 2px solid var(--pen); outline-offset: 1px; }
+
 .controls {
   display: flex;
   flex-wrap: wrap;

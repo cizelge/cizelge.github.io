@@ -7,6 +7,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { Day } from "@/lib/engine";
 import { DAY_NAMES } from "@/lib/days";
 import { combine, decodeMask, freeBlocks, spanLabel } from "@/lib/planner/free-time";
+import { cleanCode, createCode, readCode } from "@/lib/planner/share-code";
 import { WeekGrid } from "./WeekGrid";
 import type { PlacedMeeting } from "./placed";
 import styles from "./FreeTime.module.css";
@@ -30,6 +31,10 @@ export function FreeTime({ schoolId, termId, termLabel }: Props) {
   const [min, setMin] = useState<number>(60);
   const [note, setNote] = useState("");
   const [ready, setReady] = useState(false);
+  // Kısa kodlar: kendi kodun ve yazılan arkadaş kodu.
+  const [myCode, setMyCode] = useState("");
+  const [typed, setTyped] = useState("");
+  const [busy, setBusy] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -44,7 +49,55 @@ export function FreeTime({ schoolId, termId, termLabel }: Props) {
     setCodes([...new Set(fromLink)]);
     setMine(own && decodeMask(own) ? own : null);
     setReady(true);
+
+    // Adresteki kısa kodlar sunucudan çözülür.
+    const short = params.getAll("kod").map(cleanCode).filter((c): c is string => c !== null);
+    if (short.length === 0) return;
+    Promise.all(short.map(readCode)).then((found) => {
+      const masks = found.filter((f) => f?.kind === "bos").map((f) => f!.data);
+      if (masks.length > 0) setCodes((old) => [...new Set([...old, ...masks])]);
+    });
   }, [schoolId, termId]);
+
+  /** Yazılan kodu çözüp listeye ekler. */
+  async function addTyped() {
+    const clean = cleanCode(typed);
+    if (!clean || busy) {
+      setNote("Kod altı hane olmalı, örneğin K7M4PQ.");
+      return;
+    }
+    setBusy(true);
+    setNote("");
+    const found = await readCode(clean);
+    setBusy(false);
+    if (!found || found.kind !== "bos" || !decodeMask(found.data)) {
+      setNote("Kod bulunamadı ya da süresi dolmuş.");
+      return;
+    }
+    setCodes((old) => (old.includes(found.data) ? old : [...old, found.data]));
+    setTyped("");
+    setNote("Arkadaşın eklendi.");
+  }
+
+  /** Kendi programın için kısa kod alır. */
+  async function makeMyCode() {
+    if (!mine || busy) return;
+    setBusy(true);
+    setNote("");
+    const result = await createCode("bos", mine);
+    setBusy(false);
+    if (!result.ok) {
+      setNote(result.error);
+      return;
+    }
+    setMyCode(result.code);
+    try {
+      await navigator.clipboard.writeText(result.code);
+      setNote(`Kodun ${result.code}, panoya kopyalandı. Arkadaşına söyle, bu sayfaya yazsın.`);
+    } catch {
+      setNote(`Kodun ${result.code}. Arkadaşına söyle, bu sayfaya yazsın.`);
+    }
+  }
 
   const people = useMemo(() => {
     const list: { label: string; code: string; own: boolean }[] = [];
@@ -141,6 +194,30 @@ export function FreeTime({ schoolId, termId, termLabel }: Props) {
               <Link href="/ozyegin" className="btn btn-small">
                 Kendi programını ekle
               </Link>
+            )}
+          </section>
+
+          <section className={styles.codeRow} aria-label="Kod">
+            <label className={styles.field}>
+              <span>Arkadaşının kodu</span>
+              <input
+                className={styles.code}
+                value={typed}
+                onChange={(e) => setTyped(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && addTyped()}
+                placeholder="K7M4PQ"
+                maxLength={8}
+                autoCapitalize="characters"
+                spellCheck={false}
+              />
+            </label>
+            <button type="button" className="btn btn-small" onClick={addTyped} disabled={busy}>
+              Ekle
+            </button>
+            {mine && (
+              <button type="button" className="btn btn-small" onClick={makeMyCode} disabled={busy}>
+                {myCode ? `Kodun: ${myCode}` : "Kendi kodumu al"}
+              </button>
             )}
           </section>
 
