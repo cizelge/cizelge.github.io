@@ -52,7 +52,8 @@ describe("backupSections", () => {
     const [r] = backupSections({ ...base, weights }, pick(["CS 101", "A"], ["MATH 101", "A"]), mapOf(cs, math));
     expect(r.other.map((o) => o.sections[0].sectionId)).toEqual(["C", "B"]);
     expect(r.other[0].scoreDelta).toBeLessThanOrEqual(0);
-    expect(r.other[1].scoreDelta).toBe(3);
+    // Bir gün fazla: fewDays 2 x DAY_HOURS 3 = 6, üstüne erken ders 1 -> 7.
+    expect(r.other[1].scoreDelta).toBe(7);
   });
 
   it("offers a paired lecture + lab change when the lecture alone does not fit", () => {

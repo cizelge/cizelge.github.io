@@ -112,10 +112,18 @@ describe("scoreMetrics", () => {
     expect(scoreMetrics(metrics, ZERO)).toBe(0);
   });
 
-  it("is the weighted sum, with gaps measured in hours", () => {
+  it("is the weighted sum, with gaps in hours and a day worth DAY_HOURS", () => {
     const w: Weights = { fewDays: 1, fewGaps: 2, lunchBreak: 3, noEarly: 1, noLate: 2 };
-    // 1*3 + 2*1.5 + 3*2 + 1*1 + 2*4 = 3 + 3 + 6 + 1 + 8 = 21
-    expect(scoreMetrics(metrics, w)).toBeCloseTo(21, 10);
+    // 1*(3*3) + 2*1.5 + 3*2 + 1*1 + 2*4 = 9 + 3 + 6 + 1 + 8 = 27
+    expect(scoreMetrics(metrics, w)).toBeCloseTo(27, 10);
+  });
+
+  it("bir gün, bir saatlik boşluktan pahalıdır", () => {
+    const azGun: Weights = { fewDays: 3, fewGaps: 1, lunchBreak: 0, noEarly: 0, noLate: 0 };
+    const dortGunAzBosluk: ScheduleMetrics = { ...metrics, days: 4, gapMinutes: 280 };
+    const ucGunCokBosluk: ScheduleMetrics = { ...metrics, days: 3, gapMinutes: 470 };
+    // "Az gün" seçiliyken üç günlük program, dört günlüğün önüne geçmeli.
+    expect(scoreMetrics(ucGunCokBosluk, azGun)).toBeLessThan(scoreMetrics(dortGunAzBosluk, azGun));
   });
 });
 
@@ -159,7 +167,8 @@ describe("rankTop / rescore", () => {
   it("orders by score ascending, keeping discovery order on ties", () => {
     const ranked = rescore(pool, { ...ZERO, fewDays: 1 });
     expect(ranked.map((r) => r.sections[0].sectionId)).toEqual(["B", "D", "C", "A"]);
-    expect(ranked.map((r) => r.score)).toEqual([2, 2, 3, 4]);
+    // Gün sayısı DAY_HOURS ile çarpılır: 2, 2, 3, 4 gün -> 6, 6, 9, 12.
+    expect(ranked.map((r) => r.score)).toEqual([6, 6, 9, 12]);
     expect(ranked[0].summary.days).toBe(2);
   });
 

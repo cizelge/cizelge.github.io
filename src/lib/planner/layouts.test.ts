@@ -60,7 +60,8 @@ describe("buildLayouts", () => {
     const candidates = [candidate("A", "A", 4), candidate("C", "A", 2), candidate("B", "A", 1)];
     const { groups, scores } = buildLayouts(candidates, courses, weights);
     expect(groups).toEqual([[2, 0], [1]]);
-    expect(Array.from(scores)).toEqual([4, 2, 1]);
+    // 4, 2, 1 gün; her gün DAY_HOURS saate denk.
+    expect(Array.from(scores)).toEqual([12, 6, 3]);
   });
 
   it("lists each course's same-time sections in a layout, best schedule's first", () => {

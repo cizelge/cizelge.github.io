@@ -89,9 +89,16 @@ export function computeMetrics(
   return { days, gapMinutes, noLunchDays, earlyCount, lateCount, earliestStart, latestEnd };
 }
 
+/**
+ * Kampüse gelinen bir günün, saatle ölçülen karşılığı. Yol, ara ve ölü zamanla birlikte
+ * bir gün en az üç saatlik boşluğa denktir; bu olmadan "az gün" tercihi, birkaç saatlik
+ * boşluk farkına yeniliyordu.
+ */
+export const DAY_HOURS = 3;
+
 export function scoreMetrics(m: ScheduleMetrics, w: Weights): number {
   return (
-    w.fewDays * m.days +
+    w.fewDays * m.days * DAY_HOURS +
     w.fewGaps * (m.gapMinutes / 60) +
     w.lunchBreak * m.noLunchDays +
     w.noEarly * m.earlyCount +

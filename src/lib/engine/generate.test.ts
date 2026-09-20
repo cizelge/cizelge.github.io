@@ -139,7 +139,8 @@ describe("generateSchedules — ranking", () => {
     expect(r.schedules.length).toBe(6);
     const scores = r.schedules.map((s) => s.score);
     expect([...scores].sort((a, b) => a - b)).toEqual(scores);
-    expect(r.schedules[0].score).toBe(1); // L or M with A: 1 day, no early
+    // L or M with A: 1 gün, erken ders yok. Gün DAY_HOURS ile çarpılır: 1 gün -> 3.
+    expect(r.schedules[0].score).toBe(3);
     expect(r.schedules).toEqual(rescore(r.candidates, weights));
   });
 

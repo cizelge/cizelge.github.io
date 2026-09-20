@@ -6,7 +6,7 @@
 import { describe, expect, it } from "vitest";
 import type { Course, Meeting, Section } from "../types";
 import { generateSchedules } from "./generate";
-import { rescore } from "./score";
+import { DAY_HOURS, rescore } from "./score";
 import { key } from "./test-fixtures";
 import type { Constraints, GenerateInput, RelaxedConstraint, Weights } from "./types";
 
@@ -111,7 +111,8 @@ function refScore(meetings: Meeting[], w: Weights): number {
   }
   const earlyCount = meetings.filter((m) => toMin(m.start) < early).length;
   const lateCount = meetings.filter((m) => toMin(m.end) > late).length;
-  return w.fewDays * days + w.fewGaps * (gap / 60) + w.lunchBreak * noLunch + w.noEarly * earlyCount + w.noLate * lateCount;
+  // score.ts ile aynı: bir gün DAY_HOURS saate denk sayılır.
+  return w.fewDays * days * DAY_HOURS + w.fewGaps * (gap / 60) + w.lunchBreak * noLunch + w.noEarly * earlyCount + w.noLate * lateCount;
 }
 
 function reference(input: Constraints, weights: Weights): RefSchedule[] {
