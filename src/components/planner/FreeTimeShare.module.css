@@ -61,3 +61,49 @@
   align-items: center;
   gap: 0.6rem;
 }
+.rule { border: 0; border-top: 1px solid var(--rule); margin: 1rem 0 0.9rem; }
+
+.field { display: grid; gap: 0.2rem; font-size: 0.88rem; min-width: 0; flex: 1 1 15rem; }
+.fieldLabel { color: var(--ink-2); }
+.field .select { width: 100%; min-height: 40px; }
+.input {
+  width: 100%;
+  min-height: 40px;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-s);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+}
+.input:focus-visible { outline: 2px solid var(--pen); outline-offset: 1px; }
+
+.rows { list-style: none; margin: 0.6rem 0 0; padding: 0; display: grid; gap: 0.35rem; }
+.row {
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--rule-strong);
+  border-radius: var(--radius-s);
+  padding: 0.5rem 0.65rem;
+  display: grid;
+  gap: 0.1rem;
+  min-width: 0;
+}
+/* İkisinin de alabileceği şube fosforlu kalemle işaretlenir. */
+.row[data-ok="true"] {
+  border-left-color: var(--hl-1);
+  background: color-mix(in oklab, var(--hl-1) 14%, transparent);
+}
+.rowHead { display: flex; flex-wrap: wrap; align-items: center; gap: 0.2rem 0.5rem; }
+.tag {
+  font-weight: 700;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-s);
+  padding: 0 0.4rem;
+  min-width: 1.8rem;
+  text-align: center;
+}
+.when { font-variant-numeric: tabular-nums; }
+.rowMeta { color: var(--ink-2); font-size: 0.85rem; overflow-wrap: anywhere; }
+.rowState { font-size: 0.88rem; font-weight: 600; }
+.row[data-ok="true"] .rowState { color: var(--ink); }
+.row[data-ok="false"] .rowState { color: var(--ink-2); font-weight: 500; }

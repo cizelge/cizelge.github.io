@@ -85,6 +85,18 @@ export function decodeMask(text: string): Uint8Array | null {
   return mask;
 }
 
+/** Verilen oturum, bit haritasındaki dolu saatlerle çakışıyor mu. */
+export function overlapsBusy(mask: Uint8Array, m: Busy): boolean {
+  if (!DAYS.includes(m.day)) return false;
+  const start = Math.max(DAY_START, toMinutes(m.start));
+  const end = Math.min(DAY_END, toMinutes(m.end));
+  for (let minutes = start; minutes < end; minutes += SLOT) {
+    const i = slotIndex(m.day, minutes);
+    if (((mask[i >> 3] ?? 0) >> (i & 7)) & 1) return true;
+  }
+  return false;
+}
+
 export interface FreeBlock {
   day: Day;
   start: string;

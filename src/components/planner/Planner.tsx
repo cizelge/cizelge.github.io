@@ -610,7 +610,15 @@ export function Planner({ term, programs, termOptions = [], coursePages = false,
         <div className="tool-grid">
           <RegistrationPlan input={input} current={current} courses={courses} colorOf={colorOf} termLabel={term.termLabel} />
           {shuttle && current && <ShuttlePanel data={shuttle} meetings={placed} />}
-          {current && <FreeTimeShare meetings={placed} schoolId={term.schoolId} termId={term.termId} />}
+          {current && (
+            <FreeTimeShare
+              meetings={placed}
+              schoolId={term.schoolId}
+              termId={term.termId}
+              cart={state.cart}
+              courses={courses}
+            />
+          )}
           {current && (
             <AttendancePanel
               sections={current.sections}
