@@ -6,6 +6,7 @@ import { WeekGrid } from "@/components/planner/WeekGrid";
 import type { PlacedMeeting } from "@/components/planner/placed";
 import { tightRange } from "@/components/planner/placed";
 import { PrereqChain } from "@/components/course/PrereqChain";
+import { CourseRatings } from "@/components/ratings/CourseRatings";
 import { CourseGrades } from "@/components/grades/CourseGrades";
 import { CourseNotes } from "@/components/notes/CourseNotes";
 import { findCourse, loadPrograms, loadTerm, loadTerms } from "@/lib/data";
@@ -166,6 +167,8 @@ export default async function CoursePage(props: PageProps<"/ozyegin/[slug]">) {
             </tbody>
           </table>
         </div>
+
+        <CourseRatings school="ozyegin" code={course.code} title={course.title} />
 
         <CourseGrades school="ozyegin" code={course.code} instructors={[...new Set(course.sections.flatMap((s) => s.instructors))]} />
 

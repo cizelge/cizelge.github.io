@@ -2115,6 +2115,10 @@ a.pc-pill:hover { border-color: var(--ink); background: var(--paper-2); }
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  /* Altı sekme dar telefonlarda sığsın: en uzun etiket "Yol haritası". */
+  @media (max-width: 380px) {
+    .bottom-nav-label { font-size: 0.64rem; }
+  }
   .bottom-nav-item[aria-current="page"] { color: var(--ink); }
   .bottom-nav-item[aria-current="page"] .bottom-nav-label {
     background: linear-gradient(transparent 55%, var(--hl-0) 55%, var(--hl-0) 92%, transparent 92%);

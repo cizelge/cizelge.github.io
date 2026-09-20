@@ -8,12 +8,23 @@ export const NAV_ITEMS: { href: string; label: string; match: (p: string) => boo
   {
     href: "/ozyegin",
     label: "Program",
-    // Planlayıcı, dönem sayfaları ve ders sayfaları (araç sayfaları hariç).
-    match: (p) => p === "/ozyegin" || p.startsWith("/ozyegin/donem") || (/^\/ozyegin\/[^/]+$/.test(p) && !TOOL_PATHS.includes(p)),
+    // Planlayıcı ve dönem sayfaları; tek ders sayfaları "Dersler" sekmesine ait.
+    match: (p) => p === "/ozyegin" || p.startsWith("/ozyegin/donem"),
     icon: (
       <>
         <rect x="3.5" y="4.5" width="17" height="15" rx="2.5" />
         <path d="M3.5 9h17M9 9v10.5M15 9v10.5" />
+      </>
+    ),
+  },
+  {
+    href: "/ozyegin/dersler",
+    label: "Dersler",
+    match: (p) => p === "/ozyegin/dersler" || (/^\/ozyegin\/[^/]+$/.test(p) && !TOOL_PATHS.includes(p) && p !== "/ozyegin"),
+    icon: (
+      <>
+        <path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5z" />
+        <path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z" />
       </>
     ),
   },
@@ -59,7 +70,7 @@ export const NAV_ITEMS: { href: string; label: string; match: (p: string) => boo
   },
 ];
 
-const TOOL_PATHS = ["/ozyegin/hocalar", "/ozyegin/basvurular", "/ozyegin/yol-haritasi", "/ozyegin/on-sart-diyagrami", "/ozyegin/gecis", "/ozyegin/erasmus", "/ozyegin/takvim"];
+const TOOL_PATHS = ["/ozyegin/dersler", "/ozyegin/hocalar", "/ozyegin/basvurular", "/ozyegin/yol-haritasi", "/ozyegin/on-sart-diyagrami", "/ozyegin/gecis", "/ozyegin/erasmus", "/ozyegin/takvim"];
 
 export function MobileNav() {
   // Statik yayında adresler "/" ile bitiyor (trailingSlash); eşleştirmeden önce atılır.

@@ -274,3 +274,7 @@
 }
 .remove:disabled { color: var(--ink-2); text-decoration: none; cursor: default; }
 .remove:focus-visible { outline: 2px solid var(--pen); outline-offset: 2px; }
+
+/* Ders sayfasındaki puanlama bölümü: kendi bandı yok, sayfanın akışına girer. */
+.courseBlock { margin-bottom: 2.5rem; min-width: 0; }
+.courseBlock .stats { margin-top: 0; margin-bottom: 1rem; }

@@ -9,6 +9,10 @@
 //   POST   /notes                   -> bağlantı paylaş
 //   POST   /unnote                  -> kendi bağlantını kaldır
 //   POST   /notereport              -> bağlantıyı bildir
+//   GET    /courses?school=         -> ders puanları
+//   POST   /courses                 -> derse oy ver
+//   POST   /uncourse                -> ders oyunu kaldır
+//   POST   /coursereport            -> ders yorumunu bildir
 // Kişisel veri saklanmaz: IP adresi yerine gizli anahtarla karılmış özeti tutulur, ad ve numara istenmez.
 //
 // Not: Cloudflare workers.dev adresleri Türkiye'den açılmadığı için servis Deno Deploy'da duruyor.
@@ -46,6 +50,20 @@ import {
   type NoteKind,
   type NoteRow,
 } from "./notes.ts";
+import {
+  COURSE_CRITERIA,
+  courseScore,
+  MAX_COURSE_VOTES_PER_IP_PER_DAY,
+  MAX_COURSES_PER_DEVICE,
+  MAX_PER_IP_PER_COURSE,
+  parseCourseVote,
+  summarizeCourses,
+  type CourseComment,
+  type CourseCriteria,
+  type CourseCriterion,
+  type CourseRow,
+  type CourseSummary,
+} from "./courses.ts";
 
 const DEFAULT_ORIGINS = ["https://ozuhelper.github.io", "https://cizelge.github.io", "http://localhost:3000"];
 const SCHOOL_RE = /^[a-z][a-z0-9-]{1,30}$/;
@@ -509,6 +527,178 @@ async function reportNote(request: Request, headers: Record<string, string>): Pr
   return json({ ok: true, reports, hidden, notes: await courseNotes(school, course, device) }, { headers });
 }
 
+/** Ders oyu biriktirici. */
+interface CourseAcc {
+  title: string;
+  n: number;
+  again: number;
+  criteria: Partial<Record<CourseCriterion, { sum: number; n: number }>>;
+  comments: CourseComment[];
+}
+
+interface StoredCourseVote {
+  title: string;
+  again: boolean;
+  criteria: CourseCriteria;
+  comment?: string | null;
+  at: string;
+}
+
+const courseCache = new Map<string, { at: number; courses: CourseSummary[] }>();
+
+/** Bütün derslerin puanları; hoca özetleriyle aynı düzen. */
+async function getCourseSummaries(school: string, fresh = false): Promise<CourseSummary[]> {
+  const hit = courseCache.get(school);
+  if (hit && !fresh && Date.now() - hit.at < CACHE_MS) return hit.courses;
+
+  const hidden = new Set<string>();
+  for await (const entry of kv.list({ prefix: ["creported", school] })) hidden.add(`${String(entry.key[2])}|${String(entry.key[3])}`);
+
+  const byCourse = new Map<string, CourseAcc>();
+  for await (const entry of kv.list<StoredCourseVote>({ prefix: ["cvote", school] })) {
+    const course = String(entry.key[2]);
+    const device = String(entry.key[3]);
+    const v = entry.value;
+    if (!v) continue;
+    const acc = byCourse.get(course) ?? { title: "", n: 0, again: 0, criteria: {}, comments: [] };
+    acc.n++;
+    acc.again += v.again ? 1 : 0;
+    acc.title = v.title || acc.title;
+    for (const name of COURSE_CRITERIA) {
+      const value = v.criteria?.[name];
+      if (!value) continue;
+      const cell = acc.criteria[name] ?? { sum: 0, n: 0 };
+      cell.sum += value;
+      cell.n++;
+      acc.criteria[name] = cell;
+    }
+    if (v.comment) {
+      const id = await commentId(device, course);
+      if (!hidden.has(`${course}|${id}`)) {
+        acc.comments.push({ id, text: v.comment, at: v.at, again: v.again, score: courseScore(v.criteria ?? {}) });
+      }
+    }
+    byCourse.set(course, acc);
+  }
+
+  const rows: CourseRow[] = [...byCourse].map(([course, acc]) => {
+    const criteria: CourseRow["criteria"] = {};
+    for (const name of COURSE_CRITERIA) {
+      const cell = acc.criteria[name];
+      if (cell?.n) criteria[name] = { avg: cell.sum / cell.n, n: cell.n };
+    }
+    return { course, title: acc.title, n: acc.n, again: acc.again / acc.n, criteria, comments: acc.comments };
+  });
+
+  const courses = summarizeCourses(rows);
+  courseCache.set(school, { at: Date.now(), courses });
+  return courses;
+}
+
+/** Derse oy ver ya da oyunu değiştir. */
+async function postCourseVote(request: Request, headers: Record<string, string>): Promise<Response> {
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return json({ error: "Gövde okunamadı" }, { status: 400, headers });
+  }
+  const parsed = parseCourseVote(body);
+  if (!parsed.ok) return json({ error: parsed.error }, { status: 400, headers });
+  const vote = parsed.vote;
+
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "0.0.0.0";
+  if (!(await turnstileOk((body as { turnstile?: unknown }).turnstile, ip))) {
+    return json({ error: "Doğrulama başarısız, sayfayı yenile" }, { status: 403, headers });
+  }
+  const ipHash = await hashIp(ip);
+  const today = new Date().toISOString().slice(0, 10);
+  const key = ["cvote", vote.school, vote.course, vote.device];
+  const existing = await kv.get<StoredCourseVote>(key);
+
+  if (!existing.value) {
+    const [device, perCourse, perDay] = await Promise.all([
+      countMarks(["cdevice", vote.device]),
+      countMarks(["cipcourse", ipHash, vote.school, vote.course]),
+      countMarks(["cipday", ipHash, today]),
+    ]);
+    if (device >= MAX_COURSES_PER_DEVICE || perCourse >= MAX_PER_IP_PER_COURSE || perDay >= MAX_COURSE_VOTES_PER_IP_PER_DAY) {
+      return json({ error: "Çok fazla oy gönderildi, daha sonra dene" }, { status: 429, headers });
+    }
+  }
+
+  const stored: StoredCourseVote = {
+    title: vote.title,
+    again: vote.again,
+    criteria: vote.criteria,
+    comment: vote.comment,
+    at: new Date().toISOString(),
+  };
+  await kv.set(key, stored);
+  if (!existing.value) {
+    await Promise.all([
+      kv.set(["cipday", ipHash, today, vote.course], 1, { expireIn: 2 * DAY_MS }),
+      kv.set(["cipcourse", ipHash, vote.school, vote.course, vote.device], 1, { expireIn: 120 * DAY_MS }),
+      kv.set(["cdevice", vote.device, vote.school, vote.course], 1, { expireIn: 730 * DAY_MS }),
+    ]);
+  }
+
+  const courses = await getCourseSummaries(vote.school, true);
+  return json(
+    { ok: true, updated: !!existing.value, summary: courses.find((c) => c.course === vote.course) ?? null },
+    { headers },
+  );
+}
+
+/** Kendi ders oyunu kaldır. */
+async function removeCourseVote(request: Request, headers: Record<string, string>): Promise<Response> {
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return json({ error: "Gövde okunamadı" }, { status: 400, headers });
+  }
+  const b = (body ?? {}) as Record<string, unknown>;
+  const school = typeof b.school === "string" ? b.school : "";
+  const course = typeof b.course === "string" ? b.course.replace(/\s+/g, "").toUpperCase() : "";
+  const device = typeof b.device === "string" ? b.device : "";
+  if (!SCHOOL_RE.test(school) || !/^[A-Z0-9]{3,12}$/.test(course) || device.length < 16) {
+    return json({ error: "İstek geçersiz" }, { status: 400, headers });
+  }
+  const key = ["cvote", school, course, device];
+  const existing = await kv.get<StoredCourseVote>(key);
+  if (!existing.value) return json({ ok: true, removed: 0, summary: null }, { headers });
+  await kv.delete(key);
+  const courses = await getCourseSummaries(school, true);
+  return json({ ok: true, removed: 1, summary: courses.find((c) => c.course === course) ?? null }, { headers });
+}
+
+/** Ders yorumunu bildir. */
+async function reportCourseComment(request: Request, headers: Record<string, string>): Promise<Response> {
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return json({ error: "Gövde okunamadı" }, { status: 400, headers });
+  }
+  const b = (body ?? {}) as Record<string, unknown>;
+  const school = typeof b.school === "string" ? b.school : "";
+  const course = typeof b.course === "string" ? b.course.replace(/\s+/g, "").toUpperCase() : "";
+  const id = typeof b.id === "string" ? b.id : "";
+  const device = typeof b.device === "string" ? b.device : "";
+  if (!SCHOOL_RE.test(school) || !/^[A-Z0-9]{3,12}$/.test(course) || !/^[0-9a-f]{12}$/.test(id) || device.length < 16) {
+    return json({ error: "Bildirim geçersiz" }, { status: 400, headers });
+  }
+  await kv.set(["creport", school, course, id, device], 1, { expireIn: 365 * DAY_MS });
+  let reports = 0;
+  for await (const _ of kv.list({ prefix: ["creport", school, course, id] })) reports++;
+  if (reports >= HIDE_AFTER_REPORTS) {
+    await kv.set(["creported", school, course, id], 1);
+    courseCache.delete(school);
+  }
+  return json({ ok: true, reports, hidden: reports >= HIDE_AFTER_REPORTS }, { headers });
+}
+
 /** Bakım: kötüye kullanılan ya da deneme amaçlı oyları siler. ADMIN_KEY verilmemişse kapalıdır. */
 async function deleteVotes(request: Request, url: URL, headers: Record<string, string>): Promise<Response> {
   const adminKey = env("ADMIN_KEY");
@@ -526,6 +716,7 @@ async function deleteVotes(request: Request, url: URL, headers: Record<string, s
       ["vote"], ["report"], ["reported"], ["ipteacher"], ["ipday"], ["device"],
       ["grade"], ["gipcourse"], ["gipday"], ["gdevice"],
       ["note"], ["notereport"], ["notehidden"], ["ndevice"], ["nipday"],
+      ["cvote"], ["creport"], ["creported"], ["cdevice"], ["cipcourse"], ["cipday"],
     ]) {
       for await (const entry of kv.list({ prefix })) {
         await kv.delete(entry.key);
@@ -563,6 +754,29 @@ export async function handler(request: Request): Promise<Response> {
   if (url.pathname === "/ungrade" && request.method === "POST") {
     if (!headers["Access-Control-Allow-Origin"]) return json({ error: "Bu adresten istek kabul edilmiyor" }, { status: 403, headers });
     return await removeGrade(request, headers);
+  }
+  if (url.pathname === "/uncourse" && request.method === "POST") {
+    if (!headers["Access-Control-Allow-Origin"]) return json({ error: "Bu adresten istek kabul edilmiyor" }, { status: 403, headers });
+    return await removeCourseVote(request, headers);
+  }
+  if (url.pathname === "/coursereport" && request.method === "POST") {
+    if (!headers["Access-Control-Allow-Origin"]) return json({ error: "Bu adresten bildirim kabul edilmiyor" }, { status: 403, headers });
+    return await reportCourseComment(request, headers);
+  }
+  if (url.pathname === "/courses") {
+    if (request.method === "GET") {
+      const school = url.searchParams.get("school") ?? "";
+      if (!SCHOOL_RE.test(school)) return json({ error: "Okul geçersiz" }, { status: 400, headers });
+      return json(
+        { school, updatedAt: new Date().toISOString(), courses: await getCourseSummaries(school) },
+        { headers: { ...headers, "Cache-Control": "private, max-age=60" } },
+      );
+    }
+    if (request.method === "POST") {
+      if (!headers["Access-Control-Allow-Origin"]) return json({ error: "Bu adresten oy kabul edilmiyor" }, { status: 403, headers });
+      return await postCourseVote(request, headers);
+    }
+    return json({ error: "Yöntem desteklenmiyor" }, { status: 405, headers });
   }
   if (url.pathname === "/unnote" && request.method === "POST") {
     if (!headers["Access-Control-Allow-Origin"]) return json({ error: "Bu adresten istek kabul edilmiyor" }, { status: 403, headers });
