@@ -39,6 +39,14 @@ export default function About() {
           </Link>{" "}
           topladık.
         </p>
+
+        <p>
+          Eksik, bozuk ya da yanlış bir şey görürsen{" "}
+          <Link href="/ozyegin/geri-bildirim" className="link">
+            geri bildirim
+          </Link>{" "}
+          bırak; isim istemiyoruz.
+        </p>
       </main>
     </>
   );

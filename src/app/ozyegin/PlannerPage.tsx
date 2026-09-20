@@ -1,5 +1,6 @@
 // /ozyegin ve /ozyegin/donem/[termId] için ortak planlayıcı sayfası (sunucu bileşeni).
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Planner } from "@/components/planner/Planner";
 import { loadPrograms, loadShuttle, loadTerm, termOptions } from "@/lib/data";
@@ -41,6 +42,11 @@ export function PlannerPage({ term }: { term: TermData }) {
       <footer className="site-footer">
         <span>Veriler en son {formatDate(term.fetchedAt)} tarihinde güncellendi.</span>
         <span>Resmi bir Özyeğin hizmeti değildir. Kaydından önce bilgileri SIS üzerinden kontrol et.</span>
+        <span>
+          <Link href="/ozyegin/geri-bildirim" className="link">
+            Öneri ve hata bildir
+          </Link>
+        </span>
       </footer>
     </>
   );

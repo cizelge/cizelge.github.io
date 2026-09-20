@@ -1,0 +1,93 @@
+.form {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 40rem;
+  min-width: 0;
+}
+
+.legend {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+.optional { font-weight: 400; color: var(--ink-2); }
+
+.kinds { border: 0; margin: 0; padding: 0; }
+.kindRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.kind {
+  display: grid;
+  gap: 0.05rem;
+  text-align: left;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-s);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  padding: 0.4rem 0.7rem;
+  min-height: 44px;
+  cursor: pointer;
+}
+.kind:hover { background: var(--paper-2); }
+.kind[data-on="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.kind:focus-visible { outline: 2px solid var(--pen); outline-offset: 2px; }
+.kindLabel { font-weight: 600; font-size: 0.92rem; }
+.kindHint { font-size: 0.78rem; opacity: 0.75; }
+
+.field { display: grid; min-width: 0; }
+.textarea,
+.input {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-s);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  line-height: 1.5;
+  resize: vertical;
+}
+.input { min-height: 42px; }
+.textarea:focus-visible,
+.input:focus-visible { outline: 2px solid var(--pen); outline-offset: 1px; }
+
+.counter {
+  margin-top: 0.25rem;
+  color: var(--ink-2);
+  font-size: 0.82rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+.error { color: var(--danger); font-size: 0.9rem; }
+
+.privacy {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  max-width: 58ch;
+}
+
+.closed { color: var(--ink-2); }
+
+.done {
+  border: 1px solid var(--rule-strong);
+  border-left: 3px solid var(--hl-0);
+  border-radius: var(--radius-m);
+  padding: 1rem 1.1rem 1.1rem;
+  display: grid;
+  gap: 0.4rem;
+  justify-items: start;
+  max-width: 40rem;
+}
+.doneTitle { margin: 0; font-weight: 700; font-size: 1.05rem; }
+.doneText { margin: 0 0 0.4rem; color: var(--ink-2); line-height: 1.5; }

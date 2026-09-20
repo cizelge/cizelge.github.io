@@ -818,6 +818,14 @@ a.term-option[aria-current="page"]:hover {
 .page-wide { max-width: 88rem; }
 .prose { max-width: 38rem; }
 .prose p { margin: 0 0 1rem; }
+.prose h1 {
+  margin: 0 0 0.8rem;
+  font-size: clamp(1.7rem, 4.5vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.prose h2 { margin: 1.6rem 0 0.5rem; font-size: 1.15rem; font-weight: 700; }
 
 .home-title {
   font-size: clamp(2.4rem, 7vw, 5rem);

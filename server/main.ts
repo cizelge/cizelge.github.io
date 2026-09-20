@@ -13,6 +13,8 @@
 //   POST   /courses                 -> derse oy ver
 //   POST   /uncourse                -> ders oyunu kaldır
 //   POST   /coursereport            -> ders yorumunu bildir
+//   POST   /feedback                -> öneri, hata, veri düzeltme mesajı
+//   GET    /feedback?school=        -> gelen mesajlar (ADMIN_KEY ile)
 // Kişisel veri saklanmaz: IP adresi yerine gizli anahtarla karılmış özeti tutulur, ad ve numara istenmez.
 //
 // Not: Cloudflare workers.dev adresleri Türkiye'den açılmadığı için servis Deno Deploy'da duruyor.
@@ -64,6 +66,12 @@ import {
   type CourseRow,
   type CourseSummary,
 } from "./courses.ts";
+import {
+  FEEDBACK_DAYS,
+  MAX_FEEDBACK_PER_IP_PER_DAY,
+  parseFeedback,
+  type FeedbackKind,
+} from "./feedback.ts";
 
 const DEFAULT_ORIGINS = ["https://ozuhelper.github.io", "https://cizelge.github.io", "http://localhost:3000"];
 const SCHOOL_RE = /^[a-z][a-z0-9-]{1,30}$/;
@@ -699,6 +707,64 @@ async function reportCourseComment(request: Request, headers: Record<string, str
   return json({ ok: true, reports, hidden: reports >= HIDE_AFTER_REPORTS }, { headers });
 }
 
+interface StoredFeedback {
+  kind: FeedbackKind;
+  message: string;
+  contact: string | null;
+  page: string | null;
+  at: string;
+}
+
+/** Geri bildirim gönder. Kimlik istenmez; iletişim bilgisi yazan kişi isterse eklenir. */
+async function postFeedback(request: Request, headers: Record<string, string>): Promise<Response> {
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return json({ error: "Gövde okunamadı" }, { status: 400, headers });
+  }
+  const parsed = parseFeedback(body);
+  if (!parsed.ok) return json({ error: parsed.error }, { status: 400, headers });
+  const feedback = parsed.feedback;
+
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "0.0.0.0";
+  const ipHash = await hashIp(ip);
+  const today = new Date().toISOString().slice(0, 10);
+  if ((await countMarks(["fipday", ipHash, today])) >= MAX_FEEDBACK_PER_IP_PER_DAY) {
+    return json({ error: "Bugünlük mesaj sınırına geldin" }, { status: 429, headers });
+  }
+
+  const at = new Date().toISOString();
+  const id = crypto.randomUUID().replace(/-/g, "").slice(0, 12);
+  const stored: StoredFeedback = {
+    kind: feedback.kind,
+    message: feedback.message,
+    contact: feedback.contact,
+    page: feedback.page,
+    at,
+  };
+  // Anahtarda zaman var: yeniden eskiye okumak için.
+  await kv.set(["feedback", feedback.school, at, id], stored, { expireIn: FEEDBACK_DAYS * DAY_MS });
+  await kv.set(["fipday", ipHash, today, id], 1, { expireIn: 2 * DAY_MS });
+  return json({ ok: true }, { headers });
+}
+
+/** Gelen mesajları oku. Yalnızca ADMIN_KEY ile. */
+async function getFeedback(request: Request, url: URL, headers: Record<string, string>): Promise<Response> {
+  const adminKey = env("ADMIN_KEY");
+  if (!adminKey) return json({ error: "Kapalı" }, { status: 404, headers });
+  if (request.headers.get("x-admin-key") !== adminKey) return json({ error: "Yetki yok" }, { status: 403, headers });
+  const school = url.searchParams.get("school") ?? "";
+  if (!SCHOOL_RE.test(school)) return json({ error: "Okul geçersiz" }, { status: 400, headers });
+
+  const items: (StoredFeedback & { id: string })[] = [];
+  for await (const entry of kv.list<StoredFeedback>({ prefix: ["feedback", school] })) {
+    if (entry.value) items.push({ ...entry.value, id: String(entry.key[3]) });
+  }
+  items.sort((a, b) => b.at.localeCompare(a.at));
+  return json({ ok: true, count: items.length, items }, { headers });
+}
+
 /** Bakım: kötüye kullanılan ya da deneme amaçlı oyları siler. ADMIN_KEY verilmemişse kapalıdır. */
 async function deleteVotes(request: Request, url: URL, headers: Record<string, string>): Promise<Response> {
   const adminKey = env("ADMIN_KEY");
@@ -717,6 +783,7 @@ async function deleteVotes(request: Request, url: URL, headers: Record<string, s
       ["grade"], ["gipcourse"], ["gipday"], ["gdevice"],
       ["note"], ["notereport"], ["notehidden"], ["ndevice"], ["nipday"],
       ["cvote"], ["creport"], ["creported"], ["cdevice"], ["cipcourse"], ["cipday"],
+      ["feedback"], ["fipday"],
     ]) {
       for await (const entry of kv.list({ prefix })) {
         await kv.delete(entry.key);
@@ -754,6 +821,14 @@ export async function handler(request: Request): Promise<Response> {
   if (url.pathname === "/ungrade" && request.method === "POST") {
     if (!headers["Access-Control-Allow-Origin"]) return json({ error: "Bu adresten istek kabul edilmiyor" }, { status: 403, headers });
     return await removeGrade(request, headers);
+  }
+  if (url.pathname === "/feedback") {
+    if (request.method === "GET") return await getFeedback(request, url, headers);
+    if (request.method === "POST") {
+      if (!headers["Access-Control-Allow-Origin"]) return json({ error: "Bu adresten mesaj kabul edilmiyor" }, { status: 403, headers });
+      return await postFeedback(request, headers);
+    }
+    return json({ error: "Yöntem desteklenmiyor" }, { status: 405, headers });
   }
   if (url.pathname === "/uncourse" && request.method === "POST") {
     if (!headers["Access-Control-Allow-Origin"]) return json({ error: "Bu adresten istek kabul edilmiyor" }, { status: 403, headers });
