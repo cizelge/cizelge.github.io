@@ -23,6 +23,13 @@ export function TopNav() {
         </Link>
       ))}
       <Link
+        href="/ozyegin/rehber"
+        className="btn btn-small btn-quiet nav-about"
+        aria-current={pathname.startsWith("/ozyegin/rehber") ? "page" : undefined}
+      >
+        <span className="nav-label">Rehber</span>
+      </Link>
+      <Link
         href="/ozyegin/takvim"
         className="btn btn-small btn-quiet nav-about"
         aria-current={pathname === "/ozyegin/takvim" ? "page" : undefined}

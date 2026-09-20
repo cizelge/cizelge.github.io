@@ -1,0 +1,81 @@
+.root {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding-block: clamp(1.5rem, 5vw, 3rem);
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+  min-width: 0;
+}
+
+.back { margin: 0 0 1rem; font-size: 0.9rem; color: var(--ink-2); }
+
+.title {
+  margin: 0 0 0.6rem;
+  font-size: clamp(1.7rem, 4.5vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.lede {
+  margin: 0 0 1.8rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+.section { margin-bottom: 1.8rem; }
+.heading {
+  margin: 0 0 0.6rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+.p { margin: 0 0 0.8rem; line-height: 1.65; }
+
+.list {
+  margin: 0 0 0.8rem;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.35rem;
+  line-height: 1.6;
+}
+
+/* Dikkat çekilen kural ya da site içi ipucu. */
+.note {
+  margin: 0 0 0.9rem;
+  padding: 0.7rem 0.9rem;
+  border-left: 3px solid var(--hl-0);
+  background: color-mix(in oklab, var(--hl-0) 16%, transparent);
+  border-radius: 0 var(--radius-s) var(--radius-s) 0;
+  line-height: 1.6;
+}
+
+.tableWrap { overflow-x: auto; margin: 0 0 1rem; }
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.table th,
+.table td {
+  text-align: left;
+  padding: 0.5rem 0.7rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+.table th {
+  font-weight: 700;
+  border-bottom-color: var(--rule-strong);
+  white-space: nowrap;
+}
+.firstCell { font-weight: 600; white-space: nowrap; }
+
+.sources {
+  margin-top: 2.2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--rule);
+}
+.warn {
+  margin: 0.8rem 0 0;
+  color: var(--ink-2);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}

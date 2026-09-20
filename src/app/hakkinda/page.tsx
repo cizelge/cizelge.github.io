@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SiteHeader } from "@/components/SiteHeader";
 
 export const metadata: Metadata = {
@@ -30,6 +31,14 @@ export default function About() {
         </p>
         <h2 className="group-title">Hangi okullar var?</h2>
         <p>Şu an Özyeğin Üniversitesi. Başka okullar sırayla eklenecek.</p>
+
+        <p>
+          Ders kaydı, AKTS sınırı, dersten çekilme ve ders tekrarı kurallarını sade anlatımla{" "}
+          <Link href="/ozyegin/rehber" className="link">
+            öğrenci rehberinde
+          </Link>{" "}
+          topladık.
+        </p>
       </main>
     </>
   );

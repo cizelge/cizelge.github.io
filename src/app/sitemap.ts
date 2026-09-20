@@ -4,6 +4,7 @@ import type { MetadataRoute } from "next";
 export const dynamic = "force-static";
 import { loadErasmus, loadTerm, loadTerms, loadTransfer } from "@/lib/data";
 import { instructorSlug } from "@/lib/ratings/instructors";
+import { GUIDES } from "@/lib/guides/ozyegin";
 import type { TermData } from "@/lib/types";
 
 function instructorSlugs(term: TermData): string[] {
@@ -39,6 +40,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/ozyegin/hocalar`, lastModified: updated },
     { url: `${siteUrl}/ozyegin/dersler`, lastModified: updated },
     { url: `${siteUrl}/ozyegin/bos-saat`, lastModified: updated },
+    { url: `${siteUrl}/ozyegin/rehber`, lastModified: updated },
+    ...GUIDES.map((g) => ({ url: `${siteUrl}/ozyegin/rehber/${g.slug}`, lastModified: updated })),
     { url: `${siteUrl}/ozyegin/takvim`, lastModified: updated },
     { url: `${siteUrl}/ozyegin/erasmus`, lastModified: erasmus ? new Date(erasmus.fetchedAt) : updated },
     { url: `${siteUrl}/hakkinda` },
