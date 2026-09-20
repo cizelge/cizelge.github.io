@@ -23,7 +23,14 @@ export const metadata: Metadata = {
   },
   description:
     "Derslerini seç, çakışmayan bütün programları gör. Kampüse az gün gelmek ya da sabah dersinden kaçmak gibi önceliklerine göre sıralar.",
-  openGraph: { type: "website", locale: "tr_TR", siteName: "OzuHelper" },
+  openGraph: {
+    type: "website",
+    locale: "tr_TR",
+    siteName: "OzuHelper",
+    // Paylaşım önizlemesi (WhatsApp, Instagram, arama).
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "OzuHelper: Özyeğin çakışmasız ders programı" }],
+  },
+  twitter: { card: "summary_large_image", images: ["/og.png"] },
   appleWebApp: { capable: true, title: "OzuHelper", statusBarStyle: "default" },
   icons: { apple: "/icons/apple-touch-icon.png" },
 };
@@ -49,6 +56,20 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
       </head>
       <body>
+        {/* Site künyesi: arama sonuçlarında ad ve adres. */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "OzuHelper",
+              url: siteUrl,
+              inLanguage: "tr",
+              description: "Özyeğin Üniversitesi için çakışmasız ders programı, hoca ve ders puanları.",
+            }),
+          }}
+        />
         <a href="#icerik" className="skip-link">
           İçeriğe geç
         </a>

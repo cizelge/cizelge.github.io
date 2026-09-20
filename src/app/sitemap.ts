@@ -37,6 +37,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/ozyegin/basvurular`, lastModified: updated },
     { url: `${siteUrl}/ozyegin/gecis`, lastModified: transfer ? new Date(transfer.fetchedAt) : updated },
     { url: `${siteUrl}/ozyegin/hocalar`, lastModified: updated },
+    { url: `${siteUrl}/ozyegin/dersler`, lastModified: updated },
+    { url: `${siteUrl}/ozyegin/bos-saat`, lastModified: updated },
     { url: `${siteUrl}/ozyegin/takvim`, lastModified: updated },
     { url: `${siteUrl}/ozyegin/erasmus`, lastModified: erasmus ? new Date(erasmus.fetchedAt) : updated },
     { url: `${siteUrl}/hakkinda` },

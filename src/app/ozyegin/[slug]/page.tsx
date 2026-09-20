@@ -61,8 +61,24 @@ export default async function CoursePage(props: PageProps<"/ozyegin/[slug]">) {
     })),
   );
 
+  // Arama motorları için ders künyesi (schema.org Course).
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: `${course.code} ${course.title}`,
+    courseCode: course.code,
+    description: `${course.code} ${course.title}: ${course.sections.length} şube, gün ve saatleri, hocaları.`,
+    inLanguage: "tr",
+    provider: {
+      "@type": "CollegeOrUniversity",
+      name: "Özyeğin Üniversitesi",
+      url: "https://www.ozyegin.edu.tr",
+    },
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <SiteHeader term={`Özyeğin, ${term.termLabel}`} />
       <main id="icerik" className="page page-wide">
         <p className="hint" style={{ marginBottom: "1rem" }}>
