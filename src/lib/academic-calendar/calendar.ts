@@ -143,7 +143,7 @@ export function eventsIcs(events: CalendarEvent[], { calName, now = new Date() }
   const lines = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//Cizelge//Akademik takvim//TR",
+    "PRODID:-//OzuHelper//Akademik takvim//TR",
     "CALSCALE:GREGORIAN",
     "METHOD:PUBLISH",
     `X-WR-CALNAME:${escapeText(calName)}`,

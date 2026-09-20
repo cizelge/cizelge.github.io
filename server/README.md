@@ -1,6 +1,6 @@
 # Oy servisi (Deno Deploy + Deno KV)
 
-Ders ve hoca oylarını saklar. Site (cizelge.github.io) yalnızca özetleri okur.
+Ders ve hoca oylarını saklar. Site (ozuhelper.github.io) yalnızca özetleri okur.
 Adres: https://oylar.cizelge-oy.deno.net
 
 Neden Cloudflare değil: `*.workers.dev` ve `*.pages.dev` adresleri Türkiye'den açılmıyor,

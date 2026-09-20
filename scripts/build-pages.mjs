@@ -2,7 +2,7 @@
 // Windows ve Linux'ta aynı çalışsın diye ortam değişkeni burada verilir.
 import { spawnSync } from "node:child_process";
 
-const env = { ...process.env, STATIC_EXPORT: "1", SITE_URL: process.env.SITE_URL ?? "https://cizelge.github.io" };
+const env = { ...process.env, STATIC_EXPORT: "1", SITE_URL: process.env.SITE_URL ?? "https://ozuhelper.github.io" };
 const run = (cmd, args) => {
   const r = spawnSync(cmd, args, { stdio: "inherit", env, shell: process.platform === "win32" });
   if (r.status !== 0) process.exit(r.status ?? 1);

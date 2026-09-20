@@ -39,7 +39,7 @@ export type IcsSchedule =
 
 export function buildIcs(sections: readonly SectionRef[], courses: ReadonlyMap<string, Course>, when: IcsSchedule | Date): string {
   const schedule: IcsSchedule = when instanceof Date ? { kind: "weeks", firstMonday: when } : when;
-  const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//ders-planlayici//TR", "CALSCALE:GREGORIAN", ...VTIMEZONE];
+  const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//OzuHelper//TR", "CALSCALE:GREGORIAN", ...VTIMEZONE];
   const stamp = new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
 
   for (const ref of sections) {
