@@ -4,7 +4,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { busyMask, encodeMask } from "@/lib/planner/free-time";
-import { createCode } from "@/lib/planner/share-code";
 import { freeKey } from "./FreeTime";
 import type { PlacedMeeting } from "./placed";
 import styles from "./FreeTimeShare.module.css";
@@ -17,35 +16,24 @@ interface Props {
 
 export function FreeTimeShare({ meetings, schoolId, termId }: Props) {
   const [note, setNote] = useState("");
-  const [code, setCode] = useState("");
-  const [busy, setBusy] = useState(false);
-  const mask = encodeMask(busyMask(meetings.map((m) => ({ day: m.day, start: m.start, end: m.end }))));
+  const code = encodeMask(busyMask(meetings.map((m) => ({ day: m.day, start: m.start, end: m.end }))));
 
   // Kod tarayıcıda saklanır; ortak boş saat sayfası kendi programını buradan okur.
   useEffect(() => {
     try {
-      window.localStorage.setItem(freeKey(schoolId, termId), mask);
+      window.localStorage.setItem(freeKey(schoolId, termId), code);
     } catch {
       /* depo kapalı */
     }
-  }, [mask, schoolId, termId]);
+  }, [code, schoolId, termId]);
 
   async function copy() {
-    if (busy) return;
-    setBusy(true);
-    setNote("");
-    const result = await createCode("bos", mask);
-    setBusy(false);
-    if (!result.ok) {
-      setNote(result.error);
-      return;
-    }
-    setCode(result.code);
+    const link = `${window.location.origin}/ozyegin/bos-saat/?k=${code}`;
     try {
-      await navigator.clipboard.writeText(result.code);
-      setNote(`Kodun ${result.code}, panoya kopyalandı. Arkadaşına söyle, ortak boş saat sayfasına yazsın.`);
+      await navigator.clipboard.writeText(link);
+      setNote("Link kopyalandı. Arkadaşına gönder; o da kendi programını ekleyince ortak saatleriniz çıkar.");
     } catch {
-      setNote(`Kodun ${result.code}. Arkadaşına söyle, ortak boş saat sayfasına yazsın.`);
+      setNote("Kopyalanamadı. Ortak boş saat sayfasından linki elle alabilirsin.");
     }
   }
 
@@ -58,14 +46,14 @@ export function FreeTimeShare({ meetings, schoolId, termId }: Props) {
 
       <div className={styles.body}>
         <p className={styles.lead}>
-          Altı haneli bir kod al, arkadaşına söyle. O da ortak boş saat sayfasına bu kodu yazınca ikinizin de boş
-          olduğu saatler çıkar. Kodda ders adı yok, yalnızca dolu saatler var.
+          Linki arkadaşına gönder, o da kendi programını eklesin; ikinizin de boş olduğu saatler çıksın. Linkte ders
+          adı yok, yalnızca dolu saatler var.
         </p>
         <div className={styles.actions}>
-          <button type="button" className="btn btn-pen" onClick={copy} disabled={busy}>
-            {busy ? "Kod alınıyor" : code ? `Kodun: ${code}` : "Kod al"}
+          <button type="button" className="btn btn-pen" onClick={copy}>
+            Boş saat linkimi kopyala
           </button>
-          <Link href={`/ozyegin/bos-saat/?k=${mask}`} className="btn btn-small">
+          <Link href={`/ozyegin/bos-saat/?k=${code}`} className="btn btn-small">
             Sayfayı aç
           </Link>
         </div>

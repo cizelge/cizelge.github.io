@@ -13,8 +13,6 @@
 //   POST   /courses                 -> derse oy ver
 //   POST   /uncourse                -> ders oyunu kaldır
 //   POST   /coursereport            -> ders yorumunu bildir
-//   POST   /share                   -> uzun linki 6 haneli koda çevir
-//   GET    /share?kod=K7M4PQ        -> kodun içeriği
 // Kişisel veri saklanmaz: IP adresi yerine gizli anahtarla karılmış özeti tutulur, ad ve numara istenmez.
 //
 // Not: Cloudflare workers.dev adresleri Türkiye'den açılmadığı için servis Deno Deploy'da duruyor.
@@ -66,14 +64,6 @@ import {
   type CourseRow,
   type CourseSummary,
 } from "./courses.ts";
-import {
-  cleanCode,
-  makeCode,
-  MAX_CODES_PER_IP_PER_DAY,
-  parseShare,
-  SHARE_DAYS,
-  type ShareKind,
-} from "./share.ts";
 
 const DEFAULT_ORIGINS = ["https://ozuhelper.github.io", "https://cizelge.github.io", "http://localhost:3000"];
 const SCHOOL_RE = /^[a-z][a-z0-9-]{1,30}$/;
@@ -709,61 +699,6 @@ async function reportCourseComment(request: Request, headers: Record<string, str
   return json({ ok: true, reports, hidden: reports >= HIDE_AFTER_REPORTS }, { headers });
 }
 
-interface StoredShare {
-  kind: ShareKind;
-  data: string;
-  at: string;
-}
-
-/** Kullanılmayan bir kod bul; çakışırsa birkaç kez dener. */
-async function freeCode(): Promise<string | null> {
-  for (let i = 0; i < 6; i++) {
-    const code = makeCode();
-    const existing = await kv.get<StoredShare>(["share", code]);
-    if (!existing.value) return code;
-  }
-  return null;
-}
-
-/** Uzun linki kısa koda çevirir. */
-async function postShare(request: Request, headers: Record<string, string>): Promise<Response> {
-  let body: unknown;
-  try {
-    body = await request.json();
-  } catch {
-    return json({ error: "Gövde okunamadı" }, { status: 400, headers });
-  }
-  const parsed = parseShare(body);
-  if (!parsed.ok) return json({ error: parsed.error }, { status: 400, headers });
-
-  const ip = request.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "0.0.0.0";
-  const ipHash = await hashIp(ip);
-  const today = new Date().toISOString().slice(0, 10);
-  if ((await countMarks(["sipday", ipHash, today])) >= MAX_CODES_PER_IP_PER_DAY) {
-    return json({ error: "Bugünlük kod sınırına geldin" }, { status: 429, headers });
-  }
-
-  const code = await freeCode();
-  if (!code) return json({ error: "Kod üretilemedi, tekrar dene" }, { status: 503, headers });
-
-  const stored: StoredShare = { kind: parsed.share.kind, data: parsed.share.data, at: new Date().toISOString() };
-  await kv.set(["share", code], stored, { expireIn: SHARE_DAYS * DAY_MS });
-  await kv.set(["sipday", ipHash, today, code], 1, { expireIn: 2 * DAY_MS });
-  return json({ ok: true, code }, { headers });
-}
-
-/** Koddan içeriği okur. */
-async function getShare(url: URL, headers: Record<string, string>): Promise<Response> {
-  const code = cleanCode(url.searchParams.get("kod") ?? url.searchParams.get("code"));
-  if (!code) return json({ error: "Kod geçersiz" }, { status: 400, headers });
-  const found = await kv.get<StoredShare>(["share", code]);
-  if (!found.value) return json({ error: "Kod bulunamadı" }, { status: 404, headers });
-  return json(
-    { ok: true, code, kind: found.value.kind, data: found.value.data },
-    { headers: { ...headers, "Cache-Control": "private, max-age=300" } },
-  );
-}
-
 /** Bakım: kötüye kullanılan ya da deneme amaçlı oyları siler. ADMIN_KEY verilmemişse kapalıdır. */
 async function deleteVotes(request: Request, url: URL, headers: Record<string, string>): Promise<Response> {
   const adminKey = env("ADMIN_KEY");
@@ -782,7 +717,6 @@ async function deleteVotes(request: Request, url: URL, headers: Record<string, s
       ["grade"], ["gipcourse"], ["gipday"], ["gdevice"],
       ["note"], ["notereport"], ["notehidden"], ["ndevice"], ["nipday"],
       ["cvote"], ["creport"], ["creported"], ["cdevice"], ["cipcourse"], ["cipday"],
-      ["share"], ["sipday"],
     ]) {
       for await (const entry of kv.list({ prefix })) {
         await kv.delete(entry.key);
@@ -820,14 +754,6 @@ export async function handler(request: Request): Promise<Response> {
   if (url.pathname === "/ungrade" && request.method === "POST") {
     if (!headers["Access-Control-Allow-Origin"]) return json({ error: "Bu adresten istek kabul edilmiyor" }, { status: 403, headers });
     return await removeGrade(request, headers);
-  }
-  if (url.pathname === "/share") {
-    if (request.method === "GET") return await getShare(url, headers);
-    if (request.method === "POST") {
-      if (!headers["Access-Control-Allow-Origin"]) return json({ error: "Bu adresten paylaşım kabul edilmiyor" }, { status: 403, headers });
-      return await postShare(request, headers);
-    }
-    return json({ error: "Yöntem desteklenmiyor" }, { status: 405, headers });
   }
   if (url.pathname === "/uncourse" && request.method === "POST") {
     if (!headers["Access-Control-Allow-Origin"]) return json({ error: "Bu adresten istek kabul edilmiyor" }, { status: 403, headers });
