@@ -117,3 +117,5 @@
 
 .empty { margin: 0; color: var(--ink-2); }
 .more { min-height: 44px; }
+/* Süzme açıkken kaç ders kaldığı. */
+.found { margin: 0 0 0.75rem; color: var(--ink-2); font-size: 0.9rem; }

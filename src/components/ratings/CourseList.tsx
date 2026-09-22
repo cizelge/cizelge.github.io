@@ -36,6 +36,8 @@ export function CourseList({ school, courses }: { school: string; courses: ListC
   const { summaries } = useCourseRatings(school);
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<Sort>("puan");
+  // "" = bütün AKTS değerleri.
+  const [ects, setEcts] = useState("");
   const [limit, setLimit] = useState(PAGE);
   const [myVotes, setMyVotes] = useState<Record<string, MyCourseVote>>({});
 
@@ -50,10 +52,23 @@ export function CourseList({ school, courses }: { school: string; courses: ListC
     return map;
   }, [summaries]);
 
+  // Veride geçen AKTS değerleri, küçükten büyüğe; yanında kaç ders olduğu.
+  const ectsOptions = useMemo(() => {
+    const counts = new Map<number, number>();
+    for (const c of courses) {
+      if (c.ects === null) continue;
+      counts.set(c.ects, (counts.get(c.ects) ?? 0) + 1);
+    }
+    return [...counts].sort((a, b) => a[0] - b[0]).map(([value, count]) => ({ value, count }));
+  }, [courses]);
+
   const q = norm(query);
   const shown = useMemo(() => {
+    const wanted = ects === "" ? null : Number(ects);
     const list = courses.filter(
-      (c) => !q || norm(c.code).includes(q) || norm(c.title).includes(q) || c.instructors.some((i) => norm(i).includes(q)),
+      (c) =>
+        (wanted === null || c.ects === wanted) &&
+        (!q || norm(c.code).includes(q) || norm(c.title).includes(q) || c.instructors.some((i) => norm(i).includes(q))),
     );
     const of = (c: ListCourseItem) => summaryOf.get(courseKey(c.code));
     const score = (c: ListCourseItem) => of(c)?.score ?? -1;
@@ -65,7 +80,7 @@ export function CourseList({ school, courses }: { school: string; courses: ListC
       if (sort === "kolay") return hard(a) - hard(b) || a.code.localeCompare(b.code, "tr");
       return score(b) - score(a) || votes(b) - votes(a) || a.code.localeCompare(b.code, "tr");
     });
-  }, [courses, q, sort, summaryOf]);
+  }, [courses, q, sort, ects, summaryOf]);
 
   const rated = summaries?.courses?.length ?? 0;
 
@@ -103,6 +118,24 @@ export function CourseList({ school, courses }: { school: string; courses: ListC
             />
           </label>
           <label className={styles.sort}>
+            <span className="sr-only">AKTS</span>
+            <select
+              className={styles.select}
+              value={ects}
+              onChange={(e) => {
+                setEcts(e.target.value);
+                setLimit(PAGE);
+              }}
+            >
+              <option value="">Her AKTS</option>
+              {ectsOptions.map((o) => (
+                <option key={o.value} value={o.value}>
+                  {o.value} AKTS ({o.count})
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className={styles.sort}>
             <span className="sr-only">Sıralama</span>
             <select className={styles.select} value={sort} onChange={(e) => setSort(e.target.value as Sort)}>
               {SORTS.map((s) => (
@@ -120,9 +153,17 @@ export function CourseList({ school, courses }: { school: string; courses: ListC
 
       <section className={styles.body} aria-label="Dersler">
         {shown.length === 0 ? (
-          <p className={styles.empty}>Arama sonucu yok.</p>
+          <p className={styles.empty}>
+            {ects === "" ? "Arama sonucu yok." : `${ects} AKTS'lik böyle bir ders bulunamadı.`}
+          </p>
         ) : (
           <>
+            {(q !== "" || ects !== "") && (
+              <p className={styles.found}>
+                <span className="num">{shown.length}</span> ders
+                {ects !== "" && `, ${ects} AKTS`}
+              </p>
+            )}
             <ul className={styles.grid}>
               {shown.slice(0, limit).map((course) => {
                 const summary = summaryOf.get(courseKey(course.code));
