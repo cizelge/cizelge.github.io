@@ -2,7 +2,7 @@
   "schoolId": "ozyegin",
   "termId": "2026-2027-guz",
   "termLabel": "2026 - 2027 Güz",
-  "fetchedAt": "2026-09-19T08:47:50.897Z",
+  "fetchedAt": "2026-09-22T09:17:31.863Z",
   "courses": [
     {
       "code": "ACCT 201",
@@ -3376,7 +3376,7 @@
         {
           "id": "A",
           "instructors": [
-            "LALE KAPLAN"
+            "GÜLFER MERİÇ"
           ],
           "capacity": 40,
           "restrictions": null,
@@ -17972,7 +17972,7 @@
         {
           "id": "A",
           "instructors": [
-            "MEHMET ERDEM GENÇ"
+            "ALI ALIPOUR"
           ],
           "capacity": 50,
           "restrictions": null,
@@ -19086,6 +19086,28 @@
               "start": "08:40",
               "end": "12:30",
               "room": "AF_AB4.123"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "instructors": [
+            "HAKAN YILMAZER"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 1,
+              "start": "08:40",
+              "end": "12:30",
+              "room": null
+            },
+            {
+              "day": 4,
+              "start": "08:40",
+              "end": "12:30",
+              "room": null
             }
           ]
         }
@@ -22777,7 +22799,7 @@
         {
           "id": "E",
           "instructors": [
-            "SAADET ERBAY"
+            "ASLI TUĞCUOĞLU MUSAPAŞAOĞLU"
           ],
           "capacity": null,
           "restrictions": null,
@@ -22799,7 +22821,7 @@
         {
           "id": "F",
           "instructors": [
-            "SAADET ERBAY"
+            "ASLI TUĞCUOĞLU MUSAPAŞAOĞLU"
           ],
           "capacity": null,
           "restrictions": null,
@@ -32361,21 +32383,27 @@
       "sections": [
         {
           "id": "A",
-          "instructors": [],
+          "instructors": [
+            "GİZEM ALVAN"
+          ],
           "capacity": 300,
           "restrictions": null,
           "meetings": []
         },
         {
           "id": "B",
-          "instructors": [],
+          "instructors": [
+            "GİZEM ALVAN"
+          ],
           "capacity": 200,
           "restrictions": null,
           "meetings": []
         },
         {
           "id": "C",
-          "instructors": [],
+          "instructors": [
+            "GİZEM ALVAN"
+          ],
           "capacity": 200,
           "restrictions": null,
           "meetings": []
@@ -33797,22 +33825,6 @@
           ]
         },
         {
-          "id": "M",
-          "instructors": [
-            "GÜNEŞ SEZEN"
-          ],
-          "capacity": 25,
-          "restrictions": null,
-          "meetings": [
-            {
-              "day": 5,
-              "start": "16:40",
-              "end": "18:30",
-              "room": "FEAS_AB2.129"
-            }
-          ]
-        },
-        {
           "id": "N",
           "instructors": [
             "ŞENAY ÇINAR"
@@ -34193,73 +34205,163 @@
         },
         {
           "id": "PA",
-          "instructors": [],
+          "instructors": [
+            "NURKAN DİKMEN"
+          ],
           "capacity": 50,
           "restrictions": null,
-          "meetings": []
+          "meetings": [
+            {
+              "day": 1,
+              "start": "16:40",
+              "end": "17:30",
+              "room": null
+            }
+          ]
         },
         {
           "id": "PB",
-          "instructors": [],
+          "instructors": [
+            "NURKAN DİKMEN"
+          ],
           "capacity": 50,
           "restrictions": null,
-          "meetings": []
+          "meetings": [
+            {
+              "day": 1,
+              "start": "16:40",
+              "end": "17:30",
+              "room": null
+            }
+          ]
         },
         {
           "id": "PC",
-          "instructors": [],
+          "instructors": [
+            "NURKAN DİKMEN"
+          ],
           "capacity": 50,
           "restrictions": null,
-          "meetings": []
+          "meetings": [
+            {
+              "day": 1,
+              "start": "15:40",
+              "end": "16:30",
+              "room": null
+            }
+          ]
         },
         {
           "id": "PD",
-          "instructors": [],
+          "instructors": [
+            "NURKAN DİKMEN"
+          ],
           "capacity": 50,
           "restrictions": null,
-          "meetings": []
+          "meetings": [
+            {
+              "day": 1,
+              "start": "15:40",
+              "end": "16:30",
+              "room": null
+            }
+          ]
         },
         {
           "id": "PE",
-          "instructors": [],
+          "instructors": [
+            "NURKAN DİKMEN"
+          ],
           "capacity": 50,
           "restrictions": null,
-          "meetings": []
+          "meetings": [
+            {
+              "day": 4,
+              "start": "15:40",
+              "end": "16:30",
+              "room": null
+            }
+          ]
         },
         {
           "id": "PF",
-          "instructors": [],
+          "instructors": [
+            "NURKAN DİKMEN"
+          ],
           "capacity": 50,
           "restrictions": null,
-          "meetings": []
+          "meetings": [
+            {
+              "day": 4,
+              "start": "15:40",
+              "end": "16:30",
+              "room": null
+            }
+          ]
         },
         {
           "id": "PG",
-          "instructors": [],
+          "instructors": [
+            "ZELİHA AYDIN ŞAHİN"
+          ],
           "capacity": 50,
           "restrictions": null,
-          "meetings": []
+          "meetings": [
+            {
+              "day": 2,
+              "start": "15:40",
+              "end": "16:30",
+              "room": null
+            }
+          ]
         },
         {
           "id": "PH",
-          "instructors": [],
+          "instructors": [
+            "ZELİHA AYDIN ŞAHİN"
+          ],
           "capacity": 50,
           "restrictions": null,
-          "meetings": []
+          "meetings": [
+            {
+              "day": 2,
+              "start": "15:40",
+              "end": "16:30",
+              "room": null
+            }
+          ]
         },
         {
           "id": "PI",
-          "instructors": [],
+          "instructors": [
+            "ZELİHA AYDIN ŞAHİN"
+          ],
           "capacity": 50,
           "restrictions": null,
-          "meetings": []
+          "meetings": [
+            {
+              "day": 4,
+              "start": "14:40",
+              "end": "15:30",
+              "room": null
+            }
+          ]
         },
         {
           "id": "PJ",
-          "instructors": [],
+          "instructors": [
+            "ZELİHA AYDIN ŞAHİN"
+          ],
           "capacity": 50,
           "restrictions": null,
-          "meetings": []
+          "meetings": [
+            {
+              "day": 4,
+              "start": "14:40",
+              "end": "15:30",
+              "room": null
+            }
+          ]
         },
         {
           "id": "Q",
@@ -34351,13 +34453,6 @@
               "room": "FEAS_AB2.B45"
             }
           ]
-        },
-        {
-          "id": "PA",
-          "instructors": [],
-          "capacity": 50,
-          "restrictions": null,
-          "meetings": []
         }
       ]
     },
@@ -34567,22 +34662,6 @@
               "start": "11:40",
               "end": "14:30",
               "room": null
-            }
-          ]
-        },
-        {
-          "id": "F",
-          "instructors": [
-            "MEHMET ŞAMİL DAYANÇ"
-          ],
-          "capacity": 18,
-          "restrictions": null,
-          "meetings": [
-            {
-              "day": 1,
-              "start": "13:40",
-              "end": "16:30",
-              "room": "SCOLA.230"
             }
           ]
         },
