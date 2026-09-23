@@ -2,7 +2,7 @@
   "schoolId": "ozyegin",
   "termId": "2026-2027-guz",
   "termLabel": "2026 - 2027 Güz",
-  "fetchedAt": "2026-09-22T09:17:31.863Z",
+  "fetchedAt": "2026-09-23T09:18:10.374Z",
   "courses": [
     {
       "code": "ACCT 201",
@@ -30051,7 +30051,7 @@
             {
               "day": 4,
               "start": "10:40",
-              "end": "12:30",
+              "end": "11:30",
               "room": "FEAS_AB2.G27"
             }
           ]
@@ -30067,7 +30067,7 @@
             {
               "day": 2,
               "start": "10:40",
-              "end": "12:30",
+              "end": "11:30",
               "room": "FEAS_AB2.G28"
             }
           ]
@@ -30081,9 +30081,9 @@
           "restrictions": null,
           "meetings": [
             {
-              "day": 2,
-              "start": "13:40",
-              "end": "15:30",
+              "day": 3,
+              "start": "09:40",
+              "end": "10:30",
               "room": null
             }
           ]
@@ -32467,7 +32467,7 @@
         {
           "id": "A",
           "instructors": [
-            "FERİDE ESRA GENÇTÜRK"
+            "GÜLİZAR ATALAY HAZNEDAR"
           ],
           "capacity": 900,
           "restrictions": null,
@@ -32565,7 +32565,7 @@
         {
           "id": "A",
           "instructors": [
-            "FERİDE ESRA GENÇTÜRK"
+            "GÜLİZAR ATALAY HAZNEDAR"
           ],
           "capacity": 250,
           "restrictions": null,
@@ -32714,6 +32714,22 @@
               "start": "10:40",
               "end": "12:30",
               "room": "EF_AB1.408"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "instructors": [
+            "MERİÇ BIÇAKCIOĞLU"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 4,
+              "start": "16:40",
+              "end": "18:30",
+              "room": null
             }
           ]
         }
@@ -33014,6 +33030,38 @@
               "start": "15:40",
               "end": "18:30",
               "room": "FEAS_AB2.B45"
+            }
+          ]
+        },
+        {
+          "id": "N",
+          "instructors": [
+            "PELİN ATAHAN DEMİRCİLER"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 4,
+              "start": "18:40",
+              "end": "21:30",
+              "room": null
+            }
+          ]
+        },
+        {
+          "id": "O",
+          "instructors": [
+            "PELİN ATAHAN DEMİRCİLER"
+          ],
+          "capacity": null,
+          "restrictions": null,
+          "meetings": [
+            {
+              "day": 4,
+              "start": "18:40",
+              "end": "21:30",
+              "room": null
             }
           ]
         }
@@ -34630,22 +34678,6 @@
               "start": "13:40",
               "end": "16:30",
               "room": "SCOLA.128"
-            }
-          ]
-        },
-        {
-          "id": "D",
-          "instructors": [
-            "İLAYDA ENGİN UYSAL"
-          ],
-          "capacity": null,
-          "restrictions": null,
-          "meetings": [
-            {
-              "day": 1,
-              "start": "10:40",
-              "end": "13:30",
-              "room": null
             }
           ]
         },
