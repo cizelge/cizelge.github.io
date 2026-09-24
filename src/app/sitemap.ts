@@ -22,6 +22,12 @@ function instructorSlugs(term: TermData): string[] {
 
 const siteUrl = process.env.SITE_URL ?? "http://localhost:3000";
 
+/**
+ * lastmod yalnızca gün olarak yazılır ("2026-09-23"). Date nesnesi milisaniyeli ISO üretiyor;
+ * bu biçim standarda uygun olsa da arama motorlarının örneklerinde yok, gereksiz risk.
+ */
+const day = (value: Date | string | number) => new Date(value).toISOString().slice(0, 10);
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const term = loadTerm("ozyegin");
   const updated = new Date(term.fetchedAt);
@@ -30,23 +36,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Varsayılan dönem /ozyegin'de; diğer yayındaki dönemler /ozyegin/donem/<id>.
   const otherTerms = loadTerms("ozyegin").filter((t) => t.termId !== term.termId);
   return [
-    { url: `${siteUrl}/`, lastModified: updated },
-    { url: `${siteUrl}/ozyegin`, lastModified: updated },
-    ...otherTerms.map((t) => ({ url: `${siteUrl}/ozyegin/donem/${t.termId}`, lastModified: new Date(t.fetchedAt) })),
-    { url: `${siteUrl}/ozyegin/yol-haritasi`, lastModified: updated },
-    { url: `${siteUrl}/ozyegin/on-sart-diyagrami`, lastModified: updated },
-    { url: `${siteUrl}/ozyegin/basvurular`, lastModified: updated },
-    { url: `${siteUrl}/ozyegin/gecis`, lastModified: transfer ? new Date(transfer.fetchedAt) : updated },
-    { url: `${siteUrl}/ozyegin/hocalar`, lastModified: updated },
-    { url: `${siteUrl}/ozyegin/dersler`, lastModified: updated },
-    { url: `${siteUrl}/ozyegin/bos-saat`, lastModified: updated },
-    { url: `${siteUrl}/ozyegin/rehber`, lastModified: updated },
+    { url: `${siteUrl}/`, lastModified: day(updated) },
+    { url: `${siteUrl}/ozyegin`, lastModified: day(updated) },
+    ...otherTerms.map((t) => ({ url: `${siteUrl}/ozyegin/donem/${t.termId}`, lastModified: day(t.fetchedAt) })),
+    { url: `${siteUrl}/ozyegin/yol-haritasi`, lastModified: day(updated) },
+    { url: `${siteUrl}/ozyegin/on-sart-diyagrami`, lastModified: day(updated) },
+    { url: `${siteUrl}/ozyegin/basvurular`, lastModified: day(updated) },
+    { url: `${siteUrl}/ozyegin/gecis`, lastModified: day(transfer ? transfer.fetchedAt : updated) },
+    { url: `${siteUrl}/ozyegin/hocalar`, lastModified: day(updated) },
+    { url: `${siteUrl}/ozyegin/dersler`, lastModified: day(updated) },
+    { url: `${siteUrl}/ozyegin/bos-saat`, lastModified: day(updated) },
+    { url: `${siteUrl}/ozyegin/rehber`, lastModified: day(updated) },
     { url: `${siteUrl}/ozyegin/geri-bildirim` },
-    ...GUIDES.map((g) => ({ url: `${siteUrl}/ozyegin/rehber/${g.slug}`, lastModified: updated })),
-    { url: `${siteUrl}/ozyegin/takvim`, lastModified: updated },
-    { url: `${siteUrl}/ozyegin/erasmus`, lastModified: erasmus ? new Date(erasmus.fetchedAt) : updated },
+    ...GUIDES.map((g) => ({ url: `${siteUrl}/ozyegin/rehber/${g.slug}`, lastModified: day(updated) })),
+    { url: `${siteUrl}/ozyegin/takvim`, lastModified: day(updated) },
+    { url: `${siteUrl}/ozyegin/erasmus`, lastModified: day(erasmus ? erasmus.fetchedAt : updated) },
     { url: `${siteUrl}/hakkinda` },
-    ...term.courses.map((c) => ({ url: `${siteUrl}/ozyegin/${c.slug}`, lastModified: updated })),
-    ...instructorSlugs(term).map((slug) => ({ url: `${siteUrl}/ozyegin/hoca/${slug}`, lastModified: updated })),
+    ...term.courses.map((c) => ({ url: `${siteUrl}/ozyegin/${c.slug}`, lastModified: day(updated) })),
+    ...instructorSlugs(term).map((slug) => ({ url: `${siteUrl}/ozyegin/hoca/${slug}`, lastModified: day(updated) })),
   ];
 }
