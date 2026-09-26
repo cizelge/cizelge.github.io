@@ -8,6 +8,11 @@ const siteUrl = process.env.SITE_URL ?? "http://localhost:3000";
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: { userAgent: "*", allow: "/" },
-    sitemap: `${siteUrl}/sitemap.xml`,
+    // Üç ayrı harita: ana sayfalar, dersler, hocalar.
+    sitemap: [
+      `${siteUrl}/sitemap.xml`,
+      `${siteUrl}/ozyegin/dersler/sitemap.xml`,
+      `${siteUrl}/ozyegin/hocalar/sitemap.xml`,
+    ],
   };
 }

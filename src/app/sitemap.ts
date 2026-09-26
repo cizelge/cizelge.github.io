@@ -3,22 +3,7 @@ import type { MetadataRoute } from "next";
 // Statik dışa aktarımda (GitHub Pages) derleme sırasında dosyaya yazılır.
 export const dynamic = "force-static";
 import { loadErasmus, loadTerm, loadTerms, loadTransfer } from "@/lib/data";
-import { instructorSlug } from "@/lib/ratings/instructors";
 import { GUIDES } from "@/lib/guides/ozyegin";
-import type { TermData } from "@/lib/types";
-
-function instructorSlugs(term: TermData): string[] {
-  const slugs = new Set<string>();
-  for (const course of term.courses) {
-    for (const section of course.sections) {
-      for (const instructor of section.instructors) {
-        const slug = instructorSlug(instructor);
-        if (slug) slugs.add(slug);
-      }
-    }
-  }
-  return [...slugs];
-}
 
 const siteUrl = process.env.SITE_URL ?? "http://localhost:3000";
 
@@ -52,7 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/ozyegin/takvim`, lastModified: day(updated) },
     { url: `${siteUrl}/ozyegin/erasmus`, lastModified: day(erasmus ? erasmus.fetchedAt : updated) },
     { url: `${siteUrl}/hakkinda` },
-    ...term.courses.map((c) => ({ url: `${siteUrl}/ozyegin/${c.slug}`, lastModified: day(updated) })),
-    ...instructorSlugs(term).map((slug) => ({ url: `${siteUrl}/ozyegin/hoca/${slug}`, lastModified: day(updated) })),
+    // Ders ve hoca sayfaları ayrı haritalarda:
+    // /ozyegin/dersler/sitemap.xml ve /ozyegin/hocalar/sitemap.xml
   ];
 }
